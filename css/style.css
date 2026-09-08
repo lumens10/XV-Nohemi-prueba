@@ -86,215 +86,340 @@ button {
     display: none;
 }
 
-
 /* =========================================================
-   PANTALLA DE APERTURA
+PANTALLA DE APERTURA
 ========================================================= */
 
 .opening {
-    position: fixed;
-    inset: 0;
+position: fixed;
+inset: 0;
+z-index: 99999;
 
-    z-index: 9999;
+width: 100%;
+height: 100svh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    padding: 25px;
-
-    text-align: center;
-
-    background:
-        linear-gradient(
-            rgba(8, 7, 5, .58),
-            rgba(8, 7, 5, .88)
-        ),
-        url('../images/portada.jpg') center center / cover no-repeat;
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
+text-align: center;
 
 /*
-   ESTADO AL ABRIR LA INVITACIÓN
+   IMPORTANTE:
+   La pantalla es completamente opaca.
+   La invitación que está debajo NO se verá.
 */
+background-color: #090807;
+
+/*
+   Fondo de portada con capa oscura sólida.
+*/
+background-image:
+    linear-gradient(
+        rgba(9, 8, 7, 0.82),
+        rgba(9, 8, 7, 0.94)
+    ),
+    url('../images/portada.jpg');
+
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+
+opacity: 1;
+visibility: visible;
+pointer-events: auto;
+
+overflow: hidden;
+
+/*
+   La transición solamente se activa
+   cuando se pulsa "Abrir invitación".
+*/
+transition:
+    opacity 1s ease,
+    visibility 1s ease;
+
+
+}
+
+/* =========================================================
+ESTADO CERRADO
+========================================================= */
 
 .opening.opening-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+opacity: 0;
+visibility: hidden;
+pointer-events: none;
 }
 
-
-/*
-   CONTENIDO
-*/
+/* =========================================================
+CONTENIDO DE LA PORTADA
+========================================================= */
 
 .opening-content {
-    position: relative;
-    z-index: 2;
+position: relative;
+z-index: 2;
 
-    width: 100%;
-    max-width: 650px;
+width: 100%;
+max-width: 700px;
 
-    padding: 30px;
+padding: 30px;
 
-    animation: openingContentIn 1.2s ease both;
+text-align: center;
+
+animation: openingContentIn 1.2s ease both;
+
+
 }
 
+/* =========================================================
+TEXTO SUPERIOR
+========================================================= */
+
+.opening .small-label {
+display: block;
+
+margin-bottom: 25px;
+
+color: var(--gold-light);
+
+font-size: 10px;
+font-weight: 400;
+letter-spacing: 5px;
+line-height: 1.6;
+
+text-transform: uppercase;
+
+
+}
+
+/* =========================================================
+"MIS XV"
+========================================================= */
+
+.opening h1 {
+margin: 0;
+
+color: var(--cream);
+
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(75px, 18vw, 150px);
+font-weight: 300;
+line-height: 0.8;
+
+text-shadow:
+    0 8px 35px rgba(0,0,0,.55);
+
+
+}
+
+/* =========================================================
+NOMBRE
+========================================================= */
+
+.opening-name {
+margin-top: 20px;
+
+color: var(--gold-light);
+
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(38px, 8vw, 55px);
+font-style: italic;
+font-weight: 400;
+
+text-shadow:
+    0 5px 25px rgba(0,0,0,.6);
+
+
+}
+
+/* =========================================================
+ORNAMENTO
+========================================================= */
+
+.opening .ornament {
+margin: 28px 0;
+
+color: var(--gold);
+
+font-size: 18px;
+
+text-shadow:
+    0 0 20px rgba(201,164,92,.25);
+
+
+}
+
+/* =========================================================
+BOTÓN ABRIR INVITACIÓN
+========================================================= */
+
+.open-button {
+position: relative;
+
+margin-top: 20px;
+
+padding: 17px 34px;
+
+border: 1px solid rgba(229,207,156,.75);
+
+background: rgba(9,8,7,.65);
+
+color: var(--cream);
+
+font-family: 'Montserrat', sans-serif;
+font-size: 10px;
+font-weight: 400;
+letter-spacing: 3px;
+
+text-transform: uppercase;
+
+cursor: pointer;
+
+/*
+   Evita que el navegador aplique
+   estilos extraños al botón.
+*/
+appearance: none;
+-webkit-appearance: none;
+
+transition:
+    background .4s ease,
+    color .4s ease,
+    border-color .4s ease,
+    transform .4s ease,
+    box-shadow .4s ease;
+
+
+}
+
+/* Hover */
+
+.open-button:hover {
+background: var(--gold);
+
+border-color: var(--gold);
+
+color: var(--black);
+
+transform: translateY(-2px);
+
+box-shadow:
+    0 10px 35px rgba(201,164,92,.18);
+
+
+}
+
+/* Al pulsar */
+
+.open-button:active {
+transform: translateY(0);
+}
+
+/* =========================================================
+ANIMACIÓN DE ENTRADA
+========================================================= */
 
 @keyframes openingContentIn {
 
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+from {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-
-/*
-   TEXTO PEQUEÑO
-*/
-
-.small-label,
-.section-label,
-.eyebrow {
-    display: block;
-
-    font-size: 10px;
-    font-weight: 400;
-
-    letter-spacing: 5px;
-    line-height: 1.5;
-
-    text-transform: uppercase;
-
-    color: var(--gold-light);
-}
-
-
-/*
-   MIS XV
-*/
-
-.opening h1 {
-    margin-top: 28px;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(75px, 18vw, 155px);
-    font-weight: 300;
-
-    line-height: .78;
-
-    color: var(--cream);
-}
-
-
-/*
-   NOHEMI
-*/
-
-.opening-name {
-    margin-top: 22px;
-
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 10vw, 70px);
-    font-style: italic;
-    font-weight: 400;
-
-    line-height: 1;
-
-    color: var(--gold-light);
-}
-
-
-/*
-   ORNAMENTO
-*/
-
-.ornament {
-    margin: 28px 0;
-
-    color: var(--gold);
-
-    font-size: 18px;
-    line-height: 1;
-}
-
-
-/*
-   BOTÓN DE APERTURA
-*/
-
-.open-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 25px;
-
-    min-width: 210px;
-
-    padding: 16px 30px;
-
-    border: 1px solid rgba(229, 207, 156, .75);
-
-    background: rgba(0, 0, 0, .12);
-
-    color: var(--cream);
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    cursor: pointer;
-
-    transition:
-        background .4s ease,
-        color .4s ease,
-        border-color .4s ease,
-        transform .4s ease,
-        box-shadow .4s ease;
-}
-
-.open-button:hover {
-    background: var(--gold);
-
-    border-color: var(--gold);
-
-    color: var(--black);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 35px rgba(201, 164, 92, .25);
-}
-
-.open-button:active {
+to {
+    opacity: 1;
     transform: translateY(0);
 }
 
-.open-button:disabled {
-    cursor: default;
+
+}
+
+/* =========================================================
+SEGURIDAD:
+LA INVITACIÓN NO DEBE MOSTRARSE ANTES DE ABRIR
+========================================================= */
+
+#invitation {
+opacity: 0;
+
+visibility: hidden;
+
+pointer-events: none;
+
+transition:
+    opacity 1s ease,
+    visibility 1s ease;
+
+
+}
+
+/*
+Cuando main.js agrega esta clase después
+de pulsar el botón, aparece la invitación.
+*/
+
+#invitation.is-visible {
+opacity: 1;
+
+visibility: visible;
+
+pointer-events: auto;
+
+
+}
+
+/* =========================================================
+BLOQUEAR SCROLL MIENTRAS ESTÁ LA PORTADA
+========================================================= */
+
+body:not(.page-open) {
+overflow: hidden;
+}
+
+/* =========================================================
+CUANDO LA INVITACIÓN ESTÁ ABIERTA
+========================================================= */
+
+body.page-open {
+overflow-x: hidden;
+overflow-y: auto;
+}
+
+/* =========================================================
+MÓVILES
+========================================================= */
+
+@media (max-width: 600px) {
+
+.opening {
+    background-position: center center;
+}
+
+.opening-content {
+    padding: 25px;
+}
+
+.opening .small-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.opening h1 {
+    font-size: clamp(70px, 22vw, 105px);
+}
+
+.opening-name {
+    font-size: 42px;
+}
+
+.open-button {
+    padding: 16px 28px;
+    font-size: 9px;
 }
 
 
+}
 /* =========================================================
    CONTENIDO PRINCIPAL
 ========================================================= */
