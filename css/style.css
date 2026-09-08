@@ -1,8 +1,3 @@
-ChatGPT dijo:
-Sí. De hecho, es mejor hacerlo así para evitar que queden bloques viejos mezclados. Te dejo un style.css completo y limpio, compatible con el index.html que me mandaste y preparado para la corrección de la pantalla de apertura.
-
-Reemplaza TODO el contenido de css/style.css por esto:
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 
