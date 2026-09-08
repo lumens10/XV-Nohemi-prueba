@@ -28,52 +28,31 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ================================================
        ABRIR INVITACIÓN
     ================================================= */
+openButton.addEventListener("click", async () => {
 
-   openButton.addEventListener("click", async () => {
-
+    // Mostrar la invitación
     invitationPage.classList.remove("hidden");
 
+    // Permitir desplazamiento
     document.body.classList.add("page-open");
 
+    // Ocultar pantalla de bienvenida
     openingScreen.classList.add("opening-hidden");
 
-    setTimeout(() => {
-        openingScreen.style.display = "none";
-    }, 1000);
-
-
+    // Iniciar música
     try {
+
         await music.play();
 
         musicButton.classList.add("playing");
 
     } catch (error) {
 
-        console.log(
-            "La reproducción automática fue bloqueada."
-        );
+        console.log("El navegador bloqueó la reproducción automática.");
+
     }
+
 });
-
-
-        try {
-
-            music.volume = 0.45;
-
-            await music.play();
-
-            musicPlaying = true;
-
-            musicButton.classList.add("playing");
-
-        } catch (error) {
-
-            console.log("La reproducción automática fue bloqueada.");
-
-        }
-
-    });
-
 
     /* ================================================
        CONTROL DE MÚSICA
