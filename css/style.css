@@ -64,10 +64,24 @@ a {
         visibility 1.2s ease;
 }
 
-.opening.hidden {
+.opening-hidden {
+
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
+
+    transform: scale(1.05);
+}
+
+
+#opening-screen.opening-hidden {
+
+    transition:
+        opacity 0.9s ease,
+        visibility 0.9s ease,
+        transform 0.9s ease;
 }
 
 .opening-content {
