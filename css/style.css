@@ -64,25 +64,43 @@ a {
         visibility 1.2s ease;
 }
 
-.opening-hidden {
-
+#opening-screen.opening-hidden {
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
-
-    transform: scale(1.05);
 }
 
+#opening-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
 
-#opening-screen.opening-hidden {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--cream);
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #342929 0%,
+            #151212 60%,
+            #0b0909 100%
+        );
+
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
 
     transition:
         opacity 0.9s ease,
-        visibility 0.9s ease,
-        transform 0.9s ease;
+        visibility 0.9s ease;
 }
+
 
 .opening-content {
     text-align: center;
