@@ -29,11 +29,32 @@ document.addEventListener("DOMContentLoaded", () => {
        ABRIR INVITACIÓN
     ================================================= */
 
-    openButton.addEventListener("click", async () => {
+   openButton.addEventListener("click", async () => {
 
-        opening.classList.add("opening-hidden");
+    invitationPage.classList.remove("hidden");
 
-        document.body.classList.add("invitation-open");
+    document.body.classList.add("page-open");
+
+    openingScreen.classList.add("opening-hidden");
+
+    setTimeout(() => {
+        openingScreen.style.display = "none";
+    }, 1000);
+
+
+    try {
+        await music.play();
+
+        musicButton.classList.add("playing");
+
+    } catch (error) {
+
+        console.log(
+            "La reproducción automática fue bloqueada."
+        );
+    }
+});
+
 
         try {
 
