@@ -107,18 +107,19 @@ text-align: center;
 background-color: #ffffff;
 
 /*
-   Fondo de portada con capa oscura sólida.
+   Fondo victoriano de la pantalla de apertura
 */
 background-image:
     linear-gradient(
-        rgba(9, 8, 7, 0.82),
-        rgba(9, 8, 7, 0.94)
+        rgba(40, 15, 18, 0.18),
+        rgba(40, 15, 18, 0.18)
     ),
-    url('../images/portada.jpg');
+    url('../images/portada-victoriana.jpg');
 
-background-position: center;
+background-position: center center;
 background-size: cover;
 background-repeat: no-repeat;
+
 
 opacity: 1;
 visibility: visible;
