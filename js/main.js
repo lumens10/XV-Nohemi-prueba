@@ -1,120 +1,240 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ================================================
-       ELEMENTOS PRINCIPALES
-    ================================================= */
+/* =====================================================
+   ELEMENTOS DEL HTML
+===================================================== */
 
-    const opening = document.getElementById("opening");
-    const invitation = document.getElementById("invitation");
+const opening = document.getElementById("opening");
+const invitationPage = document.getElementById("invitation");
 
-    const openButton =
-        document.getElementById("openInvitation");
+const openButton = document.getElementById("openInvitation");
 
-    const music =
-        document.getElementById("backgroundMusic");
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
 
-    const musicButton =
-        document.getElementById("musicButton");
+const whatsappButton = document.getElementById("whatsappButton");
 
-    let musicPlaying = false;
+let musicPlaying = false;
 
 
-    /* ================================================
-       CONFIGURACIÓN GENERAL
-    ================================================= */
+/* =====================================================
+   SEGURIDAD
+   Evita errores si algún elemento no existe.
+===================================================== */
 
-    document.title =
-        `Mis XV — ${invitationData.quinceanera.name}`;
+if (!opening) {
+    console.error("No se encontró #opening");
+    return;
+}
 
-
-    /* ================================================
-       NOMBRE
-    ================================================= */
-
-    const nameElements =
-        document.querySelectorAll("[data-name]");
-
-    nameElements.forEach(element => {
-        element.textContent =
-            invitationData.quinceanera.name;
-    });
+if (!invitationPage) {
+    console.error("No se encontró #invitation");
+    return;
+}
 
 
-    /* ================================================
-       FAMILIA
-    ================================================= */
+/* =====================================================
+   INFORMACIÓN GENERAL
+===================================================== */
 
-    const father =
-        document.querySelector("[data-father]");
-
-    const mother =
-        document.querySelector("[data-mother]");
-
-    const godfather =
-        document.querySelector("[data-godfather]");
-
-    const godmother =
-        document.querySelector("[data-godmother]");
+document.title = `Mis XV — ${invitation.quinceanera.name}`;
 
 
-    if (father) {
-        father.textContent =
-            invitationData.family.parents.father;
+/* =====================================================
+   DATOS DE LA INVITACIÓN
+===================================================== */
+
+const name = invitation.quinceanera.name;
+
+const father = invitation.family.father;
+const mother = invitation.family.mother;
+
+const godfather = invitation.family.godfather;
+const godmother = invitation.family.godmother;
+
+const ceremonyName = invitation.ceremony.name;
+const ceremonyMap = invitation.ceremony.maps;
+
+const receptionName = invitation.reception.name;
+const receptionMap = invitation.reception.maps;
+
+const ceremonyTime = invitation.event.ceremonyTime;
+const receptionTime = invitation.event.receptionTime;
+
+const dressCode = invitation.dressCode;
+
+const whatsappPhone = invitation.rsvp.phone;
+const whatsappMessage = invitation.rsvp.message;
+
+
+/* =====================================================
+   INSERTAR DATOS EN EL HTML
+===================================================== */
+
+const nameElements =
+    document.querySelectorAll("[data-name]");
+
+nameElements.forEach(element => {
+    element.textContent = name;
+});
+
+
+const fatherElement =
+    document.querySelector("[data-father]");
+
+if (fatherElement) {
+    fatherElement.textContent = father;
+}
+
+
+const motherElement =
+    document.querySelector("[data-mother]");
+
+if (motherElement) {
+    motherElement.textContent = mother;
+}
+
+
+const godfatherElement =
+    document.querySelector("[data-godfather]");
+
+if (godfatherElement) {
+    godfatherElement.textContent = godfather;
+}
+
+
+const godmotherElement =
+    document.querySelector("[data-godmother]");
+
+if (godmotherElement) {
+    godmotherElement.textContent = godmother;
+}
+
+
+/* =====================================================
+   CEREMONIA
+===================================================== */
+
+const ceremonyHeading =
+    document.querySelector(".ceremony h2");
+
+if (ceremonyHeading) {
+    ceremonyHeading.innerHTML =
+        ceremonyName.replace(
+            " Santiago",
+            "<br>Santiago"
+        );
+}
+
+
+const ceremonyTimeElement =
+    document.querySelector(".ceremony .event-time");
+
+if (ceremonyTimeElement) {
+    ceremonyTimeElement.textContent =
+        ceremonyTime;
+}
+
+
+const ceremonyButton =
+    document.querySelector(".ceremony .gold-button");
+
+if (ceremonyButton) {
+    ceremonyButton.href = ceremonyMap;
+}
+
+
+/* =====================================================
+   RECEPCIÓN
+===================================================== */
+
+const receptionHeading =
+    document.querySelector(".reception h2");
+
+if (receptionHeading) {
+    receptionHeading.innerHTML =
+        receptionName.replace(
+            "Casa Nava",
+            "Casa Nava"
+        );
+}
+
+
+const receptionTimeElement =
+    document.querySelector(".reception .event-time");
+
+if (receptionTimeElement) {
+    receptionTimeElement.textContent =
+        receptionTime;
+}
+
+
+const receptionButton =
+    document.querySelector(".reception .gold-button");
+
+if (receptionButton) {
+    receptionButton.href = receptionMap;
+}
+
+
+/* =====================================================
+   CÓDIGO DE VESTIMENTA
+===================================================== */
+
+const dressHeading =
+    document.querySelector(".dress-section h2");
+
+if (dressHeading) {
+    dressHeading.textContent = dressCode;
+}
+
+
+/* =====================================================
+   PANTALLA DE APERTURA
+===================================================== */
+
+openButton?.addEventListener("click", async () => {
+
+    /*
+       Evitamos que el botón pueda ejecutarse
+       varias veces.
+    */
+
+    if (opening.classList.contains("opening-hidden")) {
+        return;
     }
 
-    if (mother) {
-        mother.textContent =
-            invitationData.family.parents.mother;
-    }
 
-    if (godfather) {
-        godfather.textContent =
-            invitationData.family.godparents.father;
-    }
+    /*
+       Permitir desplazamiento de la página.
+    */
 
-    if (godmother) {
-        godmother.textContent =
-            invitationData.family.godparents.mother;
-    }
+    document.body.classList.add("page-open");
 
 
-    /* ================================================
-       ABRIR INVITACIÓN
-    ================================================= */
+    /*
+       Mostrar el contenido principal.
+    */
 
-    openButton.addEventListener("click", async () => {
-
-        /*
-         * Primero mostramos la invitación
-         */
-
-        invitation.classList.add("is-visible");
+    invitationPage.classList.add("is-visible");
 
 
-        /*
-         * Bloqueamos temporalmente el botón
-         */
+    /*
+       Ocultar la pantalla de apertura.
+    */
 
-        openButton.disabled = true;
-
-
-        /*
-         * Animación de salida de la portada
-         */
-
-        opening.classList.add("opening-hidden");
+    opening.classList.add("opening-hidden");
 
 
-        /*
-         * Permitimos hacer scroll
-         */
+    /*
+       Intentar reproducir la música.
 
-        document.body.classList.add("page-open");
+       Como esta acción ocurre después de un clic
+       del usuario, los navegadores normalmente
+       permiten la reproducción.
+    */
 
-
-        /*
-         * Reproducimos música
-         */
+    if (music) {
 
         try {
 
@@ -122,265 +242,278 @@ document.addEventListener("DOMContentLoaded", () => {
 
             musicPlaying = true;
 
-            musicButton.classList.add("playing");
+            musicButton?.classList.add("playing");
 
         } catch (error) {
 
             console.log(
-                "El navegador requiere interacción para reproducir la música."
+                "La música no pudo reproducirse automáticamente."
             );
-
-        }
-
-
-        /*
-         * Después de la animación,
-         * eliminamos completamente la pantalla inicial
-         */
-
-        setTimeout(() => {
-
-            opening.style.display = "none";
-
-        }, 1000);
-
-    });
-
-
-    /* ================================================
-       CONTROL DE MÚSICA
-    ================================================= */
-
-    musicButton.addEventListener("click", async () => {
-
-        if (musicPlaying) {
-
-            music.pause();
 
             musicPlaying = false;
 
-            musicButton.classList.remove("playing");
+        }
 
-        } else {
+    }
 
-            try {
+});
 
-                await music.play();
 
-                musicPlaying = true;
+/* =====================================================
+   CONTROL DE MÚSICA
+===================================================== */
 
-                musicButton.classList.add("playing");
+if (musicButton && music) {
 
-            } catch (error) {
+    musicButton.addEventListener(
+        "click",
+        async () => {
 
-                console.log(
-                    "No fue posible reproducir el audio."
+            if (musicPlaying) {
+
+                music.pause();
+
+                musicPlaying = false;
+
+                musicButton.classList.remove(
+                    "playing"
                 );
 
-            }
+            } else {
 
-        }
+                try {
 
-    });
+                    await music.play();
 
+                    musicPlaying = true;
 
-    /* ================================================
-       CONTADOR
-    ================================================= */
+                    musicButton.classList.add(
+                        "playing"
+                    );
 
-    const targetDate =
-        new Date(
-            invitationData.event.date
-        ).getTime();
+                } catch (error) {
 
+                    console.log(
+                        "No fue posible reproducir el audio."
+                    );
 
-    function updateCountdown() {
-
-        const now =
-            new Date().getTime();
-
-        const difference =
-            targetDate - now;
-
-
-        if (difference <= 0) {
-
-            const countdown =
-                document.getElementById("countdown");
-
-            if (countdown) {
-
-                countdown.innerHTML = `
-                    <div class="today-message">
-                        ✦ Hoy es el gran día ✦
-                    </div>
-                `;
+                }
 
             }
 
-            return;
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+/*
+   El evento está configurado para:
+   19 de diciembre de 2026
+   6:00 PM
+
+   Usamos directamente la fecha del config.js.
+*/
+
+const targetDate =
+    new Date(
+        invitation.event.date
+    ).getTime();
+
+
+const daysElement =
+    document.getElementById("days");
+
+const hoursElement =
+    document.getElementById("hours");
+
+const minutesElement =
+    document.getElementById("minutes");
+
+const secondsElement =
+    document.getElementById("seconds");
+
+const countdown =
+    document.getElementById("countdown");
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        targetDate - now;
+
+
+    if (difference <= 0) {
+
+        if (countdown) {
+
+            countdown.innerHTML = `
+                <div class="today-message">
+                    ✦ Hoy es el gran día ✦
+                </div>
+            `;
 
         }
 
+        return;
 
-        const days =
-            Math.floor(
-                difference /
-                (1000 * 60 * 60 * 24)
-            );
+    }
 
 
-        const hours =
-            Math.floor(
-                (difference /
-                (1000 * 60 * 60)) % 24
-            );
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
 
 
-        const minutes =
-            Math.floor(
-                (difference /
-                (1000 * 60)) % 60
-            );
+    const hours =
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
 
 
-        const seconds =
-            Math.floor(
-                (difference / 1000) % 60
-            );
+    const minutes =
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
 
 
-        document.getElementById("days").textContent =
+    const seconds =
+        Math.floor(
+            (difference /
+            1000) % 60
+        );
+
+
+    if (daysElement) {
+
+        daysElement.textContent =
             String(days).padStart(2, "0");
 
+    }
 
-        document.getElementById("hours").textContent =
+
+    if (hoursElement) {
+
+        hoursElement.textContent =
             String(hours).padStart(2, "0");
 
+    }
 
-        document.getElementById("minutes").textContent =
+
+    if (minutesElement) {
+
+        minutesElement.textContent =
             String(minutes).padStart(2, "0");
 
+    }
 
-        document.getElementById("seconds").textContent =
+
+    if (secondsElement) {
+
+        secondsElement.textContent =
             String(seconds).padStart(2, "0");
 
     }
 
-
-    updateCountdown();
-
-    setInterval(
-        updateCountdown,
-        1000
-    );
+}
 
 
-    /* ================================================
-       GALERÍA
-    ================================================= */
-
-    const gallery =
-        document.querySelector(".gallery");
+updateCountdown();
 
 
-    if (gallery && invitationData.gallery) {
-
-        gallery.innerHTML = "";
-
-
-        invitationData.gallery.forEach(
-            (image, index) => {
-
-                const item =
-                    document.createElement("div");
+setInterval(
+    updateCountdown,
+    1000
+);
 
 
-                item.className =
-                    `gallery-item gallery-${index + 1}`;
+/* =====================================================
+   PASE DE INVITACIÓN
+===================================================== */
+
+const passNumber =
+    document.querySelector(".pass-number");
 
 
-                item.innerHTML = `
-                    <img
-                        src="${image}"
-                        alt="Fotografía de ${invitationData.quinceanera.name} ${index + 1}"
-                        loading="lazy"
-                    >
-                `;
+if (passNumber) {
+
+    if (
+        invitation.pass &&
+        invitation.pass.guests
+    ) {
+
+        passNumber.textContent =
+            invitation.pass.guests;
+
+    } else {
+
+        passNumber.textContent =
+            "Próximamente";
+
+    }
+
+}
 
 
-                gallery.appendChild(item);
+/* =====================================================
+   WHATSAPP
+===================================================== */
 
-            }
+if (whatsappButton) {
+
+    const encodedMessage =
+        encodeURIComponent(
+            whatsappMessage
         );
 
-    }
+
+    whatsappButton.href =
+        `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
 
 
-    /* ================================================
-       PASE
-    ================================================= */
+    whatsappButton.target =
+        "_blank";
 
-    const passNumber =
-        document.querySelector(".pass-number");
+    whatsappButton.rel =
+        "noopener noreferrer";
 
-
-    if (passNumber) {
-
-        if (invitationData.pass.people) {
-
-            passNumber.textContent =
-                invitationData.pass.people;
-
-        } else {
-
-            passNumber.textContent =
-                "Próximamente";
-
-        }
-
-    }
+}
 
 
-    /* ================================================
-       WHATSAPP
-    ================================================= */
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
 
-    const whatsappButton =
-        document.getElementById("whatsappButton");
-
-
-    if (whatsappButton) {
-
-        const message =
-            encodeURIComponent(
-                `Hola, quiero confirmar mi asistencia a los XV años de ${invitationData.quinceanera.name}.`
-            );
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
-        whatsappButton.href =
-            `https://wa.me/${invitationData.confirmation.whatsapp}?text=${message}`;
+if (
+    revealElements.length > 0 &&
+    "IntersectionObserver" in window
+) {
 
-    }
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
+                entries.forEach(
+                    entry => {
 
-    /* ================================================
-       ANIMACIONES AL HACER SCROLL
-    ================================================= */
-
-    const revealElements =
-        document.querySelectorAll(".reveal");
-
-
-    if ("IntersectionObserver" in window) {
-
-        const observer =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
                             entry.target.classList.add(
                                 "visible"
@@ -392,21 +525,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         }
 
-                    });
+                    }
+                );
 
-                },
-                {
-                    threshold: 0.12
-                }
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    revealElements.forEach(
+        element => {
+
+            observer.observe(
+                element
             );
 
+        }
+    );
 
-        revealElements.forEach(element => {
+}
 
-            observer.observe(element);
 
-        });
+/* =====================================================
+   INICIALIZACIÓN
+===================================================== */
 
-    }
+/*
+   La invitación empieza bloqueada detrás
+   de la pantalla de apertura.
+*/
+
+document.body.classList.remove(
+    "page-open"
+);
+
+
+/*
+   Nos aseguramos de que la pantalla
+   de apertura esté visible al cargar.
+*/
+
+opening.classList.remove(
+    "opening-hidden"
+);
+
+
+console.log(
+    `Invitación de ${name} cargada correctamente.`
+);
+
 
 });
