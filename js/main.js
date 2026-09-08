@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ================================================
-       ELEMENTOS
+       ELEMENTOS PRINCIPALES
     ================================================= */
 
     const opening = document.getElementById("opening");
     const invitation = document.getElementById("invitation");
 
-    const openButton = document.getElementById("openInvitation");
+    const openButton =
+        document.getElementById("openInvitation");
 
-    const music = document.getElementById("music");
-    const musicButton = document.getElementById("musicButton");
+    const music =
+        document.getElementById("backgroundMusic");
+
+    const musicButton =
+        document.getElementById("musicButton");
 
     let musicPlaying = false;
 
@@ -19,40 +23,129 @@ document.addEventListener("DOMContentLoaded", () => {
        CONFIGURACIÓN GENERAL
     ================================================= */
 
-    document.title = `Mis XV — ${invitation.quinceanera.name}`;
+    document.title =
+        `Mis XV — ${invitationData.quinceanera.name}`;
 
-    document.getElementById("openingName").textContent =
-        invitation.quinceanera.name;
+
+    /* ================================================
+       NOMBRE
+    ================================================= */
+
+    const nameElements =
+        document.querySelectorAll("[data-name]");
+
+    nameElements.forEach(element => {
+        element.textContent =
+            invitationData.quinceanera.name;
+    });
+
+
+    /* ================================================
+       FAMILIA
+    ================================================= */
+
+    const father =
+        document.querySelector("[data-father]");
+
+    const mother =
+        document.querySelector("[data-mother]");
+
+    const godfather =
+        document.querySelector("[data-godfather]");
+
+    const godmother =
+        document.querySelector("[data-godmother]");
+
+
+    if (father) {
+        father.textContent =
+            invitationData.family.parents.father;
+    }
+
+    if (mother) {
+        mother.textContent =
+            invitationData.family.parents.mother;
+    }
+
+    if (godfather) {
+        godfather.textContent =
+            invitationData.family.godparents.father;
+    }
+
+    if (godmother) {
+        godmother.textContent =
+            invitationData.family.godparents.mother;
+    }
 
 
     /* ================================================
        ABRIR INVITACIÓN
     ================================================= */
-openButton.addEventListener("click", async () => {
 
-    // Mostrar la invitación
-    invitationPage.classList.remove("hidden");
+    openButton.addEventListener("click", async () => {
 
-    // Permitir desplazamiento
-    document.body.classList.add("page-open");
+        /*
+         * Primero mostramos la invitación
+         */
 
-    // Ocultar pantalla de bienvenida
-    openingScreen.classList.add("opening-hidden");
+        invitation.classList.add("is-visible");
 
-    // Iniciar música
-    try {
 
-        await music.play();
+        /*
+         * Bloqueamos temporalmente el botón
+         */
 
-        musicButton.classList.add("playing");
+        openButton.disabled = true;
 
-    } catch (error) {
 
-        console.log("El navegador bloqueó la reproducción automática.");
+        /*
+         * Animación de salida de la portada
+         */
 
-    }
+        opening.classList.add("opening-hidden");
 
-});
+
+        /*
+         * Permitimos hacer scroll
+         */
+
+        document.body.classList.add("page-open");
+
+
+        /*
+         * Reproducimos música
+         */
+
+        try {
+
+            await music.play();
+
+            musicPlaying = true;
+
+            musicButton.classList.add("playing");
+
+        } catch (error) {
+
+            console.log(
+                "El navegador requiere interacción para reproducir la música."
+            );
+
+        }
+
+
+        /*
+         * Después de la animación,
+         * eliminamos completamente la pantalla inicial
+         */
+
+        setTimeout(() => {
+
+            opening.style.display = "none";
+
+        }, 1000);
+
+    });
+
 
     /* ================================================
        CONTROL DE MÚSICA
@@ -80,7 +173,9 @@ openButton.addEventListener("click", async () => {
 
             } catch (error) {
 
-                console.log("No fue posible reproducir el audio.");
+                console.log(
+                    "No fue posible reproducir el audio."
+                );
 
             }
 
@@ -93,56 +188,79 @@ openButton.addEventListener("click", async () => {
        CONTADOR
     ================================================= */
 
-    const targetDate = new Date(
-        `${invitation.quinceanera.date}T18:00:00`
-    ).getTime();
+    const targetDate =
+        new Date(
+            invitationData.event.date
+        ).getTime();
 
 
     function updateCountdown() {
 
-        const now = new Date().getTime();
+        const now =
+            new Date().getTime();
 
-        const difference = targetDate - now;
+        const difference =
+            targetDate - now;
 
 
         if (difference <= 0) {
 
-            document.getElementById("countdown").innerHTML = `
-                <div class="today-message">
-                    ✦ Hoy es el gran día ✦
-                </div>
-            `;
+            const countdown =
+                document.getElementById("countdown");
+
+            if (countdown) {
+
+                countdown.innerHTML = `
+                    <div class="today-message">
+                        ✦ Hoy es el gran día ✦
+                    </div>
+                `;
+
+            }
 
             return;
 
         }
 
 
-        const days = Math.floor(
-            difference / (1000 * 60 * 60 * 24)
-        );
+        const days =
+            Math.floor(
+                difference /
+                (1000 * 60 * 60 * 24)
+            );
 
-        const hours = Math.floor(
-            (difference / (1000 * 60 * 60)) % 24
-        );
 
-        const minutes = Math.floor(
-            (difference / (1000 * 60)) % 60
-        );
+        const hours =
+            Math.floor(
+                (difference /
+                (1000 * 60 * 60)) % 24
+            );
 
-        const seconds = Math.floor(
-            (difference / 1000) % 60
-        );
+
+        const minutes =
+            Math.floor(
+                (difference /
+                (1000 * 60)) % 60
+            );
+
+
+        const seconds =
+            Math.floor(
+                (difference / 1000) % 60
+            );
 
 
         document.getElementById("days").textContent =
             String(days).padStart(2, "0");
 
+
         document.getElementById("hours").textContent =
             String(hours).padStart(2, "0");
 
+
         document.getElementById("minutes").textContent =
             String(minutes).padStart(2, "0");
+
 
         document.getElementById("seconds").textContent =
             String(seconds).padStart(2, "0");
@@ -152,47 +270,74 @@ openButton.addEventListener("click", async () => {
 
     updateCountdown();
 
-    setInterval(updateCountdown, 1000);
+    setInterval(
+        updateCountdown,
+        1000
+    );
 
 
     /* ================================================
        GALERÍA
     ================================================= */
 
-    const gallery = document.getElementById("gallery");
+    const gallery =
+        document.querySelector(".gallery");
 
-    invitation.gallery.forEach((image, index) => {
 
-        const item = document.createElement("div");
+    if (gallery && invitationData.gallery) {
 
-        item.className = `gallery-item gallery-${index + 1}`;
+        gallery.innerHTML = "";
 
-        item.innerHTML = `
-            <img
-                src="${image}"
-                alt="Fotografía de Nohemi ${index + 1}"
-                loading="lazy"
-            >
-        `;
 
-        gallery.appendChild(item);
+        invitationData.gallery.forEach(
+            (image, index) => {
 
-    });
+                const item =
+                    document.createElement("div");
+
+
+                item.className =
+                    `gallery-item gallery-${index + 1}`;
+
+
+                item.innerHTML = `
+                    <img
+                        src="${image}"
+                        alt="Fotografía de ${invitationData.quinceanera.name} ${index + 1}"
+                        loading="lazy"
+                    >
+                `;
+
+
+                gallery.appendChild(item);
+
+            }
+        );
+
+    }
 
 
     /* ================================================
        PASE
     ================================================= */
 
-    const passPeople = document.getElementById("passPeople");
+    const passNumber =
+        document.querySelector(".pass-number");
 
-    if (invitation.pass.people) {
 
-        passPeople.textContent = invitation.pass.people;
+    if (passNumber) {
 
-    } else {
+        if (invitationData.pass.people) {
 
-        passPeople.textContent = "—";
+            passNumber.textContent =
+                invitationData.pass.people;
+
+        } else {
+
+            passNumber.textContent =
+                "Próximamente";
+
+        }
 
     }
 
@@ -205,13 +350,18 @@ openButton.addEventListener("click", async () => {
         document.getElementById("whatsappButton");
 
 
-    const message = encodeURIComponent(
-        `Hola, quiero confirmar mi asistencia a los XV años de ${invitation.quinceanera.name}.`
-    );
+    if (whatsappButton) {
+
+        const message =
+            encodeURIComponent(
+                `Hola, quiero confirmar mi asistencia a los XV años de ${invitationData.quinceanera.name}.`
+            );
 
 
-    whatsappButton.href =
-        `https://wa.me/${invitation.whatsapp}?text=${message}`;
+        whatsappButton.href =
+            `https://wa.me/${invitationData.confirmation.whatsapp}?text=${message}`;
+
+    }
 
 
     /* ================================================
@@ -222,33 +372,41 @@ openButton.addEventListener("click", async () => {
         document.querySelectorAll(".reveal");
 
 
-    const observer = new IntersectionObserver(
-        (entries) => {
+    if ("IntersectionObserver" in window) {
 
-            entries.forEach(entry => {
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
 
-                if (entry.isIntersecting) {
+                    entries.forEach(entry => {
 
-                    entry.target.classList.add("visible");
+                        if (entry.isIntersecting) {
 
-                    observer.unobserve(entry.target);
+                            entry.target.classList.add(
+                                "visible"
+                            );
 
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
                 }
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
+            );
 
 
-    revealElements.forEach(element => {
+        revealElements.forEach(element => {
 
-        observer.observe(element);
+            observer.observe(element);
 
-    });
+        });
+
+    }
 
 });
-
