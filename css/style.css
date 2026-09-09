@@ -151,8 +151,8 @@ button {
 ========================================================= */
 
 .decoration-top-right {
-    top: -15px;
-    right: -15px;
+    top: -5px;
+    right: -5px;
 
     animation-delay: .3s;
 }
@@ -163,8 +163,8 @@ button {
 ========================================================= */
 
 .decoration-bottom-left {
-    bottom: -15px;
-    left: -15px;
+    bottom: -5px;
+    left: -5px;
 
     animation-delay: .7s;
 }
