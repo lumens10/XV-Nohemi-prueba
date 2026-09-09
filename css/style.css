@@ -538,8 +538,8 @@ button {
     opacity: 0;
 
     animation:
-        decorationAppear 1.5s ease forwards,
-        decorationFloat 6s ease-in-out infinite;
+        decorationAppear 3.5s ease forwards,
+        decorationFloat 8s ease-in-out infinite;
 }
 
 .hero h1 {
