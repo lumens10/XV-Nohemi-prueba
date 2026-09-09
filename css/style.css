@@ -157,7 +157,7 @@ button {
 /* Inferior izquierda */
 
 .decoration-bottom-left {
-    bottom: 50px;
+    bottom: 100px;
     left: -8px;
 
     animation-delay: .7s;
@@ -1607,7 +1607,7 @@ button {
     }
 
     .decoration-bottom-left {
-        bottom: 50px;
+        bottom: 100px;
         left: -8px;
     }
 
