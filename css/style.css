@@ -59,7 +59,6 @@ body.page-open {
 
 img {
     display: block;
-    width: 100%;
     max-width: 100%;
 }
 
@@ -81,31 +80,51 @@ button {
     display: none;
 }
 
+
 /* =========================================================
-PANTALLA DE APERTURA
+   PANTALLA DE APERTURA
 ========================================================= */
 
 .opening {
-position: fixed;
-inset: 0;
-z-index: 99999;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
 
-width: 100%;
-height: 100svh;
+    width: 100%;
+    height: 100svh;
 
-display: flex;
-align-items: center;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-text-align: center;
+    text-align: center;
 
-/*
-   IMPORTANTE:
-   La pantalla es completamente opaca.
-   La invitación que está debajo NO se verá.
-*/
+    background-color: #ffffff;
 
-   /* =========================================================
+    background-image:
+        linear-gradient(
+            rgba(40, 15, 18, 0.18),
+            rgba(40, 15, 18, 0.18)
+        ),
+        url('../images/Fondo beige github.jpg');
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    overflow: hidden;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+/* =========================================================
    DECORACIONES DE LA PORTADA
 ========================================================= */
 
@@ -114,7 +133,7 @@ text-align: center;
 
     z-index: 1;
 
-    width: clamp(50px, 25vw, 260px);
+    width: clamp(90px, 25vw, 260px);
     height: auto;
 
     pointer-events: none;
@@ -127,7 +146,9 @@ text-align: center;
 }
 
 
-/* Superior derecha */
+/* =========================================================
+   DECORACIÓN SUPERIOR DERECHA
+========================================================= */
 
 .decoration-top-right {
     top: -15px;
@@ -137,7 +158,9 @@ text-align: center;
 }
 
 
-/* Inferior izquierda */
+/* =========================================================
+   DECORACIÓN INFERIOR IZQUIERDA
+========================================================= */
 
 .decoration-bottom-left {
     bottom: -15px;
@@ -147,7 +170,9 @@ text-align: center;
 }
 
 
-/* Aparición */
+/* =========================================================
+   ANIMACIÓN DE APARICIÓN
+========================================================= */
 
 @keyframes decorationAppear {
 
@@ -164,7 +189,9 @@ text-align: center;
 }
 
 
-/* Movimiento */
+/* =========================================================
+   ANIMACIÓN FLOTANTE
+========================================================= */
 
 @keyframes decorationFloat {
 
@@ -184,328 +211,232 @@ text-align: center;
 }
 
 
-/* Móvil */
-
-@media (max-width: 600px) {
-
-    .opening-decoration {
-        width: clamp(90px, 28vw, 170px);
-    }
-
-}
-
-background-color: #ffffff;
-
-/*
-   Fondo victoriano de la pantalla de apertura
-*/
-background-image:
-    linear-gradient(
-        rgba(40, 15, 18, 0.18),
-        rgba(40, 15, 18, 0.18)
-    ),
-    url('../images/Fondo beige github.jpg');
-
-background-position: center center;
-background-size: cover;
-background-repeat: no-repeat;
-
-
-opacity: 1;
-visibility: visible;
-pointer-events: auto;
-
-overflow: hidden;
-
-/*
-   La transición solamente se activa
-   cuando se pulsa "Abrir invitación".
-*/
-transition:
-    opacity 1s ease,
-    visibility 1s ease;
-
-
-}
-
 /* =========================================================
-ESTADO CERRADO
+   ESTADO CERRADO
 ========================================================= */
 
 .opening.opening-hidden {
-opacity: 0;
-visibility: hidden;
-pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
+
 /* =========================================================
-CONTENIDO DE LA PORTADA
+   CONTENIDO DE LA PORTADA
 ========================================================= */
 
 .opening-content {
-position: relative;
-z-index: 2;
+    position: relative;
+    z-index: 2;
 
-width: 100%;
-max-width: 700px;
+    width: 100%;
+    max-width: 700px;
 
-padding: 30px;
+    padding: 30px;
 
-text-align: center;
+    text-align: center;
 
-animation: openingContentIn 1.2s ease both;
-
-
+    animation:
+        openingContentIn 1.2s ease both;
 }
 
+
 /* =========================================================
-TEXTO SUPERIOR
+   TEXTO SUPERIOR
 ========================================================= */
 
 .opening .small-label {
-display: block;
+    display: block;
 
-margin-bottom: 25px;
+    margin-bottom: 25px;
 
-color: var(--gold-light);
+    color: var(--gold-light);
 
-font-size: 10px;
-font-weight: 400;
-letter-spacing: 5px;
-line-height: 1.6;
+    font-size: 10px;
+    font-weight: 400;
 
-text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 1.6;
 
-
+    text-transform: uppercase;
 }
 
+
 /* =========================================================
-"MIS XV"
+   MIS XV
 ========================================================= */
 
 .opening h1 {
-margin: 0;
+    margin: 0;
 
-color: #7f0808;
+    color: #7f0808;
 
-font-family: 'Cormorant Garamond', serif;
-font-size: clamp(75px, 18vw, 150px);
-font-weight: 300;
-line-height: 0.8;
+    font-family: 'Cormorant Garamond', serif;
 
-text-shadow:
-    0 8px 35px rgba(0,0,0,.55);
+    font-size: clamp(75px, 18vw, 150px);
+    font-weight: 300;
 
+    line-height: .8;
 
+    text-shadow:
+        0 8px 35px rgba(0, 0, 0, .55);
 }
 
+
 /* =========================================================
-NOMBRE
+   NOMBRE
 ========================================================= */
 
 .opening-name {
-margin-top: 20px;
+    margin-top: 20px;
 
-color: #7f0808;
+    color: #7f0808;
 
-font-family: 'Cormorant Garamond', serif;
-font-size: clamp(38px, 8vw, 55px);
-font-style: italic;
-font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
 
-text-shadow:
-    0 5px 25px rgba(0,0,0,.6);
+    font-size: clamp(38px, 8vw, 55px);
+    font-style: italic;
+    font-weight: 400;
 
-
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, .6);
 }
 
+
 /* =========================================================
-ORNAMENTO
+   ORNAMENTO
 ========================================================= */
 
 .opening .ornament {
-margin: 28px 0;
+    margin: 28px 0;
 
-color: var(--gold);
+    color: var(--gold);
 
-font-size: 18px;
+    font-size: 18px;
 
-text-shadow:
-    0 0 20px rgba(201,164,92,.25);
-
-
+    text-shadow:
+        0 0 20px rgba(201, 164, 92, .25);
 }
 
+
 /* =========================================================
-BOTÓN ABRIR INVITACIÓN
+   BOTÓN ABRIR INVITACIÓN
 ========================================================= */
 
 .open-button {
-position: relative;
+    position: relative;
 
-margin-top: 20px;
+    margin-top: 20px;
 
-padding: 17px 34px;
+    padding: 17px 34px;
 
-border: 1px solid rgba(229,207,156,.75);
+    border: 1px solid rgba(229, 207, 156, .75);
 
-background: rgba(9,8,7,.65);
+    background: rgba(9, 8, 7, .65);
 
-color: var(--cream);
+    color: var(--cream);
 
-font-family: 'Montserrat', sans-serif;
-font-size: 10px;
-font-weight: 400;
-letter-spacing: 3px;
+    font-family: 'Montserrat', sans-serif;
 
-text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 400;
 
-cursor: pointer;
+    letter-spacing: 3px;
 
-/*
-   Evita que el navegador aplique
-   estilos extraños al botón.
-*/
-appearance: none;
--webkit-appearance: none;
+    text-transform: uppercase;
 
-transition:
-    background .4s ease,
-    color .4s ease,
-    border-color .4s ease,
-    transform .4s ease,
-    box-shadow .4s ease;
+    cursor: pointer;
 
+    appearance: none;
+    -webkit-appearance: none;
 
+    transition:
+        background .4s ease,
+        color .4s ease,
+        border-color .4s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
-/* Hover */
-
-.open-button:hover {
-background: var(--gold);
-
-border-color: var(--gold);
-
-color: var(--black);
-
-transform: translateY(-2px);
-
-box-shadow:
-    0 10px 35px rgba(201,164,92,.18);
-
-
-}
-
-/* Al pulsar */
-
-.open-button:active {
-transform: translateY(0);
-}
 
 /* =========================================================
-ANIMACIÓN DE ENTRADA
+   HOVER DEL BOTÓN
 ========================================================= */
 
-@keyframes openingContentIn {
+.open-button:hover {
+    background: var(--gold);
 
-from {
-    opacity: 0;
-    transform: translateY(20px);
+    border-color: var(--gold);
+
+    color: var(--black);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 35px rgba(201, 164, 92, .18);
 }
 
-to {
-    opacity: 1;
+
+/* =========================================================
+   AL PULSAR
+========================================================= */
+
+.open-button:active {
     transform: translateY(0);
 }
 
 
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+========================================================= */
+
+@keyframes openingContentIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 
+
 /* =========================================================
-SEGURIDAD:
-LA INVITACIÓN NO DEBE MOSTRARSE ANTES DE ABRIR
+   SEGURIDAD:
+   LA INVITACIÓN NO SE MUESTRA ANTES DE ABRIR
 ========================================================= */
 
 #invitation {
-opacity: 0;
+    opacity: 0;
 
-visibility: hidden;
+    visibility: hidden;
 
-pointer-events: none;
+    pointer-events: none;
 
-transition:
-    opacity 1s ease,
-    visibility 1s ease;
-
-
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
-/*
-Cuando main.js agrega esta clase después
-de pulsar el botón, aparece la invitación.
-*/
+
+/* =========================================================
+   INVITACIÓN VISIBLE
+========================================================= */
 
 #invitation.is-visible {
-opacity: 1;
+    opacity: 1;
 
-visibility: visible;
+    visibility: visible;
 
-pointer-events: auto;
-
-
-}
-
-/* =========================================================
-BLOQUEAR SCROLL MIENTRAS ESTÁ LA PORTADA
-========================================================= */
-
-body:not(.page-open) {
-overflow: hidden;
-}
-
-/* =========================================================
-CUANDO LA INVITACIÓN ESTÁ ABIERTA
-========================================================= */
-
-body.page-open {
-overflow-x: hidden;
-overflow-y: auto;
-}
-
-/* =========================================================
-MÓVILES
-========================================================= */
-
-@media (max-width: 600px) {
-
-.opening {
-    background-position: center center;
-}
-
-.opening-content {
-    padding: 25px;
-}
-
-.opening .small-label {
-    font-size: 9px;
-    letter-spacing: 4px;
-}
-
-.opening h1 {
-    font-size: clamp(70px, 22vw, 105px);
-}
-
-.opening-name {
-    font-size: 42px;
-}
-
-.open-button {
-    padding: 16px 28px;
-    font-size: 9px;
+    pointer-events: auto;
 }
 
 
-}
 /* =========================================================
    CONTENIDO PRINCIPAL
 ========================================================= */
@@ -518,13 +449,13 @@ MÓVILES
 }
 
 
-/*
-   Cuando se abre la invitación,
-   hacemos aparecer el contenido.
-*/
+/* =========================================================
+   ANIMACIÓN DE APARICIÓN DE LA INVITACIÓN
+========================================================= */
 
 .invitation.is-visible {
-    animation: invitationIn 1s ease both;
+    animation:
+        invitationIn 1s ease both;
 }
 
 
@@ -537,6 +468,7 @@ MÓVILES
     to {
         opacity: 1;
     }
+
 }
 
 
@@ -572,10 +504,10 @@ MÓVILES
     position: absolute;
     inset: 0;
 
+    margin: 18px;
+
     border:
         1px solid rgba(229, 207, 156, .18);
-
-    margin: 18px;
 
     pointer-events: none;
 }
@@ -596,7 +528,6 @@ MÓVILES
 
 .hero-content {
     position: relative;
-
     z-index: 2;
 
     width: 100%;
@@ -642,7 +573,11 @@ MÓVILES
 
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(21px, 5vw, 28px);
+    font-size: clamp(
+        21px,
+        5vw,
+        28px
+    );
 
     font-style: italic;
 
@@ -754,7 +689,11 @@ MÓVILES
 
     font-family: 'Cormorant Garamond', serif;
 
-    font-size: clamp(50px, 10vw, 70px);
+    font-size: clamp(
+        50px,
+        10vw,
+        70px
+    );
 
     font-weight: 300;
 }
@@ -999,6 +938,8 @@ MÓVILES
     position: absolute;
     inset: 0;
 
+    margin: 20px;
+
     border:
         1px solid rgba(
             229,
@@ -1006,8 +947,6 @@ MÓVILES
             156,
             .15
         );
-
-    margin: 20px;
 
     pointer-events: none;
 }
@@ -1038,862 +977,4 @@ MÓVILES
 
     z-index: 2;
 
-    padding: 30px;
-}
-
-
-.event-content h2 {
-    margin: 25px 0;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: clamp(
-        50px,
-        11vw,
-        100px
-    );
-
-    font-weight: 300;
-
-    line-height: .9;
-}
-
-
-.event-time {
-    margin-bottom: 30px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 30px;
-
-    color: var(--gold-light);
-}
-
-
-/* =========================================================
-   BOTONES DORADOS
-========================================================= */
-
-.gold-button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 15px 25px;
-
-    border: 1px solid var(--gold);
-
-    font-size: 9px;
-    font-weight: 500;
-
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
-
-    transition:
-        background .4s ease,
-        color .4s ease,
-        transform .4s ease;
-}
-
-
-.gold-button:hover {
-    background: var(--gold);
-
-    color: var(--black);
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================================
-   GALERÍA
-========================================================= */
-
-.gallery {
-    width: 100%;
-    max-width: 1000px;
-
-    margin: 50px auto 0;
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 8px;
-}
-
-
-.gallery-item {
-    position: relative;
-
-    min-height: 220px;
-
-    overflow: hidden;
-
-    background: #15120f;
-}
-
-
-.gallery-item.large {
-    grid-row: span 2;
-}
-
-
-.gallery-item.wide {
-    grid-column: span 2;
-}
-
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition:
-        transform 1s ease;
-}
-
-
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-
-/* =========================================================
-   VESTIMENTA
-========================================================= */
-
-.dress-section {
-    background: var(--cream);
-
-    color: var(--text-dark);
-}
-
-
-.dress-section .section-label {
-    color: var(--gold-dark);
-}
-
-
-.dress-section h2 {
-    color: var(--text-dark);
-}
-
-
-.dress-section p {
-    color: rgba(
-        27,
-        24,
-        20,
-        .68
-    );
-}
-
-
-.dress-icon {
-    margin: 30px 0;
-
-    color: var(--gold);
-
-    font-size: 60px;
-}
-
-
-/* =========================================================
-   LLUVIA DE SOBRES
-========================================================= */
-
-.envelopes-section {
-    background:
-        radial-gradient(
-            circle at center,
-            #211a10,
-            #090807 65%
-        );
-}
-
-
-.envelope-icon {
-    margin: 30px 0;
-
-    color: var(--gold-light);
-
-    font-size: 50px;
-}
-
-
-/* =========================================================
-   TIMELINE
-========================================================= */
-
-.timeline {
-    position: relative;
-
-    max-width: 550px;
-
-    margin: 60px auto;
-}
-
-
-.timeline::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 0;
-    bottom: 0;
-
-    width: 1px;
-
-    background:
-        rgba(
-            201,
-            164,
-            92,
-            .5
-        );
-}
-
-
-.timeline-item {
-    position: relative;
-
-    padding: 35px 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-
-.timeline-item::before {
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 0;
-
-    width: 7px;
-    height: 7px;
-
-    border-radius: 50%;
-
-    background: var(--gold);
-
-    transform:
-        translateX(-50%);
-}
-
-
-.timeline-item span {
-    color: var(--gold-light);
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-}
-
-
-.timeline-item strong {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 30px;
-
-    font-weight: 400;
-}
-
-
-/* =========================================================
-   PASE
-========================================================= */
-
-.pass-section {
-    padding: 100px 20px;
-
-    background: var(--cream);
-}
-
-
-.pass-card {
-    max-width: 450px;
-
-    margin: auto;
-
-    padding: 60px 30px;
-
-    text-align: center;
-
-    color: var(--text-dark);
-
-    background:
-        linear-gradient(
-            145deg,
-            #fffdf8,
-            #e9dfce
-        );
-
-    border:
-        1px solid var(--gold);
-
-    box-shadow:
-        0 30px 80px
-        rgba(0, 0, 0, .25);
-}
-
-
-.pass-card .section-label {
-    color: var(--gold-dark);
-}
-
-
-.pass-card h2 {
-    margin: 30px 0 5px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 65px;
-
-    font-weight: 300;
-}
-
-
-.pass-name {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 35px;
-
-    font-style: italic;
-}
-
-
-.pass-line {
-    width: 70px;
-    height: 1px;
-
-    margin: 30px auto;
-
-    background: var(--gold);
-}
-
-
-.pass-card p {
-    margin: 5px;
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-}
-
-
-.pass-number {
-    display: block;
-
-    margin: 10px;
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 50px;
-
-    font-weight: 400;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.rsvp-section {
-    padding-bottom: 130px;
-}
-
-
-.whatsapp-button {
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    margin-top: 25px;
-
-    padding: 17px 30px;
-
-    border-radius: 2px;
-
-    background: #25d366;
-
-    color: #fff;
-
-    font-size: 10px;
-
-    font-weight: 500;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
-}
-
-
-.whatsapp-button:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 10px 30px
-        rgba(
-            37,
-            211,
-            102,
-            .25
-        );
-}
-
-
-/* =========================================================
-   MÚSICA
-========================================================= */
-
-.music-button {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    z-index: 500;
-
-    width: 50px;
-    height: 50px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid var(--gold);
-
-    background:
-        rgba(
-            10,
-            8,
-            5,
-            .82
-        );
-
-    color: var(--gold-light);
-
-    cursor: pointer;
-
-    backdrop-filter: blur(10px);
-
-    -webkit-backdrop-filter: blur(10px);
-
-    transition:
-        transform .3s ease,
-        background .3s ease;
-}
-
-
-.music-button:hover {
-    transform: scale(1.05);
-
-    background:
-        rgba(
-            25,
-            20,
-            12,
-            .95
-        );
-}
-
-
-.music-button.playing {
-    animation:
-        musicPulse 2s infinite;
-}
-
-
-@keyframes musicPulse {
-
-    0%,
-    100% {
-        box-shadow:
-            0 0 0 0
-            rgba(
-                201,
-                164,
-                92,
-                .4
-            );
-    }
-
-    50% {
-        box-shadow:
-            0 0 0 12px
-            rgba(
-                201,
-                164,
-                92,
-                0
-            );
-    }
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-    padding: 100px 20px;
-
-    text-align: center;
-
-    background: #050504;
-}
-
-
-.footer h2 {
-    font-family: 'Cormorant Garamond', serif;
-
-    font-size: 80px;
-
-    font-weight: 300;
-
-    line-height: .9;
-}
-
-
-.footer p {
-    margin: 15px 0;
-
-    color: var(--gold-light);
-
-    font-size: 10px;
-
-    letter-spacing: 3px;
-}
-
-
-.footer span {
-    color:
-        rgba(
-            247,
-            242,
-            233,
-            .5
-        );
-
-    font-family: 'Cormorant Garamond', serif;
-
-    font-style: italic;
-}
-
-
-/* =========================================================
-   ANIMACIONES SCROLL
-========================================================= */
-
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(30px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-
-.reveal.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .opening-content {
-        padding: 20px;
-    }
-
-    .hero::after {
-        margin: 12px;
-    }
-
-    .hero-content {
-        padding: 30px 20px;
-    }
-
-    .section {
-        padding:
-            90px 20px;
-    }
-
-    .date-details {
-        gap: 35px;
-    }
-
-    .event-section::after {
-        margin: 12px;
-    }
-
-}
-
-
-/* =========================================================
-   RESPONSIVE — MÓVIL
-========================================================= */
-
-@media (max-width: 600px) {
-
-    .small-label,
-    .section-label,
-    .eyebrow {
-        font-size: 8px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .opening {
-        padding: 15px;
-    }
-
-
-    .opening-content {
-        padding: 20px 10px;
-    }
-
-
-    .opening h1 {
-        margin-top: 25px;
-    }
-
-
-    .opening-name {
-        margin-top: 18px;
-    }
-
-
-    .open-button {
-        width: 100%;
-        max-width: 240px;
-    }
-
-
-    .hero {
-        min-height: 100svh;
-    }
-
-
-    .hero::after {
-        margin: 10px;
-    }
-
-
-    .hero p {
-        max-width: 300px;
-    }
-
-
-    .hero-date {
-        letter-spacing: 4px;
-    }
-
-
-    .section {
-        padding:
-            80px 18px;
-    }
-
-
-    .section p {
-        font-size: 13px;
-    }
-
-
-    .countdown {
-        gap: 10px;
-    }
-
-
-    .count-item {
-        min-width: 55px;
-    }
-
-
-    .count-item span {
-        font-size: 40px;
-    }
-
-
-    .count-item small {
-        font-size: 7px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .date-section h2 {
-        font-size:
-            clamp(
-                120px,
-                35vw,
-                180px
-            );
-    }
-
-
-    .date-details {
-        gap: 20px;
-    }
-
-
-    .date-details span {
-        font-size: 21px;
-    }
-
-
-    .date-details strong {
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-
-    .family-card {
-        margin-bottom: 60px;
-    }
-
-
-    .family-card p {
-        font-size: 24px;
-    }
-
-
-    .sub-heading {
-        font-size: 42px !important;
-    }
-
-
-    .event-section {
-        min-height: 75vh;
-    }
-
-
-    .event-content {
-        padding: 25px 15px;
-    }
-
-
-    .gallery {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 6px;
-    }
-
-
-    .gallery-item {
-        min-height: 180px;
-    }
-
-
-    .pass-section {
-        padding:
-            80px 15px;
-    }
-
-
-    .pass-card {
-        padding:
-            50px 20px;
-    }
-
-
-    .pass-card h2 {
-        font-size: 55px;
-    }
-
-
-    .pass-name {
-        font-size: 30px;
-    }
-
-
-    .music-button {
-        right: 15px;
-        bottom: 15px;
-
-        width: 46px;
-        height: 46px;
-    }
-
-
-    .footer {
-        padding:
-            80px 20px;
-    }
-
-
-    .footer h2 {
-        font-size: 65px;
-    }
-
-}
-
-
-/* =========================================================
-   MÓVILES MUY PEQUEÑOS
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .countdown {
-        gap: 6px;
-    }
-
-
-    .count-item {
-        min-width: 48px;
-    }
-
-
-    .count-item span {
-        font-size: 34px;
-    }
-
-
-    .date-details {
-        gap: 12px;
-    }
-
-
-    .date-details span {
-        font-size: 19px;
-    }
-
-
-    .gallery-item {
-        min-height: 150px;
-    }
-
-}
+    padding:
