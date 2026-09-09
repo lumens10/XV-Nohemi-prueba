@@ -1144,11 +1144,40 @@ button {
         heroPhraseAppear 1.5s ease-out forwards;
 
     animation-delay: 2.7s;
-    /* ↑ 6s = momento en que comienza */
+    /* ↑ 2.7s = momento en que comienza */
 
     opacity: 0;
 }
 
+/* =========================================================
+   ANIMACIÓN — FECHA DEL HERO
+========================================================= */
+
+@keyframes heroDateAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* La fecha aparece al final de toda la secuencia */
+#invitation.is-visible .hero .hero-date {
+
+    animation:
+        heroDateAppear 1.5s ease-out forwards;
+
+    animation-delay: 2.8s;
+    /* ↑ 2.8s = momento en que comienza */
+
+    opacity: 0;
+}
 /* Texto descriptivo del Hero */
 .hero p {
 
