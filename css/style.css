@@ -114,7 +114,7 @@ text-align: center;
 
     z-index: 1;
 
-    width: clamp(120px, 25vw, 260px);
+    width: clamp(50px, 25vw, 260px);
     height: auto;
 
     pointer-events: none;
