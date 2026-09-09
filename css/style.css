@@ -209,6 +209,18 @@ button {
         transform: translateY(0);
     }
 }
+
+@keyframes heroTextAppear {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* =========================================================
    ESTADO CERRADO
 ========================================================= */
@@ -551,6 +563,12 @@ button {
 
 #invitation.is-visible .hero-photo {
     animation: heroPhotoAppear 2.5s ease-out forwards;
+}
+
+#invitation.is-visible .hero .eyebrow {
+    animation: heroTextAppear 1.5s ease-out forwards;
+    animation-delay: 2s;
+    opacity: 0;
 }
 .hero h1 {
     margin: 22px 0;
