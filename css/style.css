@@ -148,8 +148,8 @@ button {
 /* Superior derecha */
 
 .decoration-top-right {
-    top: -15px;
-    right: -15px;
+    top: -5px;
+    right: -5px;
 
     animation-delay: .3s;
 }
