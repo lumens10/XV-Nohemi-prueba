@@ -495,6 +495,14 @@ if (whatsappButton) {
    ANIMACIONES AL HACER SCROLL
 ===================================================== */
 
+/*
+   Detectamos todos los elementos que tengan
+   la clase ".reveal".
+
+   Cada uno podrá entrar y salir de pantalla
+   varias veces durante el scroll.
+*/
+
 const revealElements =
     document.querySelectorAll(".reveal");
 
@@ -511,16 +519,17 @@ if (
                 entries.forEach(
                     entry => {
 
+                        /*
+                           Si el bloque está entrando
+                           en la zona visible...
+                        */
+
                         if (
                             entry.isIntersecting
                         ) {
 
                             /*
-                               El elemento entró en pantalla.
-
-                               Agregamos "visible"
-                               para ejecutar la animación
-                               de entrada.
+                               Lo hacemos aparecer.
                             */
 
                             entry.target.classList.add(
@@ -530,12 +539,11 @@ if (
                         } else {
 
                             /*
-                               El elemento salió de pantalla.
+                               Cuando deja de estar visible,
+                               quitamos "visible".
 
-                               Quitamos "visible"
-                               para que vuelva a su estado
-                               inicial y pueda animarse
-                               nuevamente al regresar.
+                               CSS se encargará de hacerlo
+                               desaparecer suavemente.
                             */
 
                             entry.target.classList.remove(
@@ -549,16 +557,25 @@ if (
 
             },
             {
+
                 /*
-                   0.12 = aproximadamente el 12%
-                   del elemento debe estar visible
-                   para activar la animación.
+                   El bloque comienza a animarse
+                   cuando aproximadamente el 18%
+                   entra en pantalla.
+
+                   Puedes probar 0.18, 0.20 o 0.25
+                   si quieres que aparezca más adelante.
                 */
 
-                threshold: 0.12
+                threshold: 0.18
+
             }
         );
 
+
+    /*
+       Comenzamos a observar todos los bloques.
+    */
 
     revealElements.forEach(
         element => {
