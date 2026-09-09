@@ -1,1987 +1,1608 @@
-```css
 /* =========================================================
    IMPORTACIÓN DE FUENTES
 ========================================================= */
 
+/* Carga las fuentes utilizadas en la invitación */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
-```
 
-**¿Qué hace?**
-
-`@import` → le indica al navegador que cargue otro recurso externo.
-
-`url(...)` → contiene la dirección desde donde se descargan las fuentes.
-
-`Cormorant Garamond` → fuente elegante que estás utilizando principalmente para títulos y nombres.
-
-`Montserrat` → fuente más limpia que utilizas principalmente para textos pequeños, botones y etiquetas.
-
-`wght@300;400;500;600;700` → indica los diferentes grosores de fuente que estás cargando.
-
-`display=swap` → permite mostrar temporalmente otra fuente mientras carga la fuente de Google, evitando que el texto desaparezca durante la carga.
 
 /* =========================================================
-VARIABLES
+   VARIABLES
 ========================================================= */
 
+/* Contenedor de variables de colores reutilizables */
 :root {
-/* Color negro principal de la invitación */
---black: #090807;
 
-```
-/* Negro ligeramente más claro */
---black-soft: #11100e;
+    /* Negro principal */
+    --black: #090807;
 
-/* Color crema principal */
---cream: #f7f2e9;
+    /* Negro ligeramente más claro */
+    --black-soft: #11100e;
 
-/* Crema más oscuro */
---cream-dark: #e9dfce;
 
-/* Dorado principal */
---gold: #c9a45c;
+    /* Crema principal */
+    --cream: #f7f2e9;
 
-/* Dorado claro */
---gold-light: #e5cf9c;
+    /* Crema oscuro */
+    --cream-dark: #e9dfce;
 
-/* Dorado oscuro */
---gold-dark: #8c6d31;
 
-/* Color general de los textos */
---text: #f7f2e9;
+    /* Dorado principal */
+    --gold: #c9a45c;
 
-/* Texto secundario con transparencia */
---text-muted: rgba(247, 242, 233, .70);
+    /* Dorado claro */
+    --gold-light: #e5cf9c;
 
-/* Color oscuro para textos sobre fondos claros */
---text-dark: #1b1814;
-```
+    /* Dorado oscuro */
+    --gold-dark: #8c6d31;
 
+
+    /* Color principal del texto */
+    --text: #f7f2e9;
+
+    /* Color de texto secundario */
+    --text-muted: rgba(247, 242, 233, .70);
+
+    /* Color para textos oscuros */
+    --text-dark: #1b1814;
 }
 
-````
-
-Aquí estás creando **variables de CSS**.
-
-Por ejemplo:
-
-```css
-color: var(--gold);
-````
-
-significa:
-
-> "Usa el color guardado dentro de `--gold`".
-
-Esto es muy útil porque si algún día quieres cambiar todo el dorado de la invitación, solamente modificas:
-
-```css
---gold: #c9a45c;
-```
-
-y todos los elementos que utilizan `var(--gold)` cambiarán.
 
 /* =========================================================
-RESET
+   RESET
 ========================================================= */
 
+/* Aplica estas reglas a todos los elementos */
 * {
-  margin: 0;              /* Elimina márgenes predeterminados */
-  padding: 0;             /* Elimina espacios internos predeterminados */
-  box-sizing: border-box; /* Hace que padding y borde formen parte del tamaño */
-  }
 
+    /* Elimina márgenes predeterminados */
+    margin: 0;
+
+    /* Elimina rellenos predeterminados */
+    padding: 0;
+
+    /* Hace que padding y bordes formen parte del tamaño total */
+    box-sizing: border-box;
+}
+
+
+/* Configuración general del documento */
 html {
-scroll-behavior: smooth; /* Hace suave el desplazamiento al usar enlaces internos */
-width: 100%;              /* El HTML ocupa todo el ancho */
-overflow-x: hidden;       /* Evita desplazamiento horizontal */
+
+    /* Hace suave el desplazamiento de la página */
+    scroll-behavior: smooth;
+
+    /* Ocupa todo el ancho */
+    width: 100%;
+
+    /* Evita desplazamiento horizontal */
+    overflow-x: hidden;
 }
 
+
+/* Configuración general del cuerpo */
 body {
-width: 100%;              /* El cuerpo ocupa todo el ancho */
-min-height: 100vh;        /* Altura mínima de toda la pantalla */
 
-```
-background: var(--black); /* Fondo negro principal */
-color: var(--text);       /* Color general del texto */
+    /* Ocupa todo el ancho */
+    width: 100%;
 
-font-family: 'Montserrat', sans-serif; /* Fuente general */
-font-weight: 300;                       /* Grosor ligero */
+    /* Altura mínima de toda la pantalla */
+    min-height: 100vh;
 
-overflow-x: hidden;       /* Evita desplazamiento horizontal */
-```
 
+    /* Fondo general negro */
+    background: var(--black);
+
+    /* Color general del texto */
+    color: var(--text);
+
+
+    /* Fuente principal */
+    font-family: 'Montserrat', sans-serif;
+
+    /* Grosor ligero de la fuente */
+    font-weight: 300;
+
+
+    /* Evita desplazamiento horizontal */
+    overflow-x: hidden;
 }
 
+
+/* Cuando la portada todavía está cerrada */
 body:not(.page-open) {
-overflow: hidden;         /* Cuando NO tiene page-open, bloquea el desplazamiento */
+
+    /* Bloquea el desplazamiento */
+    overflow: hidden;
 }
 
+
+/* Cuando la invitación ya está abierta */
 body.page-open {
-overflow-x: hidden;       /* Sigue bloqueando desplazamiento horizontal */
-overflow-y: auto;         /* Permite desplazamiento vertical */
+
+    /* Evita desplazamiento horizontal */
+    overflow-x: hidden;
+
+    /* Permite desplazamiento vertical */
+    overflow-y: auto;
 }
 
+
+/* Configuración general de imágenes */
 img {
-display: block;           /* Hace que la imagen se comporte como bloque */
-max-width: 100%;          /* Evita que una imagen sea más ancha que su contenedor */
+
+    /* Hace que las imágenes sean elementos de bloque */
+    display: block;
+
+    /* Evita que una imagen supere el ancho de su contenedor */
+    max-width: 100%;
 }
 
+
+/* Configuración general de enlaces */
 a {
-color: inherit;           /* Los enlaces utilizan el color de su elemento padre */
-text-decoration: none;    /* Quita el subrayado */
+
+    /* Hereda el color del elemento padre */
+    color: inherit;
+
+    /* Quita el subrayado */
+    text-decoration: none;
 }
 
+
+/* Configuración general de botones */
 button {
-font-family: inherit;     /* El botón utiliza la misma fuente del elemento padre */
+
+    /* Utiliza la fuente heredada */
+    font-family: inherit;
 }
 
+
 /* =========================================================
-UTILIDADES
+   UTILIDADES
 ========================================================= */
 
+/* Clase para ocultar elementos */
 .hidden {
-display: none !important; /* Oculta completamente el elemento */
+
+    /* Oculta completamente el elemento */
+    display: none !important;
 }
 
+
 /* =========================================================
-PANTALLA DE APERTURA
+   PANTALLA DE APERTURA
 ========================================================= */
 
+/* Pantalla inicial que aparece antes de abrir la invitación */
 .opening {
-position: fixed;          /* La portada queda fija respecto a la ventana */
 
-```
-inset: 0;                 /* Equivale a top:0, right:0, bottom:0, left:0 */
+    /* Mantiene la portada fija sobre toda la página */
+    position: fixed;
 
-z-index: 99999;           /* La coloca por encima prácticamente de todo */
+    /* Ocupa los cuatro lados de la pantalla */
+    inset: 0;
 
-width: 100%;              /* Ocupa todo el ancho */
-height: 100vh;            /* Ocupa toda la altura de la ventana */
-height: 100svh;           /* Altura segura de la ventana, especialmente útil en móviles */
 
-display: flex;            /* Activa Flexbox */
-align-items: center;      /* Centra verticalmente */
-justify-content: center;  /* Centra horizontalmente */
+    /* Coloca la portada por encima de todo */
+    z-index: 99999;
 
-text-align: center;       /* Centra el texto */
 
-background-color: #ffffff; /* Color de fondo base */
+    /* Ancho completo */
+    width: 100%;
 
-background-image:
-    linear-gradient(
-        rgba(40, 15, 18, 0.18), /* Capa de color semitransparente */
-        rgba(40, 15, 18, 0.18)  /* Misma capa de color */
-    ),
-    url('../images/Fondo beige github.jpg'); /* Imagen de fondo */
+    /* Altura de la ventana */
+    height: 100vh;
 
-background-position: center center; /* Centra la imagen */
-background-size: cover;             /* Hace que cubra toda la pantalla */
-background-repeat: no-repeat;       /* Evita repetir la imagen */
+    /* Altura segura para móviles */
+    height: 100svh;
 
-opacity: 1;              /* Totalmente visible */
-visibility: visible;     /* Elemento visible */
-pointer-events: auto;    /* Permite hacer clic sobre él */
 
-overflow: hidden;       /* Oculta cualquier elemento que salga de la portada */
+    /* Activa Flexbox */
+    display: flex;
 
-transition:
-    opacity 1s ease,     /* Suaviza cambios de transparencia */
-    visibility 1s ease;  /* Suaviza el cambio de visibilidad */
-```
+    /* Centra verticalmente el contenido */
+    align-items: center;
 
+    /* Centra horizontalmente el contenido */
+    justify-content: center;
+
+
+    /* Centra el texto */
+    text-align: center;
+
+
+    /* Color blanco de fondo */
+    background-color: #ffffff;
+
+
+    /* Fondo con degradado y fotografía */
+    background-image:
+        linear-gradient(
+            rgba(40, 15, 18, 0.18),
+            rgba(40, 15, 18, 0.18)
+        ),
+        url('../images/Fondo beige github.jpg');
+
+
+    /* Centra la imagen */
+    background-position: center center;
+
+    /* Hace que la imagen cubra toda la pantalla */
+    background-size: cover;
+
+    /* Evita repetir la imagen */
+    background-repeat: no-repeat;
+
+
+    /* La portada comienza visible */
+    opacity: 1;
+
+    /* La portada es visible */
+    visibility: visible;
+
+    /* Permite interactuar con ella */
+    pointer-events: auto;
+
+
+    /* Oculta cualquier elemento que sobresalga */
+    overflow: hidden;
+
+
+    /* Transición al desaparecer */
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
+
 /* =========================================================
-DECORACIONES DE LA PORTADA
+   DECORACIONES DE LA PORTADA
 ========================================================= */
 
+/* Configuración general de las decoraciones */
 .opening-decoration {
-position: absolute;      /* Permite colocar las decoraciones libremente */
 
-```
-z-index: 1;              /* Quedan en una capa determinada */
+    /* Permite colocar la decoración libremente */
+    position: absolute;
 
-width: clamp(180px, 50vw, 600px);
-/* Tamaño:
-   mínimo 180px,
-   aproximadamente 50% del ancho de la pantalla,
-   máximo 600px */
+    /* Coloca la decoración sobre el fondo */
+    z-index: 1;
 
-height: auto;            /* Mantiene la proporción original */
 
-pointer-events: none;    /* La decoración no puede recibir clics */
+    /* Tamaño adaptable */
+    width: clamp(180px, 50vw, 600px);
 
-opacity: 0;              /* Empieza invisible */
+    /* Mantiene proporción */
+    height: auto;
 
-animation:
-    decorationAppear 1.5s ease forwards,
-    /* Primera animación: aparición */
 
-    decorationFloat 6s ease-in-out infinite;
-    /* Segunda animación: movimiento flotante continuo */
-```
+    /* No permite que bloquee clics */
+    pointer-events: none;
 
+
+    /* Comienza invisible */
+    opacity: 0;
+
+
+    /* Animaciones de aparición y movimiento */
+    animation:
+        decorationAppear 1.5s ease forwards,
+        decorationFloat 6s ease-in-out infinite;
 }
 
-/* Superior derecha */
 
+/* Decoración superior derecha */
 .decoration-top-right {
-top: 0px;                /* Pegada a la parte superior */
-right: -40px;            /* Sale 40px hacia fuera por la derecha */
 
-```
-animation-delay: .3s;    /* Retrasa el inicio de la animación */
-```
+    /* Distancia desde arriba */
+    top: 0px;
 
+    /* La mueve ligeramente fuera de la pantalla */
+    right: -40px;
+
+    /* Retraso de la animación */
+    animation-delay: .3s;
 }
 
-/* Inferior izquierda */
 
+/* Decoración inferior izquierda */
 .decoration-bottom-left {
-bottom: 0px;             /* Pegada a la parte inferior */
-left: -40px;             /* Sale 40px hacia fuera por la izquierda */
 
-```
-animation-delay: .7s;    /* Retrasa el inicio de la animación */
-```
+    /* Distancia desde abajo */
+    bottom: 0px;
 
+    /* La mueve ligeramente fuera de la pantalla */
+    left: -40px;
+
+    /* Retraso de la animación */
+    animation-delay: .7s;
 }
+
 
 /* =========================================================
-ANIMACIÓN DECORACIONES
+   ANIMACIÓN DECORACIONES
 ========================================================= */
 
+/* Animación de aparición */
 @keyframes decorationAppear {
 
-```
-from {
-    opacity: 0;          /* Empieza invisible */
-    transform: scale(.85); /* Empieza ligeramente más pequeña */
+    /* Estado inicial */
+    from {
+
+        /* Comienza invisible */
+        opacity: 0;
+
+        /* Comienza más pequeña */
+        transform: scale(.85);
+    }
+
+    /* Estado final */
+    to {
+
+        /* Termina visible */
+        opacity: 1;
+
+        /* Recupera su tamaño */
+        transform: scale(1);
+    }
+
 }
 
-to {
-    opacity: 1;          /* Termina completamente visible */
-    transform: scale(1); /* Termina en su tamaño normal */
-}
-```
 
-}
-
+/* Animación de movimiento */
 @keyframes decorationFloat {
 
-```
-0%,
-100% {
-    transform:
-        translateY(0)    /* Posición vertical normal */
-        rotate(0deg);    /* Sin rotación */
+    /* Inicio y final */
+    0%,
+    100% {
+
+        /* Sin movimiento */
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    /* Mitad de la animación */
+    50% {
+
+        /* Sube ligeramente y gira */
+        transform:
+            translateY(-7px)
+            rotate(1deg);
+    }
+
 }
 
-50% {
-    transform:
-        translateY(-7px) /* Sube 7px */
-        rotate(1deg);    /* Gira ligeramente */
-}
-```
 
-}
+/* =========================================================
+   ANIMACIÓN FOTO HERO
+========================================================= */
 
+/* Hace que la fotografía aparezca desde abajo */
 @keyframes heroPhotoAppear {
 
-```
-from {
-    opacity: 0;               /* La foto empieza invisible */
-    transform: translateY(80px); /* Empieza 80px más abajo */
+    /* Posición inicial */
+    from {
+
+        /* Invisible */
+        opacity: 0;
+
+        /* Comienza 80px más abajo */
+        transform: translateY(80px);
+    }
+
+    /* Posición final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+
+        /* Regresa a su posición */
+        transform: translateY(0);
+    }
 }
 
-to {
-    opacity: 1;               /* Termina visible */
-    transform: translateY(0); /* Regresa a su posición original */
-}
-```
 
-}
+/* =========================================================
+   ANIMACIÓN TEXTO MIS XV
+========================================================= */
 
+/* Hace que MIS XV aparezca desde abajo */
 @keyframes heroTextAppear {
 
-```
-from {
-    opacity: 0;               /* El texto empieza invisible */
-    transform: translateY(25px); /* Empieza 25px más abajo */
+    /* Estado inicial */
+    from {
+
+        /* Invisible */
+        opacity: 0;
+
+        /* Comienza 25px más abajo */
+        transform: translateY(25px);
+    }
+
+    /* Estado final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+
+        /* Regresa a su posición */
+        transform: translateY(0);
+    }
 }
 
-to {
-    opacity: 1;               /* Termina visible */
-    transform: translateY(0); /* Regresa a su posición */
-}
-```
 
-}
+/* =========================================================
+   ANIMACIÓN DEL NOMBRE
+========================================================= */
 
+/* Hace que Nohemi aparezca desde abajo */
 @keyframes heroNameAppear {
 
-```
-from {
-    opacity: 0;               /* Nohemi empieza invisible */
-    transform: translateY(25px); /* Empieza 25px abajo */
+    /* Estado inicial */
+    from {
+
+        /* Invisible */
+        opacity: 0;
+
+        /* Comienza 25px más abajo */
+        transform: translateY(25px);
+    }
+
+    /* Estado final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+
+        /* Regresa a su posición */
+        transform: translateY(0);
+    }
 }
 
-to {
-    opacity: 1;               /* Termina visible */
-    transform: translateY(0); /* Llega a su posición */
-}
-```
 
-}
-
+/* Activa la animación del nombre solamente cuando la invitación está abierta */
 #invitation.is-visible .hero h1 {
-animation: heroNameAppear 1.5s ease-out forwards;
-/* Utiliza heroNameAppear durante 1.5 segundos */
 
-```
-animation-delay: 3.2s;
-/* Espera 3.2 segundos antes de comenzar */
+    /* Ejecuta la animación durante 1.5 segundos */
+    animation: heroNameAppear 1.5s ease-out forwards;
 
-opacity: 0;
-/* Permanece invisible mientras espera */
-```
+    /* Espera 3.2 segundos */
+    animation-delay: 3.2s;
 
+    /* Mantiene invisible el nombre antes de aparecer */
+    opacity: 0;
 }
 
+
 /* =========================================================
-ESTADO CERRADO
+   ESTADO CERRADO
 ========================================================= */
 
+/* Estado de la portada después de abrir la invitación */
 .opening.opening-hidden {
-opacity: 0;              /* Hace invisible la portada */
 
-```
-visibility: hidden;      /* La oculta visualmente */
+    /* Hace desaparecer la portada */
+    opacity: 0;
 
-pointer-events: none;    /* Impide hacer clic sobre ella */
-```
+    /* La vuelve invisible */
+    visibility: hidden;
 
+    /* Impide interactuar con ella */
+    pointer-events: none;
 }
 
+
 /* =========================================================
-CONTENIDO DE LA PORTADA
+   CONTENIDO DE LA PORTADA
 ========================================================= */
 
+/* Contenedor principal del contenido de apertura */
 .opening-content {
-position: relative;      /* Permite controlar su posición y z-index */
 
-```
-z-index: 2;              /* Coloca el contenido por encima de las decoraciones */
+    /* Permite posicionar elementos internos */
+    position: relative;
 
-width: min(100%, 700px);
-/* Ocupa como máximo 700px,
-   pero nunca más del 100% disponible */
+    /* Lo coloca encima de las decoraciones */
+    z-index: 2;
 
-padding: 30px;           /* Espacio interno de 30px */
+    /* Ancho máximo */
+    width: min(100%, 700px);
 
-text-align: center;      /* Centra el contenido */
+    /* Espaciado interior */
+    padding: 30px;
 
-animation: openingContentIn 1.2s ease both;
-/* Ejecuta la animación de entrada */
-```
+    /* Centra el contenido */
+    text-align: center;
 
+    /* Animación inicial */
+    animation: openingContentIn 1.2s ease both;
 }
 
+
 /* =========================================================
-TEXTO SUPERIOR
+   TEXTO SUPERIOR
 ========================================================= */
 
+/* Texto pequeño de la portada */
 .opening .small-label {
-display: block;          /* Ocupa una línea completa */
 
-```
-margin-bottom: 25px;     /* Espacio debajo */
+    /* Lo convierte en bloque */
+    display: block;
 
-color: var(--gold-dark); /* Color dorado oscuro */
+    /* Espacio inferior */
+    margin-bottom: 25px;
 
-font-size: 10px;         /* Tamaño pequeño */
-font-weight: 400;        /* Grosor normal */
+    /* Color dorado oscuro */
+    color: var(--gold-dark);
 
-letter-spacing: 5px;     /* Espacio entre letras */
-line-height: 1.6;        /* Altura de cada línea */
+    /* Tamaño */
+    font-size: 10px;
 
-text-transform: uppercase; /* Convierte el texto a mayúsculas */
-```
+    /* Grosor */
+    font-weight: 400;
 
+    /* Separación entre letras */
+    letter-spacing: 5px;
+
+    /* Altura de línea */
+    line-height: 1.6;
+
+    /* Convierte el texto a mayúsculas */
+    text-transform: uppercase;
 }
 
+
 /* =========================================================
-MIS XV
+   MIS XV
 ========================================================= */
 
+/* Título MIS XV de la portada */
 .opening h1 {
-margin: 0;               /* Elimina margen */
 
-```
-color: #7f0808;          /* Color vino/rojo oscuro */
+    /* Elimina margen */
+    margin: 0;
 
-font-family: 'Cormorant Garamond', serif;
-/* Utiliza la fuente elegante */
+    /* Color vino */
+    color: #7f0808;
 
-font-size: clamp(
-    75px,                /* Tamaño mínimo */
-    18vw,                /* Tamaño proporcional al ancho */
-    150px                /* Tamaño máximo */
-);
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
-font-weight: 300;        /* Grosor ligero */
+    /* Tamaño adaptable */
+    font-size: clamp(
+        75px,
+        18vw,
+        150px
+    );
 
-line-height: .8;         /* Reduce el espacio vertical */
+    /* Grosor */
+    font-weight: 300;
 
-text-shadow:
-    0 8px 35px rgba(0, 0, 0, .25);
-    /* Sombra:
-       0 = desplazamiento horizontal
-       8px = desplazamiento vertical
-       35px = desenfoque
-       .25 = transparencia */
-```
+    /* Altura de línea */
+    line-height: .8;
 
+    /* Sombra */
+    text-shadow:
+        0 8px 35px rgba(0, 0, 0, .25);
 }
 
+
 /* =========================================================
-NOMBRE
+   NOMBRE
 ========================================================= */
 
+/* Nombre de la quinceañera en la portada */
 .opening-name {
-margin-top: 20px;        /* Espacio encima del nombre */
 
-```
-color: #7f0808;          /* Color vino */
+    /* Separación superior */
+    margin-top: 20px;
 
-font-family: 'Cormorant Garamond', serif;
-/* Fuente elegante */
+    /* Color vino */
+    color: #7f0808;
 
-font-size: clamp(
-    38px,                /* Mínimo */
-    8vw,                 /* Proporcional */
-    55px                 /* Máximo */
-);
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
-font-style: italic;      /* Texto en cursiva */
-font-weight: 400;        /* Grosor normal */
+    /* Tamaño adaptable */
+    font-size: clamp(
+        38px,
+        8vw,
+        55px
+    );
 
-text-shadow:
-    0 5px 25px rgba(0, 0, 0, .25);
-    /* Sombra del nombre */
-```
+    /* Cursiva */
+    font-style: italic;
 
+    /* Grosor */
+    font-weight: 400;
+
+    /* Sombra */
+    text-shadow:
+        0 5px 25px rgba(0, 0, 0, .25);
 }
 
+
 /* =========================================================
-ORNAMENTO
+   ORNAMENTO
 ========================================================= */
 
+/* Ornamento decorativo */
 .opening .ornament {
-margin: 28px 0;          /* 28px arriba y abajo */
 
-```
-color: var(--gold);      /* Color dorado */
+    /* Separación vertical */
+    margin: 28px 0;
 
-font-size: 18px;         /* Tamaño del símbolo */
+    /* Color dorado */
+    color: var(--gold);
 
-text-shadow:
-    0 0 20px rgba(201, 164, 92, .25);
-    /* Brillo dorado alrededor */
-```
+    /* Tamaño */
+    font-size: 18px;
 
+    /* Brillo sutil */
+    text-shadow:
+        0 0 20px rgba(201, 164, 92, .25);
 }
 
+
 /* =========================================================
-BOTÓN ABRIR
+   BOTÓN ABRIR
 ========================================================= */
 
+/* Botón para abrir la invitación */
 .open-button {
-position: relative;      /* Permite posicionar elementos internos */
 
-```
-margin-top: 20px;        /* Espacio encima */
+    /* Permite posicionamiento relativo */
+    position: relative;
 
-padding: 17px 34px;
-/* 17px arriba/abajo
-   34px izquierda/derecha */
+    /* Separación superior */
+    margin-top: 20px;
 
-border:
-    1px solid rgba(
-        140,
-        109,
-        49,
-        .75
-    );
-    /* Borde de 1px dorado semitransparente */
+    /* Espacio interno */
+    padding: 17px 34px;
 
-background:
-    rgba(
-        9,
-        8,
-        7,
-        .85
-    );
-    /* Fondo negro con 85% de opacidad */
+    /* Borde dorado */
+    border:
+        1px solid rgba(
+            140,
+            109,
+            49,
+            .75
+        );
 
-color: var(--cream);     /* Texto crema */
+    /* Fondo oscuro */
+    background:
+        rgba(
+            9,
+            8,
+            7,
+            .85
+        );
 
-font-family: 'Montserrat', sans-serif;
-/* Fuente del botón */
+    /* Color del texto */
+    color: var(--cream);
 
-font-size: 10px;         /* Tamaño del texto */
-font-weight: 400;        /* Grosor */
+    /* Fuente */
+    font-family: 'Montserrat', sans-serif;
 
-letter-spacing: 3px;     /* Separación entre letras */
+    /* Tamaño */
+    font-size: 10px;
 
-text-transform: uppercase;
-/* Convierte el texto a mayúsculas */
+    /* Grosor */
+    font-weight: 400;
 
-cursor: pointer;         /* Muestra la mano al pasar el cursor */
+    /* Separación de letras */
+    letter-spacing: 3px;
 
-appearance: none;        /* Quita apariencia predeterminada */
+    /* Convierte a mayúsculas */
+    text-transform: uppercase;
 
--webkit-appearance: none;
-/* Lo mismo para navegadores WebKit */
+    /* Cambia el cursor */
+    cursor: pointer;
 
-transition:
-    background .4s ease,
-    color .4s ease,
-    border-color .4s ease,
-    transform .4s ease,
-    box-shadow .4s ease;
-/* Hace suaves los cambios al pasar el mouse */
-```
+    /* Elimina apariencia predeterminada */
+    appearance: none;
+    -webkit-appearance: none;
 
+    /* Transiciones */
+    transition:
+        background .4s ease,
+        color .4s ease,
+        border-color .4s ease,
+        transform .4s ease,
+        box-shadow .4s ease;
 }
 
+
+/* Efecto al pasar el mouse */
 .open-button:hover {
-background: var(--gold);
-/* Fondo dorado al pasar el mouse */
 
-```
-border-color: var(--gold);
-/* Borde también dorado */
+    /* Cambia fondo a dorado */
+    background: var(--gold);
 
-color: var(--black);
-/* Texto negro */
+    /* Cambia borde */
+    border-color: var(--gold);
 
-transform: translateY(-2px);
-/* Sube 2px */
+    /* Cambia texto a negro */
+    color: var(--black);
 
-box-shadow:
-    0 10px 35px
-    rgba(201, 164, 92, .18);
-    /* Sombra dorada */
-```
+    /* Sube ligeramente */
+    transform: translateY(-2px);
 
+    /* Agrega sombra */
+    box-shadow:
+        0 10px 35px
+        rgba(201, 164, 92, .18);
 }
 
+
+/* Efecto al presionar */
 .open-button:active {
-transform: translateY(0);
-/* Regresa a su posición al hacer clic */
+
+    /* Regresa a su posición */
+    transform: translateY(0);
 }
+
 
 /* =========================================================
-ANIMACIÓN PORTADA
+   ANIMACIÓN PORTADA
 ========================================================= */
 
+/* Animación del contenido inicial */
 @keyframes openingContentIn {
 
-```
-from {
-    opacity: 0;               /* Empieza invisible */
-    transform: translateY(20px); /* Empieza 20px abajo */
+    /* Estado inicial */
+    from {
+
+        /* Invisible */
+        opacity: 0;
+
+        /* Comienza ligeramente abajo */
+        transform: translateY(20px);
+    }
+
+    /* Estado final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+
+        /* Regresa a su posición */
+        transform: translateY(0);
+    }
+
 }
 
-to {
-    opacity: 1;               /* Termina visible */
-    transform: translateY(0); /* Regresa a su posición */
-}
-```
-
-}
 
 /* =========================================================
-INVITACIÓN OCULTA
+   INVITACIÓN OCULTA
 ========================================================= */
 
+/* Mantiene oculta la invitación hasta abrirla */
 #invitation {
-width: 100%;              /* Ocupa todo el ancho */
 
-```
-opacity: 0;               /* Empieza invisible */
+    /* Ancho completo */
+    width: 100%;
 
-visibility: hidden;       /* Está oculta */
+    /* Transparente */
+    opacity: 0;
 
-pointer-events: none;     /* No permite interacción */
+    /* Invisible */
+    visibility: hidden;
 
-transition:
-    opacity 1s ease,
-    visibility 1s ease;
-/* Suaviza la aparición */
-```
+    /* No permite clics */
+    pointer-events: none;
 
+    /* Transición */
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
+
+/* Estado visible de la invitación */
 #invitation.is-visible {
-opacity: 1;               /* Se vuelve visible */
 
-```
-visibility: visible;      /* Se muestra */
+    /* Hace visible la invitación */
+    opacity: 1;
 
-pointer-events: auto;     /* Permite interacción */
-```
+    /* Permite verla */
+    visibility: visible;
 
+    /* Permite interactuar */
+    pointer-events: auto;
 }
+
 
 /* =========================================================
-CONTENIDO PRINCIPAL
+   CONTENIDO PRINCIPAL
 ========================================================= */
 
+/* Contenedor general de la invitación */
 .invitation {
-width: 100%;              /* Todo el ancho */
-min-height: 100vh;        /* Al menos una pantalla completa */
 
-```
-background: var(--black); /* Fondo negro */
-```
+    /* Ancho completo */
+    width: 100%;
 
+    /* Altura mínima */
+    min-height: 100vh;
+
+    /* Fondo negro */
+    background: var(--black);
 }
 
+
+/* Animación al mostrar la invitación */
 .invitation.is-visible {
-animation: invitationIn 1s ease both;
-/* Animación general de entrada */
+
+    /* Ejecuta la animación */
+    animation: invitationIn 1s ease both;
 }
 
+
+/* Animación de aparición */
 @keyframes invitationIn {
 
-```
-from {
-    opacity: 0;           /* Empieza invisible */
+    /* Inicio */
+    from {
+
+        /* Invisible */
+        opacity: 0;
+    }
+
+    /* Final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+    }
+
 }
 
-to {
-    opacity: 1;           /* Termina visible */
-}
-```
-
-}
 
 /* =========================================================
-HERO
+   HERO
 ========================================================= */
 
+/* Sección principal después de abrir la invitación */
 .hero {
-position: relative;       /* Base para elementos posicionados */
 
-```
-width: 100%;              /* Todo el ancho */
+    /* Permite posicionar elementos internos */
+    position: relative;
 
-min-height: 100vh;        /* Altura mínima de toda la ventana */
+    /* Ancho completo */
+    width: 100%;
 
-min-height: 100svh;       /* Altura segura para móviles */
+    /* Altura mínima */
+    min-height: 100vh;
 
-display: flex;            /* Activa Flexbox */
+    /* Altura segura para móviles */
+    min-height: 100svh;
 
-align-items: center;      /* Centra verticalmente */
+    /* Activa Flexbox */
+    display: flex;
 
-justify-content: center;  /* Centra horizontalmente */
+    /* Centra verticalmente */
+    align-items: center;
 
-overflow: hidden;        /* Oculta elementos que sobresalgan */
+    /* Centra horizontalmente */
+    justify-content: center;
 
-background:
-    linear-gradient(
-        rgba(10, 8, 5, .25),
-        rgba(10, 8, 5, .10)
-    ),
-    /* Capa oscura sobre la imagen */
+    /* Oculta contenido que sobresalga */
+    overflow: hidden;
 
-    url('../images/fondo con inicial.jpg')
-    center center /
-    cover no-repeat;
-    /* Imagen:
-       centrada horizontal y verticalmente,
-       cubre todo el espacio,
-       sin repetirse */
+    /* Fondo con degradado e imagen */
+    background:
+        linear-gradient(
+            rgba(10, 8, 5, .25),
+            rgba(10, 8, 5, .10)
+        ),
+        url('../images/fondo con inicial.jpg')
+        center center /
+        cover no-repeat;
 
-text-align: center;       /* Centra el texto */
-```
-
+    /* Centra el texto */
+    text-align: center;
 }
 
+
+/* Borde decorativo del Hero */
 .hero::after {
-content: "";              /* Crea el pseudo-elemento */
 
-```
-position: absolute;       /* Lo posiciona dentro de .hero */
+    /* Crea el elemento decorativo */
+    content: "";
 
-inset: 0;                 /* Ocupa todo el hero */
+    /* Posicionamiento */
+    position: absolute;
 
-margin: 18px;             /* Lo separa 18px de los bordes */
+    /* Ocupa toda la sección */
+    inset: 0;
 
-border:
-    1px solid
-    rgba(229, 207, 156, .18);
-    /* Marco dorado muy transparente */
+    /* Deja espacio alrededor */
+    margin: 18px;
 
-pointer-events: none;     /* No interfiere con clics */
-```
+    /* Borde dorado muy sutil */
+    border:
+        1px solid
+        rgba(229, 207, 156, .18);
 
+    /* No interfiere con clics */
+    pointer-events: none;
 }
 
+
+/* Capa oscura sobre la fotografía */
 .hero-overlay {
-position: absolute;       /* Se coloca sobre el fondo */
 
-```
-inset: 0;                 /* Ocupa todo el hero */
+    /* Posición absoluta */
+    position: absolute;
 
-background:
-    radial-gradient(
-        circle at center,
-        transparent 0%,
-        rgba(0, 0, 0, .65) 100%
-    );
-    /* Oscurece progresivamente los bordes */
-```
+    /* Ocupa todo */
+    inset: 0;
 
+    /* Degradado radial */
+    background:
+        radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(0, 0, 0, .65) 100%
+        );
 }
 
+
+/* Contenedor del contenido del Hero */
 .hero-content {
-position: relative;       /* Permite controlar su capa */
 
-```
-z-index: 2;               /* Lo coloca sobre el fondo */
+    /* Permite posicionamiento */
+    position: relative;
 
-width: 100%;              /* Todo el ancho disponible */
+    /* Lo coloca sobre el fondo */
+    z-index: 2;
 
-max-width: 900px;         /* Máximo 900px */
+    /* Ancho */
+    width: 100%;
 
-padding: 40px 25px;       /* 40px vertical / 25px horizontal */
-```
+    /* Ancho máximo */
+    max-width: 900px;
 
+    /* Espaciado */
+    padding: 40px 25px;
 }
 
+
+/* Fotografía transparente de Nohemi */
 .hero-photo {
-display: block;           /* Imagen como bloque */
 
-```
-width: 380px;             /* Tamaño de la foto */
+    /* Se comporta como bloque */
+    display: block;
 
-max-width: 75vw;          /* Nunca supera 75% del ancho */
+    /* Tamaño */
+    width: 380px;
 
-height: auto;             /* Mantiene proporciones */
+    /* No supera el 75% de la pantalla */
+    max-width: 75vw;
 
-margin: 0 auto 5px;
-/* 0 arriba
-   auto izquierda/derecha = centrada
-   5px abajo */
+    /* Altura automática */
+    height: auto;
 
-position: relative;       /* Permite controlar su posición */
+    /* Centra la imagen */
+    margin: 0 auto 5px;
 
-z-index: 2;               /* Se mantiene por encima */
+    /* Posicionamiento */
+    position: relative;
 
-filter:
-    drop-shadow(
-        0 10px 20px
-        rgba(0, 0, 0, .35)
-    );
-    /* Sombra alrededor de la silueta PNG */
+    /* La mantiene sobre otros elementos */
+    z-index: 2;
 
-opacity: 0;               /* Empieza invisible */
-```
+    /* Sombra */
+    filter:
+        drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
 
+    /* Comienza invisible */
+    opacity: 0;
 }
 
+
+/* Activa la aparición de la foto al abrir la invitación */
 #invitation.is-visible .hero-photo {
-animation: heroPhotoAppear 2.5s ease-out forwards;
-/* La foto sube y aparece durante 2.5 segundos */
+
+    /* Animación de entrada */
+    animation: heroPhotoAppear 2.5s ease-out forwards;
 }
 
+
+/* Activa la aparición de MIS XV después de la fotografía */
 #invitation.is-visible .hero .eyebrow {
-animation: heroTextAppear 1.5s ease-out forwards;
-/* Animación de MIS XV */
 
-```
-animation-delay: 2s;
-/* Espera 2 segundos */
+    /* Animación de entrada */
+    animation: heroTextAppear 1.5s ease-out forwards;
 
-opacity: 0;
-/* Empieza invisible */
-```
+    /* Espera 2 segundos */
+    animation-delay: 2s;
 
+    /* Comienza invisible */
+    opacity: 0;
 }
 
+
+/* =========================================================
+   NOMBRE HERO
+========================================================= */
+
+/* Nombre de Nohemi dentro del Hero */
 .hero h1 {
-margin: 22px 0;
-/* 22px arriba y abajo */
 
-```
-font-family: 'Cormorant Garamond', serif;
-/* Fuente elegante */
+    /* Espacio alrededor del nombre */
+    margin: 22px 0;
 
-font-size: clamp(
-    80px,
-    22vw,
-    190px
-);
-/* Tamaño adaptable */
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
-font-weight: 300;        /* Delgado */
+    /* Tamaño adaptable */
+    font-size: clamp(
+        80px,
+        22vw,
+        190px
+    );
 
-line-height: .75;        /* Reduce espacio vertical */
+    /* Grosor ligero */
+    font-weight: 300;
 
-color: var(--cream);     /* Color crema */
-```
+    /* Altura de línea */
+    line-height: .75;
 
+    /* Color crema */
+    color: var(--cream);
 }
 
+
+/* =========================================================
+   LÍNEA DORADA
+========================================================= */
+
+/* Línea decorativa debajo del nombre */
 .gold-line {
-width: 120px;             /* Largo de la línea */
 
-```
-height: 1px;              /* Grosor de la línea */
+    /* ← Largo de la línea */
+    width: 120px;
 
-margin: 30px auto;        /* 30px arriba/abajo y centrada */
+    /* ← Grosor de la línea */
+    height: 1px;
 
-background: var(--gold);  /* Color dorado */
-```
+    /* Centra la línea y le da separación */
+    margin: 30px auto;
 
+    /* Color dorado */
+    background: var(--gold);
 }
 
+
+/* =========================================================
+   ANIMACIÓN LÍNEA DORADA
+========================================================= */
+
+/* Hace que la línea aparezca creciendo desde el centro */
 @keyframes heroLineAppear {
 
-```
-from {
-    opacity: 0;           /* Empieza invisible */
+    /* Estado inicial */
+    from {
 
-    transform: scaleX(0);
-    /* Empieza sin longitud horizontal */
+        /* Invisible */
+        opacity: 0;
+
+        /* Comienza sin ancho visible */
+        transform: scaleX(0);
+    }
+
+    /* Estado final */
+    to {
+
+        /* Visible */
+        opacity: 1;
+
+        /* Recupera su ancho */
+        transform: scaleX(1);
+    }
 }
 
-to {
-    opacity: 1;           /* Termina visible */
 
-    transform: scaleX(1);
-    /* Recupera su tamaño completo */
-}
-```
-
-}
-
+/* Activa la animación de la línea después del nombre */
 #invitation.is-visible .hero .gold-line {
-animation: heroLineAppear 1.2s ease-out forwards;
-/* La línea aparece durante 1.2 segundos */
 
-```
-animation-delay: 4.7s;
-/* Espera 4.7 segundos */
+    /* Ejecuta la animación */
+    animation: heroLineAppear 1.2s ease-out forwards;
 
-opacity: 0;               /* Empieza invisible */
-```
+    /* Espera 4.7 segundos */
+    animation-delay: 4.7s;
 
+    /* Comienza invisible */
+    opacity: 0;
 }
 
+
+/* Texto descriptivo del Hero */
 .hero p {
-width: 100%;              /* Ocupa todo el ancho disponible */
 
-```
-max-width: 420px;         /* Pero no supera 420px */
+    /* Ocupa todo el ancho disponible */
+    width: 100%;
 
-margin: 25px auto;        /* 25px arriba/abajo y centrado */
+    /* Ancho máximo */
+    max-width: 420px;
 
-font-family: 'Cormorant Garamond', serif;
-/* Fuente elegante */
+    /* Centra y separa */
+    margin: 25px auto;
 
-font-size: clamp(
-    21px,
-    5vw,
-    28px
-);
-/* Tamaño adaptable */
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
-font-style: italic;       /* Cursiva */
+    /* Tamaño adaptable */
+    font-size: clamp(
+        21px,
+        5vw,
+        28px
+    );
 
-line-height: 1.3;         /* Altura de línea */
+    /* Texto en cursiva */
+    font-style: italic;
 
-color: var(--cream);      /* Color crema */
-```
+    /* Altura entre líneas */
+    line-height: 1.3;
 
+    /* Color crema */
+    color: var(--cream);
 }
 
+
+/* Fecha del Hero */
 .hero-date {
-display: block;           /* Ocupa una línea */
 
-```
-margin-top: 35px;         /* Espacio superior */
+    /* Se comporta como bloque */
+    display: block;
 
-font-size: 11px;          /* Texto pequeño */
+    /* Separación superior */
+    margin-top: 35px;
 
-letter-spacing: 7px;      /* Mucho espacio entre letras */
+    /* Tamaño */
+    font-size: 11px;
 
-color: var(--gold-light); /* Dorado claro */
-```
+    /* Espaciado entre letras */
+    letter-spacing: 7px;
 
+    /* Dorado claro */
+    color: var(--gold-light);
 }
 
+
 /* =========================================================
-SECCIONES GENERALES
+   SECCIONES GENERALES
 ========================================================= */
 
+/* Configuración general de las secciones */
 .section {
-width: 100%;              /* Todo el ancho */
 
-```
-padding: 110px 25px;      /* Espacio vertical y horizontal */
+    /* Ancho completo */
+    width: 100%;
 
-text-align: center;       /* Centra el contenido */
+    /* Espaciado vertical y horizontal */
+    padding: 110px 25px;
 
-background: var(--black); /* Fondo negro */
-```
+    /* Centra el contenido */
+    text-align: center;
 
+    /* Fondo negro */
+    background: var(--black);
 }
 
+
+/* Títulos generales */
 .section h2 {
-width: 100%;              /* Todo el ancho disponible */
 
-```
-max-width: 700px;         /* Máximo 700px */
+    /* Ancho */
+    width: 100%;
 
-margin: 20px auto 30px;
-/* 20px arriba
-   auto izquierda/derecha
-   30px abajo */
+    /* Ancho máximo */
+    max-width: 700px;
 
-font-family: 'Cormorant Garamond', serif;
+    /* Centra y separa */
+    margin: 20px auto 30px;
 
-font-size: clamp(
-    45px,
-    10vw,
-    80px
-);
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
-font-weight: 300;
+    /* Tamaño adaptable */
+    font-size: clamp(
+        45px,
+        10vw,
+        80px
+    );
 
-line-height: .95;
-```
+    /* Grosor */
+    font-weight: 300;
 
+    /* Altura de línea */
+    line-height: .95;
 }
 
+
+/* Párrafos generales */
 .section p {
-width: 100%;
 
-```
-max-width: 600px;
+    /* Ancho */
+    width: 100%;
 
-margin: 20px auto;
+    /* Ancho máximo */
+    max-width: 600px;
 
-color: var(--text-muted);
+    /* Centra el párrafo */
+    margin: 20px auto;
 
-font-size: 14px;
+    /* Color secundario */
+    color: var(--text-muted);
 
-line-height: 1.9;
-```
+    /* Tamaño */
+    font-size: 14px;
 
+    /* Separación entre líneas */
+    line-height: 1.9;
 }
 
+
 /* =========================================================
-INTRODUCCIÓN
+   INTRODUCCIÓN
 ========================================================= */
 
+/* Sección de introducción */
 .intro {
-position: relative;
 
-```
-background:
-    radial-gradient(
-        circle at center,
-        #1b1711 0%,
-        var(--black) 65%
-    );
-/* Fondo que es más claro en el centro y oscuro hacia afuera */
-```
+    /* Permite posicionar elementos */
+    position: relative;
 
+    /* Fondo con iluminación radial */
+    background:
+        radial-gradient(
+            circle at center,
+            #1b1711 0%,
+            var(--black) 65%
+        );
 }
 
+
+/* Ornamento de introducción */
 .intro .ornament {
-margin: 35px 0;           /* Espacio alrededor del ornamento */
+
+    /* Separación vertical */
+    margin: 35px 0;
 }
 
+
 /* =========================================================
-CONTADOR
+   CONTADOR
 ========================================================= */
 
+/* Sección del contador */
 .countdown-section {
-width: 100%;
 
-```
-padding: 100px 20px;
+    /* Ancho completo */
+    width: 100%;
 
-background:
-    linear-gradient(
-        135deg,
-        #16130e,
-        #080706
-    );
-/* Degradado diagonal */
+    /* Espaciado */
+    padding: 100px 20px;
 
-text-align: center;
-```
+    /* Fondo degradado */
+    background:
+        linear-gradient(
+            135deg,
+            #16130e,
+            #080706
+        );
 
+    /* Centra el contenido */
+    text-align: center;
 }
 
+
+/* Título del contador */
 .countdown-section h2 {
-margin: 20px 0 50px;
 
-```
-font-family: 'Cormorant Garamond', serif;
+    /* Separación */
+    margin: 20px 0 50px;
 
-font-size: clamp(
-    50px,
-    10vw,
-    70px
-);
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
 
-font-weight: 300;
-```
+    /* Tamaño adaptable */
+    font-size: clamp(
+        50px,
+        10vw,
+        70px
+    );
 
+    /* Grosor */
+    font-weight: 300;
 }
 
+
+/* Contenedor de los números */
 .countdown {
-width: 100%;
 
-```
-display: flex;
-/* Organiza los elementos horizontalmente */
+    /* Ancho completo */
+    width: 100%;
 
-align-items: center;
-/* Centra verticalmente */
+    /* Activa Flexbox */
+    display: flex;
 
-justify-content: center;
-/* Centra horizontalmente */
+    /* Centra verticalmente */
+    align-items: center;
 
-gap: clamp(
-    15px,
-    5vw,
-    60px
-);
-/* Espacio adaptable entre números */
-```
+    /* Centra horizontalmente */
+    justify-content: center;
 
+    /* Espacio adaptable */
+    gap: clamp(
+        15px,
+        5vw,
+        60px
+    );
 }
 
+
+/* Cada bloque del contador */
 .count-item {
-min-width: 60px;
-/* Cada elemento tiene al menos 60px */
+
+    /* Ancho mínimo */
+    min-width: 60px;
+
+    /* Evita que se estire */
+    flex: 0 0 auto;
 }
 
+
+/* Número del contador */
 .count-item span {
-display: block;
 
-```
-font-family: 'Cormorant Garamond', serif;
+    /* Ocupa una línea */
+    display: block;
 
-font-size: clamp(
-    40px,
-    9vw,
-    70px
-);
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
 
-line-height: 1;
+    /* Tamaño adaptable */
+    font-size: clamp(
+        40px,
+        9vw,
+        70px
+    );
 
-color: var(--gold-light);
-```
+    /* Altura de línea */
+    line-height: 1;
 
+    /* Color dorado */
+    color: var(--gold-light);
 }
 
+
+/* Texto debajo de cada número */
 .count-item small {
-display: block;
 
-```
-margin-top: 10px;
+    /* Ocupa una línea */
+    display: block;
 
-font-size: 8px;
+    /* Separación */
+    margin-top: 10px;
 
-letter-spacing: 3px;
+    /* Tamaño */
+    font-size: 8px;
 
-color:
-    rgba(
-        247,
-        242,
-        233,
-        .55
-    );
-```
+    /* Separación entre letras */
+    letter-spacing: 3px;
 
+    /* Color tenue */
+    color:
+        rgba(
+            247,
+            242,
+            233,
+            .55
+        );
 }
 
+
+/* Mensaje mostrado cuando llega el día */
 .today-message {
-font-family: 'Cormorant Garamond', serif;
 
-```
-font-size: 30px;
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
 
-color: var(--gold-light);
-```
+    /* Tamaño */
+    font-size: 30px;
 
+    /* Dorado */
+    color: var(--gold-light);
 }
 
+
 /* =========================================================
-FECHA
+   FECHA
 ========================================================= */
 
+/* Sección de la fecha */
 .date-section {
-background: var(--cream); /* Fondo crema */
 
-```
-color: var(--text-dark);  /* Texto oscuro */
-```
+    /* Fondo crema */
+    background: var(--cream);
 
+    /* Texto oscuro */
+    color: var(--text-dark);
 }
 
+
+/* Etiqueta de la fecha */
 .date-section .section-label {
-color: var(--gold-dark);  /* Etiqueta dorada oscura */
+
+    /* Dorado oscuro */
+    color: var(--gold-dark);
 }
 
+
+/* Número grande del día */
 .date-section h2 {
-margin-top: 25px;
 
-```
-font-size: clamp(
-    120px,
-    30vw,
-    220px
-);
+    /* Separación superior */
+    margin-top: 25px;
 
-line-height: .7;
+    /* Tamaño adaptable */
+    font-size: clamp(
+        120px,
+        30vw,
+        220px
+    );
 
-color: var(--text-dark);
-```
+    /* Altura de línea */
+    line-height: .7;
 
+    /* Color oscuro */
+    color: var(--text-dark);
 }
 
+
+/* Nombre del mes */
 .month {
-margin-top: 25px;
 
-```
-font-size: 15px;
+    /* Separación superior */
+    margin-top: 25px;
 
-letter-spacing: 7px;
-```
+    /* Tamaño */
+    font-size: 15px;
 
+    /* Separación de letras */
+    letter-spacing: 7px;
 }
 
+
+/* Año */
 .year {
-margin-top: 10px;
 
-```
-font-family: 'Cormorant Garamond', serif;
+    /* Separación superior */
+    margin-top: 10px;
 
-font-size: 32px;
-```
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
+    /* Tamaño */
+    font-size: 32px;
 }
 
+
+/* Detalles de la fecha */
 .date-details {
-width: 100%;
 
-```
-max-width: 500px;
+    /* Ancho */
+    width: 100%;
 
-margin: 60px auto 0;
+    /* Ancho máximo */
+    max-width: 500px;
 
-display: flex;
+    /* Centra */
+    margin: 60px auto 0;
 
-justify-content: center;
+    /* Activa Flexbox */
+    display: flex;
 
-gap: 60px;
-```
+    /* Centra */
+    justify-content: center;
 
+    /* Espacio entre elementos */
+    gap: 60px;
 }
 
+
+/* Cada detalle de fecha */
 .date-details div {
-display: flex;
 
-```
-flex-direction: column;
-/* Coloca los elementos verticalmente */
+    /* Activa Flexbox */
+    display: flex;
 
-gap: 8px;
+    /* Coloca elementos verticalmente */
+    flex-direction: column;
 
-min-width: 100px;
-```
+    /* Espacio entre elementos */
+    gap: 8px;
 
+    /* Ancho mínimo */
+    min-width: 100px;
 }
 
+
+/* Títulos de los detalles */
 .date-details strong {
-font-size: 9px;
 
-```
-letter-spacing: 3px;
-```
+    /* Tamaño */
+    font-size: 9px;
 
+    /* Separación de letras */
+    letter-spacing: 3px;
 }
 
+
+/* Valores de los detalles */
 .date-details span {
-font-family: 'Cormorant Garamond', serif;
 
-```
-font-size: 25px;
-```
+    /* Fuente elegante */
+    font-family: 'Cormorant Garamond', serif;
 
+    /* Tamaño */
+    font-size: 25px;
 }
 
+
 /* =========================================================
-FAMILIA
+   FAMILIA
 ========================================================= */
 
+/* Sección de la familia */
 .family-section {
-background:
-linear-gradient(
-rgba(10, 8, 5, .94),
-rgba(10, 8, 5, .94)
-),
-url('../images/familia.jpg')
-center center /
-cover no-repeat;
-/* Imagen de familia con una capa oscura encima */
+
+    /* Fondo oscuro sobre fotografía */
+    background:
+        linear-gradient(
+            rgba(10, 8, 5, .94),
+            rgba(10, 8, 5, .94)
+        ),
+        url('../images/familia.jpg')
+        center center /
+        cover no-repeat;
 }
 
+
+/* Tarjeta de familia */
 .family-card {
-width: 100%;
 
-```
-max-width: 500px;
-
-margin: 40px auto 80px;
-
-padding: 35px 20px;
-
-border-top:
-    1px solid
-    rgba(
-        201,
-        164,
-        92,
-        .4
-    );
-
-border-bottom:
-    1px solid
-    rgba(
-        201,
-        164,
-        92,
-        .4
-    );
-```
-
-}
-
-.family-card p {
-margin: 12px 0;
-
-```
-font-family: 'Cormorant Garamond', serif;
-
-font-size: 27px;
-
-line-height: 1.2;
-
-color: var(--cream);
-
-overflow-wrap: break-word;
-/* Permite romper palabras si es necesario */
-```
-
-}
-
-.family-card span {
-color: var(--gold);
-}
-
-.sub-heading {
-font-size: 50px !important;
-/* !important hace que esta regla tenga prioridad */
-}
-
-/* =========================================================
-EVENTOS
-========================================================= */
-
-.event-section {
-position: relative;
-
-```
-width: 100%;
-
-min-height: 80vh;
-min-height: 80svh;
-
-display: flex;
-
-align-items: center;
-
-justify-content: center;
-
-overflow: hidden;
-
-background-size: cover;
-/* La imagen cubre el área */
-
-background-position: center;
-/* Centra la imagen */
-
-text-align: center;
-```
-
-}
-
-.event-section::after {
-content: "";
-
-```
-position: absolute;
-
-inset: 0;
-
-margin: 20px;
-
-border:
-    1px solid
-    rgba(
-        229,
-        207,
-        156,
-        .15
-    );
-
-pointer-events: none;
-```
-
-}
-
-.ceremony {
-background:
-linear-gradient(
-rgba(5, 4, 3, .42),
-rgba(5, 4, 3, .88)
-),
-url('../images/ceremonia.jpg')
-center center /
-cover no-repeat;
-}
-
-.reception {
-background:
-linear-gradient(
-rgba(5, 4, 3, .42),
-rgba(5, 4, 3, .88)
-),
-url('../images/recepcion.jpg')
-center center /
-cover no-repeat;
-}
-
-.event-content {
-position: relative;
-
-```
-z-index: 2;
-
-width: 100%;
-
-max-width: 800px;
-
-padding: 30px 20px;
-```
-
-}
-
-.event-content h2 {
-margin: 25px 0;
-
-```
-font-family: 'Cormorant Garamond', serif;
-
-font-size: clamp(
-    50px,
-    11vw,
-    100px
-);
-
-font-weight: 300;
-
-line-height: .9;
-```
-
-}
-
-.event-time {
-margin-bottom: 30px;
-
-```
-font-family: 'Cormorant Garamond', serif;
-
-font-size: 30px;
-
-color: var(--gold-light);
-```
-
-}
-
-/* =========================================================
-BOTONES DORADOS
-========================================================= */
-
-.gold-button {
-display: inline-flex;
-/* Flexbox pero solamente ocupa el espacio necesario */
-
-```
-align-items: center;
-/* Centra verticalmente */
-
-justify-content: center;
-/* Centra horizontalmente */
-
-padding: 15px 25px;
-
-border:
-    1px solid var(--gold);
-
-font-size: 9px;
-
-font-weight: 500;
-
-letter-spacing: 3px;
-
-text-transform: uppercase;
-
-transition:
-    background .4s ease,
-    color .4s ease,
-    transform .4s ease;
-```
-
-}
-
-.gold-button:hover {
-background: var(--gold);
-
-```
-color: var(--black);
-
-transform: translateY(-2px);
-/* Sube ligeramente al pasar el cursor */
-```
-
-}
-
-/* =========================================================
-GALERÍA
-========================================================= */
-
-.gallery {
-width: 100%;
-
-```
-max-width: 1000px;
-
-margin: 50px auto 0;
-
-display: grid;
-/* Activa CSS Grid */
-
-grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-/* Crea dos columnas */
-
-gap: 8px;
-/* Espacio entre fotografías */
-```
-
-}
-
-.gallery-item {
-position: relative;
-
-```
-min-height: 220px;
-
-overflow: hidden;
-
-background: #15120f;
-```
-
-}
-
-.gallery-item.large {
-grid-row: span 2;
-/* Este elemento ocupa dos filas */
-}
-
-.gallery-item.wide {
-grid-column: span 2;
-/* Este elemento ocupa dos columnas */
-}
-
-.gallery-item img {
-width: 100%;
-
-```
-height: 100%;
-
-object-fit: cover;
-/* La imagen llena el espacio sin deformarse */
-
-transition:
-    transform 1s ease;
-/* Suaviza el zoom */
-```
-
-}
-
-.gallery-item:hover img {
-transform: scale(1.05);
-/* Amplía la imagen 5% al pasar el cursor */
-}
-
-/* =========================================================
-VESTIMENTA
-========================================================= */
-
-.dress-section {
-background: var(--cream);
-
-```
-color: var(--text-dark);
-```
-
-}
-
-.dress-section .section-label {
-color: var(--gold-dark);
-}
-
-.dress-section h2 {
-color: var(--text-dark);
-}
-
-.dress-section p {
-color:
-rgba(
-27,
-24,
-20,
-.68
-);
-}
-
-.dress-icon {
-margin: 30px 0;
-
-```
-color: var(--gold);
-
-font-size: 60px;
-```
-
-}
-
-/* =========================================================
-LLUVIA DE SOBRES
-========================================================= */
-
-.envelopes-section {
-background:
-radial-gradient(
-circle at center,
-#211a10,
-#090807 65%
-);
-}
-
-.envelope-icon {
-margin: 30px 0;
-
-```
-color: var(--gold-light);
-
-font-size: 50px;
-```
-
-}
-
-/* =========================================================
-TIMELINE
-========================================================= */
-
-.timeline {
-position: relative;
-
-```
-width: 100%;
-
-max-width: 550px;
-
-margin: 60px auto;
-```
-
-}
-
-.timeline::before {
-content: "";
-
-```
-position: absolute;
-
-left: 50%;
-
-top: 0;
-
-bottom: 0;
-
-width: 1px;
-
-background:
-    rgba(
-        201,
-        164,
-        92,
-        .5
-    );
-/* Línea vertical central */
-```
-
-}
-
-.timeline-item {
-position: relative;
-
-```
-padding: 35px 20px;
-
-display: flex;
-
-flex-direction: column;
-
-gap: 8px;
-
-text-align: center;
-```
-
-}
-
-.timeline-item::before {
-content: "";
-
-```
-position: absolute;
-
-left: 50%;
-
-top: 0;
-
-width: 7px;
-
-height: 7px;
-
-border-radius: 50%;
-/* Convierte el cuadrado en círculo */
-
-background: var(--gold);
-
-transform:
-    translateX(-50%);
-/* Centra el círculo exactamente sobre la línea */
-```
-
-}
-
-.timeline-item span {
-color: var(--gold-light);
-
-```
-font-size: 10px;
-
-letter-spacing: 3px;
-```
-
-}
-
-.timeline-item strong {
-font-family: 'Cormorant Garamond', serif;
-
-```
-font-size: 30px;
-
-font-weight: 400;
-```
-
-}
-
-/* =========================================================
-PASE
-========================================================= */
-
-.pass-section {
-width: 100%;
-
-```
-padding: 100px 20px;
-
-background: var(--cream);
-```
-
-}
-
-.pass-card {
-width: 100%;
-
-```
-max-width: 450px;
-
-margin: auto;
-
-padding: 60px 30px;
-
-text-align: center;
-
-color: var(--text-dark);
-
-background:
-    linear-gradient(
-        145deg,
-        #fffdf8,
-        #e9dfce
-    );
-
-border:
-    1px solid var(--gold);
-
-box-shadow:
-    0 30px 80px
-    rgba(
-        0,
-        0,
-        0,
-        .25
-    );
-```
-
-}
-
-.pass-card .section-label {
-color: var(--gold-dark);
-}
-
-.pass-card h2 {
-margin: 30px 0 5px;
-
-```
-font-family: 'Cormorant Garamond', serif;
-
-font-size: 65px;
-
-font-weight: 300;
-```
-
-}
-
-.pass-name {
-font-family: 'Cormorant Garamond', serif;
-
-```
-font-size: 35px;
-
-font-style: italic;
-```
-
-}
-
-.pass-line {
-width: 70px;              /* Largo de la línea */
-
-```
-height: 1px;              /* Grosor */
-
-margin: 30px auto;        /* Separación y centrado */
-
-background: var(--gold);  /* Dorado */
-```
-
-}
-
-.pass-card p {
-margin: 5px;
-
-```
-font-size: 11px;
-
-letter-spacing: 2px;
-
-text-transform: uppercase;
-```
-
-}
-
-.pass-number {
-display: block;
-
-```
-margin: 10px;
-
-font-family: 'Cormorant Garamond', serif;
-
-font-size: 50px;
-
-font-weight: 400;
-```
-
-}
-
-/* =========================================================
-WHATSAPP
-========================================================= */
-
-.rsvp-section {
-padding-bottom: 130px;
-/* Espacio adicional debajo de la sección */
-}
-
-.whatsapp-button {
-display: inline-flex;
-
-```
-align-items: center;
-
-justify-content: center;
-
-margin-top: 25px;
-
-padding: 17px 30px;
-
-border-radius: 2px;
-/* Redondeado muy pequeño */
-
-background: #25d366;
-/* Verde de WhatsApp */
-
-color: #fff;
-
-font-size: 10px;
-
-font-weight: 500;
-
-letter-spacing: 2px;
-
-text-transform: uppercase;
-
-transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-```
-
-}
-
-.whatsapp-button:hover {
-transform: translateY(-3px);
-
-```
-box-shadow:
-    0 10px 30px
-    rgba(
-        37,
-        211,
-        102,
-        .25
-    );
-```
-
-}
-
-/* =========================================================
-MÚSICA
-========================================================= */
-
-.music-button {
-position: fixed;
-/* Permanece fijo aunque se haga scroll */
-
-```
-right: 20px;
-/* 20px desde la derecha */
-
-bottom: 20px;
-/* 20px desde abajo */
-
-z-index: 500;
-/* Capa superior */
-
-width: 50px;
-height: 50px;
-
-border-radius: 50%;
-/* Lo convierte en círculo */
-
-border:
-    1px solid var(--gold);
-
-background:
-    rgba(
-        10,
-        8,
-        5,
-        .82
-    );
-
-color: var(--gold-light);
-
-cursor: pointer;
-
-backdrop-filter: blur(10px);
-/* Desenfoca lo que está detrás */
-
--webkit-backdrop-filter: blur(10px);
-/* Versión compatible con WebKit */
-
-transition:
-    transform .3s ease,
-    background .3s ease;
-```
-
-}
-
-.music-button:hover {
-transform: scale(1.05);
-
-```
-background:
-    rgba(
-        25,
-        20,
-        12,
-        .95
-    );
-```
-
-}
-
-.music-button.playing {
-animation:
-musicPulse 2s infinite;
-/* Pulso continuo cuando está reproduciendo */
-}
-
-@keyframes musicPulse {
-
-```
-0%,
-100% {
-    box-shadow:
-        0 0 0 0
+    /* Ancho */
+    width: 100%;
+
+    /* Ancho máximo */
+    max-width: 500px;
+
+    /* Centra */
+    margin: 40px auto 80px;
+
+    /* Espaciado interno */
+    padding: 35px 20px;
+
+    /* Línea superior */
+    border-top:
+        1px solid
+        rgba(
+            201,
+            164,
+            92,
+            .4
+        );
+
+    /* Línea inferior */
+    border-bottom:
+        1px solid
         rgba(
             201,
             164,
@@ -1990,859 +1611,2093 @@ musicPulse 2s infinite;
         );
 }
 
-50% {
-    box-shadow:
-        0 0 0 12px
-        rgba(
-            201,
-            164,
-            92,
-            0
-        );
-}
-```
 
-}
-
-/* =========================================================
-FOOTER
-========================================================= */
-
-.footer {
-width: 100%;
-
-```
-padding: 100px 20px;
-
-text-align: center;
-
-background: #050504;
-```
-
-}
-
-.footer h2 {
-font-family: 'Cormorant Garamond', serif;
-
-```
-font-size: 80px;
-
-font-weight: 300;
-
-line-height: .9;
-```
-
-}
-
-.footer p {
-margin: 15px 0;
-
-```
-color: var(--gold-light);
-
-font-size: 10px;
-
-letter-spacing: 3px;
-```
-
-}
-
-.footer span {
-color:
-rgba(
-247,
-242,
-233,
-.5
-);
-
-```
-font-family: 'Cormorant Garamond', serif;
-
-font-style: italic;
-```
-
-}
-
-/* =========================================================
-ANIMACIONES SCROLL
-========================================================= */
-
-.reveal {
-opacity: 0;
-/* Elementos empiezan invisibles */
-
-```
-transform:
-    translateY(30px);
-/* Empiezan 30px más abajo */
-
-transition:
-    opacity .8s ease,
-    transform .8s ease;
-/* Suaviza la aparición */
-```
-
-}
-
-.reveal.visible {
-opacity: 1;
-/* Cuando aparece, es totalmente visible */
-
-```
-transform:
-    translateY(0);
-/* Regresa a su posición original */
-```
-
-}
-
-/* =========================================================
-RESPONSIVE — TABLET
-========================================================= */
-
-@media (max-width: 768px) {
-/* Estas reglas se aplican cuando la pantalla mide
-768px de ancho o menos */
-
-```
-.opening-content {
-    padding: 20px;
-    /* Reduce el espacio interno */
-}
-
-.hero::after {
-    margin: 12px;
-    /* Reduce el marco */
-}
-
-.hero-content {
-    padding: 30px 20px;
-    /* Reduce el espacio del contenido */
-}
-
-.section {
-    padding: 90px 20px;
-    /* Reduce el espacio de las secciones */
-}
-
-.date-details {
-    gap: 35px;
-    /* Reduce la separación */
-}
-
-.event-section::after {
-    margin: 12px;
-    /* Reduce el marco */
-}
-
-.event-content {
-    padding: 30px 20px;
-    /* Reduce espacio en eventos */
-}
-```
-
-}
-
-/* =========================================================
-RESPONSIVE — MÓVIL
-========================================================= */
-
-@media (max-width: 600px) {
-/* Todo lo que está aquí se aplica en pantallas
-de 600px o menos */
-
-```
-/* -----------------------------------------
-   GENERAL
------------------------------------------ */
-
-body {
-    width: 100%;
-    overflow-x: hidden;
-    /* Evita desplazamiento lateral */
-}
-
-.small-label,
-.section-label,
-.eyebrow {
-    font-size: 8px;
-    /* Reduce etiquetas */
-
-    letter-spacing: 3px;
-    /* Reduce separación entre letras */
-}
-
-
-/* -----------------------------------------
-   PORTADA
------------------------------------------ */
-
-.opening {
-    padding: 15px;
-
-    background-position: center center;
-    /* Centra el fondo */
-}
-
-.opening-content {
-    width: 100%;
-
-    padding:
-        20px 10px;
-}
-
-.opening-decoration {
-    width: clamp(180px, 50vw, 600px);
-    /* Tamaño adaptable */
-}
-
-.decoration-top-right {
-    top: 0px;
-
-    right: -40px;
-}
-
-.decoration-bottom-left {
-    bottom: 0px;
-
-    left: -40px;
-}
-
-.opening .small-label {
-    margin-bottom: 18px;
-
-    font-size: 8px;
-
-    letter-spacing: 3px;
-}
-
-.opening h1 {
-    margin-top: 20px;
-
-    font-size:
-        clamp(
-            70px,
-            22vw,
-            105px
-        );
-}
-
-.opening-name {
-    margin-top: 18px;
-
-    font-size:
-        clamp(
-            38px,
-            11vw,
-            48px
-        );
-}
-
-.opening .ornament {
-    margin: 22px 0;
-
-    font-size: 16px;
-}
-
-.open-button {
-    width: 100%;
-
-    max-width: 240px;
-
-    padding:
-        16px 20px;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-}
-
-
-/* -----------------------------------------
-   HERO
------------------------------------------ */
-
-.hero {
-    min-height: 100vh;
-
-    min-height: 100svh;
-
-    padding: 20px 0;
-    /* Espacio vertical */
-}
-
-.hero::after {
-    margin: 10px;
-    /* Marco más pequeño */
-}
-
-.hero-content {
-    width: 100%;
-
-    padding:
-        30px 18px;
-}
-
-.hero h1 {
-    font-size:
-        clamp(
-            70px,
-            22vw,
-            130px
-        );
-    /* Reduce el tamaño del nombre */
-}
-
-.hero p {
-    max-width: 300px;
-
-    margin:
-        20px auto;
-
-    font-size:
-        clamp(
-            20px,
-            5.5vw,
-            25px
-        );
-}
-
-.hero-date {
-    margin-top: 28px;
-
-    font-size: 9px;
-
-    letter-spacing: 4px;
-}
-
-.hero-photo {
-    width: 300px;
-    /* Foto más pequeña en móvil */
-
-    max-width: 80vw;
-    /* Nunca supera el 80% del ancho */
-}
-
-
-/* -----------------------------------------
-   SECCIONES
------------------------------------------ */
-
-.section {
-    padding:
-        80px 18px;
-}
-
-.section h2 {
-    font-size:
-        clamp(
-            42px,
-            11vw,
-            65px
-        );
-}
-
-.section p {
-    font-size: 13px;
-
-    line-height: 1.8;
-}
-
-
-/* -----------------------------------------
-   CONTADOR
------------------------------------------ */
-
-.countdown-section {
-    padding:
-        80px 12px;
-}
-
-.countdown-section h2 {
-    margin:
-        20px 0 40px;
-
-    font-size:
-        clamp(
-            42px,
-            11vw,
-            60px
-        );
-}
-
-.countdown {
-    width: 100%;
-
-    gap:
-        clamp(
-            6px,
-            2.5vw,
-            15px
-        );
-}
-
-.count-item {
-    min-width: 48px;
-}
-
-.count-item span {
-    font-size:
-        clamp(
-            32px,
-            9vw,
-            42px
-        );
-}
-
-.count-item small {
-    margin-top: 8px;
-
-    font-size: 6px;
-
-    letter-spacing: 1.5px;
-}
-
-
-/* -----------------------------------------
-   FECHA
------------------------------------------ */
-
-.date-section h2 {
-    font-size:
-        clamp(
-            110px,
-            35vw,
-            180px
-        );
-}
-
-.month {
-    margin-top: 22px;
-
-    font-size: 12px;
-
-    letter-spacing: 5px;
-}
-
-.year {
-    font-size: 28px;
-}
-
-.date-details {
-    width: 100%;
-
-    margin-top: 45px;
-
-    gap:
-        clamp(
-            15px,
-            6vw,
-            30px
-        );
-}
-
-.date-details div {
-    min-width: 0;
-
-    flex: 1;
-    /* Permite que cada elemento comparta el espacio */
-}
-
-.date-details span {
-    font-size: 20px;
-}
-
-.date-details strong {
-    font-size: 7px;
-
-    letter-spacing: 1.5px;
-}
-
-
-/* -----------------------------------------
-   FAMILIA
------------------------------------------ */
-
-.family-card {
-    width: 100%;
-
-    margin:
-        35px auto 60px;
-
-    padding:
-        30px 15px;
-}
-
+/* Texto de la tarjeta */
 .family-card p {
-    font-size:
-        clamp(
-            21px,
-            6vw,
-            25px
-        );
 
-    overflow-wrap:
-        anywhere;
-    /* Puede romper palabras en cualquier punto */
+    /* Separación vertical */
+    margin: 12px 0;
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 27px;
+
+    /* Altura */
+    line-height: 1.2;
+
+    /* Color */
+    color: var(--cream);
+
+    /* Permite dividir palabras largas */
+    overflow-wrap: break-word;
 }
 
+
+/* Elementos destacados de la familia */
+.family-card span {
+
+    /* Color dorado */
+    color: var(--gold);
+}
+
+
+/* Subtítulo de familia */
 .sub-heading {
-    font-size:
-        40px !important;
+
+    /* Tamaño con prioridad */
+    font-size: 50px !important;
 }
 
 
-/* -----------------------------------------
+/* =========================================================
    EVENTOS
------------------------------------------ */
+========================================================= */
 
+/* Secciones de ceremonia y recepción */
 .event-section {
-    min-height: 75vh;
 
-    min-height: 75svh;
-}
+    /* Permite posicionar elementos */
+    position: relative;
 
-.event-section::after {
-    margin: 10px;
-}
-
-.event-content {
+    /* Ancho */
     width: 100%;
 
-    padding:
-        25px 18px;
+    /* Altura mínima */
+    min-height: 80vh;
+
+    /* Altura segura */
+    min-height: 80svh;
+
+    /* Flexbox */
+    display: flex;
+
+    /* Centra verticalmente */
+    align-items: center;
+
+    /* Centra horizontalmente */
+    justify-content: center;
+
+    /* Oculta exceso */
+    overflow: hidden;
+
+    /* Tamaño del fondo */
+    background-size: cover;
+
+    /* Posición del fondo */
+    background-position: center;
+
+    /* Centra texto */
+    text-align: center;
 }
 
-.event-content h2 {
-    font-size:
-        clamp(
-            43px,
-            11vw,
-            70px
+
+/* Borde decorativo de los eventos */
+.event-section::after {
+
+    /* Crea el elemento */
+    content: "";
+
+    /* Posición */
+    position: absolute;
+
+    /* Ocupa todo */
+    inset: 0;
+
+    /* Margen */
+    margin: 20px;
+
+    /* Borde */
+    border:
+        1px solid
+        rgba(
+            229,
+            207,
+            156,
+            .15
         );
 
+    /* No bloquea clics */
+    pointer-events: none;
+}
+
+
+/* Fondo de ceremonia */
+.ceremony {
+
+    /* Imagen y capa oscura */
+    background:
+        linear-gradient(
+            rgba(5, 4, 3, .42),
+            rgba(5, 4, 3, .88)
+        ),
+        url('../images/ceremonia.jpg')
+        center center /
+        cover no-repeat;
+}
+
+
+/* Fondo de recepción */
+.reception {
+
+    /* Imagen y capa oscura */
+    background:
+        linear-gradient(
+            rgba(5, 4, 3, .42),
+            rgba(5, 4, 3, .88)
+        ),
+        url('../images/recepcion.jpg')
+        center center /
+        cover no-repeat;
+}
+
+
+/* Contenido de eventos */
+.event-content {
+
+    /* Posición */
+    position: relative;
+
+    /* Sobre el fondo */
+    z-index: 2;
+
+    /* Ancho */
+    width: 100%;
+
+    /* Ancho máximo */
+    max-width: 800px;
+
+    /* Espaciado */
+    padding: 30px 20px;
+}
+
+
+/* Título de evento */
+.event-content h2 {
+
+    /* Margen */
+    margin: 25px 0;
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño adaptable */
+    font-size: clamp(
+        50px,
+        11vw,
+        100px
+    );
+
+    /* Grosor */
+    font-weight: 300;
+
+    /* Altura */
     line-height: .9;
 }
 
+
+/* Hora del evento */
 .event-time {
-    font-size: 27px;
+
+    /* Separación inferior */
+    margin-bottom: 30px;
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 30px;
+
+    /* Color */
+    color: var(--gold-light);
 }
 
+
+/* =========================================================
+   BOTONES DORADOS
+========================================================= */
+
+/* Botones secundarios */
 .gold-button {
-    padding:
-        14px 20px;
 
-    font-size: 8px;
+    /* Permite colocarlo en línea */
+    display: inline-flex;
 
-    letter-spacing: 2px;
+    /* Centra verticalmente */
+    align-items: center;
+
+    /* Centra horizontalmente */
+    justify-content: center;
+
+    /* Espaciado */
+    padding: 15px 25px;
+
+    /* Borde */
+    border:
+        1px solid var(--gold);
+
+    /* Tamaño */
+    font-size: 9px;
+
+    /* Grosor */
+    font-weight: 500;
+
+    /* Separación */
+    letter-spacing: 3px;
+
+    /* Mayúsculas */
+    text-transform: uppercase;
+
+    /* Transiciones */
+    transition:
+        background .4s ease,
+        color .4s ease,
+        transform .4s ease;
 }
 
 
-/* -----------------------------------------
-   GALERÍA
------------------------------------------ */
+/* Efecto hover */
+.gold-button:hover {
 
+    /* Fondo dorado */
+    background: var(--gold);
+
+    /* Texto negro */
+    color: var(--black);
+
+    /* Sube ligeramente */
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+/* Contenedor de galería */
 .gallery {
+
+    /* Ancho */
     width: 100%;
 
+    /* Ancho máximo */
+    max-width: 1000px;
+
+    /* Centra */
+    margin: 50px auto 0;
+
+    /* Activa Grid */
+    display: grid;
+
+    /* Dos columnas */
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0, 1fr)
-        );
+        repeat(2, minmax(0, 1fr));
 
-    gap: 6px;
+    /* Espacio */
+    gap: 8px;
 }
 
+
+/* Cada imagen de galería */
 .gallery-item {
-    min-height: 180px;
+
+    /* Permite posicionar contenido */
+    position: relative;
+
+    /* Altura mínima */
+    min-height: 220px;
+
+    /* Oculta exceso */
+    overflow: hidden;
+
+    /* Fondo */
+    background: #15120f;
 }
 
 
-/* -----------------------------------------
+/* Imagen grande */
+.gallery-item.large {
+
+    /* Ocupa dos filas */
+    grid-row: span 2;
+}
+
+
+/* Imagen ancha */
+.gallery-item.wide {
+
+    /* Ocupa dos columnas */
+    grid-column: span 2;
+}
+
+
+/* Imágenes dentro de la galería */
+.gallery-item img {
+
+    /* Ancho completo */
+    width: 100%;
+
+    /* Alto completo */
+    height: 100%;
+
+    /* Recorta manteniendo proporción */
+    object-fit: cover;
+
+    /* Transición */
+    transition:
+        transform 1s ease;
+}
+
+
+/* Efecto al pasar sobre una imagen */
+.gallery-item:hover img {
+
+    /* Aumenta ligeramente */
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
    VESTIMENTA
------------------------------------------ */
+========================================================= */
 
+/* Sección de vestimenta */
+.dress-section {
+
+    /* Fondo crema */
+    background: var(--cream);
+
+    /* Texto oscuro */
+    color: var(--text-dark);
+}
+
+
+/* Etiqueta de vestimenta */
+.dress-section .section-label {
+
+    /* Dorado oscuro */
+    color: var(--gold-dark);
+}
+
+
+/* Título de vestimenta */
+.dress-section h2 {
+
+    /* Texto oscuro */
+    color: var(--text-dark);
+}
+
+
+/* Párrafos de vestimenta */
+.dress-section p {
+
+    /* Texto oscuro con transparencia */
+    color:
+        rgba(
+            27,
+            24,
+            20,
+            .68
+        );
+}
+
+
+/* Icono de vestimenta */
 .dress-icon {
-    margin: 25px 0;
 
+    /* Separación */
+    margin: 30px 0;
+
+    /* Dorado */
+    color: var(--gold);
+
+    /* Tamaño */
+    font-size: 60px;
+}
+
+
+/* =========================================================
+   LLUVIA DE SOBRES
+========================================================= */
+
+/* Sección de lluvia de sobres */
+.envelopes-section {
+
+    /* Fondo radial */
+    background:
+        radial-gradient(
+            circle at center,
+            #211a10,
+            #090807 65%
+        );
+}
+
+
+/* Icono de sobre */
+.envelope-icon {
+
+    /* Separación */
+    margin: 30px 0;
+
+    /* Color */
+    color: var(--gold-light);
+
+    /* Tamaño */
     font-size: 50px;
 }
 
 
-/* -----------------------------------------
-   SOBRES
------------------------------------------ */
-
-.envelope-icon {
-    margin: 25px 0;
-
-    font-size: 45px;
-}
-
-
-/* -----------------------------------------
+/* =========================================================
    TIMELINE
------------------------------------------ */
+========================================================= */
 
+/* Línea de tiempo */
 .timeline {
-    margin:
-        50px auto;
-}
 
-.timeline-item {
-    padding:
-        32px 15px;
-}
+    /* Permite posicionar los elementos */
+    position: relative;
 
-.timeline-item strong {
-    font-size: 26px;
-}
-
-
-/* -----------------------------------------
-   PASE
------------------------------------------ */
-
-.pass-section {
-    padding:
-        80px 15px;
-}
-
-.pass-card {
-    padding:
-        50px 20px;
-}
-
-.pass-card h2 {
-    font-size: 55px;
-}
-
-.pass-name {
-    font-size: 30px;
-}
-
-.pass-number {
-    font-size: 44px;
-}
-
-
-/* -----------------------------------------
-   WHATSAPP
------------------------------------------ */
-
-.rsvp-section {
-    padding-bottom:
-        110px;
-}
-
-.whatsapp-button {
+    /* Ancho */
     width: 100%;
 
-    max-width: 300px;
+    /* Ancho máximo */
+    max-width: 550px;
 
-    padding:
-        16px 20px;
-
-    font-size: 9px;
+    /* Centra */
+    margin: 60px auto;
 }
 
 
-/* -----------------------------------------
-   MÚSICA
------------------------------------------ */
+/* Línea vertical central */
+.timeline::before {
 
-.music-button {
-    right: 15px;
+    /* Crea la línea */
+    content: "";
 
-    bottom: 15px;
+    /* Posición */
+    position: absolute;
 
-    width: 46px;
+    /* Centrada */
+    left: 50%;
 
-    height: 46px;
+    /* Comienza arriba */
+    top: 0;
+
+    /* Termina abajo */
+    bottom: 0;
+
+    /* Grosor */
+    width: 1px;
+
+    /* Color */
+    background:
+        rgba(
+            201,
+            164,
+            92,
+            .5
+        );
 }
 
 
-/* -----------------------------------------
-   FOOTER
------------------------------------------ */
+/* Cada evento del timeline */
+.timeline-item {
 
-.footer {
-    padding:
-        80px 20px;
+    /* Permite posicionar el punto */
+    position: relative;
+
+    /* Espaciado */
+    padding: 35px 20px;
+
+    /* Flexbox */
+    display: flex;
+
+    /* Elementos verticales */
+    flex-direction: column;
+
+    /* Separación */
+    gap: 8px;
+
+    /* Centra texto */
+    text-align: center;
 }
 
-.footer h2 {
-    font-size: 65px;
-}
-```
 
+/* Punto de cada evento */
+.timeline-item::before {
+
+    /* Crea el punto */
+    content: "";
+
+    /* Posición */
+    position: absolute;
+
+    /* Centrado */
+    left: 50%;
+
+    /* Arriba */
+    top: 0;
+
+    /* Ancho */
+    width: 7px;
+
+    /* Alto */
+    height: 7px;
+
+    /* Forma circular */
+    border-radius: 50%;
+
+    /* Dorado */
+    background: var(--gold);
+
+    /* Centra el punto */
+    transform:
+        translateX(-50%);
 }
+
+
+/* Hora o etiqueta */
+.timeline-item span {
+
+    /* Dorado claro */
+    color: var(--gold-light);
+
+    /* Tamaño */
+    font-size: 10px;
+
+    /* Separación */
+    letter-spacing: 3px;
+}
+
+
+/* Título del evento */
+.timeline-item strong {
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 30px;
+
+    /* Grosor */
+    font-weight: 400;
+}
+
 
 /* =========================================================
-MÓVILES MUY PEQUEÑOS
+   PASE
 ========================================================= */
 
-@media (max-width: 380px) {
-/* Estas reglas se aplican solamente
-cuando la pantalla tiene 380px o menos */
+/* Sección del pase */
+.pass-section {
 
-```
-.opening-decoration {
-    width: 105px;
-    /* Decoraciones más pequeñas */
+    /* Ancho */
+    width: 100%;
+
+    /* Espaciado */
+    padding: 100px 20px;
+
+    /* Fondo crema */
+    background: var(--cream);
 }
 
-.opening-content {
-    padding:
-        15px 8px;
-}
 
-.opening h1 {
-    font-size: 68px;
-}
-
-.opening-name {
-    font-size: 37px;
-}
-
-.opening .small-label {
-    font-size: 7px;
-
-    letter-spacing: 2px;
-}
-
-.countdown {
-    gap: 4px;
-}
-
-.count-item {
-    min-width: 43px;
-}
-
-.count-item span {
-    font-size: 31px;
-}
-
-.count-item small {
-    font-size: 5px;
-
-    letter-spacing: 1px;
-}
-
-.date-details {
-    gap: 10px;
-}
-
-.date-details span {
-    font-size: 18px;
-}
-
-.date-details strong {
-    font-size: 6px;
-}
-
-.gallery-item {
-    min-height: 150px;
-}
-
-.family-card p {
-    font-size: 21px;
-}
-
-.event-content h2 {
-    font-size: 40px;
-}
-
+/* Tarjeta del pase */
 .pass-card {
-    padding:
-        45px 15px;
-}
-```
 
+    /* Ancho */
+    width: 100%;
+
+    /* Ancho máximo */
+    max-width: 450px;
+
+    /* Centra */
+    margin: auto;
+
+    /* Espaciado interno */
+    padding: 60px 30px;
+
+    /* Centra texto */
+    text-align: center;
+
+    /* Texto oscuro */
+    color: var(--text-dark);
+
+    /* Fondo degradado */
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8,
+            #e9dfce
+        );
+
+    /* Borde dorado */
+    border:
+        1px solid var(--gold);
+
+    /* Sombra */
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            .25
+        );
 }
+
+
+/* Etiqueta del pase */
+.pass-card .section-label {
+
+    /* Dorado oscuro */
+    color: var(--gold-dark);
+}
+
+
+/* Título del pase */
+.pass-card h2 {
+
+    /* Separación */
+    margin: 30px 0 5px;
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 65px;
+
+    /* Grosor */
+    font-weight: 300;
+}
+
+
+/* Nombre del pase */
+.pass-name {
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 35px;
+
+    /* Cursiva */
+    font-style: italic;
+}
+
+
+/* Línea del pase */
+.pass-line {
+
+    /* Largo */
+    width: 70px;
+
+    /* Grosor */
+    height: 1px;
+
+    /* Centra */
+    margin: 30px auto;
+
+    /* Dorado */
+    background: var(--gold);
+}
+
+
+/* Texto del pase */
+.pass-card p {
+
+    /* Margen */
+    margin: 5px;
+
+    /* Tamaño */
+    font-size: 11px;
+
+    /* Separación */
+    letter-spacing: 2px;
+
+    /* Mayúsculas */
+    text-transform: uppercase;
+}
+
+
+/* Número del pase */
+.pass-number {
+
+    /* Bloque */
+    display: block;
+
+    /* Margen */
+    margin: 10px;
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 50px;
+
+    /* Grosor */
+    font-weight: 400;
+}
+
 
 /* =========================================================
-SEGURIDAD PARA PANTALLAS MUY ESTRECHAS
+   WHATSAPP
 ========================================================= */
 
+/* Sección de confirmación */
+.rsvp-section {
+
+    /* Mayor espacio inferior */
+    padding-bottom: 130px;
+}
+
+
+/* Botón de WhatsApp */
+.whatsapp-button {
+
+    /* Flexbox */
+    display: inline-flex;
+
+    /* Centra verticalmente */
+    align-items: center;
+
+    /* Centra horizontalmente */
+    justify-content: center;
+
+    /* Separación superior */
+    margin-top: 25px;
+
+    /* Espaciado */
+    padding: 17px 30px;
+
+    /* Bordes ligeramente redondeados */
+    border-radius: 2px;
+
+    /* Fondo verde */
+    background: #25d366;
+
+    /* Texto blanco */
+    color: #fff;
+
+    /* Tamaño */
+    font-size: 10px;
+
+    /* Grosor */
+    font-weight: 500;
+
+    /* Separación */
+    letter-spacing: 2px;
+
+    /* Mayúsculas */
+    text-transform: uppercase;
+
+    /* Transición */
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* Efecto hover */
+.whatsapp-button:hover {
+
+    /* Sube */
+    transform: translateY(-3px);
+
+    /* Sombra verde */
+    box-shadow:
+        0 10px 30px
+        rgba(
+            37,
+            211,
+            102,
+            .25
+        );
+}
+
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+/* Botón flotante de música */
+.music-button {
+
+    /* Posición fija */
+    position: fixed;
+
+    /* Distancia derecha */
+    right: 20px;
+
+    /* Distancia inferior */
+    bottom: 20px;
+
+    /* Nivel */
+    z-index: 500;
+
+    /* Ancho */
+    width: 50px;
+
+    /* Alto */
+    height: 50px;
+
+    /* Circular */
+    border-radius: 50%;
+
+    /* Borde */
+    border:
+        1px solid var(--gold);
+
+    /* Fondo */
+    background:
+        rgba(
+            10,
+            8,
+            5,
+            .82
+        );
+
+    /* Color */
+    color: var(--gold-light);
+
+    /* Cursor */
+    cursor: pointer;
+
+    /* Desenfoque del fondo */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Transición */
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+/* Efecto al pasar el mouse */
+.music-button:hover {
+
+    /* Aumenta ligeramente */
+    transform: scale(1.05);
+
+    /* Fondo más oscuro */
+    background:
+        rgba(
+            25,
+            20,
+            12,
+            .95
+        );
+}
+
+
+/* Estado cuando la música está reproduciéndose */
+.music-button.playing {
+
+    /* Pulso */
+    animation:
+        musicPulse 2s infinite;
+}
+
+
+/* Animación del botón de música */
+@keyframes musicPulse {
+
+    /* Inicio y final */
+    0%,
+    100% {
+
+        /* Sin expansión */
+        box-shadow:
+            0 0 0 0
+            rgba(
+                201,
+                164,
+                92,
+                .4
+            );
+    }
+
+    /* Mitad */
+    50% {
+
+        /* Expande la sombra */
+        box-shadow:
+            0 0 0 12px
+            rgba(
+                201,
+                164,
+                92,
+                0
+            );
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+/* Pie de página */
+.footer {
+
+    /* Ancho */
+    width: 100%;
+
+    /* Espaciado */
+    padding: 100px 20px;
+
+    /* Centra */
+    text-align: center;
+
+    /* Fondo */
+    background: #050504;
+}
+
+
+/* Título del footer */
+.footer h2 {
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Tamaño */
+    font-size: 80px;
+
+    /* Grosor */
+    font-weight: 300;
+
+    /* Altura */
+    line-height: .9;
+}
+
+
+/* Texto del footer */
+.footer p {
+
+    /* Margen */
+    margin: 15px 0;
+
+    /* Dorado */
+    color: var(--gold-light);
+
+    /* Tamaño */
+    font-size: 10px;
+
+    /* Separación */
+    letter-spacing: 3px;
+}
+
+
+/* Texto secundario del footer */
+.footer span {
+
+    /* Color tenue */
+    color:
+        rgba(
+            247,
+            242,
+            233,
+            .5
+        );
+
+    /* Fuente */
+    font-family: 'Cormorant Garamond', serif;
+
+    /* Cursiva */
+    font-style: italic;
+}
+
+
+/* =========================================================
+   ANIMACIONES SCROLL
+========================================================= */
+
+/* Elementos que aparecerán al hacer scroll */
+.reveal {
+
+    /* Comienzan invisibles */
+    opacity: 0;
+
+    /* Comienzan ligeramente abajo */
+    transform:
+        translateY(30px);
+
+    /* Transición */
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+
+/* Estado visible */
+.reveal.visible {
+
+    /* Aparecen */
+    opacity: 1;
+
+    /* Regresan a su posición */
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+/* Ajustes para pantallas de hasta 768px */
+@media (max-width: 768px) {
+
+    /* Reduce el espacio de la portada */
+    .opening-content {
+        padding: 20px;
+    }
+
+    /* Reduce el borde del Hero */
+    .hero::after {
+        margin: 12px;
+    }
+
+    /* Reduce el espacio del contenido */
+    .hero-content {
+        padding: 30px 20px;
+    }
+
+    /* Reduce el espacio general */
+    .section {
+        padding: 90px 20px;
+    }
+
+    /* Reduce separación de detalles */
+    .date-details {
+        gap: 35px;
+    }
+
+    /* Reduce el borde de eventos */
+    .event-section::after {
+        margin: 12px;
+    }
+
+    /* Ajusta el contenido de eventos */
+    .event-content {
+        padding: 30px 20px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+========================================================= */
+
+/* Ajustes para teléfonos */
+@media (max-width: 600px) {
+
+
+    /* -----------------------------------------
+       GENERAL
+    ----------------------------------------- */
+
+    /* Reduce etiquetas en móvil */
+    .small-label,
+    .section-label,
+    .eyebrow {
+
+        /* Tamaño */
+        font-size: 8px;
+
+        /* Separación */
+        letter-spacing: 3px;
+    }
+
+
+    /* -----------------------------------------
+       PORTADA
+    ----------------------------------------- */
+
+    /* Ajustes generales de portada */
+    .opening {
+
+        /* Espacio */
+        padding: 15px;
+
+        /* Centra fondo */
+        background-position: center center;
+    }
+
+
+    /* Contenido de portada */
+    .opening-content {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Espaciado */
+        padding:
+            20px 10px;
+    }
+
+
+    /* Decoraciones */
+    .opening-decoration {
+
+        /* Tamaño adaptable */
+        width: clamp(180px, 50vw, 600px);
+    }
+
+
+    /* Decoración superior */
+    .decoration-top-right {
+
+        /* Arriba */
+        top: 0px;
+
+        /* Derecha */
+        right: -40px;
+    }
+
+
+    /* Decoración inferior */
+    .decoration-bottom-left {
+
+        /* Abajo */
+        bottom: 0px;
+
+        /* Izquierda */
+        left: -40px;
+    }
+
+
+    /* Etiqueta de portada */
+    .opening .small-label {
+
+        /* Margen */
+        margin-bottom: 18px;
+
+        /* Tamaño */
+        font-size: 8px;
+
+        /* Separación */
+        letter-spacing: 3px;
+    }
+
+
+    /* MIS XV móvil */
+    .opening h1 {
+
+        /* Separación superior */
+        margin-top: 20px;
+
+        /* Tamaño adaptable */
+        font-size:
+            clamp( 70px, 22vw,105px);
+    }
+
+
+    /* Nombre móvil */
+    .opening-name {
+
+        /* Separación */
+        margin-top: 18px;
+
+        /* Tamaño adaptable */
+        font-size:
+            clamp(38px,11vw,48px);                                     
+           
+    }
+
+
+    /* Ornamento móvil */
+    .opening .ornament {
+
+        /* Margen */
+        margin: 22px 0;
+
+        /* Tamaño */
+        font-size: 16px;
+    }
+
+
+    /* Botón móvil */
+    .open-button {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Ancho máximo */
+        max-width: 240px;
+
+        /* Espaciado */
+        padding:
+            16px 20px;
+
+        /* Tamaño */
+        font-size: 9px;
+
+        /* Separación */
+        letter-spacing: 2px;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
+
+    /* Hero móvil */
+    .hero {
+
+        /* Altura */
+        min-height: 100vh;
+
+        /* Altura segura */
+        min-height: 100svh;
+
+        /* Espaciado */
+        padding: 20px 0;
+    }
+
+
+    /* Borde móvil */
+    .hero::after {
+
+        /* Margen */
+        margin: 10px;
+    }
+
+
+    /* Contenido Hero móvil */
+    .hero-content {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Espaciado */
+        padding:
+            30px 18px;
+    }
+
+
+    /* Nombre Hero móvil */
+    .hero h1 {
+
+        /* Tamaño */
+        font-size:
+            clamp(
+                70px,
+                22vw,
+                130px
+            );
+    }
+
+
+    /* Texto Hero móvil */
+    .hero p {
+
+        /* Ancho máximo */
+        max-width: 300px;
+
+        /* Margen */
+        margin:
+            20px auto;
+
+        /* Tamaño */
+        font-size:
+            clamp(
+                20px,
+                5.5vw,
+                25px
+            );
+    }
+
+
+    /* Fecha Hero móvil */
+    .hero-date {
+
+        /* Margen */
+        margin-top: 28px;
+
+        /* Tamaño */
+        font-size: 9px;
+
+        /* Separación */
+        letter-spacing: 4px;
+    }
+
+
+    /* Fotografía Hero móvil */
+    .hero-photo {
+
+        /* Ancho */
+        width: 300px;
+
+        /* Ancho máximo */
+        max-width: 80vw;
+    }
+
+
+    /* -----------------------------------------
+       SECCIONES
+    ----------------------------------------- */
+
+    /* Espaciado general móvil */
+    .section {
+
+        /* Reduce el padding */
+        padding:
+            80px 18px;
+    }
+
+
+    /* Títulos generales móvil */
+    .section h2 {
+
+        /* Tamaño adaptable */
+        font-size:
+            clamp(
+                42px,
+                11vw,
+                65px
+            );
+    }
+
+
+    /* Párrafos móvil */
+    .section p {
+
+        /* Tamaño */
+        font-size: 13px;
+
+        /* Altura */
+        line-height: 1.8;
+    }
+
+
+    /* -----------------------------------------
+       CONTADOR
+    ----------------------------------------- */
+
+    /* Contador móvil */
+    .countdown-section {
+
+        /* Espaciado */
+        padding:
+            80px 12px;
+    }
+
+
+    /* Título contador */
+    .countdown-section h2 {
+
+        /* Margen */
+        margin:
+            20px 0 40px;
+
+        /* Tamaño */
+        font-size:
+            clamp(
+                42px,
+                11vw,
+                60px
+            );
+    }
+
+
+    /* Contenedor contador */
+    .countdown {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Separación */
+        gap:
+            clamp(
+                6px,
+                2.5vw,
+                15px
+            );
+    }
+
+
+    /* Elementos contador */
+    .count-item {
+
+        /* Ancho mínimo */
+        min-width: 48px;
+    }
+
+
+    /* Números contador */
+    .count-item span {
+
+        /* Tamaño */
+        font-size:
+            clamp(
+                32px,
+                9vw,
+                42px
+            );
+    }
+
+
+    /* Etiquetas contador */
+    .count-item small {
+
+        /* Margen */
+        margin-top: 8px;
+
+        /* Tamaño */
+        font-size: 6px;
+
+        /* Separación */
+        letter-spacing: 1.5px;
+    }
+
+
+    /* -----------------------------------------
+       FECHA
+    ----------------------------------------- */
+
+    /* Día grande */
+    .date-section h2 {
+
+        /* Tamaño adaptable */
+        font-size:
+            clamp(
+                110px,
+                35vw,
+                180px
+            );
+    }
+
+
+    /* Mes */
+    .month {
+
+        /* Margen */
+        margin-top: 22px;
+
+        /* Tamaño */
+        font-size: 12px;
+
+        /* Separación */
+        letter-spacing: 5px;
+    }
+
+
+    /* Año */
+    .year {
+
+        /* Tamaño */
+        font-size: 28px;
+    }
+
+
+    /* Detalles */
+    .date-details {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Margen */
+        margin-top: 45px;
+
+        /* Separación */
+        gap:
+            clamp(
+                15px,
+                6vw,
+                30px
+            );
+    }
+
+
+    /* Cada detalle */
+    .date-details div {
+
+        /* Ancho mínimo */
+        min-width: 0;
+
+        /* Distribución */
+        flex: 1;
+    }
+
+
+    /* Valores */
+    .date-details span {
+
+        /* Tamaño */
+        font-size: 20px;
+    }
+
+
+    /* Etiquetas */
+    .date-details strong {
+
+        /* Tamaño */
+        font-size: 7px;
+
+        /* Separación */
+        letter-spacing: 1.5px;
+    }
+
+
+    /* -----------------------------------------
+       FAMILIA
+    ----------------------------------------- */
+
+    /* Tarjeta familiar */
+    .family-card {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Margen */
+        margin:
+            35px auto 60px;
+
+        /* Espaciado */
+        padding:
+            30px 15px;
+    }
+
+
+    /* Texto familiar */
+    .family-card p {
+
+        /* Tamaño adaptable */
+        font-size:
+            clamp(
+                21px,
+                6vw,
+                25px
+            );
+
+        /* Permite dividir palabras largas */
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    /* Subtítulo */
+    .sub-heading {
+
+        /* Tamaño */
+        font-size:
+            40px !important;
+    }
+
+
+    /* -----------------------------------------
+       EVENTOS
+    ----------------------------------------- */
+
+    /* Eventos móvil */
+    .event-section {
+
+        /* Altura */
+        min-height: 75vh;
+
+        /* Altura segura */
+        min-height: 75svh;
+    }
+
+
+    /* Borde eventos */
+    .event-section::after {
+
+        /* Margen */
+        margin: 10px;
+    }
+
+
+    /* Contenido eventos */
+    .event-content {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Espaciado */
+        padding:
+            25px 18px;
+    }
+
+
+    /* Título evento */
+    .event-content h2 {
+
+        /* Tamaño */
+        font-size:
+            clamp(
+                43px,
+                11vw,
+                70px
+            );
+
+        /* Altura */
+        line-height: .9;
+    }
+
+
+    /* Hora */
+    .event-time {
+
+        /* Tamaño */
+        font-size: 27px;
+    }
+
+
+    /* Botón dorado */
+    .gold-button {
+
+        /* Espaciado */
+        padding:
+            14px 20px;
+
+        /* Tamaño */
+        font-size: 8px;
+
+        /* Separación */
+        letter-spacing: 2px;
+    }
+
+
+    /* -----------------------------------------
+       GALERÍA
+    ----------------------------------------- */
+
+    /* Galería móvil */
+    .gallery {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Dos columnas */
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        /* Separación */
+        gap: 6px;
+    }
+
+
+    /* Elementos de galería */
+    .gallery-item {
+
+        /* Altura */
+        min-height: 180px;
+    }
+
+
+    /* -----------------------------------------
+       VESTIMENTA
+    ----------------------------------------- */
+
+    /* Icono */
+    .dress-icon {
+
+        /* Margen */
+        margin: 25px 0;
+
+        /* Tamaño */
+        font-size: 50px;
+    }
+
+
+    /* -----------------------------------------
+       SOBRES
+    ----------------------------------------- */
+
+    /* Icono sobre */
+    .envelope-icon {
+
+        /* Margen */
+        margin: 25px 0;
+
+        /* Tamaño */
+        font-size: 45px;
+    }
+
+
+    /* -----------------------------------------
+       TIMELINE
+    ----------------------------------------- */
+
+    /* Timeline */
+    .timeline {
+
+        /* Margen */
+        margin:
+            50px auto;
+    }
+
+
+    /* Elemento timeline */
+    .timeline-item {
+
+        /* Espaciado */
+        padding:
+            32px 15px;
+    }
+
+
+    /* Título timeline */
+    .timeline-item strong {
+
+        /* Tamaño */
+        font-size: 26px;
+    }
+
+
+    /* -----------------------------------------
+       PASE
+    ----------------------------------------- */
+
+    /* Sección pase */
+    .pass-section {
+
+        /* Espaciado */
+        padding:
+            80px 15px;
+    }
+
+
+    /* Tarjeta */
+    .pass-card {
+
+        /* Espaciado */
+        padding:
+            50px 20px;
+    }
+
+
+    /* Título pase */
+    .pass-card h2 {
+
+        /* Tamaño */
+        font-size: 55px;
+    }
+
+
+    /* Nombre pase */
+    .pass-name {
+
+        /* Tamaño */
+        font-size: 30px;
+    }
+
+
+    /* Número */
+    .pass-number {
+
+        /* Tamaño */
+        font-size: 44px;
+    }
+
+
+    /* -----------------------------------------
+       WHATSAPP
+    ----------------------------------------- */
+
+    /* Sección WhatsApp */
+    .rsvp-section {
+
+        /* Espacio inferior */
+        padding-bottom:
+            110px;
+    }
+
+
+    /* Botón WhatsApp */
+    .whatsapp-button {
+
+        /* Ancho */
+        width: 100%;
+
+        /* Ancho máximo */
+        max-width: 300px;
+
+        /* Espaciado */
+        padding:
+            16px 20px;
+
+        /* Tamaño */
+        font-size: 9px;
+    }
+
+
+    /* -----------------------------------------
+       MÚSICA
+    ----------------------------------------- */
+
+    /* Botón música móvil */
+    .music-button {
+
+        /* Derecha */
+        right: 15px;
+
+        /* Abajo */
+        bottom: 15px;
+
+        /* Ancho */
+        width: 46px;
+
+        /* Alto */
+        height: 46px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
+
+    /* Footer móvil */
+    .footer {
+
+        /* Espaciado */
+        padding:
+            80px 20px;
+    }
+
+
+    /* Título footer */
+    .footer h2 {
+
+        /* Tamaño */
+        font-size: 65px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVILES MUY PEQUEÑOS
+========================================================= */
+
+/* Ajustes para teléfonos de hasta 380px */
+@media (max-width: 380px) {
+
+
+    /* Decoraciones pequeñas */
+    .opening-decoration {
+
+        /* Ancho */
+        width: 105px;
+    }
+
+
+    /* Contenido portada */
+    .opening-content {
+
+        /* Espaciado */
+        padding:
+            15px 8px;
+    }
+
+
+    /* MIS XV */
+    .opening h1 {
+
+        /* Tamaño */
+        font-size: 68px;
+    }
+
+
+    /* Nombre */
+    .opening-name {
+
+        /* Tamaño */
+        font-size: 37px;
+    }
+
+
+    /* Etiqueta */
+    .opening .small-label {
+
+        /* Tamaño */
+        font-size: 7px;
+
+        /* Separación */
+        letter-spacing: 2px;
+    }
+
+
+    /* Contador */
+    .countdown {
+
+        /* Espacio */
+        gap: 4px;
+    }
+
+
+    /* Elementos */
+    .count-item {
+
+        /* Ancho */
+        min-width: 43px;
+    }
+
+
+    /* Números */
+    .count-item span {
+
+        /* Tamaño */
+        font-size: 31px;
+    }
+
+
+    /* Etiquetas */
+    .count-item small {
+
+        /* Tamaño */
+        font-size: 5px;
+
+        /* Separación */
+        letter-spacing: 1px;
+    }
+
+
+    /* Detalles fecha */
+    .date-details {
+
+        /* Separación */
+        gap: 10px;
+    }
+
+
+    /* Valores */
+    .date-details span {
+
+        /* Tamaño */
+        font-size: 18px;
+    }
+
+
+    /* Etiquetas */
+    .date-details strong {
+
+        /* Tamaño */
+        font-size: 6px;
+    }
+
+
+    /* Galería */
+    .gallery-item {
+
+        /* Altura */
+        min-height: 150px;
+    }
+
+
+    /* Texto familiar */
+    .family-card p {
+
+        /* Tamaño */
+        font-size: 21px;
+    }
+
+
+    /* Título evento */
+    .event-content h2 {
+
+        /* Tamaño */
+        font-size: 40px;
+    }
+
+
+    /* Tarjeta */
+    .pass-card {
+
+        /* Espaciado */
+        padding:
+            45px 15px;
+    }
+
+}
+
+
+/* =========================================================
+   SEGURIDAD PARA PANTALLAS MUY ESTRECHAS
+========================================================= */
+
+/* Ajustes para pantallas de hasta 320px */
 @media (max-width: 320px) {
-/* Reglas para celulares extremadamente pequeños */
 
-```
-.opening h1 {
-    font-size: 60px;
+
+    /* MIS XV */
+    .opening h1 {
+
+        /* Tamaño */
+        font-size: 60px;
+    }
+
+
+    /* Nombre */
+    .opening-name {
+
+        /* Tamaño */
+        font-size: 34px;
+    }
+
+
+    /* Decoración */
+    .opening-decoration {
+
+        /* Ancho */
+        width: 90px;
+    }
+
+
+    /* Elementos del contador */
+    .count-item {
+
+        /* Ancho */
+        min-width: 38px;
+    }
+
+
+    /* Números contador */
+    .count-item span {
+
+        /* Tamaño */
+        font-size: 28px;
+    }
+
+
+    /* Etiquetas contador */
+    .count-item small {
+
+        /* Tamaño */
+        font-size: 5px;
+    }
+
+
+    /* Detalles */
+    .date-details {
+
+        /* Separación */
+        gap: 6px;
+    }
+
+
+    /* Valores */
+    .date-details span {
+
+        /* Tamaño */
+        font-size: 16px;
+    }
+
+
+    /* Título evento */
+    .event-content h2 {
+
+        /* Tamaño */
+        font-size: 36px;
+    }
+
 }
-
-.opening-name {
-    font-size: 34px;
-}
-
-.opening-decoration {
-    width: 90px;
-}
-
-.count-item {
-    min-width: 38px;
-}
-
-.count-item span {
-    font-size: 28px;
-}
-
-.count-item small {
-    font-size: 5px;
-}
-
-.date-details {
-    gap: 6px;
-}
-
-.date-details span {
-    font-size: 16px;
-}
-
-.event-content h2 {
-    font-size: 36px;
-}
-```
-
-}
-
-````
-
-### 🧠 Las 10 cosas que más te conviene aprender de este CSS
-
-1. **`width`** = qué tan ancho es algo.
-2. **`height`** = qué tan alto es algo.
-3. **`margin`** = espacio **por fuera** del elemento.
-4. **`padding`** = espacio **por dentro** del elemento.
-5. **`font-size`** = tamaño del texto.
-6. **`color`** = color del texto.
-7. **`background`** = fondo, ya sea color, degradado o imagen.
-8. **`position` + `top/right/bottom/left`** = ubicación de elementos.
-9. **`transform`** = mover, girar o cambiar tamaño de un elemento.
-10. **`animation` + `@keyframes`** = movimiento y efectos.
-
-Y hay una especialmente importante para **lo que estamos haciendo ahora**:
-
-```css
-animation-delay: 4.7s;
-````
-
-significa:
-
-> **"Espera 4.7 segundos antes de empezar la animación."**
-
-Mientras que:
-
-```css
-animation: heroLineAppear 1.2s ease-out forwards;
-```
-
-significa:
-
-> **"Usa la animación llamada `heroLineAppear`, durante 1.2 segundos, con una salida suave, y conserva el estado final."**
-
-Así, cuando sigamos agregando movimientos a la frase y a la fecha, vas a poder controlar tú mismo **qué aparece primero, cuánto tarda y cuánto espera cada elemento**. ✨
