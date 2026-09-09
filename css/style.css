@@ -2672,34 +2672,80 @@ button {
    ANIMACIONES SCROLL
 ========================================================= */
 
-/* Elementos que aparecerán al hacer scroll */
+/*
+   Cada bloque comienza:
+   - invisible
+   - ligeramente abajo
+   - con un pequeño desenfoque
+
+   Esto hace que la entrada se sienta más elegante
+   que simplemente aparecer.
+*/
+
 .reveal {
 
-    /* Comienzan invisibles */
     opacity: 0;
 
-    /* Comienzan ligeramente abajo */
     transform:
-        translateY(30px);
+        translateY(70px)
+        scale(.97);
 
-    /* Transición */
+    filter:
+        blur(4px);
+
     transition:
-        opacity .8s ease,
-        transform .8s ease;
+        opacity 1s cubic-bezier(.22, 1, .36, 1),
+        transform 1s cubic-bezier(.22, 1, .36, 1),
+        filter 1s ease;
+
 }
 
 
-/* Estado visible */
+/* =========================================================
+   BLOQUE VISIBLE
+========================================================= */
+
+/*
+   Cuando el bloque llega a la zona visible de la pantalla:
+
+   - aparece
+   - sube suavemente
+   - recupera su tamaño
+   - elimina el desenfoque
+*/
+
 .reveal.visible {
 
-    /* Aparecen */
     opacity: 1;
 
-    /* Regresan a su posición */
     transform:
-        translateY(0);
+        translateY(0)
+        scale(1);
+
+    filter:
+        blur(0);
+
 }
 
+
+/* =========================================================
+   SALIDA DEL BLOQUE
+========================================================= */
+
+/*
+   Cuando el usuario continúa deslizando y el bloque
+   deja la pantalla, JavaScript quitará ".visible".
+
+   Entonces el bloque regresará automáticamente
+   a su estado inicial:
+
+   opacity: 0
+   translateY(70px)
+   scale(.97)
+   blur(4px)
+
+   Esto produce el efecto de desvanecimiento.
+*/
 
 /* =========================================================
    RESPONSIVE — TABLET
