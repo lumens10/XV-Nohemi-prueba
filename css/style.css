@@ -1119,7 +1119,35 @@ button {
     /* Comienza invisible */
     opacity: 0;
 }
+/* =========================================================
+   ANIMACIÓN — FRASE DEL HERO
+========================================================= */
 
+@keyframes heroPhraseAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* La frase aparece después de la línea dorada */
+#invitation.is-visible .hero p {
+
+    animation:
+        heroPhraseAppear 1.5s ease-out forwards;
+
+    animation-delay: 6s;
+    /* ↑ 6s = momento en que comienza */
+
+    opacity: 0;
+}
 
 /* Texto descriptivo del Hero */
 .hero p {
