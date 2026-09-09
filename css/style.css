@@ -148,8 +148,8 @@ button {
 /* Superior derecha */
 
 .decoration-top-right {
-    top: 100px;
-    right: -5px;
+    top: 50px;
+    right: -8px;
 
     animation-delay: .3s;
 }
@@ -157,8 +157,8 @@ button {
 /* Inferior izquierda */
 
 .decoration-bottom-left {
-    bottom: 100px;
-    left: -5px;
+    bottom: 50px;
+    left: -8px;
 
     animation-delay: .7s;
 }
@@ -1602,13 +1602,13 @@ button {
     }
 
     .decoration-top-right {
-        top: 100px;
-        right: -5px;
+        top: 50px;
+        right: -8px;
     }
 
     .decoration-bottom-left {
-        bottom: -100px;
-        left: -5px;
+        bottom: 50px;
+        left: -8px;
     }
 
     .opening .small-label {
