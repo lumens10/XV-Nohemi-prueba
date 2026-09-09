@@ -468,8 +468,8 @@ button {
     /* Ejecuta la animación durante 1.5 segundos */
     animation: heroNameAppear 1.5s ease-out forwards;
 
-    /* Espera 3.2 segundos */
-    animation-delay: 3.2s;
+    /* Espera 1.2 segundos */
+    animation-delay: 1.2s;
 
     /* Mantiene invisible el nombre antes de aparecer */
     opacity: 0;
@@ -1113,8 +1113,8 @@ button {
     /* Ejecuta la animación */
     animation: heroLineAppear 1.2s ease-out forwards;
 
-    /* Espera 4.7 segundos */
-    animation-delay: 4.7s;
+    /* Espera 2.7 segundos */
+    animation-delay: 2.7s;
 
     /* Comienza invisible */
     opacity: 0;
