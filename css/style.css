@@ -520,6 +520,21 @@ button {
     padding: 40px 25px;
 }
 
+.hero-photo {
+    display: block;
+
+    width: 380px;
+    max-width: 75vw;
+    height: auto;
+
+    margin: 0 auto 5px;
+
+    position: relative;
+    z-index: 2;
+
+    filter:
+        drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+}
 .hero h1 {
     margin: 22px 0;
 
@@ -1701,6 +1716,10 @@ button {
         letter-spacing: 4px;
     }
 
+   .hero-photo {
+    width: 300px;
+    max-width: 80vw;
+}
     /* -----------------------------------------
        SECCIONES
     ----------------------------------------- */
