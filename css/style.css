@@ -1143,7 +1143,7 @@ button {
     animation:
         heroPhraseAppear 1.5s ease-out forwards;
 
-    animation-delay: 6s;
+    animation-delay: 2.7s;
     /* ↑ 6s = momento en que comienza */
 
     opacity: 0;
