@@ -148,8 +148,8 @@ button {
 /* Superior derecha */
 
 .decoration-top-right {
-    top: -5px;
-    right: -5px;
+    top: 0px;
+    right: 0px;
 
     animation-delay: .3s;
 }
@@ -157,8 +157,8 @@ button {
 /* Inferior izquierda */
 
 .decoration-bottom-left {
-    bottom: -15px;
-    left: -15px;
+    bottom: 0px;
+    left: 0px;
 
     animation-delay: .7s;
 }
