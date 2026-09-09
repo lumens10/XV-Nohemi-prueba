@@ -149,7 +149,7 @@ button {
 
 .decoration-top-right {
     top: 0px;
-    right: 50px;
+    right: -50px;
 
     animation-delay: .3s;
 }
@@ -158,7 +158,7 @@ button {
 
 .decoration-bottom-left {
     bottom: 0px;
-    left: 50px;
+    left: -50px;
 
     animation-delay: .7s;
 }
@@ -1599,12 +1599,12 @@ button {
 
     .decoration-top-right {
         top: 0px;
-        right: 50px;
+        right: -50px;
     }
 
     .decoration-bottom-left {
         bottom: 0px;
-        left: 50px;
+        left: -50px;
     }
 
     .opening .small-label {
