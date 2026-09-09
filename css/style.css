@@ -148,8 +148,8 @@ button {
 /* Superior derecha */
 
 .decoration-top-right {
-    top: 50px;
-    right: -8px;
+    top: 0px;
+    right: 0px;
 
     animation-delay: .3s;
 }
@@ -157,8 +157,8 @@ button {
 /* Inferior izquierda */
 
 .decoration-bottom-left {
-    bottom: 50px;
-    left: -8px;
+    bottom: 0px;
+    left: 0px;
 
     animation-delay: .7s;
 }
@@ -1598,13 +1598,13 @@ button {
     }
 
     .decoration-top-right {
-        top: 50px;
-        right: -8px;
+        top: 0px;
+        right: 0px;
     }
 
     .decoration-bottom-left {
-        bottom: 50px;
-        left: -8px;
+        bottom: 0px;
+        left: 0px;
     }
 
     .opening .small-label {
@@ -1619,22 +1619,15 @@ button {
         margin-top: 20px;
 
         font-size:
-            clamp(
-                70px,
-                22vw,
-                105px
-            );
+            clamp( 70px, 22vw,105px);
     }
 
     .opening-name {
         margin-top: 18px;
 
         font-size:
-            clamp(
-                38px,
-                11vw,
-                48px
-            );
+            clamp(38px,11vw,48px);                                     
+           
     }
 
     .opening .ornament {
