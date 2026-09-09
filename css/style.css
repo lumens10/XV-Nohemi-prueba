@@ -133,7 +133,7 @@ button {
 
     z-index: 1;
 
-    width: clamp(130px, 35vw, 380px);
+    width: clamp(180px, 50vw, 600px);
     height: auto;
 
     pointer-events: none;
