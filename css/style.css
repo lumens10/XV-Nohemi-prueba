@@ -540,11 +540,9 @@ button {
 
 #invitation.is-visible .hero-photo {
     animation:
-        decorationAppear 5.5s ease forwards,
+        decorationAppear 5.5s ease forwards;
 
-    animation-delay:
-        0s,
-        5.5s;
+    animation-delay: 0s;
 }
 .hero h1 {
     margin: 22px 0;
