@@ -104,6 +104,96 @@ text-align: center;
    La pantalla es completamente opaca.
    La invitación que está debajo NO se verá.
 */
+
+   /* =========================================================
+   DECORACIONES DE LA PORTADA
+========================================================= */
+
+.opening-decoration {
+    position: absolute;
+
+    z-index: 1;
+
+    width: clamp(120px, 25vw, 260px);
+    height: auto;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    animation:
+        decorationAppear 1.5s ease forwards,
+        decorationFloat 6s ease-in-out infinite;
+}
+
+
+/* Superior derecha */
+
+.decoration-top-right {
+    top: -15px;
+    right: -15px;
+
+    animation-delay: .3s;
+}
+
+
+/* Inferior izquierda */
+
+.decoration-bottom-left {
+    bottom: -15px;
+    left: -15px;
+
+    animation-delay: .7s;
+}
+
+
+/* Aparición */
+
+@keyframes decorationAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+/* Movimiento */
+
+@keyframes decorationFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(1deg);
+    }
+
+}
+
+
+/* Móvil */
+
+@media (max-width: 600px) {
+
+    .opening-decoration {
+        width: clamp(90px, 28vw, 170px);
+    }
+
+}
+
 background-color: #ffffff;
 
 /*
