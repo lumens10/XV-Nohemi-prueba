@@ -515,12 +515,31 @@ if (
                             entry.isIntersecting
                         ) {
 
+                            /*
+                               El elemento entró en pantalla.
+
+                               Agregamos "visible"
+                               para ejecutar la animación
+                               de entrada.
+                            */
+
                             entry.target.classList.add(
                                 "visible"
                             );
 
-                            observer.unobserve(
-                                entry.target
+                        } else {
+
+                            /*
+                               El elemento salió de pantalla.
+
+                               Quitamos "visible"
+                               para que vuelva a su estado
+                               inicial y pueda animarse
+                               nuevamente al regresar.
+                            */
+
+                            entry.target.classList.remove(
+                                "visible"
                             );
 
                         }
@@ -530,6 +549,12 @@ if (
 
             },
             {
+                /*
+                   0.12 = aproximadamente el 12%
+                   del elemento debe estar visible
+                   para activar la animación.
+                */
+
                 threshold: 0.12
             }
         );
@@ -546,8 +571,6 @@ if (
     );
 
 }
-
-
 /* =====================================================
    INICIALIZACIÓN
 ===================================================== */
