@@ -1,8 +1,3 @@
-ChatGPT dijo:
-Sí. El problema principal está en que dentro de .opening { ... } metiste accidentalmente todas las reglas de .opening-decoration, incluyendo sus @media, antes de cerrar .opening. Eso hace que el CSS quede mal interpretado y puede provocar comportamientos diferentes en móvil.
-
-Te dejo el style.css completo corregido, listo para copiar y pegar. También ajusté el responsive para que en celular no se amontonen los textos y los elementos mantengan proporciones.
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 /* =========================================================
