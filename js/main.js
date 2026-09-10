@@ -496,59 +496,211 @@ if (whatsappButton) {
 ===================================================== */
 
 /*
-   Detectamos todos los elementos que tengan
+   Detectamos todos los bloques que tienen
    la clase ".reveal".
 
-   Cada uno podrá entrar y salir de pantalla
-   varias veces durante el scroll.
+   IMPORTANTE:
+   El Hero NO utiliza esta clase.
+
+   Por lo tanto, sus animaciones originales
+   continúan funcionando exactamente igual.
 */
 
 const revealElements =
     document.querySelectorAll(".reveal");
 
 
+/* =====================================================
+   DIRECCIÓN DEL SCROLL
+===================================================== */
+
+/*
+   Guardamos la posición anterior del scroll
+   para saber si el usuario está:
+
+   - bajando
+   - subiendo
+
+   Esto nos permite hacer que cada bloque
+   desaparezca en la dirección correcta.
+*/
+
+let lastScrollY =
+    window.scrollY;
+
+let scrollDirection =
+    "down";
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        const currentScrollY =
+            window.scrollY;
+
+
+        if (
+            currentScrollY >
+            lastScrollY
+        ) {
+
+            scrollDirection =
+                "down";
+
+        } else if (
+            currentScrollY <
+            lastScrollY
+        ) {
+
+            scrollDirection =
+                "up";
+
+        }
+
+
+        lastScrollY =
+            currentScrollY;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   INTERSECTION OBSERVER
+===================================================== */
+
+/*
+   IntersectionObserver detecta cuándo cada
+   bloque entra o sale de la zona visible.
+
+   rootMargin:
+
+   - hace que la animación comience un poco
+     antes de llegar al centro de la pantalla.
+
+   - también permite que desaparezca suavemente
+     antes de salir completamente.
+
+   Esto hace que el movimiento se sienta
+   más cinematográfico y menos brusco.
+*/
+
 if (
     revealElements.length > 0 &&
     "IntersectionObserver" in window
 ) {
 
+
     const observer =
         new IntersectionObserver(
             (entries) => {
 
+
                 entries.forEach(
                     entry => {
 
-                        /*
-                           Si el bloque está entrando
-                           en la zona visible...
-                        */
+
+                        /* =================================
+                           BLOQUE ENTRANDO
+                        ================================= */
 
                         if (
                             entry.isIntersecting
                         ) {
 
+
                             /*
-                               Lo hacemos aparecer.
+                               Quitamos cualquier estado
+                               anterior de salida.
+
+                               Esto es importante cuando
+                               el usuario regresa haciendo
+                               scroll hacia arriba.
+                            */
+
+                            entry.target.classList.remove(
+                                "exit-up",
+                                "exit-down"
+                            );
+
+
+                            /*
+                               Activamos la animación
+                               de entrada.
                             */
 
                             entry.target.classList.add(
                                 "visible"
                             );
 
-                        } else {
+
+                        }
+
+
+                        /* =================================
+                           BLOQUE SALIENDO
+                        ================================= */
+
+                        else {
+
 
                             /*
-                               Cuando deja de estar visible,
-                               quitamos "visible".
-
-                               CSS se encargará de hacerlo
-                               desaparecer suavemente.
+                               Primero quitamos "visible"
+                               para iniciar la desaparición.
                             */
 
                             entry.target.classList.remove(
                                 "visible"
                             );
+
+
+                            /*
+                               Si el usuario está bajando,
+                               el bloque desaparece hacia arriba.
+
+                               Esto da la sensación de que
+                               el contenido acompaña al scroll.
+                            */
+
+                            if (
+                                scrollDirection ===
+                                "down"
+                            ) {
+
+                                entry.target.classList.remove(
+                                    "exit-down"
+                                );
+
+                                entry.target.classList.add(
+                                    "exit-up"
+                                );
+
+                            }
+
+
+                            /*
+                               Si el usuario está subiendo,
+                               el bloque desaparece hacia abajo.
+
+                               Al regresar aparecerá
+                               nuevamente desde abajo.
+                            */
+
+                            else {
+
+                                entry.target.classList.remove(
+                                    "exit-up"
+                                );
+
+                                entry.target.classList.add(
+                                    "exit-down"
+                                );
+
+                            }
 
                         }
 
@@ -556,26 +708,37 @@ if (
                 );
 
             },
+
+
             {
 
                 /*
-                   El bloque comienza a animarse
-                   cuando aproximadamente el 18%
-                   entra en pantalla.
-
-                   Puedes probar 0.18, 0.20 o 0.25
-                   si quieres que aparezca más adelante.
+                   La animación comienza cuando
+                   aproximadamente el 15% del bloque
+                   entra en la zona de observación.
                 */
 
-                threshold: 0.18
+                threshold: 0.15,
+
+
+                /*
+                   Reducimos ligeramente la zona de
+                   observación para que los bloques
+                   aparezcan y desaparezcan de forma
+                   más elegante.
+                */
+
+                rootMargin:
+                    "-10% 0px -10% 0px"
 
             }
+
         );
 
 
-    /*
-       Comenzamos a observar todos los bloques.
-    */
+    /* =================================================
+       COMENZAR A OBSERVAR
+    ================================================= */
 
     revealElements.forEach(
         element => {
