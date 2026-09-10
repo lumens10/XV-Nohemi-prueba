@@ -2,7 +2,6 @@
    IMPORTACIÓN DE FUENTES
 ========================================================= */
 
-/* Carga las fuentes utilizadas en la invitación */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
 
 
@@ -10,40 +9,26 @@
    VARIABLES
 ========================================================= */
 
-/* Contenedor de variables de colores reutilizables */
 :root {
 
-    /* Negro principal */
     --black: #090807;
 
-    /* Negro ligeramente más claro */
     --black-soft: #11100e;
 
-
-    /* Crema principal */
     --cream: #f7f2e9;
 
-    /* Crema oscuro */
     --cream-dark: #e9dfce;
 
-
-    /* Dorado principal */
     --gold: #c9a45c;
 
-    /* Dorado claro */
     --gold-light: #e5cf9c;
 
-    /* Dorado oscuro */
     --gold-dark: #8c6d31;
 
-
-    /* Color principal del texto */
     --text: #f7f2e9;
 
-    /* Color de texto secundario */
     --text-muted: rgba(247, 242, 233, .70);
 
-    /* Color para textos oscuros */
     --text-dark: #1b1814;
 }
 
@@ -52,108 +37,76 @@
    RESET
 ========================================================= */
 
-/* Aplica estas reglas a todos los elementos */
 * {
 
-    /* Elimina márgenes predeterminados */
     margin: 0;
 
-    /* Elimina rellenos predeterminados */
     padding: 0;
 
-    /* Hace que padding y bordes formen parte del tamaño total */
     box-sizing: border-box;
 }
 
 
-/* Configuración general del documento */
 html {
 
-    /* Hace suave el desplazamiento de la página */
     scroll-behavior: smooth;
 
-    /* Ocupa todo el ancho */
     width: 100%;
 
-    /* Evita desplazamiento horizontal */
     overflow-x: hidden;
 }
 
 
-/* Configuración general del cuerpo */
 body {
 
-    /* Ocupa todo el ancho */
     width: 100%;
 
-    /* Altura mínima de toda la pantalla */
     min-height: 100vh;
 
-
-    /* Fondo general negro */
     background: var(--black);
 
-    /* Color general del texto */
     color: var(--text);
 
-
-    /* Fuente principal */
     font-family: 'Montserrat', sans-serif;
 
-    /* Grosor ligero de la fuente */
     font-weight: 300;
 
-
-    /* Evita desplazamiento horizontal */
     overflow-x: hidden;
 }
 
 
-/* Cuando la portada todavía está cerrada */
 body:not(.page-open) {
 
-    /* Bloquea el desplazamiento */
     overflow: hidden;
 }
 
 
-/* Cuando la invitación ya está abierta */
 body.page-open {
 
-    /* Evita desplazamiento horizontal */
     overflow-x: hidden;
 
-    /* Permite desplazamiento vertical */
     overflow-y: auto;
 }
 
 
-/* Configuración general de imágenes */
 img {
 
-    /* Hace que las imágenes sean elementos de bloque */
     display: block;
 
-    /* Evita que una imagen supere el ancho de su contenedor */
     max-width: 100%;
 }
 
 
-/* Configuración general de enlaces */
 a {
 
-    /* Hereda el color del elemento padre */
     color: inherit;
 
-    /* Quita el subrayado */
     text-decoration: none;
 }
 
 
-/* Configuración general de botones */
 button {
 
-    /* Utiliza la fuente heredada */
     font-family: inherit;
 }
 
@@ -162,10 +115,8 @@ button {
    UTILIDADES
 ========================================================= */
 
-/* Clase para ocultar elementos */
 .hidden {
 
-    /* Oculta completamente el elemento */
     display: none !important;
 }
 
@@ -174,49 +125,30 @@ button {
    PANTALLA DE APERTURA
 ========================================================= */
 
-/* Pantalla inicial que aparece antes de abrir la invitación */
 .opening {
 
-    /* Mantiene la portada fija sobre toda la página */
     position: fixed;
 
-    /* Ocupa los cuatro lados de la pantalla */
     inset: 0;
 
-
-    /* Coloca la portada por encima de todo */
     z-index: 99999;
 
-
-    /* Ancho completo */
     width: 100%;
 
-    /* Altura de la ventana */
     height: 100vh;
 
-    /* Altura segura para móviles */
     height: 100svh;
 
-
-    /* Activa Flexbox */
     display: flex;
 
-    /* Centra verticalmente el contenido */
     align-items: center;
 
-    /* Centra horizontalmente el contenido */
     justify-content: center;
 
-
-    /* Centra el texto */
     text-align: center;
 
-
-    /* Color blanco de fondo */
     background-color: #ffffff;
 
-
-    /* Fondo con degradado y fotografía */
     background-image:
         linear-gradient(
             rgba(40, 15, 18, 0.18),
@@ -224,32 +156,20 @@ button {
         ),
         url('../images/fondo apertura.jpg');
 
-
-    /* Centra la imagen */
     background-position: center center;
 
-    /* Hace que la imagen cubra toda la pantalla */
     background-size: cover;
 
-    /* Evita repetir la imagen */
     background-repeat: no-repeat;
 
-
-    /* La portada comienza visible */
     opacity: 1;
 
-    /* La portada es visible */
     visibility: visible;
 
-    /* Permite interactuar con ella */
     pointer-events: auto;
 
-
-    /* Oculta cualquier elemento que sobresalga */
     overflow: hidden;
 
-
-    /* Transición al desaparecer */
     transition:
         opacity 1s ease,
         visibility 1s ease;
@@ -257,300 +177,65 @@ button {
 
 
 /* =========================================================
-   DECORACIONES DE LA PORTADA
+   CONTENIDO DE LA APERTURA
 ========================================================= */
 
-/* Configuración general de las decoraciones */
-.opening-decoration {
-
-    /* Permite colocar la decoración libremente */
-    position: absolute;
-
-    /* Coloca la decoración sobre el fondo */
-    z-index: 1;
-
-
-    /* Tamaño adaptable */
-    width: clamp(180px, 50vw, 600px);
-
-    /* Mantiene proporción */
-    height: auto;
-
-
-    /* No permite que bloquee clics */
-    pointer-events: none;
-
-
-    /* Comienza invisible */
-    opacity: 0;
-
-
-    /* Animaciones de aparición y movimiento */
-    animation:
-        decorationAppear 1.5s ease forwards,
-        decorationFloat 6s ease-in-out infinite;
-}
-
-
-/* Decoración superior derecha */
-.decoration-top-right {
-
-    /* Distancia desde arriba */
-    top: 0px;
-
-    /* La mueve ligeramente fuera de la pantalla */
-    right: -40px;
-
-    /* Retraso de la animación */
-    animation-delay: .3s;
-}
-
-
-/* Decoración inferior izquierda */
-.decoration-bottom-left {
-
-    /* Distancia desde abajo */
-    bottom: 0px;
-
-    /* La mueve ligeramente fuera de la pantalla */
-    left: -40px;
-
-    /* Retraso de la animación */
-    animation-delay: .7s;
-}
-
-
-/* =========================================================
-   ANIMACIÓN DECORACIONES
-========================================================= */
-
-/* Animación de aparición */
-@keyframes decorationAppear {
-
-    /* Estado inicial */
-    from {
-
-        /* Comienza invisible */
-        opacity: 0;
-
-        /* Comienza más pequeña */
-        transform: scale(.85);
-    }
-
-    /* Estado final */
-    to {
-
-        /* Termina visible */
-        opacity: 1;
-
-        /* Recupera su tamaño */
-        transform: scale(1);
-    }
-
-}
-
-
-/* Animación de movimiento */
-@keyframes decorationFloat {
-
-    /* Inicio y final */
-    0%,
-    100% {
-
-        /* Sin movimiento */
-        transform:
-            translateY(0)
-            rotate(0deg);
-    }
-
-    /* Mitad de la animación */
-    50% {
-
-        /* Sube ligeramente y gira */
-        transform:
-            translateY(-7px)
-            rotate(1deg);
-    }
-
-}
-
-
-/* =========================================================
-   ANIMACIÓN FOTO HERO
-========================================================= */
-
-/* Hace que la fotografía aparezca desde abajo */
-@keyframes heroPhotoAppear {
-
-    /* Posición inicial */
-    from {
-
-        /* Invisible */
-        opacity: 0;
-
-        /* Comienza 80px más abajo */
-        transform: translateY(80px);
-    }
-
-    /* Posición final */
-    to {
-
-        /* Visible */
-        opacity: 1;
-
-        /* Regresa a su posición */
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   ANIMACIÓN TEXTO MIS XV
-========================================================= */
-
-/* Hace que MIS XV aparezca desde abajo */
-@keyframes heroTextAppear {
-
-    /* Estado inicial */
-    from {
-
-        /* Invisible */
-        opacity: 0;
-
-        /* Comienza 25px más abajo */
-        transform: translateY(25px);
-    }
-
-    /* Estado final */
-    to {
-
-        /* Visible */
-        opacity: 1;
-
-        /* Regresa a su posición */
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================================
-   ANIMACIÓN DEL NOMBRE
-========================================================= */
-
-/* Hace que Nohemi aparezca desde abajo */
-@keyframes heroNameAppear {
-
-    /* Estado inicial */
-    from {
-
-        /* Invisible */
-        opacity: 0;
-
-        /* Comienza 25px más abajo */
-        transform: translateY(25px);
-    }
-
-    /* Estado final */
-    to {
-
-        /* Visible */
-        opacity: 1;
-
-        /* Regresa a su posición */
-        transform: translateY(0);
-    }
-}
-
-
-/* Activa la animación del nombre solamente cuando la invitación está abierta */
-#invitation.is-visible .hero h1 {
-
-    /* Ejecuta la animación durante 1.5 segundos */
-    animation: heroNameAppear 1.5s ease-out forwards;
-
-    /* Espera 2.2 segundos */
-    animation-delay: 2.2s;
-
-    /* Mantiene invisible el nombre antes de aparecer */
-    opacity: 0;
-}
-
-
-/* =========================================================
-   ESTADO CERRADO
-========================================================= */
-
-/* Estado de la portada después de abrir la invitación */
-.opening.opening-hidden {
-
-    /* Hace desaparecer la portada */
-    opacity: 0;
-
-    /* La vuelve invisible */
-    visibility: hidden;
-
-    /* Impide interactuar con ella */
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   CONTENIDO DE LA PORTADA
-========================================================= */
-
-/* Contenedor principal del contenido de apertura */
 .opening-content {
 
-    /* Permite posicionar elementos internos */
     position: relative;
 
-    /* Lo coloca encima de las decoraciones */
     z-index: 2;
 
-    /* Ancho máximo */
     width: min(100%, 700px);
 
-    /* Espaciado interior */
-    padding: 30px;
+    padding: 30px 20px;
 
-    /* Centra el contenido */
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
     text-align: center;
 
-    /* Animación inicial */
-    animation: openingContentIn 1.2s ease both;
+    animation:
+        openingContentIn 1.2s ease both;
 }
 
 
 /* =========================================================
-   TEXTO SUPERIOR
+   LOGO PNG
 ========================================================= */
 
-/* Texto pequeño de la portada */
-.opening .small-label {
+.opening-logo {
 
-    /* Lo convierte en bloque */
     display: block;
 
-    /* Espacio inferior */
-    margin-bottom: 25px;
+    width:
+        clamp(
+            190px,
+            45vw,
+            360px
+        );
 
-    /* Color dorado oscuro */
-    color: var(--gold-dark);
+    max-width: 85%;
 
-    /* Tamaño */
-    font-size: 10px;
+    max-height: 45svh;
 
-    /* Grosor */
-    font-weight: 400;
+    height: auto;
 
-    /* Separación entre letras */
-    letter-spacing: 5px;
+    object-fit: contain;
 
-    /* Altura de línea */
-    line-height: 1.6;
+    margin:
+        0 auto 18px;
 
-    /* Convierte el texto a mayúsculas */
-    text-transform: uppercase;
+    filter:
+        drop-shadow(
+            0 4px 8px
+            rgba(0, 0, 0, .15)
+        );
 }
 
 
@@ -558,91 +243,31 @@ button {
    MIS XV
 ========================================================= */
 
-/* Título MIS XV de la portada */
-.opening h1 {
+.opening-title {
 
-    /* Elimina margen */
-    margin: 0;
+    margin:
+        4px 0 28px;
 
-    /* Color vino */
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            22px,
+            5vw,
+            34px
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 5px;
+
     color: #7f0808;
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
-
-    /* Tamaño adaptable */
-    font-size: clamp(
-        75px,
-        18vw,
-        150px
-    );
-
-    /* Grosor */
-    font-weight: 300;
-
-    /* Altura de línea */
-    line-height: .8;
-
-    /* Sombra */
-    text-shadow:
-        0 8px 35px rgba(0, 0, 0, .25);
-}
-
-
-/* =========================================================
-   NOMBRE
-========================================================= */
-
-/* Nombre de la quinceañera en la portada */
-.opening-name {
-
-    /* Separación superior */
-    margin-top: 20px;
-
-    /* Color vino */
-    color: #7f0808;
-
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
-
-    /* Tamaño adaptable */
-    font-size: clamp(
-        38px,
-        8vw,
-        55px
-    );
-
-    /* Cursiva */
-    font-style: italic;
-
-    /* Grosor */
-    font-weight: 400;
-
-    /* Sombra */
-    text-shadow:
-        0 5px 25px rgba(0, 0, 0, .25);
-}
-
-
-/* =========================================================
-   ORNAMENTO
-========================================================= */
-
-/* Ornamento decorativo */
-.opening .ornament {
-
-    /* Separación vertical */
-    margin: 28px 0;
-
-    /* Color dorado */
-    color: var(--gold);
-
-    /* Tamaño */
-    font-size: 18px;
-
-    /* Brillo sutil */
-    text-shadow:
-        0 0 20px rgba(201, 164, 92, .25);
+    text-transform: uppercase;
 }
 
 
@@ -650,28 +275,24 @@ button {
    BOTÓN ABRIR
 ========================================================= */
 
-/* Botón para abrir la invitación */
 .open-button {
 
-    /* Permite posicionamiento relativo */
     position: relative;
 
-    /* Separación superior */
-    margin-top: 20px;
+    margin-top: 0;
 
-    /* Espacio interno */
-    padding: 17px 34px;
+    padding:
+        17px 34px;
 
-    /* Borde dorado */
     border:
-        1px solid rgba(
+        1px solid
+        rgba(
             140,
             109,
             49,
             .75
         );
 
-    /* Fondo oscuro */
     background:
         rgba(
             9,
@@ -680,32 +301,26 @@ button {
             .85
         );
 
-    /* Color del texto */
     color: var(--cream);
 
-    /* Fuente */
-    font-family: 'Montserrat', sans-serif;
+    font-family:
+        'Montserrat',
+        sans-serif;
 
-    /* Tamaño */
     font-size: 10px;
 
-    /* Grosor */
     font-weight: 400;
 
-    /* Separación de letras */
     letter-spacing: 3px;
 
-    /* Convierte a mayúsculas */
     text-transform: uppercase;
 
-    /* Cambia el cursor */
     cursor: pointer;
 
-    /* Elimina apariencia predeterminada */
     appearance: none;
+
     -webkit-appearance: none;
 
-    /* Transiciones */
     transition:
         background .4s ease,
         color .4s ease,
@@ -715,33 +330,35 @@ button {
 }
 
 
-/* Efecto al pasar el mouse */
 .open-button:hover {
 
-    /* Cambia fondo a dorado */
-    background: var(--gold);
+    background:
+        var(--gold);
 
-    /* Cambia borde */
-    border-color: var(--gold);
+    border-color:
+        var(--gold);
 
-    /* Cambia texto a negro */
-    color: var(--black);
+    color:
+        var(--black);
 
-    /* Sube ligeramente */
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 
-    /* Agrega sombra */
     box-shadow:
         0 10px 35px
-        rgba(201, 164, 92, .18);
+        rgba(
+            201,
+            164,
+            92,
+            .18
+        );
 }
 
 
-/* Efecto al presionar */
 .open-button:active {
 
-    /* Regresa a su posición */
-    transform: translateY(0);
+    transform:
+        translateY(0);
 }
 
 
@@ -749,29 +366,114 @@ button {
    ANIMACIÓN PORTADA
 ========================================================= */
 
-/* Animación del contenido inicial */
 @keyframes openingContentIn {
 
-    /* Estado inicial */
     from {
 
-        /* Invisible */
         opacity: 0;
 
-        /* Comienza ligeramente abajo */
-        transform: translateY(20px);
+        transform:
+            translateY(20px);
     }
 
-    /* Estado final */
     to {
 
-        /* Visible */
         opacity: 1;
 
-        /* Regresa a su posición */
-        transform: translateY(0);
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ESTADO CERRADO
+========================================================= */
+
+.opening.opening-hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ANIMACIÓN FOTO HERO
+========================================================= */
+
+@keyframes heroPhotoAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(80px);
     }
 
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ANIMACIÓN TEXTO MIS XV
+========================================================= */
+
+@keyframes heroTextAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ANIMACIÓN DEL NOMBRE
+========================================================= */
+
+@keyframes heroNameAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+#invitation.is-visible .hero h1 {
+
+    animation:
+        heroNameAppear 1.5s ease-out forwards;
+
+    animation-delay: 2.2s;
+
+    opacity: 0;
 }
 
 
@@ -779,38 +481,28 @@ button {
    INVITACIÓN OCULTA
 ========================================================= */
 
-/* Mantiene oculta la invitación hasta abrirla */
 #invitation {
 
-    /* Ancho completo */
     width: 100%;
 
-    /* Transparente */
     opacity: 0;
 
-    /* Invisible */
     visibility: hidden;
 
-    /* No permite clics */
     pointer-events: none;
 
-    /* Transición */
     transition:
         opacity 1s ease,
         visibility 1s ease;
 }
 
 
-/* Estado visible de la invitación */
 #invitation.is-visible {
 
-    /* Hace visible la invitación */
     opacity: 1;
 
-    /* Permite verla */
     visibility: visible;
 
-    /* Permite interactuar */
     pointer-events: auto;
 }
 
@@ -819,45 +511,34 @@ button {
    CONTENIDO PRINCIPAL
 ========================================================= */
 
-/* Contenedor general de la invitación */
 .invitation {
 
-    /* Ancho completo */
     width: 100%;
 
-    /* Altura mínima */
     min-height: 100vh;
 
-    /* Fondo negro */
     background: var(--black);
 }
 
 
-/* Animación al mostrar la invitación */
 .invitation.is-visible {
 
-    /* Ejecuta la animación */
-    animation: invitationIn 1s ease both;
+    animation:
+        invitationIn 1s ease both;
 }
 
 
-/* Animación de aparición */
 @keyframes invitationIn {
 
-    /* Inicio */
     from {
 
-        /* Invisible */
         opacity: 0;
     }
 
-    /* Final */
     to {
 
-        /* Visible */
         opacity: 1;
     }
-
 }
 
 
@@ -865,34 +546,24 @@ button {
    HERO
 ========================================================= */
 
-/* Sección principal después de abrir la invitación */
 .hero {
 
-    /* Permite posicionar elementos internos */
     position: relative;
 
-    /* Ancho completo */
     width: 100%;
 
-    /* Altura mínima */
     min-height: 100vh;
 
-    /* Altura segura para móviles */
     min-height: 100svh;
 
-    /* Activa Flexbox */
     display: flex;
 
-    /* Centra verticalmente */
     align-items: center;
 
-    /* Centra horizontalmente */
     justify-content: center;
 
-    /* Oculta contenido que sobresalga */
     overflow: hidden;
 
-    /* Fondo con degradado e imagen */
     background:
         linear-gradient(
             rgba(10, 8, 5, .25),
@@ -902,46 +573,34 @@ button {
         center center /
         cover no-repeat;
 
-    /* Centra el texto */
     text-align: center;
 }
 
 
-/* Borde decorativo del Hero */
 .hero::after {
 
-    /* Crea el elemento decorativo */
     content: "";
 
-    /* Posicionamiento */
     position: absolute;
 
-    /* Ocupa toda la sección */
     inset: 0;
 
-    /* Deja espacio alrededor */
     margin: 18px;
 
-    /* Borde dorado muy sutil */
     border:
         1px solid
         rgba(229, 207, 156, .18);
 
-    /* No interfiere con clics */
     pointer-events: none;
 }
 
 
-/* Capa oscura sobre la fotografía */
 .hero-overlay {
 
-    /* Posición absoluta */
     position: absolute;
 
-    /* Ocupa todo */
     inset: 0;
 
-    /* Degradado radial */
     background:
         radial-gradient(
             circle at center,
@@ -951,77 +610,60 @@ button {
 }
 
 
-/* Contenedor del contenido del Hero */
 .hero-content {
 
-    /* Permite posicionamiento */
     position: relative;
 
-    /* Lo coloca sobre el fondo */
     z-index: 2;
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 900px;
 
-    /* Espaciado */
     padding: 40px 25px;
 }
 
 
-/* Fotografía transparente de Nohemi */
 .hero-photo {
 
-    /* Se comporta como bloque */
     display: block;
 
-    /* Tamaño */
     width: 380px;
 
-    /* No supera el 75% de la pantalla */
     max-width: 75vw;
 
-    /* Altura automática */
     height: auto;
 
-    /* Centra la imagen */
     margin: 0 auto 5px;
 
-    /* Posicionamiento */
     position: relative;
 
-    /* La mantiene sobre otros elementos */
     z-index: 2;
 
-    /* Sombra */
     filter:
-        drop-shadow(0 10px 20px rgba(0, 0, 0, .35));
+        drop-shadow(
+            0 10px 20px
+            rgba(0, 0, 0, .35)
+        );
 
-    /* Comienza invisible */
     opacity: 0;
 }
 
 
-/* Activa la aparición de la foto al abrir la invitación */
 #invitation.is-visible .hero-photo {
 
-    /* Animación de entrada */
-    animation: heroPhotoAppear 2.5s ease-out forwards;
+    animation:
+        heroPhotoAppear 2.5s ease-out forwards;
 }
 
 
-/* Activa la aparición de MIS XV después de la fotografía */
 #invitation.is-visible .hero .eyebrow {
 
-    /* Animación de entrada */
-    animation: heroTextAppear 1.5s ease-out forwards;
+    animation:
+        heroTextAppear 1.5s ease-out forwards;
 
-    /* Espera 2 segundos */
     animation-delay: 2s;
 
-    /* Comienza invisible */
     opacity: 0;
 }
 
@@ -1030,29 +672,25 @@ button {
    NOMBRE HERO
 ========================================================= */
 
-/* Nombre de Nohemi dentro del Hero */
 .hero h1 {
 
-    /* Espacio alrededor del nombre */
     margin: 22px 0;
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño adaptable */
-    font-size: clamp(
-        80px,
-        22vw,
-        190px
-    );
+    font-size:
+        clamp(
+            80px,
+            22vw,
+            190px
+        );
 
-    /* Grosor ligero */
     font-weight: 300;
 
-    /* Altura de línea */
     line-height: .75;
 
-    /* Color crema */
     color: var(--cream);
 }
 
@@ -1061,19 +699,14 @@ button {
    LÍNEA DORADA
 ========================================================= */
 
-/* Línea decorativa debajo del nombre */
 .gold-line {
 
-    /* ← Largo de la línea */
     width: 120px;
 
-    /* ← Grosor de la línea */
     height: 1px;
 
-    /* Centra la línea y le da separación */
     margin: 30px auto;
 
-    /* Color dorado */
     background: var(--gold);
 }
 
@@ -1082,43 +715,35 @@ button {
    ANIMACIÓN LÍNEA DORADA
 ========================================================= */
 
-/* Hace que la línea aparezca creciendo desde el centro */
 @keyframes heroLineAppear {
 
-    /* Estado inicial */
     from {
 
-        /* Invisible */
         opacity: 0;
 
-        /* Comienza sin ancho visible */
         transform: scaleX(0);
     }
 
-    /* Estado final */
     to {
 
-        /* Visible */
         opacity: 1;
 
-        /* Recupera su ancho */
         transform: scaleX(1);
     }
 }
 
 
-/* Activa la animación de la línea después del nombre */
 #invitation.is-visible .hero .gold-line {
 
-    /* Ejecuta la animación */
-    animation: heroLineAppear 1.2s ease-out forwards;
+    animation:
+        heroLineAppear 1.2s ease-out forwards;
 
-    /* Espera 2.4 segundos */
     animation-delay: 2.4s;
 
-    /* Comienza invisible */
     opacity: 0;
 }
+
+
 /* =========================================================
    ANIMACIÓN — FRASE DEL HERO
 ========================================================= */
@@ -1126,28 +751,31 @@ button {
 @keyframes heroPhraseAppear {
 
     from {
+
         opacity: 0;
+
         transform: translateY(20px);
     }
 
     to {
+
         opacity: 1;
+
         transform: translateY(0);
     }
-
 }
 
-/* La frase aparece después de la línea dorada */
+
 #invitation.is-visible .hero p {
 
     animation:
         heroPhraseAppear 1.5s ease-out forwards;
 
     animation-delay: 2.7s;
-    /* ↑ 2.7s = momento en que comienza */
 
     opacity: 0;
 }
+
 
 /* =========================================================
    ANIMACIÓN — FECHA DEL HERO
@@ -1156,77 +784,69 @@ button {
 @keyframes heroDateAppear {
 
     from {
+
         opacity: 0;
+
         transform: translateY(15px);
     }
 
     to {
+
         opacity: 1;
+
         transform: translateY(0);
     }
-
 }
 
-/* La fecha aparece al final de toda la secuencia */
+
 #invitation.is-visible .hero .hero-date {
 
     animation:
         heroDateAppear 1.5s ease-out forwards;
 
     animation-delay: 2.8s;
-    /* ↑ 2.8s = momento en que comienza */
 
     opacity: 0;
 }
-/* Texto descriptivo del Hero */
+
+
 .hero p {
 
-    /* Ocupa todo el ancho disponible */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 420px;
 
-    /* Centra y separa */
     margin: 25px auto;
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño adaptable */
-    font-size: clamp(
-        21px,
-        5vw,
-        28px
-    );
+    font-size:
+        clamp(
+            21px,
+            5vw,
+            28px
+        );
 
-    /* Texto en cursiva */
     font-style: italic;
 
-    /* Altura entre líneas */
     line-height: 1.3;
 
-    /* Color crema */
     color: var(--cream);
 }
 
 
-/* Fecha del Hero */
 .hero-date {
 
-    /* Se comporta como bloque */
     display: block;
 
-    /* Separación superior */
     margin-top: 35px;
 
-    /* Tamaño */
     font-size: 11px;
 
-    /* Espaciado entre letras */
     letter-spacing: 7px;
 
-    /* Dorado claro */
     color: var(--gold-light);
 }
 
@@ -1235,72 +855,55 @@ button {
    SECCIONES GENERALES
 ========================================================= */
 
-/* Configuración general de las secciones */
 .section {
 
-    /* Ancho completo */
     width: 100%;
 
-    /* Espaciado vertical y horizontal */
     padding: 110px 25px;
 
-    /* Centra el contenido */
     text-align: center;
 
-    /* Fondo negro */
     background: var(--black);
 }
 
 
-/* Títulos generales */
 .section h2 {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 700px;
 
-    /* Centra y separa */
     margin: 20px auto 30px;
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño adaptable */
-    font-size: clamp(
-        45px,
-        10vw,
-        80px
-    );
+    font-size:
+        clamp(
+            45px,
+            10vw,
+            80px
+        );
 
-    /* Grosor */
     font-weight: 300;
 
-    /* Altura de línea */
     line-height: .95;
 }
 
 
-/* Párrafos generales */
 .section p {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 600px;
 
-    /* Centra el párrafo */
     margin: 20px auto;
 
-    /* Color secundario */
     color: var(--text-muted);
 
-    /* Tamaño */
     font-size: 14px;
 
-    /* Separación entre líneas */
     line-height: 1.9;
 }
 
@@ -1309,13 +912,10 @@ button {
    INTRODUCCIÓN
 ========================================================= */
 
-/* Sección de introducción */
 .intro {
 
-    /* Permite posicionar elementos */
     position: relative;
 
-    /* Imagen de fondo */
     background:
         linear-gradient(
             rgba(9, 8, 7, .45),
@@ -1326,27 +926,22 @@ button {
 }
 
 
-/* Ornamento de introducción */
 .intro .ornament {
 
-    /* Separación vertical */
     margin: 35px 0;
 }
+
 
 /* =========================================================
    CUENTA REGRESIVA
 ========================================================= */
 
-/* Fondo de la sección */
 .countdown-section {
 
-    /* Permite controlar correctamente el fondo */
     position: relative;
 
-    /* Evita que cualquier elemento sobresalga */
     overflow: hidden;
 
-    /* Fondo actual del contador con una ligera capa oscura */
     background:
         linear-gradient(
             rgba(9, 8, 7, .45),
@@ -1357,12 +952,10 @@ button {
 }
 
 
-/* Contenedor general del contador */
 .countdown-content {
 
     width: 100%;
 
-    /* Evita que el contador se haga demasiado ancho */
     max-width: 700px;
 
     margin: 0 auto;
@@ -1371,19 +964,19 @@ button {
 }
 
 
-/* Palabra "Faltan" */
 .countdown-title {
 
-    /* Fuente elegante tipo manuscrita */
     font-family:
         "Parisienne",
         cursive;
 
-    /* Tamaño adaptable a celular y computadora */
     font-size:
-        clamp(32px, 6vw, 48px);
+        clamp(
+            32px,
+            6vw,
+            48px
+        );
 
-    /* Color dorado */
     color: var(--gold-light);
 
     margin-bottom: 18px;
@@ -1392,7 +985,6 @@ button {
 }
 
 
-/* Fila que contiene los cuatro tiempos */
 .countdown {
 
     display: flex;
@@ -1405,32 +997,35 @@ button {
 }
 
 
-/* Cada bloque: días / horas / minutos / segundos */
 .count-item {
 
-    /* Los cuatro bloques ocupan el mismo espacio */
     flex: 1;
 
     text-align: center;
 
     padding:
-        0 clamp(6px, 2vw, 16px);
+        0 clamp(
+            6px,
+            2vw,
+            16px
+        );
 }
 
 
-/* Números */
 .count-item span {
 
     display: block;
 
-    /* Fuente elegante para los números */
     font-family:
         "El Messiri",
         sans-serif;
 
-    /* Tamaño adaptable */
     font-size:
-        clamp(32px, 7vw, 60px);
+        clamp(
+            32px,
+            7vw,
+            60px
+        );
 
     font-weight: 500;
 
@@ -1442,7 +1037,6 @@ button {
 }
 
 
-/* Días / Horas / Minutos / Segundos */
 .count-item small {
 
     display: block;
@@ -1452,7 +1046,11 @@ button {
         sans-serif;
 
     font-size:
-        clamp(9px, 2.5vw, 14px);
+        clamp(
+            9px,
+            2.5vw,
+            14px
+        );
 
     font-weight: 400;
 
@@ -1460,12 +1058,10 @@ button {
 
     color: var(--gold-light);
 
-    /* Conservamos mayúsculas/minúsculas del HTML */
     text-transform: none;
 }
 
 
-/* Líneas verticales entre cada unidad */
 .count-divider {
 
     width: 1px;
@@ -1479,169 +1075,106 @@ button {
     opacity: .45;
 }
 
-/* =========================================================
-   AJUSTE DE FUENTES DEL CONTADOR EN MÓVILES
-========================================================= */
 
-@media (max-width: 600px) {
-
-    /* Fuerza la fuente manuscrita "Parisienne" */
-    .countdown-title {
-
-        font-family:
-            "Parisienne",
-            cursive !important;
-    }
-
-
-    /* Fuerza la fuente "El Messiri" en los números */
-    .count-item span {
-
-        font-family:
-            "El Messiri",
-            sans-serif !important;
-    }
-
-
-    /* Fuerza la fuente "El Messiri" en las etiquetas */
-    .count-item small {
-
-        font-family:
-            "El Messiri",
-            sans-serif !important;
-    }
-
-}
 /* =========================================================
    FECHA
 ========================================================= */
 
-/* Sección de la fecha */
 .date-section {
 
-    /* Fondo crema */
     background: var(--cream);
 
-    /* Texto oscuro */
     color: var(--text-dark);
 }
 
 
-/* Etiqueta de la fecha */
 .date-section .section-label {
 
-    /* Dorado oscuro */
     color: var(--gold-dark);
 }
 
 
-/* Número grande del día */
 .date-section h2 {
 
-    /* Separación superior */
     margin-top: 25px;
 
-    /* Tamaño adaptable */
-    font-size: clamp(
-        120px,
-        30vw,
-        220px
-    );
+    font-size:
+        clamp(
+            120px,
+            30vw,
+            220px
+        );
 
-    /* Altura de línea */
     line-height: .7;
 
-    /* Color oscuro */
     color: var(--text-dark);
 }
 
 
-/* Nombre del mes */
 .month {
 
-    /* Separación superior */
     margin-top: 25px;
 
-    /* Tamaño */
     font-size: 15px;
 
-    /* Separación de letras */
     letter-spacing: 7px;
 }
 
 
-/* Año */
 .year {
 
-    /* Separación superior */
     margin-top: 10px;
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 32px;
 }
 
 
-/* Detalles de la fecha */
 .date-details {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 500px;
 
-    /* Centra */
     margin: 60px auto 0;
 
-    /* Activa Flexbox */
     display: flex;
 
-    /* Centra */
     justify-content: center;
 
-    /* Espacio entre elementos */
     gap: 60px;
 }
 
 
-/* Cada detalle de fecha */
 .date-details div {
 
-    /* Activa Flexbox */
     display: flex;
 
-    /* Coloca elementos verticalmente */
     flex-direction: column;
 
-    /* Espacio entre elementos */
     gap: 8px;
 
-    /* Ancho mínimo */
     min-width: 100px;
 }
 
 
-/* Títulos de los detalles */
 .date-details strong {
 
-    /* Tamaño */
     font-size: 9px;
 
-    /* Separación de letras */
     letter-spacing: 3px;
 }
 
 
-/* Valores de los detalles */
 .date-details span {
 
-    /* Fuente elegante */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 25px;
 }
 
@@ -1650,10 +1183,8 @@ button {
    FAMILIA
 ========================================================= */
 
-/* Sección de la familia */
 .family-section {
 
-    /* Fondo oscuro sobre fotografía */
     background:
         linear-gradient(
             rgba(10, 8, 5, .94),
@@ -1665,22 +1196,16 @@ button {
 }
 
 
-/* Tarjeta de familia */
 .family-card {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 500px;
 
-    /* Centra */
     margin: 40px auto 80px;
 
-    /* Espaciado interno */
     padding: 35px 20px;
 
-    /* Línea superior */
     border-top:
         1px solid
         rgba(
@@ -1690,7 +1215,6 @@ button {
             .4
         );
 
-    /* Línea inferior */
     border-bottom:
         1px solid
         rgba(
@@ -1702,41 +1226,32 @@ button {
 }
 
 
-/* Texto de la tarjeta */
 .family-card p {
 
-    /* Separación vertical */
     margin: 12px 0;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 27px;
 
-    /* Altura */
     line-height: 1.2;
 
-    /* Color */
     color: var(--cream);
 
-    /* Permite dividir palabras largas */
     overflow-wrap: break-word;
 }
 
 
-/* Elementos destacados de la familia */
 .family-card span {
 
-    /* Color dorado */
     color: var(--gold);
 }
 
 
-/* Subtítulo de familia */
 .sub-heading {
 
-    /* Tamaño con prioridad */
     font-size: 50px !important;
 }
 
@@ -1745,60 +1260,42 @@ button {
    EVENTOS
 ========================================================= */
 
-/* Secciones de ceremonia y recepción */
 .event-section {
 
-    /* Permite posicionar elementos */
     position: relative;
 
-    /* Ancho */
     width: 100%;
 
-    /* Altura mínima */
     min-height: 80vh;
 
-    /* Altura segura */
     min-height: 80svh;
 
-    /* Flexbox */
     display: flex;
 
-    /* Centra verticalmente */
     align-items: center;
 
-    /* Centra horizontalmente */
     justify-content: center;
 
-    /* Oculta exceso */
     overflow: hidden;
 
-    /* Tamaño del fondo */
     background-size: cover;
 
-    /* Posición del fondo */
     background-position: center;
 
-    /* Centra texto */
     text-align: center;
 }
 
 
-/* Borde decorativo de los eventos */
 .event-section::after {
 
-    /* Crea el elemento */
     content: "";
 
-    /* Posición */
     position: absolute;
 
-    /* Ocupa todo */
     inset: 0;
 
-    /* Margen */
     margin: 20px;
 
-    /* Borde */
     border:
         1px solid
         rgba(
@@ -1808,15 +1305,12 @@ button {
             .15
         );
 
-    /* No bloquea clics */
     pointer-events: none;
 }
 
 
-/* Fondo de ceremonia */
 .ceremony {
 
-    /* Imagen y capa oscura */
     background:
         linear-gradient(
             rgba(5, 4, 3, .42),
@@ -1828,10 +1322,8 @@ button {
 }
 
 
-/* Fondo de recepción */
 .reception {
 
-    /* Imagen y capa oscura */
     background:
         linear-gradient(
             rgba(5, 4, 3, .42),
@@ -1843,63 +1335,51 @@ button {
 }
 
 
-/* Contenido de eventos */
 .event-content {
 
-    /* Posición */
     position: relative;
 
-    /* Sobre el fondo */
     z-index: 2;
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 800px;
 
-    /* Espaciado */
     padding: 30px 20px;
 }
 
 
-/* Título de evento */
 .event-content h2 {
 
-    /* Margen */
     margin: 25px 0;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño adaptable */
-    font-size: clamp(
-        50px,
-        11vw,
-        100px
-    );
+    font-size:
+        clamp(
+            50px,
+            11vw,
+            100px
+        );
 
-    /* Grosor */
     font-weight: 300;
 
-    /* Altura */
     line-height: .9;
 }
 
 
-/* Hora del evento */
 .event-time {
 
-    /* Separación inferior */
     margin-bottom: 30px;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 30px;
 
-    /* Color */
     color: var(--gold-light);
 }
 
@@ -1908,38 +1388,27 @@ button {
    BOTONES DORADOS
 ========================================================= */
 
-/* Botones secundarios */
 .gold-button {
 
-    /* Permite colocarlo en línea */
     display: inline-flex;
 
-    /* Centra verticalmente */
     align-items: center;
 
-    /* Centra horizontalmente */
     justify-content: center;
 
-    /* Espaciado */
     padding: 15px 25px;
 
-    /* Borde */
     border:
         1px solid var(--gold);
 
-    /* Tamaño */
     font-size: 9px;
 
-    /* Grosor */
     font-weight: 500;
 
-    /* Separación */
     letter-spacing: 3px;
 
-    /* Mayúsculas */
     text-transform: uppercase;
 
-    /* Transiciones */
     transition:
         background .4s ease,
         color .4s ease,
@@ -1947,16 +1416,12 @@ button {
 }
 
 
-/* Efecto hover */
 .gold-button:hover {
 
-    /* Fondo dorado */
     background: var(--gold);
 
-    /* Texto negro */
     color: var(--black);
 
-    /* Sube ligeramente */
     transform: translateY(-2px);
 }
 
@@ -1965,85 +1430,68 @@ button {
    GALERÍA
 ========================================================= */
 
-/* Contenedor de galería */
 .gallery {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 1000px;
 
-    /* Centra */
     margin: 50px auto 0;
 
-    /* Activa Grid */
     display: grid;
 
-    /* Dos columnas */
     grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+        repeat(
+            2,
+            minmax(
+                0,
+                1fr
+            )
+        );
 
-    /* Espacio */
     gap: 8px;
 }
 
 
-/* Cada imagen de galería */
 .gallery-item {
 
-    /* Permite posicionar contenido */
     position: relative;
 
-    /* Altura mínima */
     min-height: 220px;
 
-    /* Oculta exceso */
     overflow: hidden;
 
-    /* Fondo */
     background: #15120f;
 }
 
 
-/* Imagen grande */
 .gallery-item.large {
 
-    /* Ocupa dos filas */
     grid-row: span 2;
 }
 
 
-/* Imagen ancha */
 .gallery-item.wide {
 
-    /* Ocupa dos columnas */
     grid-column: span 2;
 }
 
 
-/* Imágenes dentro de la galería */
 .gallery-item img {
 
-    /* Ancho completo */
     width: 100%;
 
-    /* Alto completo */
     height: 100%;
 
-    /* Recorta manteniendo proporción */
     object-fit: cover;
 
-    /* Transición */
     transition:
         transform 1s ease;
 }
 
 
-/* Efecto al pasar sobre una imagen */
 .gallery-item:hover img {
 
-    /* Aumenta ligeramente */
     transform: scale(1.05);
 }
 
@@ -2052,37 +1500,28 @@ button {
    VESTIMENTA
 ========================================================= */
 
-/* Sección de vestimenta */
 .dress-section {
 
-    /* Fondo crema */
     background: var(--cream);
 
-    /* Texto oscuro */
     color: var(--text-dark);
 }
 
 
-/* Etiqueta de vestimenta */
 .dress-section .section-label {
 
-    /* Dorado oscuro */
     color: var(--gold-dark);
 }
 
 
-/* Título de vestimenta */
 .dress-section h2 {
 
-    /* Texto oscuro */
     color: var(--text-dark);
 }
 
 
-/* Párrafos de vestimenta */
 .dress-section p {
 
-    /* Texto oscuro con transparencia */
     color:
         rgba(
             27,
@@ -2093,16 +1532,12 @@ button {
 }
 
 
-/* Icono de vestimenta */
 .dress-icon {
 
-    /* Separación */
     margin: 30px 0;
 
-    /* Dorado */
     color: var(--gold);
 
-    /* Tamaño */
     font-size: 60px;
 }
 
@@ -2111,10 +1546,8 @@ button {
    LLUVIA DE SOBRES
 ========================================================= */
 
-/* Sección de lluvia de sobres */
 .envelopes-section {
 
-    /* Fondo radial */
     background:
         radial-gradient(
             circle at center,
@@ -2124,16 +1557,12 @@ button {
 }
 
 
-/* Icono de sobre */
 .envelope-icon {
 
-    /* Separación */
     margin: 30px 0;
 
-    /* Color */
     color: var(--gold-light);
 
-    /* Tamaño */
     font-size: 50px;
 }
 
@@ -2142,45 +1571,32 @@ button {
    TIMELINE
 ========================================================= */
 
-/* Línea de tiempo */
 .timeline {
 
-    /* Permite posicionar los elementos */
     position: relative;
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 550px;
 
-    /* Centra */
     margin: 60px auto;
 }
 
 
-/* Línea vertical central */
 .timeline::before {
 
-    /* Crea la línea */
     content: "";
 
-    /* Posición */
     position: absolute;
 
-    /* Centrada */
     left: 50%;
 
-    /* Comienza arriba */
     top: 0;
 
-    /* Termina abajo */
     bottom: 0;
 
-    /* Grosor */
     width: 1px;
 
-    /* Color */
     background:
         rgba(
             201,
@@ -2191,86 +1607,63 @@ button {
 }
 
 
-/* Cada evento del timeline */
 .timeline-item {
 
-    /* Permite posicionar el punto */
     position: relative;
 
-    /* Espaciado */
     padding: 35px 20px;
 
-    /* Flexbox */
     display: flex;
 
-    /* Elementos verticales */
     flex-direction: column;
 
-    /* Separación */
     gap: 8px;
 
-    /* Centra texto */
     text-align: center;
 }
 
 
-/* Punto de cada evento */
 .timeline-item::before {
 
-    /* Crea el punto */
     content: "";
 
-    /* Posición */
     position: absolute;
 
-    /* Centrado */
     left: 50%;
 
-    /* Arriba */
     top: 0;
 
-    /* Ancho */
     width: 7px;
 
-    /* Alto */
     height: 7px;
 
-    /* Forma circular */
     border-radius: 50%;
 
-    /* Dorado */
     background: var(--gold);
 
-    /* Centra el punto */
     transform:
         translateX(-50%);
 }
 
 
-/* Hora o etiqueta */
 .timeline-item span {
 
-    /* Dorado claro */
     color: var(--gold-light);
 
-    /* Tamaño */
     font-size: 10px;
 
-    /* Separación */
     letter-spacing: 3px;
 }
 
 
-/* Título del evento */
 .timeline-item strong {
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 30px;
 
-    /* Grosor */
     font-weight: 400;
 }
 
@@ -2279,42 +1672,30 @@ button {
    PASE
 ========================================================= */
 
-/* Sección del pase */
 .pass-section {
 
-    /* Ancho */
     width: 100%;
 
-    /* Espaciado */
     padding: 100px 20px;
 
-    /* Fondo crema */
     background: var(--cream);
 }
 
 
-/* Tarjeta del pase */
 .pass-card {
 
-    /* Ancho */
     width: 100%;
 
-    /* Ancho máximo */
     max-width: 450px;
 
-    /* Centra */
     margin: auto;
 
-    /* Espaciado interno */
     padding: 60px 30px;
 
-    /* Centra texto */
     text-align: center;
 
-    /* Texto oscuro */
     color: var(--text-dark);
 
-    /* Fondo degradado */
     background:
         linear-gradient(
             145deg,
@@ -2322,11 +1703,9 @@ button {
             #e9dfce
         );
 
-    /* Borde dorado */
     border:
         1px solid var(--gold);
 
-    /* Sombra */
     box-shadow:
         0 30px 80px
         rgba(
@@ -2338,95 +1717,74 @@ button {
 }
 
 
-/* Etiqueta del pase */
 .pass-card .section-label {
 
-    /* Dorado oscuro */
     color: var(--gold-dark);
 }
 
 
-/* Título del pase */
 .pass-card h2 {
 
-    /* Separación */
     margin: 30px 0 5px;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 65px;
 
-    /* Grosor */
     font-weight: 300;
 }
 
 
-/* Nombre del pase */
 .pass-name {
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 35px;
 
-    /* Cursiva */
     font-style: italic;
 }
 
 
-/* Línea del pase */
 .pass-line {
 
-    /* Largo */
     width: 70px;
 
-    /* Grosor */
     height: 1px;
 
-    /* Centra */
     margin: 30px auto;
 
-    /* Dorado */
     background: var(--gold);
 }
 
 
-/* Texto del pase */
 .pass-card p {
 
-    /* Margen */
     margin: 5px;
 
-    /* Tamaño */
     font-size: 11px;
 
-    /* Separación */
     letter-spacing: 2px;
 
-    /* Mayúsculas */
     text-transform: uppercase;
 }
 
 
-/* Número del pase */
 .pass-number {
 
-    /* Bloque */
     display: block;
 
-    /* Margen */
     margin: 10px;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 50px;
 
-    /* Grosor */
     font-weight: 400;
 }
 
@@ -2435,67 +1793,48 @@ button {
    WHATSAPP
 ========================================================= */
 
-/* Sección de confirmación */
 .rsvp-section {
 
-    /* Mayor espacio inferior */
     padding-bottom: 130px;
 }
 
 
-/* Botón de WhatsApp */
 .whatsapp-button {
 
-    /* Flexbox */
     display: inline-flex;
 
-    /* Centra verticalmente */
     align-items: center;
 
-    /* Centra horizontalmente */
     justify-content: center;
 
-    /* Separación superior */
     margin-top: 25px;
 
-    /* Espaciado */
     padding: 17px 30px;
 
-    /* Bordes ligeramente redondeados */
     border-radius: 2px;
 
-    /* Fondo verde */
     background: #25d366;
 
-    /* Texto blanco */
     color: #fff;
 
-    /* Tamaño */
     font-size: 10px;
 
-    /* Grosor */
     font-weight: 500;
 
-    /* Separación */
     letter-spacing: 2px;
 
-    /* Mayúsculas */
     text-transform: uppercase;
 
-    /* Transición */
     transition:
         transform .3s ease,
         box-shadow .3s ease;
 }
 
 
-/* Efecto hover */
 .whatsapp-button:hover {
 
-    /* Sube */
     transform: translateY(-3px);
 
-    /* Sombra verde */
     box-shadow:
         0 10px 30px
         rgba(
@@ -2511,35 +1850,25 @@ button {
    MÚSICA
 ========================================================= */
 
-/* Botón flotante de música */
 .music-button {
 
-    /* Posición fija */
     position: fixed;
 
-    /* Distancia derecha */
     right: 20px;
 
-    /* Distancia inferior */
     bottom: 20px;
 
-    /* Nivel */
     z-index: 500;
 
-    /* Ancho */
     width: 50px;
 
-    /* Alto */
     height: 50px;
 
-    /* Circular */
     border-radius: 50%;
 
-    /* Borde */
     border:
         1px solid var(--gold);
 
-    /* Fondo */
     background:
         rgba(
             10,
@@ -2548,30 +1877,24 @@ button {
             .82
         );
 
-    /* Color */
     color: var(--gold-light);
 
-    /* Cursor */
     cursor: pointer;
 
-    /* Desenfoque del fondo */
     backdrop-filter: blur(10px);
+
     -webkit-backdrop-filter: blur(10px);
 
-    /* Transición */
     transition:
         transform .3s ease,
         background .3s ease;
 }
 
 
-/* Efecto al pasar el mouse */
 .music-button:hover {
 
-    /* Aumenta ligeramente */
     transform: scale(1.05);
 
-    /* Fondo más oscuro */
     background:
         rgba(
             25,
@@ -2582,23 +1905,18 @@ button {
 }
 
 
-/* Estado cuando la música está reproduciéndose */
 .music-button.playing {
 
-    /* Pulso */
     animation:
         musicPulse 2s infinite;
 }
 
 
-/* Animación del botón de música */
 @keyframes musicPulse {
 
-    /* Inicio y final */
     0%,
     100% {
 
-        /* Sin expansión */
         box-shadow:
             0 0 0 0
             rgba(
@@ -2609,10 +1927,8 @@ button {
             );
     }
 
-    /* Mitad */
     50% {
 
-        /* Expande la sombra */
         box-shadow:
             0 0 0 12px
             rgba(
@@ -2622,7 +1938,6 @@ button {
                 0
             );
     }
-
 }
 
 
@@ -2630,61 +1945,46 @@ button {
    FOOTER
 ========================================================= */
 
-/* Pie de página */
 .footer {
 
-    /* Ancho */
     width: 100%;
 
-    /* Espaciado */
     padding: 100px 20px;
 
-    /* Centra */
     text-align: center;
 
-    /* Fondo */
     background: #050504;
 }
 
 
-/* Título del footer */
 .footer h2 {
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Tamaño */
     font-size: 80px;
 
-    /* Grosor */
     font-weight: 300;
 
-    /* Altura */
     line-height: .9;
 }
 
 
-/* Texto del footer */
 .footer p {
 
-    /* Margen */
     margin: 15px 0;
 
-    /* Dorado */
     color: var(--gold-light);
 
-    /* Tamaño */
     font-size: 10px;
 
-    /* Separación */
     letter-spacing: 3px;
 }
 
 
-/* Texto secundario del footer */
 .footer span {
 
-    /* Color tenue */
     color:
         rgba(
             247,
@@ -2693,10 +1993,10 @@ button {
             .5
         );
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    font-family:
+        'Cormorant Garamond',
+        serif;
 
-    /* Cursiva */
     font-style: italic;
 }
 
@@ -2704,16 +2004,6 @@ button {
 /* =========================================================
    ANIMACIONES SCROLL
 ========================================================= */
-
-/*
-   Cada bloque comienza:
-   - invisible
-   - ligeramente abajo
-   - con un pequeño desenfoque
-
-   Esto hace que la entrada se sienta más elegante
-   que simplemente aparecer.
-*/
 
 .reveal {
 
@@ -2730,22 +2020,8 @@ button {
         opacity 1s cubic-bezier(.22, 1, .36, 1),
         transform 1s cubic-bezier(.22, 1, .36, 1),
         filter 1s ease;
-
 }
 
-
-/* =========================================================
-   BLOQUE VISIBLE
-========================================================= */
-
-/*
-   Cuando el bloque llega a la zona visible de la pantalla:
-
-   - aparece
-   - sube suavemente
-   - recupera su tamaño
-   - elimina el desenfoque
-*/
 
 .reveal.visible {
 
@@ -2757,20 +2033,8 @@ button {
 
     filter:
         blur(0);
-
 }
 
-/* =========================================================
-   SALIDA HACIA ARRIBA
-========================================================= */
-
-/*
-   Cuando el usuario desliza hacia abajo y el bloque
-   abandona la zona visible, se desplaza suavemente
-   hacia arriba mientras desaparece.
-
-   Esto evita que simplemente "desaparezca".
-*/
 
 .reveal.exit-up {
 
@@ -2782,22 +2046,8 @@ button {
 
     filter:
         blur(4px);
-
 }
 
-
-/* =========================================================
-   SALIDA HACIA ABAJO
-========================================================= */
-
-/*
-   Cuando el usuario desliza hacia arriba y el bloque
-   abandona la zona visible, se desplaza suavemente
-   hacia abajo.
-
-   Al volver a entrar en pantalla, JavaScript elimina
-   esta clase y vuelve a ejecutar la animación de entrada.
-*/
 
 .reveal.exit-down {
 
@@ -2809,50 +2059,49 @@ button {
 
     filter:
         blur(4px);
-
 }
+
+
 /* =========================================================
    RESPONSIVE — TABLET
 ========================================================= */
 
-/* Ajustes para pantallas de hasta 768px */
 @media (max-width: 768px) {
 
-    /* Reduce el espacio de la portada */
     .opening-content {
+
         padding: 20px;
     }
 
-    /* Reduce el borde del Hero */
     .hero::after {
+
         margin: 12px;
     }
 
-    /* Reduce el espacio del contenido */
     .hero-content {
+
         padding: 30px 20px;
     }
 
-    /* Reduce el espacio general */
     .section {
+
         padding: 90px 20px;
     }
 
-    /* Reduce separación de detalles */
     .date-details {
+
         gap: 35px;
     }
 
-    /* Reduce el borde de eventos */
     .event-section::after {
+
         margin: 12px;
     }
 
-    /* Ajusta el contenido de eventos */
     .event-content {
+
         padding: 30px 20px;
     }
-
 }
 
 
@@ -2860,7 +2109,6 @@ button {
    RESPONSIVE — MÓVIL
 ========================================================= */
 
-/* Ajustes para teléfonos */
 @media (max-width: 600px) {
 
 
@@ -2868,15 +2116,12 @@ button {
        GENERAL
     ----------------------------------------- */
 
-    /* Reduce etiquetas en móvil */
     .small-label,
     .section-label,
     .eyebrow {
 
-        /* Tamaño */
         font-size: 8px;
 
-        /* Separación */
         letter-spacing: 3px;
     }
 
@@ -2885,126 +2130,75 @@ button {
        PORTADA
     ----------------------------------------- */
 
-    /* Ajustes generales de portada */
     .opening {
 
-        /* Espacio */
         padding: 15px;
 
-        /* Centra fondo */
-        background-position: center center;
+        background-position:
+            center center;
     }
 
 
-    /* Contenido de portada */
     .opening-content {
 
-        /* Ancho */
         width: 100%;
 
-        /* Espaciado */
         padding:
             20px 10px;
     }
 
 
-    /* Decoraciones */
-    .opening-decoration {
+    /* Logo en celulares */
 
-        /* Tamaño adaptable */
-        width: clamp(180px, 50vw, 600px);
+    .opening-logo {
+
+        width:
+            clamp(
+                170px,
+                62vw,
+                300px
+            );
+
+        max-width: 82%;
+
+        max-height: 42svh;
+
+        margin-bottom: 17px;
     }
 
 
-    /* Decoración superior */
-    .decoration-top-right {
+    /* MIS XV en celulares */
 
-        /* Arriba */
-        top: 0px;
+    .opening-title {
 
-        /* Derecha */
-        right: -40px;
-    }
+        margin-top: 3px;
 
+        margin-bottom: 25px;
 
-    /* Decoración inferior */
-    .decoration-bottom-left {
-
-        /* Abajo */
-        bottom: 0px;
-
-        /* Izquierda */
-        left: -40px;
-    }
-
-
-    /* Etiqueta de portada */
-    .opening .small-label {
-
-        /* Margen */
-        margin-bottom: 18px;
-
-        /* Tamaño */
-        font-size: 8px;
-
-        /* Separación */
-        letter-spacing: 3px;
-    }
-
-
-    /* MIS XV móvil */
-    .opening h1 {
-
-        /* Separación superior */
-        margin-top: 20px;
-
-        /* Tamaño adaptable */
         font-size:
-            clamp( 70px, 22vw,105px);
+            clamp(
+                21px,
+                6vw,
+                28px
+            );
+
+        letter-spacing: 4px;
     }
 
 
-    /* Nombre móvil */
-    .opening-name {
+    /* Botón en celulares */
 
-        /* Separación */
-        margin-top: 18px;
-
-        /* Tamaño adaptable */
-        font-size:
-            clamp(38px,11vw,48px);                                     
-           
-    }
-
-
-    /* Ornamento móvil */
-    .opening .ornament {
-
-        /* Margen */
-        margin: 22px 0;
-
-        /* Tamaño */
-        font-size: 16px;
-    }
-
-
-    /* Botón móvil */
     .open-button {
 
-        /* Ancho */
         width: 100%;
 
-        /* Ancho máximo */
         max-width: 240px;
 
-        /* Espaciado */
         padding:
             16px 20px;
 
-        /* Tamaño */
         font-size: 9px;
 
-        /* Separación */
         letter-spacing: 2px;
     }
 
@@ -3013,44 +2207,33 @@ button {
        HERO
     ----------------------------------------- */
 
-    /* Hero móvil */
     .hero {
 
-        /* Altura */
         min-height: 100vh;
 
-        /* Altura segura */
         min-height: 100svh;
 
-        /* Espaciado */
         padding: 20px 0;
     }
 
 
-    /* Borde móvil */
     .hero::after {
 
-        /* Margen */
         margin: 10px;
     }
 
 
-    /* Contenido Hero móvil */
     .hero-content {
 
-        /* Ancho */
         width: 100%;
 
-        /* Espaciado */
         padding:
             30px 18px;
     }
 
 
-    /* Nombre Hero móvil */
     .hero h1 {
 
-        /* Tamaño */
         font-size:
             clamp(
                 70px,
@@ -3060,17 +2243,13 @@ button {
     }
 
 
-    /* Texto Hero móvil */
     .hero p {
 
-        /* Ancho máximo */
         max-width: 300px;
 
-        /* Margen */
         margin:
             20px auto;
 
-        /* Tamaño */
         font-size:
             clamp(
                 20px,
@@ -3080,27 +2259,20 @@ button {
     }
 
 
-    /* Fecha Hero móvil */
     .hero-date {
 
-        /* Margen */
         margin-top: 28px;
 
-        /* Tamaño */
         font-size: 9px;
 
-        /* Separación */
         letter-spacing: 4px;
     }
 
 
-    /* Fotografía Hero móvil */
     .hero-photo {
 
-        /* Ancho */
         width: 300px;
 
-        /* Ancho máximo */
         max-width: 80vw;
     }
 
@@ -3109,19 +2281,15 @@ button {
        SECCIONES
     ----------------------------------------- */
 
-    /* Espaciado general móvil */
     .section {
 
-        /* Reduce el padding */
         padding:
             80px 18px;
     }
 
 
-    /* Títulos generales móvil */
     .section h2 {
 
-        /* Tamaño adaptable */
         font-size:
             clamp(
                 42px,
@@ -3131,13 +2299,10 @@ button {
     }
 
 
-    /* Párrafos móvil */
     .section p {
 
-        /* Tamaño */
         font-size: 13px;
 
-        /* Altura */
         line-height: 1.8;
     }
 
@@ -3146,23 +2311,18 @@ button {
        CONTADOR
     ----------------------------------------- */
 
-    /* Contador móvil */
     .countdown-section {
 
-        /* Espaciado */
         padding:
             80px 12px;
     }
 
 
-    /* Título contador */
     .countdown-section h2 {
 
-        /* Margen */
         margin:
             20px 0 40px;
 
-        /* Tamaño */
         font-size:
             clamp(
                 42px,
@@ -3172,13 +2332,10 @@ button {
     }
 
 
-    /* Contenedor contador */
     .countdown {
 
-        /* Ancho */
         width: 100%;
 
-        /* Separación */
         gap:
             clamp(
                 6px,
@@ -3188,18 +2345,14 @@ button {
     }
 
 
-    /* Elementos contador */
     .count-item {
 
-        /* Ancho mínimo */
         min-width: 48px;
     }
 
 
-    /* Números contador */
     .count-item span {
 
-        /* Tamaño */
         font-size:
             clamp(
                 32px,
@@ -3209,16 +2362,12 @@ button {
     }
 
 
-    /* Etiquetas contador */
     .count-item small {
 
-        /* Margen */
         margin-top: 8px;
 
-        /* Tamaño */
         font-size: 6px;
 
-        /* Separación */
         letter-spacing: 1.5px;
     }
 
@@ -3227,10 +2376,8 @@ button {
        FECHA
     ----------------------------------------- */
 
-    /* Día grande */
     .date-section h2 {
 
-        /* Tamaño adaptable */
         font-size:
             clamp(
                 110px,
@@ -3240,38 +2387,28 @@ button {
     }
 
 
-    /* Mes */
     .month {
 
-        /* Margen */
         margin-top: 22px;
 
-        /* Tamaño */
         font-size: 12px;
 
-        /* Separación */
         letter-spacing: 5px;
     }
 
 
-    /* Año */
     .year {
 
-        /* Tamaño */
         font-size: 28px;
     }
 
 
-    /* Detalles */
     .date-details {
 
-        /* Ancho */
         width: 100%;
 
-        /* Margen */
         margin-top: 45px;
 
-        /* Separación */
         gap:
             clamp(
                 15px,
@@ -3281,32 +2418,24 @@ button {
     }
 
 
-    /* Cada detalle */
     .date-details div {
 
-        /* Ancho mínimo */
         min-width: 0;
 
-        /* Distribución */
         flex: 1;
     }
 
 
-    /* Valores */
     .date-details span {
 
-        /* Tamaño */
         font-size: 20px;
     }
 
 
-    /* Etiquetas */
     .date-details strong {
 
-        /* Tamaño */
         font-size: 7px;
 
-        /* Separación */
         letter-spacing: 1.5px;
     }
 
@@ -3315,26 +2444,20 @@ button {
        FAMILIA
     ----------------------------------------- */
 
-    /* Tarjeta familiar */
     .family-card {
 
-        /* Ancho */
         width: 100%;
 
-        /* Margen */
         margin:
             35px auto 60px;
 
-        /* Espaciado */
         padding:
             30px 15px;
     }
 
 
-    /* Texto familiar */
     .family-card p {
 
-        /* Tamaño adaptable */
         font-size:
             clamp(
                 21px,
@@ -3342,16 +2465,13 @@ button {
                 25px
             );
 
-        /* Permite dividir palabras largas */
         overflow-wrap:
             anywhere;
     }
 
 
-    /* Subtítulo */
     .sub-heading {
 
-        /* Tamaño */
         font-size:
             40px !important;
     }
@@ -3361,41 +2481,31 @@ button {
        EVENTOS
     ----------------------------------------- */
 
-    /* Eventos móvil */
     .event-section {
 
-        /* Altura */
         min-height: 75vh;
 
-        /* Altura segura */
         min-height: 75svh;
     }
 
 
-    /* Borde eventos */
     .event-section::after {
 
-        /* Margen */
         margin: 10px;
     }
 
 
-    /* Contenido eventos */
     .event-content {
 
-        /* Ancho */
         width: 100%;
 
-        /* Espaciado */
         padding:
             25px 18px;
     }
 
 
-    /* Título evento */
     .event-content h2 {
 
-        /* Tamaño */
         font-size:
             clamp(
                 43px,
@@ -3403,30 +2513,23 @@ button {
                 70px
             );
 
-        /* Altura */
         line-height: .9;
     }
 
 
-    /* Hora */
     .event-time {
 
-        /* Tamaño */
         font-size: 27px;
     }
 
 
-    /* Botón dorado */
     .gold-button {
 
-        /* Espaciado */
         padding:
             14px 20px;
 
-        /* Tamaño */
         font-size: 8px;
 
-        /* Separación */
         letter-spacing: 2px;
     }
 
@@ -3435,28 +2538,25 @@ button {
        GALERÍA
     ----------------------------------------- */
 
-    /* Galería móvil */
     .gallery {
 
-        /* Ancho */
         width: 100%;
 
-        /* Dos columnas */
         grid-template-columns:
             repeat(
                 2,
-                minmax(0, 1fr)
+                minmax(
+                    0,
+                    1fr
+                )
             );
 
-        /* Separación */
         gap: 6px;
     }
 
 
-    /* Elementos de galería */
     .gallery-item {
 
-        /* Altura */
         min-height: 180px;
     }
 
@@ -3465,13 +2565,10 @@ button {
        VESTIMENTA
     ----------------------------------------- */
 
-    /* Icono */
     .dress-icon {
 
-        /* Margen */
         margin: 25px 0;
 
-        /* Tamaño */
         font-size: 50px;
     }
 
@@ -3480,13 +2577,10 @@ button {
        SOBRES
     ----------------------------------------- */
 
-    /* Icono sobre */
     .envelope-icon {
 
-        /* Margen */
         margin: 25px 0;
 
-        /* Tamaño */
         font-size: 45px;
     }
 
@@ -3495,28 +2589,22 @@ button {
        TIMELINE
     ----------------------------------------- */
 
-    /* Timeline */
     .timeline {
 
-        /* Margen */
         margin:
             50px auto;
     }
 
 
-    /* Elemento timeline */
     .timeline-item {
 
-        /* Espaciado */
         padding:
             32px 15px;
     }
 
 
-    /* Título timeline */
     .timeline-item strong {
 
-        /* Tamaño */
         font-size: 26px;
     }
 
@@ -3525,44 +2613,34 @@ button {
        PASE
     ----------------------------------------- */
 
-    /* Sección pase */
     .pass-section {
 
-        /* Espaciado */
         padding:
             80px 15px;
     }
 
 
-    /* Tarjeta */
     .pass-card {
 
-        /* Espaciado */
         padding:
             50px 20px;
     }
 
 
-    /* Título pase */
     .pass-card h2 {
 
-        /* Tamaño */
         font-size: 55px;
     }
 
 
-    /* Nombre pase */
     .pass-name {
 
-        /* Tamaño */
         font-size: 30px;
     }
 
 
-    /* Número */
     .pass-number {
 
-        /* Tamaño */
         font-size: 44px;
     }
 
@@ -3571,29 +2649,22 @@ button {
        WHATSAPP
     ----------------------------------------- */
 
-    /* Sección WhatsApp */
     .rsvp-section {
 
-        /* Espacio inferior */
         padding-bottom:
             110px;
     }
 
 
-    /* Botón WhatsApp */
     .whatsapp-button {
 
-        /* Ancho */
         width: 100%;
 
-        /* Ancho máximo */
         max-width: 300px;
 
-        /* Espaciado */
         padding:
             16px 20px;
 
-        /* Tamaño */
         font-size: 9px;
     }
 
@@ -3602,19 +2673,14 @@ button {
        MÚSICA
     ----------------------------------------- */
 
-    /* Botón música móvil */
     .music-button {
 
-        /* Derecha */
         right: 15px;
 
-        /* Abajo */
         bottom: 15px;
 
-        /* Ancho */
         width: 46px;
 
-        /* Alto */
         height: 46px;
     }
 
@@ -3623,19 +2689,15 @@ button {
        FOOTER
     ----------------------------------------- */
 
-    /* Footer móvil */
     .footer {
 
-        /* Espaciado */
         padding:
             80px 20px;
     }
 
 
-    /* Título footer */
     .footer h2 {
 
-        /* Tamaño */
         font-size: 65px;
     }
 
@@ -3646,141 +2708,125 @@ button {
    MÓVILES MUY PEQUEÑOS
 ========================================================= */
 
-/* Ajustes para teléfonos de hasta 380px */
 @media (max-width: 380px) {
 
 
-    /* Decoraciones pequeñas */
-    .opening-decoration {
+    /* Apertura en teléfonos pequeños */
 
-        /* Ancho */
-        width: 105px;
-    }
-
-
-    /* Contenido portada */
     .opening-content {
 
-        /* Espaciado */
         padding:
             15px 8px;
     }
 
 
-    /* MIS XV */
-    .opening h1 {
+    .opening-logo {
 
-        /* Tamaño */
-        font-size: 68px;
+        width: 70vw;
+
+        max-width: 250px;
+
+        max-height: 40svh;
+
+        margin-bottom: 15px;
     }
 
 
-    /* Nombre */
-    .opening-name {
+    .opening-title {
 
-        /* Tamaño */
-        font-size: 37px;
+        font-size: 21px;
+
+        letter-spacing: 3px;
+
+        margin-bottom: 23px;
     }
 
 
-    /* Etiqueta */
-    .opening .small-label {
+    .open-button {
 
-        /* Tamaño */
-        font-size: 7px;
+        max-width: 225px;
 
-        /* Separación */
-        letter-spacing: 2px;
+        padding:
+            15px 18px;
     }
 
 
     /* Contador */
+
     .countdown {
 
-        /* Espacio */
         gap: 4px;
     }
 
 
-    /* Elementos */
     .count-item {
 
-        /* Ancho */
         min-width: 43px;
     }
 
 
-    /* Números */
     .count-item span {
 
-        /* Tamaño */
         font-size: 31px;
     }
 
 
-    /* Etiquetas */
     .count-item small {
 
-        /* Tamaño */
         font-size: 5px;
 
-        /* Separación */
         letter-spacing: 1px;
     }
 
 
     /* Detalles fecha */
+
     .date-details {
 
-        /* Separación */
         gap: 10px;
     }
 
 
-    /* Valores */
     .date-details span {
 
-        /* Tamaño */
         font-size: 18px;
     }
 
 
-    /* Etiquetas */
     .date-details strong {
 
-        /* Tamaño */
         font-size: 6px;
     }
 
 
     /* Galería */
+
     .gallery-item {
 
-        /* Altura */
         min-height: 150px;
     }
 
 
     /* Texto familiar */
+
     .family-card p {
 
-        /* Tamaño */
         font-size: 21px;
     }
 
 
     /* Título evento */
+
     .event-content h2 {
 
-        /* Tamaño */
         font-size: 40px;
     }
 
 
     /* Tarjeta */
+
     .pass-card {
 
-        /* Espaciado */
         padding:
             45px 15px;
     }
@@ -3792,79 +2838,104 @@ button {
    SEGURIDAD PARA PANTALLAS MUY ESTRECHAS
 ========================================================= */
 
-/* Ajustes para pantallas de hasta 320px */
 @media (max-width: 320px) {
 
 
-    /* MIS XV */
-    .opening h1 {
+    /* Apertura en teléfonos muy pequeños */
 
-        /* Tamaño */
-        font-size: 60px;
+    .opening-logo {
+
+        width: 68vw;
+
+        max-width: 220px;
     }
 
 
-    /* Nombre */
-    .opening-name {
+    .opening-title {
 
-        /* Tamaño */
-        font-size: 34px;
+        font-size: 19px;
+
+        letter-spacing: 3px;
     }
 
 
-    /* Decoración */
-    .opening-decoration {
+    .open-button {
 
-        /* Ancho */
-        width: 90px;
+        max-width: 210px;
     }
 
 
     /* Elementos del contador */
+
     .count-item {
 
-        /* Ancho */
         min-width: 38px;
     }
 
 
-    /* Números contador */
     .count-item span {
 
-        /* Tamaño */
         font-size: 28px;
     }
 
 
-    /* Etiquetas contador */
     .count-item small {
 
-        /* Tamaño */
         font-size: 5px;
     }
 
 
     /* Detalles */
+
     .date-details {
 
-        /* Separación */
         gap: 6px;
     }
 
 
-    /* Valores */
     .date-details span {
 
-        /* Tamaño */
         font-size: 16px;
     }
 
 
     /* Título evento */
+
     .event-content h2 {
 
-        /* Tamaño */
         font-size: 36px;
+    }
+
+}
+
+
+/* =========================================================
+   FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .countdown-title {
+
+        font-family:
+            "Parisienne",
+            cursive !important;
+    }
+
+
+    .count-item span {
+
+        font-family:
+            "El Messiri",
+            sans-serif !important;
+    }
+
+
+    .count-item small {
+
+        font-family:
+            "El Messiri",
+            sans-serif !important;
     }
 
 }
