@@ -2145,12 +2145,9 @@ button {
     .opening-logo {
 
         width:
-            clamp(
-                170px,
-                62vw,
-                300px
-            );
-
+            clamp(220px,52vw,420px);
+               
+                
         max-width: 82%;
 
         max-height: 42svh;
@@ -2165,7 +2162,7 @@ button {
 
         margin-top: 3px;
 
-        margin-bottom: 25px;
+        margin-bottom: 10px;
 
         font-size:
             clamp(
