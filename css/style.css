@@ -1332,6 +1332,10 @@ button {
     /* Separación vertical */
     margin: 35px 0;
 }
+
+/* Altura mínima para mostrar más del fondo */
+min-height: 750px;
+
 /* =========================================================
    CONTADOR
 ========================================================= */
