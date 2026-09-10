@@ -1334,152 +1334,150 @@ button {
 }
 
 /* =========================================================
-   CONTADOR
+   CUENTA REGRESIVA
 ========================================================= */
 
-/* Sección del contador */
+/* Fondo de la sección */
 .countdown-section {
 
-    /* Ancho completo */
+    /* Permite controlar correctamente el fondo */
+    position: relative;
+
+    /* Evita que cualquier elemento sobresalga */
+    overflow: hidden;
+
+    /* Fondo actual del contador con una ligera capa oscura */
+    background:
+        linear-gradient(
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
+        ),
+        url("../images/fondo intro.jpg")
+        center center / cover no-repeat;
+}
+
+
+/* Contenedor general del contador */
+.countdown-content {
+
     width: 100%;
 
-    /* Espaciado */
-    padding: 100px 20px;
+    /* Evita que el contador se haga demasiado ancho */
+    max-width: 700px;
 
-    /* Fondo en jpg */
-    background:
-    linear-gradient(
-        rgba(9, 8, 7, .45),
-        rgba(9, 8, 7, .65)
-    ),
-    url("../images/fondo intro.jpg")
-    center center / cover no-repeat;
+    margin: 0 auto;
 
-    /* Centra el contenido */
     text-align: center;
 }
 
 
-/* Título del contador */
-.countdown-section h2 {
+/* Palabra "Faltan" */
+.countdown-title {
 
-    /* Separación */
-    margin: 20px 0 50px;
+    /* Fuente elegante tipo manuscrita */
+    font-family:
+        "Parisienne",
+        cursive;
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
-
-    /* Tamaño adaptable */
-    font-size: clamp(
-        50px,
-        10vw,
-        70px
-    );
-
-    /* Grosor */
-    font-weight: 300;
-}
-
-
-/* Contenedor de los números */
-.countdown {
-
-    /* Ancho completo */
-    width: 100%;
-
-    /* Activa Flexbox */
-    display: flex;
-
-    /* Centra verticalmente */
-    align-items: center;
-
-    /* Centra horizontalmente */
-    justify-content: center;
-
-    /* Espacio adaptable */
-    gap: clamp(
-        15px,
-        5vw,
-        60px
-    );
-}
-
-
-/* Cada bloque del contador */
-.count-item {
-
-    /* Ancho mínimo */
-    min-width: 60px;
-
-    /* Evita que se estire */
-    flex: 0 0 auto;
-}
-
-
-/* Número del contador */
-.count-item span {
-
-    /* Ocupa una línea */
-    display: block;
-
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
-
-    /* Tamaño adaptable */
-    font-size: clamp(
-        40px,
-        9vw,
-        70px
-    );
-
-    /* Altura de línea */
-    line-height: 1;
+    /* Tamaño adaptable a celular y computadora */
+    font-size:
+        clamp(32px, 6vw, 48px);
 
     /* Color dorado */
     color: var(--gold-light);
+
+    margin-bottom: 18px;
+
+    line-height: 1;
 }
 
 
-/* Texto debajo de cada número */
-.count-item small {
+/* Fila que contiene los cuatro tiempos */
+.countdown {
 
-    /* Ocupa una línea */
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+}
+
+
+/* Cada bloque: días / horas / minutos / segundos */
+.count-item {
+
+    /* Los cuatro bloques ocupan el mismo espacio */
+    flex: 1;
+
+    text-align: center;
+
+    padding:
+        0 clamp(6px, 2vw, 16px);
+}
+
+
+/* Números */
+.count-item span {
+
     display: block;
 
-    /* Separación */
-    margin-top: 10px;
+    /* Fuente elegante para los números */
+    font-family:
+        "El Messiri",
+        sans-serif;
 
-    /* Tamaño */
-    font-size: 8px;
+    /* Tamaño adaptable */
+    font-size:
+        clamp(32px, 7vw, 60px);
 
-    /* Separación entre letras */
-    letter-spacing: 3px;
+    font-weight: 500;
 
-    /* Color tenue */
-    color:
-        rgba(
-            247,
-            242,
-            233,
-            .55
-        );
+    color: var(--cream);
+
+    line-height: 1;
+
+    margin-bottom: 8px;
 }
 
 
-/* Mensaje mostrado cuando llega el día */
-.today-message {
+/* Días / Horas / Minutos / Segundos */
+.count-item small {
 
-    /* Fuente */
-    font-family: 'Cormorant Garamond', serif;
+    display: block;
 
-    /* Tamaño */
-    font-size: 30px;
+    font-family:
+        "El Messiri",
+        sans-serif;
 
-    /* Dorado */
+    font-size:
+        clamp(9px, 2.5vw, 14px);
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
     color: var(--gold-light);
+
+    /* Conservamos mayúsculas/minúsculas del HTML */
+    text-transform: none;
 }
 
 
+/* Líneas verticales entre cada unidad */
+.count-divider {
+
+    width: 1px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    background: var(--gold);
+
+    opacity: .45;
+}
 /* =========================================================
    FECHA
 ========================================================= */
