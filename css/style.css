@@ -519,19 +519,6 @@ button {
     /* Animación inicial */
     animation: openingContentIn 1.2s ease both;
 }
-.opening-logo {
-    width: 220px;
-    max-width: 65vw;
-    height: auto;
-    margin-bottom: 25px;
-}
-
-.opening-title {
-    font-family: 'Parisienne', cursive;
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
 
 
 /* =========================================================
