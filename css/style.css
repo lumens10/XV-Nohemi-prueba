@@ -1478,6 +1478,40 @@ button {
 
     opacity: .45;
 }
+
+/* =========================================================
+   AJUSTE DE FUENTES DEL CONTADOR EN MÓVILES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Fuerza la fuente manuscrita "Parisienne" */
+    .countdown-title {
+
+        font-family:
+            "Parisienne",
+            cursive !important;
+    }
+
+
+    /* Fuerza la fuente "El Messiri" en los números */
+    .count-item span {
+
+        font-family:
+            "El Messiri",
+            sans-serif !important;
+    }
+
+
+    /* Fuerza la fuente "El Messiri" en las etiquetas */
+    .count-item small {
+
+        font-family:
+            "El Messiri",
+            sans-serif !important;
+    }
+
+}
 /* =========================================================
    FECHA
 ========================================================= */
