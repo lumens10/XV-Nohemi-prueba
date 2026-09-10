@@ -2727,26 +2727,57 @@ button {
 
 }
 
-
 /* =========================================================
-   SALIDA DEL BLOQUE
+   SALIDA HACIA ARRIBA
 ========================================================= */
 
 /*
-   Cuando el usuario continúa deslizando y el bloque
-   deja la pantalla, JavaScript quitará ".visible".
+   Cuando el usuario desliza hacia abajo y el bloque
+   abandona la zona visible, se desplaza suavemente
+   hacia arriba mientras desaparece.
 
-   Entonces el bloque regresará automáticamente
-   a su estado inicial:
-
-   opacity: 0
-   translateY(70px)
-   scale(.97)
-   blur(4px)
-
-   Esto produce el efecto de desvanecimiento.
+   Esto evita que simplemente "desaparezca".
 */
 
+.reveal.exit-up {
+
+    opacity: 0;
+
+    transform:
+        translateY(-60px)
+        scale(.97);
+
+    filter:
+        blur(4px);
+
+}
+
+
+/* =========================================================
+   SALIDA HACIA ABAJO
+========================================================= */
+
+/*
+   Cuando el usuario desliza hacia arriba y el bloque
+   abandona la zona visible, se desplaza suavemente
+   hacia abajo.
+
+   Al volver a entrar en pantalla, JavaScript elimina
+   esta clase y vuelve a ejecutar la animación de entrada.
+*/
+
+.reveal.exit-down {
+
+    opacity: 0;
+
+    transform:
+        translateY(60px)
+        scale(.97);
+
+    filter:
+        blur(4px);
+
+}
 /* =========================================================
    RESPONSIVE — TABLET
 ========================================================= */
