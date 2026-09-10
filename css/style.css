@@ -1321,7 +1321,7 @@ button {
             rgba(9, 8, 7, .45),
             rgba(9, 8, 7, .65)
         ),
-        url("../images/fondo intro.jpg")
+        url("../images/fondo beige github.jpg")
         center center / cover no-repeat;
 }
 
@@ -1346,13 +1346,14 @@ button {
     /* Espaciado */
     padding: 100px 20px;
 
-    /* Fondo degradado */
+    /* Fondo en jpg */
     background:
-        linear-gradient(
-            135deg,
-            #16130e,
-            #080706
-        );
+    linear-gradient(
+        rgba(9, 8, 7, .45),
+        rgba(9, 8, 7, .65)
+    ),
+    url("../images/fondo intro.jpg")
+    center center / cover no-repeat;
 
     /* Centra el contenido */
     text-align: center;
