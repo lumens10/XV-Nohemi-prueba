@@ -122,7 +122,7 @@
     --intro-p1-position-y: 0px;
 
     --intro-p2-size: 14px;
-    --intro-p2-color: var(--text-muted);
+    --intro-p2-color: #812534;
     --intro-p2-font-family: 'Montserrat', sans-serif;
     --intro-p2-font-weight: 300;
     --intro-p2-letter-spacing: normal;
@@ -133,7 +133,7 @@
     --intro-p2-position-y: 0px;
 
     --intro-p3-size: 14px;
-    --intro-p3-color: var(--text-muted);
+    --intro-p3-color: #812534;
     --intro-p3-font-family: 'Montserrat', sans-serif;
     --intro-p3-font-weight: 300;
     --intro-p3-letter-spacing: normal;
@@ -144,7 +144,7 @@
     --intro-p3-position-y: 0px;
 
     --intro-p4-size: 14px;
-    --intro-p4-color: var(--text-muted);
+    --intro-p4-color: #812534;
     --intro-p4-font-family: 'Montserrat', sans-serif;
     --intro-p4-font-weight: 300;
     --intro-p4-letter-spacing: normal;
