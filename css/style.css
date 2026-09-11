@@ -117,7 +117,7 @@
     --intro-title-size: clamp(45px,10vw,80px);
     --intro-title-weight: 300;
     --intro-title-font: 'Cormorant Garamond', serif;
-    --intro-title-color: var(--c-cream);
+    --intro-title-color: #812534;
     --intro-title-letter-spacing: 0px;
     --intro-title-line-height: .95;
     --intro-title-margin: 20px auto 30px;
@@ -128,7 +128,7 @@
     --intro-p1-weight: 300;
     --intro-p1-line-height: 1.9;
     --intro-p1-letter-spacing: 0px;
-    --intro-p1-color: var(--c-text-muted);
+    --intro-p1-color: #812534;
     --intro-p1-font: 'Montserrat', sans-serif;
     --intro-p1-x: 0px;
     --intro-p1-y: 0px;
@@ -137,12 +137,12 @@
     --intro-p2-weight: 300;
     --intro-p2-line-height: 1.9;
     --intro-p2-letter-spacing: 0px;
-    --intro-p2-color: var(--c-text-muted);
+    --intro-p2-color: #812534;
     --intro-p2-font: 'Montserrat', sans-serif;
     --intro-p2-x: 0px;
     --intro-p2-y: 0px;
     --intro-label-size: 10px;
-    --intro-label-color: var(--c-gold-light);
+    --intro-label-color: #812534;
     --intro-label-font: 'Montserrat', sans-serif;
     --intro-label-weight: 400;
     --intro-label-letter-spacing: 4px;
