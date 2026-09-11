@@ -1082,7 +1082,7 @@ min-height: 100svh;
             rgba(10, 8, 5, 0),
             rgba(10, 8, 5, 0)
         ),
-        url('../images/fondo con inicial.jpg')
+        url('../images/foto fondo.jpg')
         center center /
         cover no-repeat;
 
@@ -1421,8 +1421,8 @@ font-size: var(--section-text-size);
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1446,8 +1446,8 @@ font-size: var(--section-text-size);
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
