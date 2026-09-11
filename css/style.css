@@ -111,7 +111,7 @@
 
     /* INTRO — CADA PÁRRAFO POR SEPARADO */
     --intro-p1-size: 14px;
-    --intro-p1-color: var(--text-muted);
+    --intro-p1-color: #812534;
     --intro-p1-font-family: 'Montserrat', sans-serif;
     --intro-p1-font-weight: 300;
     --intro-p1-letter-spacing: normal;
@@ -1219,8 +1219,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .25),
-            rgba(10, 8, 5, .10)
+            rgba(10, 8, 5, .0),
+            rgba(10, 8, 5, .0)
         ),
         url('../images/fondo con inicial.jpg')
         center center /
@@ -1566,8 +1566,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, .0),
+            rgba(9, 8, 7, .0)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1592,8 +1592,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, .0),
+            rgba(9, 8, 7, .0)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
