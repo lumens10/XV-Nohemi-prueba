@@ -53,7 +53,7 @@
     --hero-photo-width: 380px;
     --hero-photo-max-width: 75vw;
     --hero-photo-space-bottom: 5px;
-    --hero-photo-position-x: 0px;
+    --hero-photo-position-x: 10px;
     --hero-photo-position-y: 0px;
 
     --hero-name-size: clamp(80px, 22vw, 190px);
@@ -905,8 +905,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .25),
-            rgba(10, 8, 5, .10)
+            rgba(10, 8, 5, .0),
+            rgba(10, 8, 5, .0)
         ),
         url('../images/fondo con inicial.jpg')
         center center /
@@ -1252,8 +1252,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, .0),
+            rgba(9, 8, 7, .0)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1278,8 +1278,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, .0),
+            rgba(9, 8, 7, .0)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
