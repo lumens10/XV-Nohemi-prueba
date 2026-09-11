@@ -75,7 +75,7 @@
     --hero-photo-width: 380px;
     --hero-photo-max-width: 75vw;
     --hero-photo-space-bottom: 5px;
-    --hero-photo-position-x: 0px;
+    --hero-photo-position-x: -80px;
     --hero-photo-position-y: 0px;
 
     --hero-name-size: clamp(80px, 22vw, 190px);
