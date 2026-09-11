@@ -28,12 +28,12 @@
    --hero-name-size: clamp(80px, 22vw, 190px); 
    --hero-name-space-top: 22px; 
    --hero-name-space-bottom: 22px; 
-   --hero-line-width: var(--hero-line-width); 
+   --hero-line-width: 120px; 
    --hero-line-space: 30px; 
    --hero-text-size: clamp(21px, 5vw, 28px); 
    --hero-text-space: 25px; 
    --hero-date-space-top: 35px; 
-   --hero-date-size: 11px;
+   --hero-date-size: 22px;
     /* GENERAL */
     --section-space-y: 110px; 
    --section-space-x: 25px; 
