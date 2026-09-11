@@ -7,106 +7,272 @@
 
 /* =========================================================
    🎛️ PANEL DE CONTROL — VALORES EDITABLES
-   Cambia solo estos valores para ajustar tamaños y espacios.
-   Los valores iniciales conservan el diseño original.
+   Los valores iniciales conservan el diseño actual.
 ========================================================= */
 :root {
     /* APERTURA */
-    --opening-logo-width: clamp(220px, 52vw, 420px); 
-   --opening-logo-max-width: var(--opening-logo-max-width); 
-   --opening-logo-max-height: var(--opening-logo-max-height); 
-   --opening-logo-space-bottom: -8px;
-    --opening-title-size: clamp(22px, 5vw, 34px); 
-   --opening-title-space-top: -20px; 
-   --opening-title-space-bottom: 28px; 
-   --opening-title-letter-spacing: var(--opening-title-letter-spacing); 
-   --open-button-font-size: var(--open-button-font-size);
+    --opening-logo-width: clamp(220px, 52vw, 420px);
+    --opening-logo-max-width: 85%;
+    --opening-logo-max-height: 45svh;
+    --opening-logo-space-bottom: 18px;
+    --opening-title-size: clamp(22px, 5vw, 34px);
+    --opening-title-space-top: -20px;
+    --opening-title-space-bottom: 28px;
+    --opening-title-letter-spacing: 5px;
+    --open-button-font-size: 10px;
+
     /* HERO */
-    --hero-photo-width: var(--hero-photo-width); 
-   --hero-photo-max-width: var(--hero-photo-max-width); 
-   --hero-photo-space-bottom: 5px; 
-   --hero-name-size: clamp(80px, 22vw, 190px); 
-   --hero-name-space-top: 22px; 
-   --hero-name-space-bottom: 22px; 
-   --hero-line-width: 120px; 
-   --hero-line-space: 30px; 
-   --hero-text-size: clamp(21px, 5vw, 28px); 
-   --hero-text-space: 25px; 
-   --hero-date-space-top: 35px; 
-   --hero-date-size: 22px;
+    --hero-photo-width: 380px;
+    --hero-photo-max-width: 75vw;
+    --hero-photo-space-bottom: 5px;
+    --hero-name-size: clamp(80px, 22vw, 190px);
+    --hero-name-space-top: 22px;
+    --hero-name-space-bottom: 22px;
+    --hero-line-width: 120px;
+    --hero-line-space: 30px;
+    --hero-text-size: clamp(21px, 5vw, 28px);
+    --hero-text-space: 25px;
+    --hero-date-space-top: 35px;
+    --hero-date-size: 11px;
+
     /* GENERAL */
-    --section-space-y: 110px; 
-   --section-space-x: 25px; 
-   --section-title-size: clamp(45px, 10vw, 80px); 
-   --section-title-space-top: 20px; 
-   --section-title-space-bottom: 30px; 
-   --paragraph-space-y: 20px; 
-   --paragraph-size: 14px;
-    /* INTRO */ 
-   --intro-ornament-space: 35px;
-    /* CONTADOR */ 
-   --countdown-title-size: clamp(32px, 6vw, 48px); 
-   --countdown-title-space-bottom: 18px; 
-   --count-number-size: clamp(32px, 7vw, 60px); 
-   --count-number-space-bottom: 8px; 
-   --count-label-size: clamp(9px, 2.5vw, 14px); 
-   --count-divider-height: var(--count-divider-height);
-    /* FECHA */ 
-   --date-number-size: clamp(120px, 30vw, 220px); 
-   --date-number-space-top: 25px; 
-   --month-space-top: 25px; 
-   --month-size: 15px; 
-   --year-space-top: 10px; 
-   --year-size: 32px; 
-   --date-details-space-top: 60px; 
-   --date-details-gap: var(--date-details-gap); 
-   --date-detail-gap: var(--timeline-item-gap);
-    /* FAMILIA */ 
-   --family-card-space-top: 40px; 
-   --family-card-space-bottom: 80px; 
-   --family-card-padding-y: 35px; 
-   --family-card-padding-x: 20px; 
-   --family-paragraph-space: 12px; 
-   --family-name-size: 27px; 
-   --family-subheading-size: 50px;
-    /* EVENTOS */ 
-   --event-title-size: clamp(50px, 11vw, 100px); 
-   --event-title-space: 25px; 
-   --event-time-size: 30px; 
-   --event-time-space-bottom: 30px;
-    /* GALERÍA */ 
-   --gallery-space-top: 50px; 
-   --gallery-gap: var(--timeline-item-gap); 
-   --gallery-item-min-height: var(--gallery-item-min-height);
-    /* ICONOS */ 
-   --dress-icon-space: 30px; 
-   --dress-icon-size: 60px; 
-   --envelope-icon-space: 30px; 
-   --envelope-icon-size: 50px;
-    /* TIMELINE */ 
-   --timeline-space: 60px; 
-   --timeline-item-space-y: 35px; 
-   --timeline-item-space-x: 20px; 
-   --timeline-item-gap: var(--timeline-item-gap); 
-   --timeline-event-size: 30px;
-    /* PASE */ 
-   --pass-section-space-y: 100px; 
-   --pass-section-space-x: 20px; 
-   --pass-card-space-y: 60px; 
-   --pass-card-space-x: 30px; 
-   --pass-title-size: 65px; 
-   --pass-name-size: 35px; 
-   --pass-line-space: 30px; 
-   --pass-number-size: 50px;
-    /* RSVP */ 
-   --rsvp-space-bottom: 130px; 
-   --whatsapp-space-top: 25px;
-    /* FOOTER */ 
-   --footer-space-y: 100px; 
-   --footer-space-x: 20px; 
-   --footer-title-size: 80px; 
-   --footer-paragraph-space: 15px; 
-   --footer-text-size: 10px;
+    --section-space-y: 110px;
+    --section-space-x: 25px;
+    --section-title-size: clamp(45px, 10vw, 80px);
+    --section-title-space-top: 20px;
+    --section-title-space-bottom: 30px;
+    --paragraph-space-y: 20px;
+    --paragraph-size: 14px;
+
+    /* INTRO — CADA PÁRRAFO POR SEPARADO */
+    --intro-p1-size: 14px;
+    --intro-p1-space-top: 20px;
+    --intro-p1-space-bottom: 20px;
+    --intro-p1-position-x: 0px;
+    --intro-p1-position-y: 0px;
+
+    --intro-p2-size: 14px;
+    --intro-p2-space-top: 20px;
+    --intro-p2-space-bottom: 20px;
+    --intro-p2-position-x: 0px;
+    --intro-p2-position-y: 0px;
+
+    --intro-p3-size: 14px;
+    --intro-p3-space-top: 20px;
+    --intro-p3-space-bottom: 20px;
+    --intro-p3-position-x: 0px;
+    --intro-p3-position-y: 0px;
+
+    --intro-p4-size: 14px;
+    --intro-p4-space-top: 20px;
+    --intro-p4-space-bottom: 20px;
+    --intro-p4-position-x: 0px;
+    --intro-p4-position-y: 0px;
+
+    --intro-ornament-space: 35px;
+
+    /* CONTADOR */
+    --countdown-title-size: clamp(32px, 6vw, 48px);
+    --countdown-title-space-bottom: 18px;
+    --count-number-size: clamp(32px, 7vw, 60px);
+    --count-number-space-bottom: 8px;
+    --count-label-size: clamp(9px, 2.5vw, 14px);
+    --count-divider-height: 35px;
+
+    /* FECHA */
+    --date-number-size: clamp(120px, 30vw, 220px);
+    --date-number-space-top: 25px;
+    --month-space-top: 25px;
+    --month-size: 15px;
+    --year-space-top: 10px;
+    --year-size: 32px;
+    --date-details-space-top: 60px;
+    --date-details-gap: 60px;
+    --date-detail-gap: 8px;
+
+    /* FAMILIA */
+    --family-card-space-top: 40px;
+    --family-card-space-bottom: 80px;
+    --family-card-padding-y: 35px;
+    --family-card-padding-x: 20px;
+    --family-paragraph-space: 12px;
+    --family-name-size: 27px;
+    --family-subheading-size: 50px;
+
+    /* EVENTOS */
+    --event-title-size: clamp(50px, 11vw, 100px);
+    --event-title-space: 25px;
+    --event-time-size: 30px;
+    --event-time-space-bottom: 30px;
+
+    /* GALERÍA */
+    --gallery-space-top: 50px;
+    --gallery-gap: 8px;
+    --gallery-item-min-height: 220px;
+
+    /* ICONOS */
+    --dress-icon-space: 30px;
+    --dress-icon-size: 60px;
+    --envelope-icon-space: 30px;
+    --envelope-icon-size: 50px;
+
+    /* TIMELINE */
+    --timeline-space: 60px;
+    --timeline-item-space-y: 35px;
+    --timeline-item-space-x: 20px;
+    --timeline-item-gap: 8px;
+    --timeline-event-size: 30px;
+
+    /* PASE */
+    --pass-section-space-y: 100px;
+    --pass-section-space-x: 20px;
+    --pass-card-space-y: 60px;
+    --pass-card-space-x: 30px;
+    --pass-title-size: 65px;
+    --pass-name-size: 35px;
+    --pass-line-space: 30px;
+    --pass-number-size: 50px;
+
+    /* RSVP */
+    --rsvp-space-bottom: 130px;
+    --whatsapp-space-top: 25px;
+
+    /* FOOTER */
+    --footer-space-y: 100px;
+    --footer-space-x: 20px;
+    --footer-title-size: 80px;
+    --footer-paragraph-space: 15px;
+    --footer-text-size: 10px;
+}
+
+/* INTRO — conexión con cada párrafo */
+.intro p:nth-of-type(1) {
+    font-size: var(--intro-p1-size);
+    margin-top: var(--intro-p1-space-top);
+    margin-bottom: var(--intro-p1-space-bottom);
+    transform: translate(var(--intro-p1-position-x), var(--intro-p1-position-y));
+}
+.intro p:nth-of-type(2) {
+    font-size: var(--intro-p2-size);
+    margin-top: var(--intro-p2-space-top);
+    margin-bottom: var(--intro-p2-space-bottom);
+    transform: translate(var(--intro-p2-position-x), var(--intro-p2-position-y));
+}
+.intro p:nth-of-type(3) {
+    font-size: var(--intro-p3-size);
+    margin-top: var(--intro-p3-space-top);
+    margin-bottom: var(--intro-p3-space-bottom);
+    transform: translate(var(--intro-p3-position-x), var(--intro-p3-position-y));
+}
+.intro p:nth-of-type(4) {
+    font-size: var(--intro-p4-size);
+    margin-top: var(--intro-p4-space-top);
+    margin-bottom: var(--intro-p4-space-bottom);
+    transform: translate(var(--intro-p4-position-x), var(--intro-p4-position-y));
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    :root {
+        --section-space-y: 90px;
+        --section-space-x: 20px;
+        --date-details-gap: 35px;
+    }
+}
+
+/* MÓVIL */
+@media (max-width: 600px) {
+    :root {
+        --section-space-y: 80px;
+        --section-space-x: 18px;
+        --paragraph-size: 13px;
+        --opening-logo-width: clamp(220px, 52vw, 420px);
+        --opening-logo-max-width: 82%;
+        --opening-logo-max-height: 42svh;
+        --opening-logo-space-bottom: 17px;
+        --opening-title-size: clamp(21px, 6vw, 28px);
+        --opening-title-space-top: 3px;
+        --opening-title-space-bottom: 10px;
+        --opening-title-letter-spacing: 4px;
+        --open-button-font-size: 9px;
+        --hero-photo-width: 300px;
+        --hero-photo-max-width: 80vw;
+        --hero-name-size: clamp(70px, 22vw, 130px);
+        --hero-text-size: clamp(20px, 5.5vw, 25px);
+        --hero-date-space-top: 28px;
+        --hero-date-size: 9px;
+        --countdown-title-size: clamp(42px, 11vw, 60px);
+        --countdown-title-space-bottom: 40px;
+        --count-number-size: clamp(32px, 9vw, 42px);
+        --count-label-size: 6px;
+        --date-number-size: clamp(110px, 35vw, 180px);
+        --month-space-top: 22px;
+        --month-size: 12px;
+        --year-size: 28px;
+        --date-details-space-top: 45px;
+        --date-details-gap: clamp(15px, 6vw, 30px);
+        --family-card-space-top: 35px;
+        --family-card-space-bottom: 60px;
+        --family-card-padding-y: 30px;
+        --family-card-padding-x: 15px;
+        --family-name-size: clamp(21px, 6vw, 25px);
+        --family-subheading-size: 40px;
+        --event-title-size: clamp(43px, 11vw, 70px);
+        --event-time-size: 27px;
+        --gallery-gap: 6px;
+        --gallery-item-min-height: 180px;
+        --dress-icon-size: 50px;
+        --envelope-icon-size: 45px;
+        --timeline-space: 50px;
+        --timeline-item-space-y: 32px;
+        --timeline-item-space-x: 15px;
+        --timeline-event-size: 26px;
+        --pass-section-space-y: 80px;
+        --pass-section-space-x: 15px;
+        --pass-card-space-y: 50px;
+        --pass-card-space-x: 20px;
+        --pass-title-size: 55px;
+        --pass-name-size: 30px;
+        --pass-number-size: 44px;
+        --rsvp-space-bottom: 110px;
+        --footer-space-y: 80px;
+        --footer-space-x: 20px;
+        --footer-title-size: 65px;
+    }
+}
+
+/* 380px */
+@media (max-width: 380px) {
+    :root {
+        --opening-logo-width: 70vw;
+        --opening-logo-max-width: 250px;
+        --opening-logo-max-height: 40svh;
+        --opening-logo-space-bottom: 15px;
+        --opening-title-size: 21px;
+        --opening-title-space-bottom: 23px;
+        --opening-title-letter-spacing: 3px;
+        --count-number-size: 31px;
+        --count-label-size: 5px;
+        --date-details-gap: 10px;
+        --event-title-size: 40px;
+        --gallery-item-min-height: 150px;
+        --pass-card-space-y: 45px;
+        --pass-card-space-x: 15px;
+    }
+}
+
+/* 320px */
+@media (max-width: 320px) {
+    :root {
+        --opening-logo-width: 68vw;
+        --opening-logo-max-width: 220px;
+        --opening-title-size: 19px;
+        --opening-title-letter-spacing: 3px;
+        --count-number-size: 28px;
+        --count-label-size: 5px;
+        --date-details-gap: 6px;
+        --event-title-size: 36px;
+    }
 }
 
 /* =========================================================
@@ -328,7 +494,7 @@ button {
     object-fit: contain;
 
     margin:
-        0 auto var(--opening-logo-space-bottom);
+        var(--opening-logo-space-bottom);
 
     filter:
         drop-shadow(
@@ -680,7 +846,7 @@ button {
 
     inset: 0;
 
-    margin: 18px;
+    margin: var(--hero-name-space-top) 0 var(--hero-name-space-bottom);
 
     border:
         1px solid
@@ -729,7 +895,7 @@ button {
 
     height: auto;
 
-    margin: 0 auto var(--hero-photo-space-bottom);
+    margin: var(--hero-photo-space-bottom);
 
     position: relative;
 
@@ -796,7 +962,7 @@ button {
 
     height: 1px;
 
-    margin: var(--pass-line-space) auto;
+    margin: var(--hero-line-space) auto;
 
     background: var(--gold);
 }
@@ -914,7 +1080,7 @@ button {
         serif;
 
     font-size:
-        var(--hero-text-size);
+        var(--hero-date-size);
 
     font-style: italic;
 
