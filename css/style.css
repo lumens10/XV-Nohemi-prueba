@@ -65,7 +65,6 @@
     --opening-logo-max-width: 85%;
     --opening-logo-max-height: 45svh;
     --opening-logo-space-bottom: 18px;
-    --opening-logo-position-y: 50px;
     --opening-title-size: clamp(22px, 5vw, 34px);
     --opening-title-space-top: -20px;
     --opening-title-space-bottom: 28px;
@@ -272,7 +271,7 @@
 
     /* APERTURA */
     --opening-logo-position-x: 0px;
-    --opening-logo-position-y: 0px;
+    --opening-logo-position-y: 50px;
     --opening-logo-opacity: 1;
     --opening-title-color: #f6ebd9;
     --opening-title-font: 'Cormorant Garamond', serif;
