@@ -66,12 +66,6 @@
     --hero-frame-margin: 18px;
     --hero-content-max-width: 900px;
     --hero-content-padding: 40px 25px;
-    --hero-photo-width: 100px;
-    --hero-photo-max-width: 75vw;
-    --hero-photo-margin: 0 auto 5px;
-    --hero-photo-x: 0px;
-    --hero-photo-y: 0px;
-    --hero-photo-opacity: 0;
     --hero-title-margin: 22px 0;
     --hero-title-size: clamp(80px,22vw,190px);
     --hero-title-weight: 300;
@@ -91,7 +85,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: 0px;
+    --hero-eyebrow-y: 90px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
