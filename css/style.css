@@ -1178,11 +1178,11 @@ position: relative;
     display: block;
     margin: 0 0 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: var(--hero-eyebrow-size);
+    font-size: 90px;
     font-weight: 400;
     line-height: 1;
     letter-spacing: var(--hero-eyebrow-letter-spacing);
-    color: var(--hero-eyebrow-color);
+    color:  #c9a45c;
     text-transform: uppercase;
 }
 
