@@ -6,694 +6,142 @@
 
 
 /* =========================================================
-   🎛️ PANEL DE CONTROL — VALORES EDITABLES
-   Los valores iniciales conservan el diseño actual.
-========================================================= */
-:root {
-    /*
-    GUÍA RÁPIDA DE POSICIÓN
-
-    HERO:
-      --hero-photo-position-x: 0px;
-        negativo = izquierda | 0 = original | positivo = derecha
-
-      --hero-photo-position-y: 0px;
-        negativo = arriba    | 0 = original | positivo = abajo
-
-    FONDOS:
-      center center = centro
-      left center   = izquierda
-      right center  = derecha
-      center top    = arriba
-      center bottom = abajo
-
-    GALERÍA:
-      50% 50% = centro
-      0% 50%   = izquierda
-      100% 50% = derecha
-      50% 0%   = arriba
-      50% 100% = abajo
-
-    IMPORTANTE:
-      Los valores de móvil se pueden cambiar por separado dentro
-      de @media (max-width: 600px), 380px y 320px.
-    */
-    /*
-    INTRO — TEXTO
-
-    Cada párrafo tiene sus propios controles:
-      size          = tamaño
-      color         = color del texto
-      font-family   = tipografía
-      font-weight   = grosor
-      letter-spacing= separación entre letras
-      line-height   = altura entre líneas
-      space-top     = espacio arriba
-      space-bottom  = espacio abajo
-      position-x    = mover izquierda/derecha
-      position-y    = mover arriba/abajo
-
-    Ejemplos:
-      --intro-p1-color: #ffffff;
-      --intro-p1-font-family: 'Cormorant Garamond', serif;
-      --intro-p1-font-weight: 400;
-      --intro-p1-position-x: 20px;
-      --intro-p1-position-y: -10px;
-    */
-    /* APERTURA */
-    --opening-logo-width: clamp(220px, 52vw, 420px);
-    --opening-logo-max-width: 85%;
-    --opening-logo-max-height: 45svh;
-    --opening-logo-space-bottom: 18px;
-    --opening-title-size: clamp(22px, 5vw, 34px);
-    --opening-title-space-top: -20px;
-    --opening-title-space-bottom: 28px;
-    --opening-title-letter-spacing: 5px;
-    --open-button-font-size: 10px;
-
-    /* HERO — TAMAÑO Y POSICIÓN DE LA FOTO */
-    --hero-photo-width: 380px;
-    --hero-photo-max-width: 75vw;
-    --hero-photo-space-bottom: 5px;
-    --hero-photo-position-x: 80px;
-    --hero-photo-position-y: 0px;
-
-    --hero-name-size: clamp(80px, 22vw, 190px);
-    --hero-name-space-top: 22px;
-    --hero-name-space-bottom: 22px;
-    --hero-line-width: 120px;
-    --hero-line-space: 30px;
-    --hero-text-size: clamp(21px, 5vw, 28px);
-    --hero-text-space: 25px;
-    --hero-date-space-top: 35px;
-    --hero-date-size: 11px;
-
-    /* GENERAL */
-    --section-space-y: 110px;
-    --section-space-x: 25px;
-    --section-title-size: clamp(45px, 10vw, 80px);
-    --section-title-space-top: 20px;
-    --section-title-space-bottom: 30px;
-    --paragraph-space-y: 20px;
-    --paragraph-size: 14px;
-
-    /* INTRO — TÍTULO */
-    --intro-title-size: var(--section-title-size);
-    --intro-title-color: #812534;
-    --intro-title-font-family: 'Cormorant Garamond', serif;
-    --intro-title-font-weight: 300;
-    --intro-title-letter-spacing: normal;
-    --intro-title-line-height: .95;
-    --intro-title-space-top: var(--section-title-space-top);
-    --intro-title-space-bottom: var(--section-title-space-bottom);
-    --intro-title-position-x: 0px;
-    --intro-title-position-y: 0px;
-
-    /* INTRO — CADA PÁRRAFO POR SEPARADO */
-    --intro-p1-size: 14px;
-    --intro-p1-color: #812534;
-    --intro-p1-font-family: 'Montserrat', sans-serif;
-    --intro-p1-font-weight: 300;
-    --intro-p1-letter-spacing: normal;
-    --intro-p1-line-height: 1.9;
-    --intro-p1-space-top: 20px;
-    --intro-p1-space-bottom: 20px;
-    --intro-p1-position-x: 0px;
-    --intro-p1-position-y: 0px;
-
-    --intro-p2-size: 14px;
-    --intro-p2-color: #812534;
-    --intro-p2-font-family: 'Montserrat', sans-serif;
-    --intro-p2-font-weight: 300;
-    --intro-p2-letter-spacing: normal;
-    --intro-p2-line-height: 1.9;
-    --intro-p2-space-top: 20px;
-    --intro-p2-space-bottom: 20px;
-    --intro-p2-position-x: 0px;
-    --intro-p2-position-y: 0px;
-
-    --intro-p3-size: 14px;
-    --intro-p3-color: #812534;
-    --intro-p3-font-family: 'Montserrat', sans-serif;
-    --intro-p3-font-weight: 300;
-    --intro-p3-letter-spacing: normal;
-    --intro-p3-line-height: 1.9;
-    --intro-p3-space-top: 20px;
-    --intro-p3-space-bottom: 20px;
-    --intro-p3-position-x: 0px;
-    --intro-p3-position-y: 0px;
-
-    --intro-p4-size: 14px;
-    --intro-p4-color: #812534;
-    --intro-p4-font-family: 'Montserrat', sans-serif;
-    --intro-p4-font-weight: 300;
-    --intro-p4-letter-spacing: normal;
-    --intro-p4-line-height: 1.9;
-    --intro-p4-space-top: 20px;
-    --intro-p4-space-bottom: 20px;
-    --intro-p4-position-x: 0px;
-    --intro-p4-position-y: 0px;
-
-    --intro-ornament-space: 35px;
-
-    /* IMÁGENES Y FONDOS — POSICIÓN */
-    --intro-background-x: center;
-    --intro-background-y: center;
-
-    --family-background-x: center;
-    --family-background-y: center;
-
-    --ceremony-background-x: center;
-    --ceremony-background-y: center;
-
-    --reception-background-x: center;
-    --reception-background-y: center;
-
-    /* GALERÍA — POSICIÓN DE CADA FOTO */
-    --gallery-img1-x: 50%;
-    --gallery-img1-y: 50%;
-    --gallery-img2-x: 50%;
-    --gallery-img2-y: 50%;
-    --gallery-img3-x: 50%;
-    --gallery-img3-y: 50%;
-    --gallery-img4-x: 50%;
-    --gallery-img4-y: 50%;
-    --gallery-img5-x: 50%;
-    --gallery-img5-y: 50%;
-    --gallery-img6-x: 50%;
-    --gallery-img6-y: 50%;
-    --gallery-img7-x: 50%;
-    --gallery-img7-y: 50%;
-    --gallery-img8-x: 50%;
-    --gallery-img8-y: 50%;
-
-    /* CONTADOR */
-    --countdown-title-size: clamp(32px, 6vw, 48px);
-    --countdown-title-space-bottom: 18px;
-    --count-number-size: clamp(32px, 7vw, 60px);
-    --count-number-space-bottom: 8px;
-    --count-label-size: clamp(9px, 2.5vw, 14px);
-    --count-divider-height: 35px;
-
-    /* FECHA */
-    --date-number-size: clamp(120px, 30vw, 220px);
-    --date-number-space-top: 25px;
-    --month-space-top: 25px;
-    --month-size: 15px;
-    --year-space-top: 10px;
-    --year-size: 32px;
-    --date-details-space-top: 60px;
-    --date-details-gap: 60px;
-    --date-detail-gap: 8px;
-
-    /* FAMILIA */
-    --family-card-space-top: 40px;
-    --family-card-space-bottom: 80px;
-    --family-card-padding-y: 35px;
-    --family-card-padding-x: 20px;
-    --family-paragraph-space: 12px;
-    --family-name-size: 27px;
-    --family-subheading-size: 50px;
-
-    /* EVENTOS */
-    --event-title-size: clamp(50px, 11vw, 100px);
-    --event-title-space: 25px;
-    --event-time-size: 30px;
-    --event-time-space-bottom: 30px;
-
-    /* GALERÍA */
-    --gallery-space-top: 50px;
-    --gallery-gap: 8px;
-    --gallery-item-min-height: 220px;
-
-    /* ICONOS */
-    --dress-icon-space: 30px;
-    --dress-icon-size: 60px;
-    --envelope-icon-space: 30px;
-    --envelope-icon-size: 50px;
-
-    /* TIMELINE */
-    --timeline-space: 60px;
-    --timeline-item-space-y: 35px;
-    --timeline-item-space-x: 20px;
-    --timeline-item-gap: 8px;
-    --timeline-event-size: 30px;
-
-    /* PASE */
-    --pass-section-space-y: 100px;
-    --pass-section-space-x: 20px;
-    --pass-card-space-y: 60px;
-    --pass-card-space-x: 30px;
-    --pass-title-size: 65px;
-    --pass-name-size: 35px;
-    --pass-line-space: 30px;
-    --pass-number-size: 50px;
-
-    /* RSVP */
-    --rsvp-space-bottom: 130px;
-    --whatsapp-space-top: 25px;
-
-    /* FOOTER */
-    --footer-space-y: 100px;
-    --footer-space-x: 20px;
-    --footer-title-size: 80px;
-    --footer-paragraph-space: 15px;
-    --footer-text-size: 10px;
-}
-
-    /* =====================================================
-       PANEL AVANZADO — CONTROL INDIVIDUAL DE TODA LA INVITACIÓN
-       0px = posición actual
-       X negativo = izquierda | X positivo = derecha
-       Y negativo = arriba    | Y positivo = abajo
-       Estos valores parten del diseño actual.
-    ===================================================== */
-
-    /* APERTURA */
-    --opening-logo-position-x: 0px;
-    --opening-logo-position-y: 50px;
-    --opening-logo-opacity: 1;
-    --opening-title-color: #f6ebd9;
-    --opening-title-font: 'Cormorant Garamond', serif;
-    --opening-title-weight: 500;
-    --opening-button-color: #f7f2e9;
-    --opening-button-font: 'Montserrat', sans-serif;
-    --opening-button-letter-spacing: 3px;
-
-    /* HERO */
-    --hero-eyebrow-size: 10px;
-    --hero-eyebrow-color: var(--gold-light);
-    --hero-eyebrow-font: 'Montserrat', sans-serif;
-    --hero-eyebrow-letter-spacing: 4px;
-    --hero-eyebrow-position-x: 0px;
-    --hero-eyebrow-position-y: 0px;
-    --hero-photo-position-x: 0px;
-    --hero-photo-position-y: 0px;
-    --hero-title-color: var(--text);
-    --hero-title-font: 'Cormorant Garamond', serif;
-    --hero-title-weight: 300;
-    --hero-title-letter-spacing: normal;
-    --hero-title-position-x: 0px;
-    --hero-title-position-y: 0px;
-    --hero-line-color: var(--gold);
-    --hero-line-position-x: 0px;
-    --hero-line-position-y: 0px;
-    --hero-text-color: var(--text);
-    --hero-text-font: 'Cormorant Garamond', serif;
-    --hero-text-weight: 400;
-    --hero-text-letter-spacing: normal;
-    --hero-text-line-height: 1.3;
-    --hero-text-position-x: 0px;
-    --hero-text-position-y: 0px;
-    --hero-date-color: var(--text);
-    --hero-date-font: 'Montserrat', sans-serif;
-    --hero-date-letter-spacing: 7px;
-    --hero-date-position-x: 0px;
-    --hero-date-position-y: 0px;
-
-    /* ETIQUETAS DE SECCIÓN */
-    --section-label-color: var(--gold-light);
-    --section-label-font: 'Montserrat', sans-serif;
-    --section-label-weight: 400;
-    --section-label-letter-spacing: 4px;
-
-    /* CONTADOR */
-    --count-title-color: var(--text);
-    --count-title-font: 'Cormorant Garamond', serif;
-    --count-title-weight: 400;
-    --count-title-letter-spacing: normal;
-    --count-title-position-x: 0px;
-    --count-title-position-y: 0px;
-    --count-number-color: var(--text);
-    --count-number-font: 'El Messiri', sans-serif;
-    --count-number-weight: 400;
-    --count-number-position-x: 0px;
-    --count-number-position-y: 0px;
-    --count-label-color: var(--text-muted);
-    --count-label-font: 'El Messiri', sans-serif;
-    --count-label-letter-spacing: 2px;
-    --count-divider-color: var(--gold);
-
-    /* FECHA */
-    --date-number-color: var(--text-dark);
-    --date-number-font: 'Cormorant Garamond', serif;
-    --date-number-weight: 300;
-    --date-number-position-x: 0px;
-    --date-number-position-y: 0px;
-    --date-month-color: var(--text-dark);
-    --date-month-font: 'Montserrat', sans-serif;
-    --date-month-letter-spacing: 7px;
-    --date-year-color: var(--text-dark);
-    --date-year-font: 'Cormorant Garamond', serif;
-    --date-detail-strong-color: var(--text-dark);
-    --date-detail-strong-font: 'Montserrat', sans-serif;
-    --date-detail-span-color: var(--text-dark);
-    --date-detail-span-font: 'Cormorant Garamond', serif;
-
-    /* FAMILIA */
-    --family-card-position-x: 0px;
-    --family-card-position-y: 0px;
-    --family-text-color: var(--text);
-    --family-text-font: 'Cormorant Garamond', serif;
-    --family-text-weight: 400;
-    --family-text-line-height: 1.2;
-    --family-name-color: var(--gold-light);
-    --family-subheading-color: var(--text);
-    --family-subheading-font: 'Cormorant Garamond', serif;
-    --family-subheading-weight: 300;
-    --family-subheading-position-x: 0px;
-    --family-subheading-position-y: 0px;
-
-    /* EVENTOS */
-    --event-title-color: var(--text);
-    --event-title-font: 'Cormorant Garamond', serif;
-    --event-title-weight: 300;
-    --event-title-letter-spacing: normal;
-    --event-title-position-x: 0px;
-    --event-title-position-y: 0px;
-    --event-time-color: var(--text);
-    --event-time-font: 'Cormorant Garamond', serif;
-    --event-time-weight: 400;
-    --event-time-position-x: 0px;
-    --event-time-position-y: 0px;
-    --event-button-color: var(--cream);
-    --event-button-font: 'Montserrat', sans-serif;
-
-    /* GALERÍA */
-    --gallery-img-position-x: 50%;
-    --gallery-img-position-y: 50%;
-    --gallery-img1-x: 50%;
-    --gallery-img1-y: 50%;
-    --gallery-img2-x: 50%;
-    --gallery-img2-y: 50%;
-    --gallery-img3-x: 50%;
-    --gallery-img3-y: 50%;
-    --gallery-img4-x: 50%;
-    --gallery-img4-y: 50%;
-    --gallery-img5-x: 50%;
-    --gallery-img5-y: 50%;
-    --gallery-img6-x: 50%;
-    --gallery-img6-y: 50%;
-    --gallery-img7-x: 50%;
-    --gallery-img7-y: 50%;
-    --gallery-img8-x: 50%;
-    --gallery-img8-y: 50%;
-
-    /* VESTIMENTA */
-    --dress-title-color: var(--text-dark);
-    --dress-title-font: 'Cormorant Garamond', serif;
-    --dress-text-color: var(--text-dark);
-    --dress-text-font: 'Montserrat', sans-serif;
-    --dress-icon-color: var(--gold-dark);
-    --dress-icon-position-x: 0px;
-    --dress-icon-position-y: 0px;
-
-    /* SOBRES */
-    --envelope-title-color: var(--text);
-    --envelope-title-font: 'Cormorant Garamond', serif;
-    --envelope-text-color: var(--text-muted);
-    --envelope-text-font: 'Montserrat', sans-serif;
-    --envelope-icon-color: var(--gold-light);
-    --envelope-icon-position-x: 0px;
-    --envelope-icon-position-y: 0px;
-
-    /* TIMELINE */
-    --timeline-label-color: var(--gold-light);
-    --timeline-label-font: 'Montserrat', sans-serif;
-    --timeline-event-color: var(--text);
-    --timeline-event-font: 'Cormorant Garamond', serif;
-    --timeline-event-weight: 400;
-    --timeline-item-position-x: 0px;
-    --timeline-item-position-y: 0px;
-
-    /* PASE */
-    --pass-title-color: var(--text-dark);
-    --pass-title-font: 'Cormorant Garamond', serif;
-    --pass-name-color: var(--text-dark);
-    --pass-name-font: 'Cormorant Garamond', serif;
-    --pass-name-weight: 400;
-    --pass-text-color: var(--text-dark);
-    --pass-text-font: 'Montserrat', sans-serif;
-    --pass-number-color: var(--gold-dark);
-    --pass-number-font: 'Cormorant Garamond', serif;
-    --pass-card-position-x: 0px;
-    --pass-card-position-y: 0px;
-
-    /* RSVP */
-    --rsvp-title-color: var(--text);
-    --rsvp-title-font: 'Cormorant Garamond', serif;
-    --rsvp-text-color: var(--text-muted);
-    --rsvp-text-font: 'Montserrat', sans-serif;
-    --rsvp-button-font: 'Montserrat', sans-serif;
-    --rsvp-button-letter-spacing: 2px;
-    --rsvp-button-position-x: 0px;
-    --rsvp-button-position-y: 0px;
-
-    /* MÚSICA */
-    --music-size: 50px;
-    --music-position-x: 0px;
-    --music-position-y: 0px;
-    --music-border-color: var(--gold);
-
-    /* FOOTER */
-    --footer-title-color: var(--text);
-    --footer-title-font: 'Cormorant Garamond', serif;
-    --footer-title-weight: 300;
-    --footer-text-color: var(--gold-light);
-    --footer-text-font: 'Montserrat', sans-serif;
-    --footer-text-letter-spacing: 3px;
-
-}
-
-/* INTRO — controles individuales del texto */
-.intro h2 {
-    font-size: var(--intro-title-size);
-    color: var(--intro-title-color);
-    font-family: var(--intro-title-font-family);
-    font-weight: var(--intro-title-font-weight);
-    letter-spacing: var(--intro-title-letter-spacing);
-    line-height: var(--intro-title-line-height);
-    margin-top: var(--intro-title-space-top);
-    margin-bottom: var(--intro-title-space-bottom);
-    transform: translate(
-        var(--intro-title-position-x),
-        var(--intro-title-position-y)
-    );
-}
-
-.intro p:nth-of-type(1) {
-    font-size: var(--intro-p1-size);
-    color: var(--intro-p1-color);
-    font-family: var(--intro-p1-font-family);
-    font-weight: var(--intro-p1-font-weight);
-    letter-spacing: var(--intro-p1-letter-spacing);
-    line-height: var(--intro-p1-line-height);
-    margin-top: var(--intro-p1-space-top);
-    margin-bottom: var(--intro-p1-space-bottom);
-    transform: translate(
-        var(--intro-p1-position-x),
-        var(--intro-p1-position-y)
-    );
-}
-
-.intro p:nth-of-type(2) {
-    font-size: var(--intro-p2-size);
-    color: var(--intro-p2-color);
-    font-family: var(--intro-p2-font-family);
-    font-weight: var(--intro-p2-font-weight);
-    letter-spacing: var(--intro-p2-letter-spacing);
-    line-height: var(--intro-p2-line-height);
-    margin-top: var(--intro-p2-space-top);
-    margin-bottom: var(--intro-p2-space-bottom);
-    transform: translate(
-        var(--intro-p2-position-x),
-        var(--intro-p2-position-y)
-    );
-}
-
-.intro p:nth-of-type(3) {
-    font-size: var(--intro-p3-size);
-    color: var(--intro-p3-color);
-    font-family: var(--intro-p3-font-family);
-    font-weight: var(--intro-p3-font-weight);
-    letter-spacing: var(--intro-p3-letter-spacing);
-    line-height: var(--intro-p3-line-height);
-    margin-top: var(--intro-p3-space-top);
-    margin-bottom: var(--intro-p3-space-bottom);
-    transform: translate(
-        var(--intro-p3-position-x),
-        var(--intro-p3-position-y)
-    );
-}
-
-.intro p:nth-of-type(4) {
-    font-size: var(--intro-p4-size);
-    color: var(--intro-p4-color);
-    font-family: var(--intro-p4-font-family);
-    font-weight: var(--intro-p4-font-weight);
-    letter-spacing: var(--intro-p4-letter-spacing);
-    line-height: var(--intro-p4-line-height);
-    margin-top: var(--intro-p4-space-top);
-    margin-bottom: var(--intro-p4-space-bottom);
-    transform: translate(
-        var(--intro-p4-position-x),
-        var(--intro-p4-position-y)
-    );
-}
-
-/* TABLET */
-@media (max-width: 768px) {
-    :root {
-        --section-space-y: 90px;
-        --section-space-x: 20px;
-        --date-details-gap: 35px;
-    }
-}
-
-/* MÓVIL */
-@media (max-width: 600px) {
-    :root {
-        --section-space-y: 80px;
-        --section-space-x: 18px;
-        --paragraph-size: 13px;
-        /* INTRO — móvil */
-        --intro-p1-size: 13px;
-        --intro-p2-size: 13px;
-        --intro-p3-size: 13px;
-        --intro-p4-size: 13px;
-        --intro-title-size: clamp(42px, 11vw, 65px);
-        --opening-logo-width: clamp(220px, 52vw, 420px);
-        --opening-logo-max-width: 82%;
-        --opening-logo-max-height: 42svh;
-        --opening-logo-space-bottom: 17px;
-        --opening-title-size: clamp(21px, 6vw, 28px);
-        --opening-title-space-top: 3px;
-        --opening-title-space-bottom: 10px;
-        --opening-title-letter-spacing: 4px;
-        --open-button-font-size: 9px;
-        --hero-photo-width: 300px;
-        --hero-photo-max-width: 80vw;
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-        --hero-name-size: clamp(70px, 22vw, 130px);
-        --hero-text-size: clamp(20px, 5.5vw, 25px);
-        --hero-date-space-top: 28px;
-        --hero-date-size: 9px;
-        --countdown-title-size: clamp(42px, 11vw, 60px);
-        --countdown-title-space-bottom: 40px;
-        --count-number-size: clamp(32px, 9vw, 42px);
-        --count-label-size: 6px;
-        --date-number-size: clamp(110px, 35vw, 180px);
-        --month-space-top: 22px;
-        --month-size: 12px;
-        --year-size: 28px;
-        --date-details-space-top: 45px;
-        --date-details-gap: clamp(15px, 6vw, 30px);
-        --family-card-space-top: 35px;
-        --family-card-space-bottom: 60px;
-        --family-card-padding-y: 30px;
-        --family-card-padding-x: 15px;
-        --family-name-size: clamp(21px, 6vw, 25px);
-        --family-subheading-size: 40px;
-        --event-title-size: clamp(43px, 11vw, 70px);
-        --event-time-size: 27px;
-        --gallery-gap: 6px;
-        --gallery-item-min-height: 180px;
-        --dress-icon-size: 50px;
-        --envelope-icon-size: 45px;
-        --timeline-space: 50px;
-        --timeline-item-space-y: 32px;
-        --timeline-item-space-x: 15px;
-        --timeline-event-size: 26px;
-        --pass-section-space-y: 80px;
-        --pass-section-space-x: 15px;
-        --pass-card-space-y: 50px;
-        --pass-card-space-x: 20px;
-        --pass-title-size: 55px;
-        --pass-name-size: 30px;
-        --pass-number-size: 44px;
-        --rsvp-space-bottom: 110px;
-        --footer-space-y: 80px;
-        --footer-space-x: 20px;
-        --footer-title-size: 65px;
-    }
-}
-
-/* 380px */
-@media (max-width: 380px) {
-    :root {
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-    }
-}
-
-@media (max-width: 380px) {
-    :root {
-        --opening-logo-width: 70vw;
-        --opening-logo-max-width: 250px;
-        --opening-logo-max-height: 40svh;
-        --opening-logo-space-bottom: 15px;
-        --opening-title-size: 21px;
-        --opening-title-space-bottom: 23px;
-        --opening-title-letter-spacing: 3px;
-        --count-number-size: 31px;
-        --count-label-size: 5px;
-        --date-details-gap: 10px;
-        --event-title-size: 40px;
-        --gallery-item-min-height: 150px;
-        --pass-card-space-y: 45px;
-        --pass-card-space-x: 15px;
-    }
-}
-
-/* 320px */
-@media (max-width: 320px) {
-    :root {
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-    }
-}
-
-@media (max-width: 320px) {
-    :root {
-        --opening-logo-width: 68vw;
-        --opening-logo-max-width: 220px;
-        --opening-title-size: 19px;
-        --opening-title-letter-spacing: 3px;
-        --count-number-size: 28px;
-        --count-label-size: 5px;
-        --date-details-gap: 6px;
-        --event-title-size: 36px;
-    }
-}
-
-/* =========================================================
    VARIABLES
 ========================================================= */
 
+/* =========================================================
+   🎛️ PANEL ÚNICO DE CONTROL — EDITA AQUÍ
+   ---------------------------------------------------------
+   IMPORTANTE: los valores que quieras modificar están aquí.
+   El resto del archivo usa estas variables y NO redefine estos
+   controles. Los valores siguientes conservan el diseño original.
+========================================================= */
+
 :root {
+    /* ===== COLORES BASE ===== */
+    --c-black: #090807;
+    --c-black-soft: #11100e;
+    --c-cream: #f7f2e9;
+    --c-cream-dark: #e9dfce;
+    --c-gold: #c9a45c;
+    --c-gold-light: #e5cf9c;
+    --c-gold-dark: #8c6d31;
+    --c-text-muted: rgba(247, 242, 233, .70);
+    --c-text-dark: #1b1814;
 
-    --black: #090807;
+    /* ===== APERTURA ===== */
+    --opening-padding: 30px 20px;
+    --opening-bg-x: 50%; --opening-bg-y: 50%;
+    --opening-logo-width: clamp(220px,52vw,420px); --opening-logo-max-width: 85%; --opening-logo-max-height: 45svh;
+    --opening-logo-margin: 0 auto 18px; --opening-logo-x: 0px; --opening-logo-y: 0px;
+    --opening-title-margin: -20px 0 28px; --opening-title-size: clamp(22px,5vw,34px); --opening-title-weight: 500;
+    --opening-title-letter-spacing: 5px; --opening-title-color: #f6ebd9; --opening-title-font: 'Cormorant Garamond', serif;
+    --opening-button-margin-top: 0px; --opening-button-padding: 17px 34px; --opening-button-size: 10px;
+    --opening-button-weight: 400; --opening-button-letter-spacing: 3px; --opening-button-color: var(--c-cream);
+    --opening-button-bg: rgba(9,8,7,.85); --opening-button-border: rgba(140,109,49,.75);
 
-    --black-soft: #11100e;
+    /* ===== HERO ===== */
+    --hero-min-height: 100svh; --hero-bg-x: 50%; --hero-bg-y: 50%; --hero-frame-margin: 18px;
+    --hero-content-max-width: 900px; --hero-content-padding: 40px 25px;
+    --hero-photo-width: 380px; --hero-photo-max-width: 75vw; --hero-photo-margin: 0 auto 5px;
+    --hero-photo-x: 0px; --hero-photo-y: 0px; --hero-photo-opacity: 0;
+    --hero-title-margin: 22px 0; --hero-title-size: clamp(80px,22vw,190px); --hero-title-weight: 300;
+    --hero-title-line-height: .75; --hero-title-letter-spacing: 0px; --hero-title-color: var(--c-cream); --hero-title-font: 'Cormorant Garamond', serif;
+    --hero-title-x: 0px; --hero-title-y: 0px;
+    --hero-line-width: 120px; --hero-line-height: 1px; --hero-line-margin: 30px auto; --hero-line-color: var(--c-gold); --hero-line-x: 0px; --hero-line-y: 0px;
+    --hero-eyebrow-size: 10px; --hero-eyebrow-letter-spacing: 3px; --hero-eyebrow-color: var(--c-cream); --hero-eyebrow-x: 0px; --hero-eyebrow-y: 0px;
+    --hero-text-max-width: 420px; --hero-text-margin: 25px auto; --hero-text-size: clamp(21px,5vw,28px); --hero-text-weight: 300;
+    --hero-text-line-height: 1.3; --hero-text-letter-spacing: 0px; --hero-text-color: var(--c-cream); --hero-text-font: 'Cormorant Garamond', serif; --hero-text-x: 0px; --hero-text-y: 0px;
+    --hero-date-margin-top: 35px; --hero-date-size: 11px; --hero-date-letter-spacing: 7px; --hero-date-color: var(--c-gold-light); --hero-date-x: 0px; --hero-date-y: 0px;
 
-    --cream: #f7f2e9;
+    /* ===== SECCIONES GENERALES ===== */
+    --section-padding: 110px 25px; --section-label-size: 10px; --section-label-letter-spacing: 4px; --section-label-weight: 400; --section-label-color: var(--c-gold-light);
+    --section-title-max-width: 700px; --section-title-margin: 20px auto 30px; --section-title-size: clamp(45px,10vw,80px); --section-title-weight: 300; --section-title-line-height: .95; --section-title-letter-spacing: 0px; --section-title-color: var(--c-cream); --section-title-font: 'Cormorant Garamond', serif;
+    --section-text-max-width: 600px; --section-text-margin: 20px auto; --section-text-size: 14px; --section-text-weight: 300; --section-text-line-height: 1.9; --section-text-letter-spacing: 0px; --section-text-color: var(--c-text-muted); --section-text-font: 'Montserrat', sans-serif;
 
-    --cream-dark: #e9dfce;
+    /* ===== INTRO ===== */
+    --intro-bg-x: 50%; --intro-bg-y: 50%; --intro-ornament-margin: 35px 0; --intro-ornament-size: inherit; --intro-ornament-color: inherit;
+    --intro-title-size: clamp(45px,10vw,80px); --intro-title-weight: 300; --intro-title-font: 'Cormorant Garamond', serif; --intro-title-color: var(--c-cream); --intro-title-letter-spacing: 0px; --intro-title-line-height: .95; --intro-title-margin: 20px auto 30px; --intro-title-x: 0px; --intro-title-y: 0px;
+    --intro-p1-margin: 20px auto; --intro-p1-size: 14px; --intro-p1-weight: 300; --intro-p1-line-height: 1.9; --intro-p1-letter-spacing: 0px; --intro-p1-color: var(--c-text-muted); --intro-p1-font: 'Montserrat', sans-serif; --intro-p1-x: 0px; --intro-p1-y: 0px;
+    --intro-p2-margin: 20px auto; --intro-p2-size: 14px; --intro-p2-weight: 300; --intro-p2-line-height: 1.9; --intro-p2-letter-spacing: 0px; --intro-p2-color: var(--c-text-muted); --intro-p2-font: 'Montserrat', sans-serif; --intro-p2-x: 0px; --intro-p2-y: 0px;
 
-    --gold: #c9a45c;
+    /* ===== CUENTA REGRESIVA ===== */
+    --count-section-padding: 110px 25px; --count-bg-x: 50%; --count-bg-y: 50%; --count-title-margin: 0 0 18px; --count-title-margin-bottom: 18px; --count-title-size: clamp(32px,6vw,48px); --count-title-weight: 400; --count-title-letter-spacing: 0px; --count-title-color: var(--c-gold-light); --count-title-font: 'Parisienne', cursive; --count-title-x: 0px; --count-title-y: 0px;
+    --count-item-padding: 0 clamp(6px,2vw,16px); --count-gap: 0px; --count-number-size: clamp(32px,7vw,60px); --count-number-weight: 500; --count-number-line-height: 1; --count-number-margin-bottom: 8px; --count-number-color: var(--c-cream); --count-number-font: 'El Messiri', sans-serif; --count-number-x: 0px; --count-number-y: 0px;
+    --count-label-size: clamp(9px,2.5vw,14px); --count-label-weight: 400; --count-label-letter-spacing: 2px; --count-label-margin-top: 0px; --count-label-color: var(--c-gold-light); --count-label-font: 'El Messiri', sans-serif; --count-label-x: 0px; --count-label-y: 0px;
+    --count-divider-height: 35px; --count-divider-color: var(--c-gold); --count-divider-opacity: .45;
 
-    --gold-light: #e5cf9c;
+    /* ===== FECHA ===== */
+    --date-bg: var(--c-cream); --date-title-margin-top: 25px; --date-number-size: clamp(120px,30vw,220px); --date-number-weight: 300; --date-number-line-height: .7; --date-number-color: var(--c-text-dark); --date-number-font: 'Cormorant Garamond', serif; --date-number-x: 0px; --date-number-y: 0px;
+    --date-month-margin-top: 25px; --date-month-size: 15px; --date-month-letter-spacing: 7px; --date-month-color: var(--c-text-dark); --date-month-font: 'Montserrat', sans-serif;
+    --date-year-margin-top: 10px; --date-year-size: 32px; --date-year-color: var(--c-text-dark); --date-year-font: 'Cormorant Garamond', serif;
+    --date-details-max-width: 500px; --date-details-margin: 60px auto 0; --date-details-gap: 60px; --date-detail-gap: 8px; --date-detail-min-width: 100px;
+    --date-detail-label-size: 9px; --date-detail-label-letter-spacing: 3px; --date-detail-label-color: var(--c-text-dark); --date-detail-label-font: 'Montserrat', sans-serif;
+    --date-detail-value-size: 25px; --date-detail-value-color: var(--c-text-dark); --date-detail-value-font: 'Cormorant Garamond', serif;
 
-    --gold-dark: #8c6d31;
+    /* ===== FAMILIA ===== */
+    --family-bg-x: 50%; --family-bg-y: 50%; --family-card-max-width: 500px; --family-card-margin: 40px auto 80px; --family-card-padding: 35px 20px; --family-card-x: 0px; --family-card-y: 0px;
+    --family-text-margin: 12px 0; --family-text-size: 27px; --family-text-weight: 300; --family-text-line-height: 1.2; --family-text-color: var(--c-cream); --family-text-font: 'Cormorant Garamond', serif; --family-text-letter-spacing: 0px; --family-text-x: 0px; --family-text-y: 0px; --family-name-color: var(--c-gold);
+    --family-subheading-size: 50px; --family-subheading-weight: 300; --family-subheading-color: var(--c-cream); --family-subheading-font: 'Cormorant Garamond', serif; --family-subheading-x: 0px; --family-subheading-y: 0px;
 
-    --text: #f7f2e9;
+    /* ===== EVENTOS ===== */
+    --event-min-height: 80svh; --event-frame-margin: 20px; --ceremony-bg-x: 50%; --ceremony-bg-y: 50%; --reception-bg-x: 50%; --reception-bg-y: 50%;
+    --event-content-max-width: 800px; --event-content-padding: 30px 20px; --event-title-margin: 25px 0; --event-title-size: clamp(50px,11vw,100px); --event-title-weight: 300; --event-title-line-height: .9; --event-title-letter-spacing: 0px; --event-title-color: var(--c-cream); --event-title-font: 'Cormorant Garamond', serif; --event-title-x: 0px; --event-title-y: 0px;
+    --event-time-margin-bottom: 30px; --event-time-size: 30px; --event-time-weight: 300; --event-time-letter-spacing: 0px; --event-time-color: var(--c-gold-light); --event-time-font: 'Cormorant Garamond', serif; --event-time-x: 0px; --event-time-y: 0px;
+    --gold-button-padding: 15px 25px; --gold-button-size: 9px; --gold-button-weight: 500; --gold-button-letter-spacing: 3px; --gold-button-color: inherit; --gold-button-border-color: var(--c-gold); --gold-button-bg: transparent; --gold-button-x: 0px; --gold-button-y: 0px;
 
-    --text-muted: rgba(247, 242, 233, .70);
+    /* ===== GALERÍA ===== */
+    --gallery-max-width: 1000px; --gallery-margin: 50px auto 0; --gallery-gap: 8px; --gallery-item-min-height: 220px; --gallery-img-x: 50%; --gallery-img-y: 50%;
+    --gallery-img-1-x: 50%; --gallery-img-1-y: 50%; --gallery-img-2-x: 50%; --gallery-img-2-y: 50%; --gallery-img-3-x: 50%; --gallery-img-3-y: 50%; --gallery-img-4-x: 50%; --gallery-img-4-y: 50%; --gallery-img-5-x: 50%; --gallery-img-5-y: 50%; --gallery-img-6-x: 50%; --gallery-img-6-y: 50%; --gallery-img-7-x: 50%; --gallery-img-7-y: 50%; --gallery-img-8-x: 50%; --gallery-img-8-y: 50%; --gallery-img-9-x: 50%; --gallery-img-9-y: 50%; --gallery-img-10-x: 50%; --gallery-img-10-y: 50%; --gallery-img-11-x: 50%; --gallery-img-11-y: 50%; --gallery-img-12-x: 50%; --gallery-img-12-y: 50%;
 
-    --text-dark: #1b1814;
+    /* ===== VESTIMENTA ===== */
+    --dress-title-color: var(--c-text-dark); --dress-title-font: 'Cormorant Garamond', serif; --dress-text-color: rgba(27,24,20,.68); --dress-text-font: 'Montserrat', sans-serif; --dress-icon-margin: 30px 0; --dress-icon-size: 60px; --dress-icon-color: var(--c-gold); --dress-icon-x: 0px; --dress-icon-y: 0px;
+
+    /* ===== SOBRES ===== */
+    --envelope-title-color: var(--c-cream); --envelope-title-font: 'Cormorant Garamond', serif; --envelope-text-color: var(--c-text-muted); --envelope-text-font: 'Montserrat', sans-serif; --envelope-icon-margin: 30px 0; --envelope-icon-size: 50px; --envelope-icon-color: var(--c-gold-light); --envelope-icon-x: 0px; --envelope-icon-y: 0px;
+
+    /* ===== TIMELINE ===== */
+    --timeline-max-width: 550px; --timeline-margin: 60px auto; --timeline-item-padding: 35px 20px; --timeline-item-gap: 8px; --timeline-label-size: 10px; --timeline-label-letter-spacing: 3px; --timeline-label-color: var(--c-gold-light); --timeline-label-font: 'Montserrat', sans-serif; --timeline-title-size: 30px; --timeline-title-weight: 400; --timeline-title-color: var(--c-cream); --timeline-title-font: 'Cormorant Garamond', serif; --timeline-item-x: 0px; --timeline-item-y: 0px;
+
+    /* ===== PASE ===== */
+    --pass-section-padding: 100px 20px; --pass-card-max-width: 450px; --pass-card-padding: 60px 30px; --pass-card-x: 0px; --pass-card-y: 0px; --pass-title-margin: 30px 0 5px; --pass-title-size: 65px; --pass-title-weight: 300; --pass-title-color: var(--c-text-dark); --pass-title-font: 'Cormorant Garamond', serif; --pass-name-size: 35px; --pass-name-weight: 400; --pass-name-color: var(--c-text-dark); --pass-name-font: 'Cormorant Garamond', serif; --pass-line-width: 70px; --pass-line-margin: 30px auto; --pass-line-color: var(--c-gold); --pass-text-margin: 5px; --pass-text-size: 11px; --pass-text-weight: 300; --pass-text-letter-spacing: 2px; --pass-text-color: var(--c-text-dark); --pass-number-margin: 10px; --pass-number-size: 50px; --pass-number-weight: 400; --pass-number-color: var(--c-text-dark); --pass-number-font: 'Cormorant Garamond', serif;
+
+    /* ===== RSVP ===== */
+    --rsvp-bottom-padding: 130px; --whatsapp-margin-top: 25px; --whatsapp-padding: 17px 30px; --whatsapp-size: 10px; --whatsapp-weight: 500; --whatsapp-letter-spacing: 2px; --whatsapp-color: #fff; --whatsapp-bg: #25d366; --whatsapp-x: 0px; --whatsapp-y: 0px;
+
+    /* ===== MÚSICA ===== */
+    --music-right: 20px; --music-bottom: 20px; --music-size: 50px; --music-border-color: var(--c-gold); --music-color: var(--c-gold-light); --music-bg: rgba(10,8,5,.82); --music-x: 0px; --music-y: 0px;
+
+    /* ===== FOOTER ===== */
+    --footer-padding: 100px 20px; --footer-title-size: 80px; --footer-title-weight: 300; --footer-title-color: var(--c-cream); --footer-title-font: 'Cormorant Garamond', serif; --footer-text-margin: 15px 0; --footer-text-size: 10px; --footer-text-weight: 300; --footer-text-letter-spacing: 3px; --footer-text-color: var(--c-gold-light); --footer-text-font: 'Montserrat', sans-serif;
+
+    /* ===== AJUSTES MÓVIL / TABLET ===== */
+    --bp768-opening-content-padding: 20px; --bp768-frame-margin: 12px; --bp768-hero-content-padding: 30px 20px; --bp768-section-padding: 90px 20px; --bp768-date-gap: 35px; --bp768-event-content-padding: 30px 20px;
+    --bp600-section-label-size: 8px; --bp600-section-label-letter-spacing: 3px; --bp600-opening-padding: 15px; --bp600-opening-content-padding: 20px 10px; --bp600-logo-width: clamp(220px,52vw,420px); --bp600-logo-max-width: 82%; --bp600-logo-max-height: 42svh; --bp600-logo-margin-bottom: 17px; --bp600-opening-title-margin-top: 3px; --bp600-opening-title-margin-bottom: 10px; --bp600-opening-title-size: clamp(21px,6vw,28px); --bp600-opening-title-letter-spacing: 4px; --bp600-button-max-width: 240px; --bp600-button-padding: 16px 20px; --bp600-button-size: 9px; --bp600-button-letter-spacing: 2px;
+    --bp600-hero-padding: 20px 0; --bp600-hero-frame-margin: 10px; --bp600-hero-content-padding: 30px 18px; --bp600-hero-title-size: clamp(70px,22vw,130px); --bp600-hero-text-max-width: 300px; --bp600-hero-text-margin: 20px auto; --bp600-hero-text-size: clamp(20px,5.5vw,25px); --bp600-hero-date-margin-top: 28px; --bp600-hero-date-size: 9px; --bp600-hero-date-letter-spacing: 4px; --bp600-hero-photo-width: 300px; --bp600-hero-photo-max-width: 80vw;
+    --bp600-section-padding: 80px 18px; --bp600-section-title-size: clamp(42px,11vw,65px); --bp600-section-text-size: 13px; --bp600-section-text-line-height: 1.8; --bp600-count-padding: 80px 12px; --bp600-count-title-margin: 20px 0 40px; --bp600-count-title-size: clamp(42px,11vw,60px); --bp600-count-gap: clamp(6px,2.5vw,15px); --bp600-count-item-min-width: 48px; --bp600-count-number-size: clamp(32px,9vw,42px); --bp600-count-label-margin-top: 8px; --bp600-count-label-size: 6px; --bp600-count-label-letter-spacing: 1.5px;
+    --bp600-date-title-size: clamp(110px,35vw,180px); --bp600-date-month-margin-top: 22px; --bp600-date-month-size: 12px; --bp600-date-month-letter-spacing: 5px; --bp600-date-year-size: 28px; --bp600-date-details-margin-top: 45px; --bp600-date-details-gap: clamp(15px,6vw,30px); --bp600-date-detail-min-width: 0px; --bp600-date-detail-value-size: 20px; --bp600-date-detail-label-size: 7px; --bp600-date-detail-label-letter-spacing: 1.5px;
+    --bp600-family-card-margin: 35px auto 60px; --bp600-family-card-padding: 30px 15px; --bp600-family-text-size: clamp(21px,6vw,25px); --bp600-family-subheading-size: 40px;
+    --bp600-event-min-height: 75svh; --bp600-event-frame-margin: 10px; --bp600-event-content-padding: 25px 18px; --bp600-event-title-size: clamp(43px,11vw,70px); --bp600-event-time-size: 27px; --bp600-gold-button-padding: 14px 20px; --bp600-gold-button-size: 8px; --bp600-gold-button-letter-spacing: 2px; --bp600-gallery-gap: 6px; --bp600-gallery-item-min-height: 180px; --bp600-dress-icon-margin: 25px 0; --bp600-dress-icon-size: 50px; --bp600-envelope-icon-margin: 25px 0; --bp600-envelope-icon-size: 45px; --bp600-timeline-margin: 50px auto; --bp600-timeline-item-padding: 32px 15px; --bp600-timeline-title-size: 26px; --bp600-pass-section-padding: 80px 15px; --bp600-pass-card-padding: 50px 20px; --bp600-pass-title-size: 55px; --bp600-pass-name-size: 30px; --bp600-pass-number-size: 44px; --bp600-rsvp-bottom-padding: 110px; --bp600-whatsapp-padding: 16px 20px; --bp600-whatsapp-size: 9px; --bp600-whatsapp-max-width: 300px; --bp600-music-right: 15px; --bp600-music-bottom: 15px; --bp600-music-size: 46px; --bp600-footer-padding: 80px 20px; --bp600-footer-title-size: 65px;
+    --bp380-opening-content-padding: 15px 8px; --bp380-logo-width: 70vw; --bp380-logo-max-width: 250px; --bp380-logo-max-height: 40svh; --bp380-logo-margin-bottom: 15px; --bp380-opening-title-size: 21px; --bp380-opening-title-letter-spacing: 3px; --bp380-opening-title-margin-bottom: 23px; --bp380-button-max-width: 225px; --bp380-button-padding: 15px 18px; --bp380-count-gap: 4px; --bp380-count-item-min-width: 43px; --bp380-count-number-size: 31px; --bp380-count-label-size: 5px; --bp380-count-label-letter-spacing: 1px; --bp380-date-details-gap: 10px; --bp380-date-value-size: 18px; --bp380-date-label-size: 6px; --bp380-gallery-item-min-height: 150px; --bp380-family-text-size: 21px; --bp380-event-title-size: 40px; --bp380-pass-card-padding: 45px 15px;
+    --bp320-logo-width: 68vw; --bp320-logo-max-width: 220px; --bp320-opening-title-size: 19px; --bp320-opening-title-letter-spacing: 3px; --bp320-button-max-width: 210px; --bp320-count-item-min-width: 38px; --bp320-count-number-size: 28px; --bp320-count-label-size: 5px; --bp320-date-details-gap: 6px; --bp320-date-value-size: 16px; --bp320-event-title-size: 36px;
 }
 
+/* =========================================================
+   VARIABLES BASE DEL DISEÑO — SOLO REFERENCIAS, NO EDITAR
+========================================================= */
+ :root {
+    --black: var(--c-black);
+    --black-soft: var(--c-black-soft);
+    --cream: var(--c-cream);
+    --cream-dark: var(--c-cream-dark);
+    --gold: var(--c-gold);
+    --gold-light: var(--c-gold-light);
+    --gold-dark: var(--c-gold-dark);
+    --text: var(--c-cream);
+    --text-muted: var(--c-text-muted);
+    --text-dark: var(--c-text-dark);
+}
 
 /* =========================================================
    RESET
@@ -818,9 +266,8 @@ button {
         ),
         url('../images/fondo apertura.jpg');
 
-    background-position: center center;
-
-    background-size: cover;
+    background-position: var(--opening-bg-x) var(--opening-bg-y);
+background-size: cover;
 
     background-repeat: no-repeat;
 
@@ -850,9 +297,8 @@ button {
 
     width: min(100%, 700px);
 
-    padding: 30px 20px;
-
-    display: flex;
+    padding: var(--opening-padding);
+display: flex;
 
     flex-direction: column;
 
@@ -876,19 +322,16 @@ button {
     display: block;
 
     width: var(--opening-logo-width);
-            
+
     max-width: var(--opening-logo-max-width);
 
     max-height: var(--opening-logo-max-height);
-
-    height: auto;
+height: auto;
 
     object-fit: contain;
 
-    margin:
-        var(--opening-logo-space-bottom);
-
-    filter:
+    margin: var(--opening-logo-margin);
+filter:
         drop-shadow(
             0 4px 8px
             rgba(0, 0, 0, .15)
@@ -901,26 +344,19 @@ button {
 ========================================================= */
 
 .opening-title {
+    margin: var(--opening-title-margin);
 
-    margin: var(--opening-title-space-top) 0 var(--opening-title-space-bottom);
+    font-family: var(--opening-title-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-size: var(--opening-title-size);
 
-    font-size:
-        var(--opening-title-size);
-                
-
-    font-weight: 500;
-
-    line-height: 1;
+    font-weight: var(--opening-title-weight);
+line-height: 1;
 
     letter-spacing: var(--opening-title-letter-spacing);
 
-    color: #f6ebd9;
-
-    text-transform: uppercase;
+    color: var(--opening-title-color);
+text-transform: uppercase;
 }
 
 
@@ -932,41 +368,23 @@ button {
 
     position: relative;
 
-    margin-top: 0;
+    margin-top: var(--opening-button-margin-top);
 
-    padding:
-        17px 34px;
+    padding: var(--opening-button-padding);
 
-    border:
-        1px solid
-        rgba(
-            140,
-            109,
-            49,
-            .75
-        );
-
-    background:
-        rgba(
-            9,
-            8,
-            7,
-            .85
-        );
-
-    color: var(--cream);
-
-    font-family:
+    border: 1px solid var(--opening-button-border);
+background: var(--opening-button-bg);
+color: var(--opening-button-color);
+font-family:
         'Montserrat',
         sans-serif;
 
-    font-size: var(--open-button-font-size);
+    font-size: var(--opening-button-size);
 
-    font-weight: 400;
+    font-weight: var(--opening-button-weight);
 
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
+    letter-spacing: var(--opening-button-letter-spacing);
+text-transform: uppercase;
 
     cursor: pointer;
 
@@ -1205,9 +623,8 @@ button {
 
     width: 100%;
 
-    min-height: 100vh;
-
-    min-height: 100svh;
+    min-height: var(--hero-min-height);
+min-height: 100svh;
 
     display: flex;
 
@@ -1219,8 +636,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .0),
-            rgba(10, 8, 5, .0)
+            rgba(10, 8, 5, .25),
+            rgba(10, 8, 5, .10)
         ),
         url('../images/fondo con inicial.jpg')
         center center /
@@ -1238,9 +655,8 @@ button {
 
     inset: 0;
 
-    margin: var(--hero-name-space-top) 0 var(--hero-name-space-bottom);
-
-    border:
+    margin: var(--hero-frame-margin);
+border:
         1px solid
         rgba(229, 207, 156, .18);
 
@@ -1271,18 +687,11 @@ button {
 
     width: 100%;
 
-    max-width: 900px;
+    max-width: var(--hero-content-max-width);
 
-    padding: 40px 25px;
+    padding: var(--hero-content-padding);
 }
 
-
-.hero-photo {
-    transform: translate(
-        var(--hero-photo-position-x),
-        var(--hero-photo-position-y)
-    );
-}
 
 .hero-photo {
 
@@ -1291,12 +700,10 @@ button {
     width: var(--hero-photo-width);
 
     max-width: var(--hero-photo-max-width);
+height: auto;
 
-    height: auto;
-
-    margin: var(--hero-photo-space-bottom);
-
-    position: relative;
+    margin: var(--hero-photo-margin);
+position: relative;
 
     z-index: 2;
 
@@ -1306,7 +713,7 @@ button {
             rgba(0, 0, 0, .35)
         );
 
-    opacity: 0;
+    opacity: var(--hero-photo-opacity);
 }
 
 
@@ -1333,21 +740,17 @@ button {
 ========================================================= */
 
 .hero h1 {
+    margin: var(--hero-title-margin);
 
-    margin: var(--hero-name-space-top) 0 var(--hero-name-space-bottom);
+    font-family: var(--hero-title-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-size: var(--hero-title-size);
 
-    font-size:
-        var(--hero-name-size);
+    font-weight: var(--hero-title-weight);
 
-    font-weight: 300;
+    line-height: var(--hero-title-line-height);
 
-    line-height: .75;
-
-    color: var(--cream);
+    color: var(--hero-title-color);
 }
 
 
@@ -1356,14 +759,13 @@ button {
 ========================================================= */
 
 .gold-line {
-
     width: var(--hero-line-width);
 
-    height: 1px;
+    height: var(--hero-line-height);
 
-    margin: var(--hero-line-space) auto;
+    margin: var(--hero-line-margin);
 
-    background: var(--gold);
+    background: var(--hero-line-color);
 }
 
 
@@ -1470,22 +872,18 @@ button {
 
     width: 100%;
 
-    max-width: 420px;
+    max-width: var(--hero-text-max-width);
 
-    margin: var(--hero-text-space) auto;
+    margin: var(--hero-text-margin);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--hero-text-font);
 
-    font-size:
-        var(--hero-date-size);
+    font-size: var(--hero-text-size);
+font-style: italic;
 
-    font-style: italic;
+    line-height: var(--hero-text-line-height);
 
-    line-height: 1.3;
-
-    color: var(--cream);
+    color: var(--hero-text-color);
 }
 
 
@@ -1493,13 +891,13 @@ button {
 
     display: block;
 
-    margin-top: var(--hero-date-space-top);
+    margin-top: var(--hero-date-margin-top);
 
     font-size: var(--hero-date-size);
 
-    letter-spacing: 7px;
+    letter-spacing: var(--hero-date-letter-spacing);
 
-    color: var(--gold-light);
+    color: var(--hero-date-color);
 }
 
 
@@ -1511,9 +909,8 @@ button {
 
     width: 100%;
 
-    padding: var(--section-space-y) var(--section-space-x);
-
-    text-align: center;
+    padding: var(--section-padding);
+text-align: center;
 
     background: var(--black);
 }
@@ -1523,20 +920,17 @@ button {
 
     width: 100%;
 
-    max-width: 700px;
+    max-width: var(--section-title-max-width);
 
-    margin: var(--section-title-space-top) auto var(--section-title-space-bottom);
+    margin: var(--section-title-margin);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--section-title-font);
 
-    font-size:
-        var(--section-title-size);
+    font-size: var(--section-title-size);
 
-    font-weight: 300;
+    font-weight: var(--section-title-weight);
 
-    line-height: .95;
+    line-height: var(--section-title-line-height);
 }
 
 
@@ -1544,15 +938,14 @@ button {
 
     width: 100%;
 
-    max-width: 600px;
+    max-width: var(--section-text-max-width);
 
-    margin: var(--paragraph-space-y) auto;
+    margin: var(--section-text-margin);
 
-    color: var(--text-muted);
+    color: var(--section-text-color);
+font-size: var(--section-text-size);
 
-    font-size: var(--paragraph-size);
-
-    line-height: 1.9;
+    line-height: var(--section-text-line-height);
 }
 
 
@@ -1566,8 +959,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1575,8 +968,7 @@ button {
 
 
 .intro .ornament {
-
-    margin: var(--intro-ornament-space) 0;
+    margin: var(--intro-ornament-margin);
 }
 
 
@@ -1592,8 +984,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
@@ -1613,19 +1005,13 @@ button {
 
 
 .countdown-title {
+    font-family: var(--count-title-font);
 
-    font-family:
-        "Parisienne",
-        cursive;
+    font-size: var(--count-title-size);
 
-    font-size:
-        var(--countdown-title-size);
-
-    color: var(--gold-light);
-
-    margin-bottom: var(--countdown-title-space-bottom);
-
-    line-height: 1;
+    color: var(--count-title-color);
+margin-bottom: var(--count-title-margin-bottom);
+line-height: 1;
 }
 
 
@@ -1647,12 +1033,7 @@ button {
 
     text-align: center;
 
-    padding:
-        0 clamp(
-            6px,
-            2vw,
-            16px
-        );
+    padding: var(--count-item-padding);
 }
 
 
@@ -1660,20 +1041,16 @@ button {
 
     display: block;
 
-    font-family:
-        "El Messiri",
-        sans-serif;
+    font-family: var(--count-number-font);
 
-    font-size:
-        var(--count-number-size);
+    font-size: var(--count-number-size);
 
-    font-weight: 500;
+    font-weight: var(--count-number-weight);
 
-    color: var(--cream);
+    color: var(--count-number-color);
+line-height: var(--count-number-line-height);
 
-    line-height: 1;
-
-    margin-bottom: var(--count-number-space-bottom);
+    margin-bottom: var(--count-number-margin-bottom);
 }
 
 
@@ -1681,20 +1058,16 @@ button {
 
     display: block;
 
-    font-family:
-        "El Messiri",
-        sans-serif;
+    font-family: var(--count-label-font);
 
-    font-size:
-        var(--count-label-size);
+    font-size: var(--count-label-size);
 
-    font-weight: 400;
+    font-weight: var(--count-label-weight);
 
-    letter-spacing: 2px;
+    letter-spacing: var(--count-label-letter-spacing);
 
-    color: var(--gold-light);
-
-    text-transform: none;
+    color: var(--count-label-color);
+text-transform: none;
 }
 
 
@@ -1703,12 +1076,11 @@ button {
     width: 1px;
 
     height: var(--count-divider-height);
+flex-shrink: 0;
 
-    flex-shrink: 0;
+    background: var(--count-divider-color);
 
-    background: var(--gold);
-
-    opacity: .45;
+    opacity: var(--count-divider-opacity);
 }
 
 
@@ -1717,10 +1089,8 @@ button {
 ========================================================= */
 
 .date-section {
-
-    background: var(--cream);
-
-    color: var(--text-dark);
+    background: var(--date-bg);
+color: var(--text-dark);
 }
 
 
@@ -1731,37 +1101,31 @@ button {
 
 
 .date-section h2 {
+    margin-top: var(--date-title-margin-top);
 
-    margin-top: var(--whatsapp-space-top);
+    font-size: var(--date-number-size);
 
-    font-size:
-        var(--date-number-size);
+    line-height: var(--date-number-line-height);
 
-    line-height: .7;
-
-    color: var(--text-dark);
+    color: var(--date-number-color);
 }
 
 
 .month {
+    margin-top: var(--date-month-margin-top);
 
-    margin-top: var(--whatsapp-space-top);
+    font-size: var(--date-month-size);
 
-    font-size: 15px;
-
-    letter-spacing: 7px;
+    letter-spacing: var(--date-month-letter-spacing);
 }
 
 
 .year {
+    margin-top: var(--date-year-margin-top);
 
-    margin-top: var(--year-space-top);
+    font-family: var(--date-year-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size: var(--year-size);
+    font-size: var(--date-year-size);
 }
 
 
@@ -1769,11 +1133,10 @@ button {
 
     width: 100%;
 
-    max-width: 500px;
+    max-width: var(--date-details-max-width);
 
-    margin: var(--date-details-space-top) auto 0;
-
-    display: flex;
+    margin: var(--date-details-margin);
+display: flex;
 
     justify-content: center;
 
@@ -1787,27 +1150,23 @@ button {
 
     flex-direction: column;
 
-    gap: var(--timeline-item-gap);
+    gap: var(--date-detail-gap);
 
-    min-width: 100px;
+    min-width: var(--date-detail-min-width);
 }
 
 
 .date-details strong {
+    font-size: var(--date-detail-label-size);
 
-    font-size: 9px;
-
-    letter-spacing: 3px;
+    letter-spacing: var(--date-detail-label-letter-spacing);
 }
 
 
 .date-details span {
+    font-family: var(--date-detail-value-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
-
-    font-size: 25px;
+    font-size: var(--date-detail-value-size);
 }
 
 
@@ -1832,13 +1191,12 @@ button {
 
     width: 100%;
 
-    max-width: 500px;
+    max-width: var(--family-card-max-width);
 
-    margin: var(--family-card-space-top) auto var(--family-card-space-bottom);
+    margin: var(--family-card-margin);
 
-    padding: var(--timeline-item-space-y) var(--timeline-item-space-x);
-
-    border-top:
+    padding: var(--family-card-padding);
+border-top:
         1px solid
         rgba(
             201,
@@ -1859,31 +1217,25 @@ button {
 
 
 .family-card p {
+    margin: var(--family-text-margin);
 
-    margin: var(--family-paragraph-space) 0;
+    font-family: var(--family-text-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-size: var(--family-text-size);
 
-    font-size: var(--family-name-size);
+    line-height: var(--family-text-line-height);
 
-    line-height: 1.2;
-
-    color: var(--cream);
-
-    overflow-wrap: break-word;
+    color: var(--family-text-color);
+overflow-wrap: break-word;
 }
 
 
 .family-card span {
-
-    color: var(--gold);
+    color: var(--family-name-color);
 }
 
 
 .sub-heading {
-
     font-size: var(--family-subheading-size) !important;
 }
 
@@ -1898,9 +1250,8 @@ button {
 
     width: 100%;
 
-    min-height: 80vh;
-
-    min-height: 80svh;
+    min-height: var(--event-min-height);
+min-height: 80svh;
 
     display: flex;
 
@@ -1926,9 +1277,8 @@ button {
 
     inset: 0;
 
-    margin: 20px;
-
-    border:
+    margin: var(--event-frame-margin);
+border:
         1px solid
         rgba(
             229,
@@ -1975,40 +1325,33 @@ button {
 
     width: 100%;
 
-    max-width: 800px;
+    max-width: var(--event-content-max-width);
 
-    padding: 30px 20px;
+    padding: var(--event-content-padding);
 }
 
 
 .event-content h2 {
+    margin: var(--event-title-margin);
 
-    margin: var(--event-title-space) 0;
+    font-family: var(--event-title-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-size: var(--event-title-size);
 
-    font-size:
-        var(--event-title-size);
+    font-weight: var(--event-title-weight);
 
-    font-weight: 300;
-
-    line-height: .9;
+    line-height: var(--event-title-line-height);
 }
 
 
 .event-time {
+    margin-bottom: var(--event-time-margin-bottom);
 
-    margin-bottom: var(--event-time-space-bottom);
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--event-time-font);
 
     font-size: var(--event-time-size);
 
-    color: var(--gold-light);
+    color: var(--event-time-color);
 }
 
 
@@ -2024,18 +1367,16 @@ button {
 
     justify-content: center;
 
-    padding: 15px 25px;
-
-    border:
+    padding: var(--gold-button-padding);
+border:
         1px solid var(--gold);
 
-    font-size: 9px;
+    font-size: var(--gold-button-size);
 
-    font-weight: 500;
+    font-weight: var(--gold-button-weight);
 
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
+    letter-spacing: var(--gold-button-letter-spacing);
+text-transform: uppercase;
 
     transition:
         background .4s ease,
@@ -2062,11 +1403,10 @@ button {
 
     width: 100%;
 
-    max-width: 1000px;
+    max-width: var(--gallery-max-width);
 
-    margin: var(--gallery-space-top) auto 0;
-
-    display: grid;
+    margin: var(--gallery-margin);
+display: grid;
 
     grid-template-columns:
         repeat(
@@ -2077,7 +1417,7 @@ button {
             )
         );
 
-    gap: var(--timeline-item-gap);
+    gap: var(--gallery-gap);
 }
 
 
@@ -2086,8 +1426,7 @@ button {
     position: relative;
 
     min-height: var(--gallery-item-min-height);
-
-    overflow: hidden;
+overflow: hidden;
 
     background: #15120f;
 }
@@ -2143,30 +1482,20 @@ button {
 
 
 .dress-section h2 {
-
-    color: var(--text-dark);
+    color: var(--dress-title-color);
 }
 
 
 .dress-section p {
-
-    color:
-        rgba(
-            27,
-            24,
-            20,
-            .68
-        );
+    color: var(--dress-text-color);
 }
 
 
 .dress-icon {
+    margin: var(--dress-icon-margin);
 
-    margin: var(--dress-icon-space) 0;
-
-    color: var(--gold);
-
-    font-size: var(--dress-icon-size);
+    color: var(--dress-icon-color);
+font-size: var(--dress-icon-size);
 }
 
 
@@ -2186,12 +1515,10 @@ button {
 
 
 .envelope-icon {
+    margin: var(--envelope-icon-margin);
 
-    margin: var(--dress-icon-space) 0;
-
-    color: var(--gold-light);
-
-    font-size: var(--pass-number-size);
+    color: var(--envelope-icon-color);
+font-size: var(--envelope-icon-size);
 }
 
 
@@ -2205,9 +1532,9 @@ button {
 
     width: 100%;
 
-    max-width: 550px;
+    max-width: var(--timeline-max-width);
 
-    margin: var(--timeline-space) auto;
+    margin: var(--timeline-margin);
 }
 
 
@@ -2239,15 +1566,13 @@ button {
 
     position: relative;
 
-    padding: var(--timeline-item-space-y) var(--timeline-item-space-x);
-
-    display: flex;
+    padding: var(--timeline-item-padding);
+display: flex;
 
     flex-direction: column;
 
     gap: var(--timeline-item-gap);
-
-    text-align: center;
+text-align: center;
 }
 
 
@@ -2275,24 +1600,19 @@ button {
 
 
 .timeline-item span {
+    color: var(--timeline-label-color);
+font-size: var(--timeline-label-size);
 
-    color: var(--gold-light);
-
-    font-size: var(--open-button-font-size);
-
-    letter-spacing: 3px;
+    letter-spacing: var(--timeline-label-letter-spacing);
 }
 
 
 .timeline-item strong {
+    font-family: var(--timeline-title-font);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-size: var(--timeline-title-size);
 
-    font-size: var(--event-time-size);
-
-    font-weight: 400;
+    font-weight: var(--timeline-title-weight);
 }
 
 
@@ -2304,9 +1624,8 @@ button {
 
     width: 100%;
 
-    padding: var(--footer-space-y) var(--footer-space-x);
-
-    background: var(--cream);
+    padding: var(--pass-section-padding);
+background: var(--cream);
 }
 
 
@@ -2314,13 +1633,11 @@ button {
 
     width: 100%;
 
-    max-width: 450px;
+    max-width: var(--pass-card-max-width);
+margin: auto;
 
-    margin: auto;
-
-    padding: var(--pass-card-space-y) var(--pass-card-space-x);
-
-    text-align: center;
+    padding: var(--pass-card-padding);
+text-align: center;
 
     color: var(--text-dark);
 
@@ -2352,52 +1669,41 @@ button {
 
 
 .pass-card h2 {
+    margin: var(--pass-title-margin);
 
-    margin: 30px 0 5px;
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--pass-title-font);
 
     font-size: var(--pass-title-size);
 
-    font-weight: 300;
+    font-weight: var(--pass-title-weight);
 }
 
 
 .pass-name {
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--pass-name-font);
 
     font-size: var(--pass-name-size);
-
-    font-style: italic;
+font-style: italic;
 }
 
 
 .pass-line {
+    width: var(--pass-line-width);
+height: 1px;
 
-    width: 70px;
+    margin: var(--pass-line-margin);
 
-    height: 1px;
-
-    margin: var(--pass-line-space) auto;
-
-    background: var(--gold);
+    background: var(--pass-line-color);
 }
 
 
 .pass-card p {
+    margin: var(--pass-text-margin);
 
-    margin: 5px;
+    font-size: var(--pass-text-size);
 
-    font-size: var(--hero-date-size);
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
+    letter-spacing: var(--pass-text-letter-spacing);
+text-transform: uppercase;
 }
 
 
@@ -2405,15 +1711,13 @@ button {
 
     display: block;
 
-    margin: 10px;
+    margin: var(--pass-number-margin);
 
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--pass-number-font);
 
     font-size: var(--pass-number-size);
 
-    font-weight: 400;
+    font-weight: var(--pass-number-weight);
 }
 
 
@@ -2422,8 +1726,7 @@ button {
 ========================================================= */
 
 .rsvp-section {
-
-    padding-bottom: var(--rsvp-space-bottom);
+    padding-bottom: var(--rsvp-bottom-padding);
 }
 
 
@@ -2435,23 +1738,19 @@ button {
 
     justify-content: center;
 
-    margin-top: var(--whatsapp-space-top);
+    margin-top: var(--whatsapp-margin-top);
 
-    padding: 17px 30px;
+    padding: var(--whatsapp-padding);
+border-radius: 2px;
 
-    border-radius: 2px;
+    background: var(--whatsapp-bg);
+color: var(--whatsapp-color);
+font-size: var(--whatsapp-size);
 
-    background: #25d366;
+    font-weight: var(--whatsapp-weight);
 
-    color: #fff;
-
-    font-size: var(--open-button-font-size);
-
-    font-weight: 500;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
+    letter-spacing: var(--whatsapp-letter-spacing);
+text-transform: uppercase;
 
     transition:
         transform .3s ease,
@@ -2482,32 +1781,22 @@ button {
 
     position: fixed;
 
-    right: 20px;
+    right: var(--music-right);
 
-    bottom: 20px;
+    bottom: var(--music-bottom);
+z-index: 500;
 
-    z-index: 500;
+    width: var(--music-size);
 
-    width: 50px;
-
-    height: 50px;
-
-    border-radius: 50%;
+    height: var(--music-size);
+border-radius: 50%;
 
     border:
         1px solid var(--gold);
 
-    background:
-        rgba(
-            10,
-            8,
-            5,
-            .82
-        );
-
-    color: var(--gold-light);
-
-    cursor: pointer;
+    background: var(--music-bg);
+color: var(--music-color);
+cursor: pointer;
 
     backdrop-filter: blur(10px);
 
@@ -2577,37 +1866,30 @@ button {
 
     width: 100%;
 
-    padding: var(--footer-space-y) var(--footer-space-x);
-
-    text-align: center;
+    padding: var(--footer-padding);
+text-align: center;
 
     background: #050504;
 }
 
 
 .footer h2 {
-
-    font-family:
-        'Cormorant Garamond',
-        serif;
+    font-family: var(--footer-title-font);
 
     font-size: var(--footer-title-size);
 
-    font-weight: 300;
-
-    line-height: .9;
+    font-weight: var(--footer-title-weight);
+line-height: .9;
 }
 
 
 .footer p {
+    margin: var(--footer-text-margin);
 
-    margin: var(--footer-paragraph-space) 0;
+    color: var(--footer-text-color);
+font-size: var(--footer-text-size);
 
-    color: var(--gold-light);
-
-    font-size: var(--open-button-font-size);
-
-    letter-spacing: 3px;
+    letter-spacing: var(--footer-text-letter-spacing);
 }
 
 
@@ -2694,1351 +1976,184 @@ button {
    RESPONSIVE — TABLET
 ========================================================= */
 
-@media (max-width: 768px) {
 
-    .opening-content {
-
-        padding: 20px;
-    }
-
-    .hero::after {
-
-        margin: 12px;
-    }
-
-    .hero-content {
-
-        padding: 30px 20px;
-    }
-
-    .section {
-
-        padding: 90px 20px;
-    }
-
-    .date-details {
-
-        gap: 35px;
-    }
-
-    .event-section::after {
-
-        margin: 12px;
-    }
-
-    .event-content {
-
-        padding: 30px 20px;
-    }
-}
 
 
 /* =========================================================
    RESPONSIVE — MÓVIL
 ========================================================= */
 
-@media (max-width: 600px) {
 
-
-    /* -----------------------------------------
-       GENERAL
-    ----------------------------------------- */
-
-    .small-label,
-    .section-label,
-    .eyebrow {
-
-        font-size: 8px;
-
-        letter-spacing: 3px;
-    }
-
-
-    /* -----------------------------------------
-       PORTADA
-    ----------------------------------------- */
-
-    .opening {
-
-        padding: 15px;
-
-        background-position:
-            center center;
-    }
-
-
-    .opening-content {
-
-        width: 100%;
-
-        padding:
-            20px 10px;
-    }
-
-
-    /* Logo en celulares */
-
-    .opening-logo {
-
-        width:
-            clamp(220px,52vw,420px);
-               
-                
-        max-width: 82%;
-
-        max-height: 42svh;
-
-        margin-bottom: 17px;
-    }
-
-
-    /* MIS XV en celulares */
-
-    .opening-title {
-
-        margin-top: 3px;
-
-        margin-bottom: 10px;
-
-        font-size:
-            clamp(
-                21px,
-                6vw,
-                28px
-            );
-
-        letter-spacing: 4px;
-    }
-
-
-    /* Botón en celulares */
-
-    .open-button {
-
-        width: 100%;
-
-        max-width: 240px;
-
-        padding:
-            16px 20px;
-
-        font-size: 9px;
-
-        letter-spacing: 2px;
-    }
-
-
-    /* -----------------------------------------
-       HERO
-    ----------------------------------------- */
-
-    .hero {
-
-        min-height: 100vh;
-
-        min-height: 100svh;
-
-        padding: 20px 0;
-    }
-
-
-    .hero::after {
-
-        margin: 10px;
-    }
-
-
-    .hero-content {
-
-        width: 100%;
-
-        padding:
-            30px 18px;
-    }
-
-
-    .hero h1 {
-
-        font-size:
-            clamp(
-                70px,
-                22vw,
-                130px
-            );
-    }
-
-
-    .hero p {
-
-        max-width: 300px;
-
-        margin:
-            20px auto;
-
-        font-size:
-            clamp(
-                20px,
-                5.5vw,
-                25px
-            );
-    }
-
-
-    .hero-date {
-
-        margin-top: 28px;
-
-        font-size: 9px;
-
-        letter-spacing: 4px;
-    }
-
-
-    .hero-photo {
-
-        width: 300px;
-
-        max-width: 80vw;
-    }
-
-
-    /* -----------------------------------------
-       SECCIONES
-    ----------------------------------------- */
-
-    .section {
-
-        padding:
-            80px 18px;
-    }
-
-
-    .section h2 {
-
-        font-size:
-            clamp(
-                42px,
-                11vw,
-                65px
-            );
-    }
-
-
-    .section p {
-
-        font-size: 13px;
-
-        line-height: 1.8;
-    }
-
-
-    /* -----------------------------------------
-       CONTADOR
-    ----------------------------------------- */
-
-    .countdown-section {
-
-        padding:
-            80px 12px;
-    }
-
-
-    .countdown-section h2 {
-
-        margin:
-            20px 0 40px;
-
-        font-size:
-            clamp(
-                42px,
-                11vw,
-                60px
-            );
-    }
-
-
-    .countdown {
-
-        width: 100%;
-
-        gap:
-            clamp(
-                6px,
-                2.5vw,
-                15px
-            );
-    }
-
-
-    .count-item {
-
-        min-width: 48px;
-    }
-
-
-    .count-item span {
-
-        font-size:
-            clamp(
-                32px,
-                9vw,
-                42px
-            );
-    }
-
-
-    .count-item small {
-
-        margin-top: 8px;
-
-        font-size: 6px;
-
-        letter-spacing: 1.5px;
-    }
-
-
-    /* -----------------------------------------
-       FECHA
-    ----------------------------------------- */
-
-    .date-section h2 {
-
-        font-size:
-            clamp(
-                110px,
-                35vw,
-                180px
-            );
-    }
-
-
-    .month {
-
-        margin-top: 22px;
-
-        font-size: 12px;
-
-        letter-spacing: var(--opening-title-letter-spacing);
-    }
-
-
-    .year {
-
-        font-size: 28px;
-    }
-
-
-    .date-details {
-
-        width: 100%;
-
-        margin-top: 45px;
-
-        gap:
-            clamp(
-                15px,
-                6vw,
-                30px
-            );
-    }
-
-
-    .date-details div {
-
-        min-width: 0;
-
-        flex: 1;
-    }
-
-
-    .date-details span {
-
-        font-size: 20px;
-    }
-
-
-    .date-details strong {
-
-        font-size: 7px;
-
-        letter-spacing: 1.5px;
-    }
-
-
-    /* -----------------------------------------
-       FAMILIA
-    ----------------------------------------- */
-
-    .family-card {
-
-        width: 100%;
-
-        margin:
-            35px auto 60px;
-
-        padding:
-            30px 15px;
-    }
-
-
-    .family-card p {
-
-        font-size:
-            clamp(
-                21px,
-                6vw,
-                25px
-            );
-
-        overflow-wrap:
-            anywhere;
-    }
-
-
-    .sub-heading {
-
-        font-size:
-            40px !important;
-    }
-
-
-    /* -----------------------------------------
-       EVENTOS
-    ----------------------------------------- */
-
-    .event-section {
-
-        min-height: 75vh;
-
-        min-height: 75svh;
-    }
-
-
-    .event-section::after {
-
-        margin: 10px;
-    }
-
-
-    .event-content {
-
-        width: 100%;
-
-        padding:
-            25px 18px;
-    }
-
-
-    .event-content h2 {
-
-        font-size:
-            clamp(
-                43px,
-                11vw,
-                70px
-            );
-
-        line-height: .9;
-    }
-
-
-    .event-time {
-
-        font-size: var(--family-name-size);
-    }
-
-
-    .gold-button {
-
-        padding:
-            14px 20px;
-
-        font-size: 8px;
-
-        letter-spacing: 2px;
-    }
-
-
-    /* -----------------------------------------
-       GALERÍA
-    ----------------------------------------- */
-
-    .gallery {
-
-        width: 100%;
-
-        grid-template-columns:
-            repeat(
-                2,
-                minmax(
-                    0,
-                    1fr
-                )
-            );
-
-        gap: 6px;
-    }
-
-
-    .gallery-item {
-
-        min-height: 180px;
-    }
-
-
-    /* -----------------------------------------
-       VESTIMENTA
-    ----------------------------------------- */
-
-    .dress-icon {
-
-        margin: var(--event-title-space) 0;
-
-        font-size: var(--pass-number-size);
-    }
-
-
-    /* -----------------------------------------
-       SOBRES
-    ----------------------------------------- */
-
-    .envelope-icon {
-
-        margin: var(--event-title-space) 0;
-
-        font-size: 45px;
-    }
-
-
-    /* -----------------------------------------
-       TIMELINE
-    ----------------------------------------- */
-
-    .timeline {
-
-        margin:
-            50px auto;
-    }
-
-
-    .timeline-item {
-
-        padding:
-            32px 15px;
-    }
-
-
-    .timeline-item strong {
-
-        font-size: 26px;
-    }
-
-
-    /* -----------------------------------------
-       PASE
-    ----------------------------------------- */
-
-    .pass-section {
-
-        padding:
-            80px 15px;
-    }
-
-
-    .pass-card {
-
-        padding:
-            50px 20px;
-    }
-
-
-    .pass-card h2 {
-
-        font-size: 55px;
-    }
-
-
-    .pass-name {
-
-        font-size: var(--event-time-size);
-    }
-
-
-    .pass-number {
-
-        font-size: 44px;
-    }
-
-
-    /* -----------------------------------------
-       WHATSAPP
-    ----------------------------------------- */
-
-    .rsvp-section {
-
-        padding-bottom:
-            110px;
-    }
-
-
-    .whatsapp-button {
-
-        width: 100%;
-
-        max-width: 300px;
-
-        padding:
-            16px 20px;
-
-        font-size: 9px;
-    }
-
-
-    /* -----------------------------------------
-       MÚSICA
-    ----------------------------------------- */
-
-    .music-button {
-
-        right: 15px;
-
-        bottom: 15px;
-
-        width: 46px;
-
-        height: 46px;
-    }
-
-
-    /* -----------------------------------------
-       FOOTER
-    ----------------------------------------- */
-
-    .footer {
-
-        padding:
-            80px 20px;
-    }
-
-
-    .footer h2 {
-
-        font-size: var(--pass-title-size);
-    }
-
-}
 
 
 /* =========================================================
    MÓVILES MUY PEQUEÑOS
 ========================================================= */
 
-@media (max-width: 380px) {
 
-
-    /* Apertura en teléfonos pequeños */
-
-    .opening-content {
-
-        padding:
-            15px 8px;
-    }
-
-
-    .opening-logo {
-
-        width: 70vw;
-
-        max-width: 250px;
-
-        max-height: 40svh;
-
-        margin-bottom: 15px;
-    }
-
-
-    .opening-title {
-
-        font-size: 21px;
-
-        letter-spacing: 3px;
-
-        margin-bottom: 23px;
-    }
-
-
-    .open-button {
-
-        max-width: 225px;
-
-        padding:
-            15px 18px;
-    }
-
-
-    /* Contador */
-
-    .countdown {
-
-        gap: 4px;
-    }
-
-
-    .count-item {
-
-        min-width: 43px;
-    }
-
-
-    .count-item span {
-
-        font-size: 31px;
-    }
-
-
-    .count-item small {
-
-        font-size: 5px;
-
-        letter-spacing: 1px;
-    }
-
-
-    /* Detalles fecha */
-
-    .date-details {
-
-        gap: 10px;
-    }
-
-
-    .date-details span {
-
-        font-size: 18px;
-    }
-
-
-    .date-details strong {
-
-        font-size: 6px;
-    }
-
-
-    /* Galería */
-
-    .gallery-item {
-
-        min-height: 150px;
-    }
-
-
-    /* Texto familiar */
-
-    .family-card p {
-
-        font-size: 21px;
-    }
-
-
-    /* Título evento */
-
-    .event-content h2 {
-
-        font-size: 40px;
-    }
-
-
-    /* Tarjeta */
-
-    .pass-card {
-
-        padding:
-            45px 15px;
-    }
-
-}
 
 
 /* =========================================================
    SEGURIDAD PARA PANTALLAS MUY ESTRECHAS
 ========================================================= */
 
-@media (max-width: 320px) {
 
-
-    /* Apertura en teléfonos muy pequeños */
-
-    .opening-logo {
-
-        width: 68vw;
-
-        max-width: 220px;
-    }
-
-
-    .opening-title {
-
-        font-size: 19px;
-
-        letter-spacing: 3px;
-    }
-
-
-    .open-button {
-
-        max-width: 210px;
-    }
-
-
-    /* Elementos del contador */
-
-    .count-item {
-
-        min-width: 38px;
-    }
-
-
-    .count-item span {
-
-        font-size: 28px;
-    }
-
-
-    .count-item small {
-
-        font-size: 5px;
-    }
-
-
-    /* Detalles */
-
-    .date-details {
-
-        gap: 6px;
-    }
-
-
-    .date-details span {
-
-        font-size: 16px;
-    }
-
-
-    /* Título evento */
-
-    .event-content h2 {
-
-        font-size: 36px;
-    }
-
-}
 
 
 /* =========================================================
    FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
 ========================================================= */
 
-@media (max-width: 600px) {
 
-    .countdown-title {
-
-        font-family:
-            "Parisienne",
-            cursive !important;
-    }
-
-
-    .count-item span {
-
-        font-family:
-            "El Messiri",
-            sans-serif !important;
-    }
-
-
-    .count-item small {
-
-        font-family:
-            "El Messiri",
-            sans-serif !important;
-    }
-
-}
-
+/* ===== INTRO: CONTROLES INDIVIDUALES ===== */
+.intro h2 { margin: var(--intro-title-margin); font-family: var(--intro-title-font); font-size: var(--intro-title-size); font-weight: var(--intro-title-weight); line-height: var(--intro-title-line-height); letter-spacing: var(--intro-title-letter-spacing); color: var(--intro-title-color); translate: var(--intro-title-x) var(--intro-title-y); }
+.intro p:nth-of-type(1) { margin: var(--intro-p1-margin); font-family: var(--intro-p1-font); font-size: var(--intro-p1-size); font-weight: var(--intro-p1-weight); line-height: var(--intro-p1-line-height); letter-spacing: var(--intro-p1-letter-spacing); color: var(--intro-p1-color); translate: var(--intro-p1-x) var(--intro-p1-y); }
+.intro p:nth-of-type(2) { margin: var(--intro-p2-margin); font-family: var(--intro-p2-font); font-size: var(--intro-p2-size); font-weight: var(--intro-p2-weight); line-height: var(--intro-p2-line-height); letter-spacing: var(--intro-p2-letter-spacing); color: var(--intro-p2-color); translate: var(--intro-p2-x) var(--intro-p2-y); }
 /* =========================================================
-   POSICIÓN DE FONDOS — CONTROLES
-   Usa center, left, right, top, bottom o porcentajes.
+   GALERÍA — POSICIÓN INDIVIDUAL DE CADA FOTO
 ========================================================= */
-
-.intro {
-    background-position: var(--intro-background-x) var(--intro-background-y);
-}
-
-.family-section {
-    background-position: var(--family-background-x) var(--family-background-y);
-}
-
-.ceremony {
-    background-position: var(--ceremony-background-x) var(--ceremony-background-y);
-}
-
-.reception {
-    background-position: var(--reception-background-x) var(--reception-background-y);
-}
-
-/* =========================================================
-   POSICIÓN INDIVIDUAL DE FOTOS DE GALERÍA
-   50% 50% = centro
-========================================================= */
-
-.gallery-item:nth-child(1) img {
-    object-position: var(--gallery-img1-x) var(--gallery-img1-y);
-}
-.gallery-item:nth-child(2) img {
-    object-position: var(--gallery-img2-x) var(--gallery-img2-y);
-}
-.gallery-item:nth-child(3) img {
-    object-position: var(--gallery-img3-x) var(--gallery-img3-y);
-}
-.gallery-item:nth-child(4) img {
-    object-position: var(--gallery-img4-x) var(--gallery-img4-y);
-}
-.gallery-item:nth-child(5) img {
-    object-position: var(--gallery-img5-x) var(--gallery-img5-y);
-}
-.gallery-item:nth-child(6) img {
-    object-position: var(--gallery-img6-x) var(--gallery-img6-y);
-}
-.gallery-item:nth-child(7) img {
-    object-position: var(--gallery-img7-x) var(--gallery-img7-y);
-}
-.gallery-item:nth-child(8) img {
-    object-position: var(--gallery-img8-x) var(--gallery-img8-y);
-}
-
+.gallery-item:nth-child(1) img { object-position: var(--gallery-img-1-x) var(--gallery-img-1-y); }
+.gallery-item:nth-child(2) img { object-position: var(--gallery-img-2-x) var(--gallery-img-2-y); }
+.gallery-item:nth-child(3) img { object-position: var(--gallery-img-3-x) var(--gallery-img-3-y); }
+.gallery-item:nth-child(4) img { object-position: var(--gallery-img-4-x) var(--gallery-img-4-y); }
+.gallery-item:nth-child(5) img { object-position: var(--gallery-img-5-x) var(--gallery-img-5-y); }
+.gallery-item:nth-child(6) img { object-position: var(--gallery-img-6-x) var(--gallery-img-6-y); }
+.gallery-item:nth-child(7) img { object-position: var(--gallery-img-7-x) var(--gallery-img-7-y); }
+.gallery-item:nth-child(8) img { object-position: var(--gallery-img-8-x) var(--gallery-img-8-y); }
+.gallery-item:nth-child(9) img { object-position: var(--gallery-img-9-x) var(--gallery-img-9-y); }
+.gallery-item:nth-child(10) img { object-position: var(--gallery-img-10-x) var(--gallery-img-10-y); }
+.gallery-item:nth-child(11) img { object-position: var(--gallery-img-11-x) var(--gallery-img-11-y); }
+.gallery-item:nth-child(12) img { object-position: var(--gallery-img-12-x) var(--gallery-img-12-y); }
 
 
 /* =========================================================
-   CONEXIÓN DEL PANEL AVANZADO
-   No modificar estas reglas; modificar únicamente :root.
+   📍 POSICIÓN X/Y — BINDINGS ÚNICOS
+   ---------------------------------------------------------
+   Se usa la propiedad translate para NO pelearse con las
+   animaciones existentes del sitio.
 ========================================================= */
-
-/* APERTURA */
-.opening-logo {
-    transform: translate(var(--opening-logo-position-x), var(--opening-logo-position-y));
-    opacity: var(--opening-logo-opacity);
-}
-.opening-title {
-    color: var(--opening-title-color);
-    font-family: var(--opening-title-font);
-    font-weight: var(--opening-title-weight);
-}
-.open-button {
-    color: var(--opening-button-color);
-    font-family: var(--opening-button-font);
-    letter-spacing: var(--opening-button-letter-spacing);
-}
-
-/* HERO */
-.hero .eyebrow {
-    font-size: var(--hero-eyebrow-size);
-    color: var(--hero-eyebrow-color);
-    font-family: var(--hero-eyebrow-font);
-    letter-spacing: var(--hero-eyebrow-letter-spacing);
-    transform: translate(var(--hero-eyebrow-position-x), var(--hero-eyebrow-position-y));
-}
-.hero-photo {
-    transform: translate(var(--hero-photo-position-x), var(--hero-photo-position-y));
-}
-.hero h1 {
-    color: var(--hero-title-color);
-    font-family: var(--hero-title-font);
-    font-weight: var(--hero-title-weight);
-    letter-spacing: var(--hero-title-letter-spacing);
-    transform: translate(var(--hero-title-position-x), var(--hero-title-position-y));
-}
-.gold-line {
-    background: var(--hero-line-color);
-    transform: translate(var(--hero-line-position-x), var(--hero-line-position-y));
-}
-.hero p {
-    color: var(--hero-text-color);
-    font-family: var(--hero-text-font);
-    font-weight: var(--hero-text-weight);
-    letter-spacing: var(--hero-text-letter-spacing);
-    line-height: var(--hero-text-line-height);
-    transform: translate(var(--hero-text-position-x), var(--hero-text-position-y));
-}
-.hero-date {
-    color: var(--hero-date-color);
-    font-family: var(--hero-date-font);
-    letter-spacing: var(--hero-date-letter-spacing);
-    transform: translate(var(--hero-date-position-x), var(--hero-date-position-y));
-}
-
-/* ETIQUETAS */
-.section-label,
-.date-section .section-label,
-.dress-section .section-label,
-.pass-card .section-label {
-    color: var(--section-label-color);
-    font-family: var(--section-label-font);
-    font-weight: var(--section-label-weight);
-    letter-spacing: var(--section-label-letter-spacing);
-}
-
-/* INTRO */
-.intro {
-    transform: translate(var(--intro-position-x), var(--intro-position-y));
-}
-.intro h2 {
-    color: var(--intro-title-color);
-    font-family: var(--intro-title-font-family);
-    font-weight: var(--intro-title-font-weight);
-    letter-spacing: var(--intro-title-letter-spacing);
-    line-height: var(--intro-title-line-height);
-    margin-top: var(--intro-title-space-top);
-    margin-bottom: var(--intro-title-space-bottom);
-    transform: translate(var(--intro-title-position-x), var(--intro-title-position-y));
-}
-.intro .ornament {
-    margin-top: var(--intro-ornament-space-top, var(--intro-ornament-space));
-    margin-bottom: var(--intro-ornament-space-bottom, var(--intro-ornament-space));
-    color: var(--intro-ornament-color, var(--gold));
-    transform: translate(var(--intro-ornament-position-x, 0px), var(--intro-ornament-position-y, 0px));
-}
-.intro p:nth-of-type(1), .intro p:nth-of-type(2) {
-    /* Las variables individuales ya están conectadas arriba. */
-}
-
-/* CONTADOR */
-.countdown-title {
-    color: var(--count-title-color);
-    font-family: var(--count-title-font);
-    font-weight: var(--count-title-weight);
-    letter-spacing: var(--count-title-letter-spacing);
-    transform: translate(var(--count-title-position-x), var(--count-title-position-y));
-}
-.count-item span {
-    color: var(--count-number-color);
-    font-family: var(--count-number-font);
-    font-weight: var(--count-number-weight);
-    transform: translate(var(--count-number-position-x), var(--count-number-position-y));
-}
-.count-item small {
-    color: var(--count-label-color);
-    font-family: var(--count-label-font);
-    letter-spacing: var(--count-label-letter-spacing);
-}
-.count-divider {
-    background: var(--count-divider-color);
-}
-
-/* FECHA */
-.date-section h2 {
-    color: var(--date-number-color);
-    font-family: var(--date-number-font);
-    font-weight: var(--date-number-weight);
-    transform: translate(var(--date-number-position-x), var(--date-number-position-y));
-}
-.month {
-    color: var(--date-month-color);
-    font-family: var(--date-month-font);
-    letter-spacing: var(--date-month-letter-spacing);
-}
-.year {
-    color: var(--date-year-color);
-    font-family: var(--date-year-font);
-}
-.date-details strong {
-    color: var(--date-detail-strong-color);
-    font-family: var(--date-detail-strong-font);
-}
-.date-details span {
-    color: var(--date-detail-span-color);
-    font-family: var(--date-detail-span-font);
-}
-
-/* FAMILIA */
-.family-card {
-    transform: translate(var(--family-card-position-x), var(--family-card-position-y));
-}
-.family-card p {
-    color: var(--family-text-color);
-    font-family: var(--family-text-font);
-    font-weight: var(--family-text-weight);
-    line-height: var(--family-text-line-height);
-}
-.family-card span {
-    color: var(--family-name-color);
-}
-.sub-heading {
-    color: var(--family-subheading-color);
-    font-family: var(--family-subheading-font);
-    font-weight: var(--family-subheading-weight);
-    transform: translate(var(--family-subheading-position-x), var(--family-subheading-position-y));
-}
-
-/* EVENTOS */
-.event-content h2 {
-    color: var(--event-title-color);
-    font-family: var(--event-title-font);
-    font-weight: var(--event-title-weight);
-    letter-spacing: var(--event-title-letter-spacing);
-    transform: translate(var(--event-title-position-x), var(--event-title-position-y));
-}
-.event-time {
-    color: var(--event-time-color);
-    font-family: var(--event-time-font);
-    font-weight: var(--event-time-weight);
-    transform: translate(var(--event-time-position-x), var(--event-time-position-y));
-}
-.gold-button {
-    color: var(--event-button-color);
-    font-family: var(--event-button-font);
-}
-
-/* GALERÍA */
-.gallery-item img {
-    object-position: var(--gallery-img-position-x) var(--gallery-img-position-y);
-}
-.gallery-item:nth-child(1) img { object-position: var(--gallery-img1-x) var(--gallery-img1-y); }
-.gallery-item:nth-child(2) img { object-position: var(--gallery-img2-x) var(--gallery-img2-y); }
-.gallery-item:nth-child(3) img { object-position: var(--gallery-img3-x) var(--gallery-img3-y); }
-.gallery-item:nth-child(4) img { object-position: var(--gallery-img4-x) var(--gallery-img4-y); }
-.gallery-item:nth-child(5) img { object-position: var(--gallery-img5-x) var(--gallery-img5-y); }
-.gallery-item:nth-child(6) img { object-position: var(--gallery-img6-x) var(--gallery-img6-y); }
-.gallery-item:nth-child(7) img { object-position: var(--gallery-img7-x) var(--gallery-img7-y); }
-.gallery-item:nth-child(8) img { object-position: var(--gallery-img8-x) var(--gallery-img8-y); }
-
-/* VESTIMENTA */
-.dress-section h2 {
-    color: var(--dress-title-color);
-    font-family: var(--dress-title-font);
-}
-.dress-section p {
-    color: var(--dress-text-color);
-    font-family: var(--dress-text-font);
-}
-.dress-icon {
-    color: var(--dress-icon-color);
-    transform: translate(var(--dress-icon-position-x), var(--dress-icon-position-y));
-}
-
-/* SOBRES */
-.envelopes-section h2 {
-    color: var(--envelope-title-color);
-    font-family: var(--envelope-title-font);
-}
-.envelopes-section p {
-    color: var(--envelope-text-color);
-    font-family: var(--envelope-text-font);
-}
-.envelope-icon {
-    color: var(--envelope-icon-color);
-    transform: translate(var(--envelope-icon-position-x), var(--envelope-icon-position-y));
-}
-
-/* TIMELINE */
-.timeline-item {
-    transform: translate(var(--timeline-item-position-x), var(--timeline-item-position-y));
-}
-.timeline-item span {
-    color: var(--timeline-label-color);
-    font-family: var(--timeline-label-font);
-}
-.timeline-item strong {
-    color: var(--timeline-event-color);
-    font-family: var(--timeline-event-font);
-    font-weight: var(--timeline-event-weight);
-}
-
-/* PASE */
-.pass-card {
-    transform: translate(var(--pass-card-position-x), var(--pass-card-position-y));
-}
-.pass-card h2 {
-    color: var(--pass-title-color);
-    font-family: var(--pass-title-font);
-}
-.pass-name {
-    color: var(--pass-name-color);
-    font-family: var(--pass-name-font);
-    font-weight: var(--pass-name-weight);
-}
-.pass-card p {
-    color: var(--pass-text-color);
-    font-family: var(--pass-text-font);
-}
-.pass-number {
-    color: var(--pass-number-color);
-    font-family: var(--pass-number-font);
-}
-
-/* RSVP */
-.rsvp-section h2 {
-    color: var(--rsvp-title-color);
-    font-family: var(--rsvp-title-font);
-}
-.rsvp-section p {
-    color: var(--rsvp-text-color);
-    font-family: var(--rsvp-text-font);
-}
-.whatsapp-button {
-    font-family: var(--rsvp-button-font);
-    letter-spacing: var(--rsvp-button-letter-spacing);
-    transform: translate(var(--rsvp-button-position-x), var(--rsvp-button-position-y));
-}
-
-/* MÚSICA */
-.music-button {
-    width: var(--music-size);
-    height: var(--music-size);
-    border-color: var(--music-border-color);
-    transform: translate(var(--music-position-x), var(--music-position-y));
-}
-
-/* FOOTER */
-.footer h2 {
-    color: var(--footer-title-color);
-    font-family: var(--footer-title-font);
-    font-weight: var(--footer-title-weight);
-}
-.footer p,
-.footer span {
-    color: var(--footer-text-color);
-    font-family: var(--footer-text-font);
-    letter-spacing: var(--footer-text-letter-spacing);
-}
+.opening-logo { translate: var(--opening-logo-x) var(--opening-logo-y); }
+.hero-photo { translate: var(--hero-photo-x) var(--hero-photo-y); }
+.hero h1 { translate: var(--hero-title-x) var(--hero-title-y); }
+.gold-line { translate: var(--hero-line-x) var(--hero-line-y); }
+.hero .eyebrow { translate: var(--hero-eyebrow-x) var(--hero-eyebrow-y); }
+.hero p { translate: var(--hero-text-x) var(--hero-text-y); }
+.hero-date { translate: var(--hero-date-x) var(--hero-date-y); }
+.intro h2 { translate: var(--intro-title-x) var(--intro-title-y); }
+.intro p:nth-of-type(1) { translate: var(--intro-p1-x) var(--intro-p1-y); }
+.intro p:nth-of-type(2) { translate: var(--intro-p2-x) var(--intro-p2-y); }
+.countdown-title { translate: var(--count-title-x) var(--count-title-y); }
+.count-item span { translate: var(--count-number-x) var(--count-number-y); }
+.count-item small { translate: var(--count-label-x) var(--count-label-y); }
+.date-section h2 { translate: var(--date-number-x) var(--date-number-y); }
+.family-card { translate: var(--family-card-x) var(--family-card-y); }
+.family-card p { translate: var(--family-text-x) var(--family-text-y); }
+.sub-heading { translate: var(--family-subheading-x) var(--family-subheading-y); }
+.event-content h2 { translate: var(--event-title-x) var(--event-title-y); }
+.event-time { translate: var(--event-time-x) var(--event-time-y); }
+.gold-button { translate: var(--gold-button-x) var(--gold-button-y); }
+.dress-icon { translate: var(--dress-icon-x) var(--dress-icon-y); }
+.envelope-icon { translate: var(--envelope-icon-x) var(--envelope-icon-y); }
+.timeline-item { translate: var(--timeline-item-x) var(--timeline-item-y); }
+.pass-card { translate: var(--pass-card-x) var(--pass-card-y); }
+.whatsapp-button { translate: var(--whatsapp-x) var(--whatsapp-y); }
+.music-button { translate: var(--music-x) var(--music-y); }
 
 /* =========================================================
-   POSICIÓN DE FONDOS
+   📱 RESPONSIVE — TODOS LOS VALORES TAMBIÉN ESTÁN AQUÍ
+   Cambia estos valores solo si quieres una versión diferente
+   para tablet / móvil / 380 / 320.
 ========================================================= */
-.intro {
-    background-position: var(--intro-background-x) var(--intro-background-y);
-}
-.family-section {
-    background-position: var(--family-background-x) var(--family-background-y);
-}
-.ceremony {
-    background-position: var(--ceremony-background-x) var(--ceremony-background-y);
-}
-.reception {
-    background-position: var(--reception-background-x) var(--reception-background-y);
-}
-
-
-/* =========================================================
-   PANEL RESPONSIVE — VALORES INDEPENDIENTES
-   Puedes cambiar aquí SOLO lo que quieras en cada tamaño.
-========================================================= */
-
 @media (max-width: 768px) {
-    :root {
-        /* Posiciones de bloques */
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-        --family-card-position-x: 0px;
-        --family-card-position-y: 0px;
-        --pass-card-position-x: 0px;
-        --pass-card-position-y: 0px;
-
-        /* Tipografía */
-        --hero-eyebrow-size: 9px;
-        --hero-date-size: 10px;
-        --count-title-size: var(--countdown-title-size);
-        --count-number-size: var(--count-number-size);
-    }
+  .opening-content { padding: var(--bp768-opening-content-padding); }
+  .hero::after, .event-section::after { margin: var(--bp768-frame-margin); }
+  .hero-content, .event-content { padding: var(--bp768-hero-content-padding); }
+  .section { padding: var(--bp768-section-padding); }
+  .date-details { gap: var(--bp768-date-gap); }
 }
-
 @media (max-width: 600px) {
-    :root {
-        /* APERTURA */
-        --opening-logo-position-x: 0px;
-        --opening-logo-position-y: 0px;
-
-        /* HERO */
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-        --hero-eyebrow-size: 8px;
-        --hero-eyebrow-letter-spacing: 3px;
-        --hero-text-letter-spacing: normal;
-        --hero-date-letter-spacing: 4px;
-
-        /* INTRO */
-        --intro-title-position-x: 0px;
-        --intro-title-position-y: 0px;
-        --intro-p1-position-x: 0px;
-        --intro-p1-position-y: 0px;
-        --intro-p2-position-x: 0px;
-        --intro-p2-position-y: 0px;
-
-        /* FECHA */
-        --date-number-position-x: 0px;
-        --date-number-position-y: 0px;
-
-        /* FAMILIA */
-        --family-card-position-x: 0px;
-        --family-card-position-y: 0px;
-
-        /* EVENTOS */
-        --event-title-position-x: 0px;
-        --event-title-position-y: 0px;
-
-        /* GALERÍA */
-        --gallery-img1-x: 50%; --gallery-img1-y: 50%;
-        --gallery-img2-x: 50%; --gallery-img2-y: 50%;
-        --gallery-img3-x: 50%; --gallery-img3-y: 50%;
-        --gallery-img4-x: 50%; --gallery-img4-y: 50%;
-        --gallery-img5-x: 50%; --gallery-img5-y: 50%;
-        --gallery-img6-x: 50%; --gallery-img6-y: 50%;
-        --gallery-img7-x: 50%; --gallery-img7-y: 50%;
-        --gallery-img8-x: 50%; --gallery-img8-y: 50%;
-
-        /* TIMELINE */
-        --timeline-item-position-x: 0px;
-        --timeline-item-position-y: 0px;
-
-        /* PASE */
-        --pass-card-position-x: 0px;
-        --pass-card-position-y: 0px;
-
-        /* RSVP */
-        --rsvp-button-position-x: 0px;
-        --rsvp-button-position-y: 0px;
-
-        /* MÚSICA */
-        --music-position-x: 0px;
-        --music-position-y: 0px;
-    }
+  .small-label, .section-label, .eyebrow { font-size: var(--bp600-section-label-size); letter-spacing: var(--bp600-section-label-letter-spacing); }
+  .opening { padding: var(--bp600-opening-padding); }
+  .opening-content { padding: var(--bp600-opening-content-padding); }
+  .opening-logo { width: var(--bp600-logo-width); max-width: var(--bp600-logo-max-width); max-height: var(--bp600-logo-max-height); margin-bottom: var(--bp600-logo-margin-bottom); }
+  .opening-title { margin-top: var(--bp600-opening-title-margin-top); margin-bottom: var(--bp600-opening-title-margin-bottom); font-size: var(--bp600-opening-title-size); letter-spacing: var(--bp600-opening-title-letter-spacing); }
+  .open-button { max-width: var(--bp600-button-max-width); padding: var(--bp600-button-padding); font-size: var(--bp600-button-size); letter-spacing: var(--bp600-button-letter-spacing); }
+  .hero { padding: var(--bp600-hero-padding); }
+  .hero::after { margin: var(--bp600-hero-frame-margin); }
+  .hero-content { padding: var(--bp600-hero-content-padding); }
+  .hero h1 { font-size: var(--bp600-hero-title-size); }
+  .hero p { max-width: var(--bp600-hero-text-max-width); margin: var(--bp600-hero-text-margin); font-size: var(--bp600-hero-text-size); }
+  .hero-date { margin-top: var(--bp600-hero-date-margin-top); font-size: var(--bp600-hero-date-size); letter-spacing: var(--bp600-hero-date-letter-spacing); }
+  .hero-photo { width: var(--bp600-hero-photo-width); max-width: var(--bp600-hero-photo-max-width); }
+  .section { padding: var(--bp600-section-padding); }
+  .section h2 { font-size: var(--bp600-section-title-size); }
+  .section p { font-size: var(--bp600-section-text-size); line-height: var(--bp600-section-text-line-height); }
+  .countdown-section { padding: var(--bp600-count-padding); }
+  .countdown-title { margin: var(--bp600-count-title-margin); font-size: var(--bp600-count-title-size); font-family: 'Parisienne', cursive !important; }
+  .countdown { gap: var(--bp600-count-gap); }
+  .count-item { min-width: var(--bp600-count-item-min-width); }
+  .count-item span { font-size: var(--bp600-count-number-size); font-family: 'El Messiri', sans-serif !important; }
+  .count-item small { margin-top: var(--bp600-count-label-margin-top); font-size: var(--bp600-count-label-size); letter-spacing: var(--bp600-count-label-letter-spacing); font-family: 'El Messiri', sans-serif !important; }
+  .date-section h2 { font-size: var(--bp600-date-title-size); }
+  .month { margin-top: var(--bp600-date-month-margin-top); font-size: var(--bp600-date-month-size); letter-spacing: var(--bp600-date-month-letter-spacing); }
+  .year { font-size: var(--bp600-date-year-size); }
+  .date-details { margin-top: var(--bp600-date-details-margin-top); gap: var(--bp600-date-details-gap); }
+  .date-details div { min-width: var(--bp600-date-detail-min-width); }
+  .date-details span { font-size: var(--bp600-date-detail-value-size); }
+  .date-details strong { font-size: var(--bp600-date-detail-label-size); letter-spacing: var(--bp600-date-detail-label-letter-spacing); }
+  .family-card { margin: var(--bp600-family-card-margin); padding: var(--bp600-family-card-padding); }
+  .family-card p { font-size: var(--bp600-family-text-size); }
+  .sub-heading { font-size: var(--bp600-family-subheading-size) !important; }
+  .event-section { min-height: var(--bp600-event-min-height); }
+  .event-section::after { margin: var(--bp600-event-frame-margin); }
+  .event-content { padding: var(--bp600-event-content-padding); }
+  .event-content h2 { font-size: var(--bp600-event-title-size); }
+  .event-time { font-size: var(--bp600-event-time-size); }
+  .gold-button { padding: var(--bp600-gold-button-padding); font-size: var(--bp600-gold-button-size); letter-spacing: var(--bp600-gold-button-letter-spacing); }
+  .gallery { gap: var(--bp600-gallery-gap); }
+  .gallery-item { min-height: var(--bp600-gallery-item-min-height); }
+  .dress-icon { margin: var(--bp600-dress-icon-margin); font-size: var(--bp600-dress-icon-size); }
+  .envelope-icon { margin: var(--bp600-envelope-icon-margin); font-size: var(--bp600-envelope-icon-size); }
+  .timeline { margin: var(--bp600-timeline-margin); }
+  .timeline-item { padding: var(--bp600-timeline-item-padding); }
+  .timeline-item strong { font-size: var(--bp600-timeline-title-size); }
+  .pass-section { padding: var(--bp600-pass-section-padding); }
+  .pass-card { padding: var(--bp600-pass-card-padding); }
+  .pass-card h2 { font-size: var(--bp600-pass-title-size); }
+  .pass-name { font-size: var(--bp600-pass-name-size); }
+  .pass-number { font-size: var(--bp600-pass-number-size); }
+  .rsvp-section { padding-bottom: var(--bp600-rsvp-bottom-padding); }
+  .whatsapp-button { max-width: var(--bp600-whatsapp-max-width); padding: var(--bp600-whatsapp-padding); font-size: var(--bp600-whatsapp-size); }
+  .music-button { right: var(--bp600-music-right); bottom: var(--bp600-music-bottom); width: var(--bp600-music-size); height: var(--bp600-music-size); }
+  .footer { padding: var(--bp600-footer-padding); }
+  .footer h2 { font-size: var(--bp600-footer-title-size); }
 }
-
 @media (max-width: 380px) {
-    :root {
-        --opening-logo-position-x: 0px;
-        --opening-logo-position-y: 0px;
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-        --intro-title-position-x: 0px;
-        --intro-title-position-y: 0px;
-        --family-card-position-x: 0px;
-        --family-card-position-y: 0px;
-        --pass-card-position-x: 0px;
-        --pass-card-position-y: 0px;
-    }
+  .opening-content { padding: var(--bp380-opening-content-padding); }
+  .opening-logo { width: var(--bp380-logo-width); max-width: var(--bp380-logo-max-width); max-height: var(--bp380-logo-max-height); margin-bottom: var(--bp380-logo-margin-bottom); }
+  .opening-title { font-size: var(--bp380-opening-title-size); letter-spacing: var(--bp380-opening-title-letter-spacing); margin-bottom: var(--bp380-opening-title-margin-bottom); }
+  .open-button { max-width: var(--bp380-button-max-width); padding: var(--bp380-button-padding); }
+  .countdown { gap: var(--bp380-count-gap); }
+  .count-item { min-width: var(--bp380-count-item-min-width); }
+  .count-item span { font-size: var(--bp380-count-number-size); }
+  .count-item small { font-size: var(--bp380-count-label-size); letter-spacing: var(--bp380-count-label-letter-spacing); }
+  .date-details { gap: var(--bp380-date-details-gap); }
+  .date-details span { font-size: var(--bp380-date-value-size); }
+  .date-details strong { font-size: var(--bp380-date-label-size); }
+  .gallery-item { min-height: var(--bp380-gallery-item-min-height); }
+  .family-card p { font-size: var(--bp380-family-text-size); }
+  .event-content h2 { font-size: var(--bp380-event-title-size); }
+  .pass-card { padding: var(--bp380-pass-card-padding); }
+}
+@media (max-width: 320px) {
+  .opening-logo { width: var(--bp320-logo-width); max-width: var(--bp320-logo-max-width); }
+  .opening-title { font-size: var(--bp320-opening-title-size); letter-spacing: var(--bp320-opening-title-letter-spacing); }
+  .open-button { max-width: var(--bp320-button-max-width); }
+  .count-item { min-width: var(--bp320-count-item-min-width); }
+  .count-item span { font-size: var(--bp320-count-number-size); }
+  .count-item small { font-size: var(--bp320-count-label-size); }
+  .date-details { gap: var(--bp320-date-details-gap); }
+  .date-details span { font-size: var(--bp320-date-value-size); }
+  .event-content h2 { font-size: var(--bp320-event-title-size); }
 }
 
-@media (max-width: 320px) {
-    :root {
-        --opening-logo-position-x: 0px;
-        --opening-logo-position-y: 0px;
-        --hero-photo-position-x: 0px;
-        --hero-photo-position-y: 0px;
-        --intro-title-position-x: 0px;
-        --intro-title-position-y: 0px;
-        --family-card-position-x: 0px;
-        --family-card-position-y: 0px;
-        --pass-card-position-x: 0px;
-        --pass-card-position-y: 0px;
-    }
-}
