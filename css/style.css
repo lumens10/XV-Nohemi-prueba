@@ -65,6 +65,7 @@
     --opening-logo-max-width: 85%;
     --opening-logo-max-height: 45svh;
     --opening-logo-space-bottom: 18px;
+    --opening-logo-position-y: 50px;
     --opening-title-size: clamp(22px, 5vw, 34px);
     --opening-title-space-top: -20px;
     --opening-title-space-bottom: 28px;
