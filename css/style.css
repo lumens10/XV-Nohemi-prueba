@@ -87,9 +87,9 @@
     --hero-line-color: var(--c-gold);
     --hero-line-x: 0px;
     --hero-line-y: 0px;
-    --hero-eyebrow-size: 10px;
+    --hero-eyebrow-size: 90px;
     --hero-eyebrow-letter-spacing: 3px;
-    --hero-eyebrow-color: var(--c-cream);
+    --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
     --hero-eyebrow-y: 0px;
     --hero-text-max-width: 420px;
@@ -113,11 +113,11 @@
     --intro-bg-y: 50%;
     --intro-ornament-margin: 35px 0;
     --intro-ornament-size: inherit;
-    --intro-ornament-color: inherit;
+    --intro-ornament-color: #490a13;
     --intro-title-size: clamp(45px,10vw,80px);
     --intro-title-weight: 300;
     --intro-title-font: 'Cormorant Garamond', serif;
-    --intro-title-color: var(--c-cream);
+    --intro-title-color: #490a13;
     --intro-title-letter-spacing: 0px;
     --intro-title-line-height: .95;
     --intro-title-margin: 20px auto 30px;
@@ -128,7 +128,7 @@
     --intro-p1-weight: 300;
     --intro-p1-line-height: 1.9;
     --intro-p1-letter-spacing: 0px;
-    --intro-p1-color: var(--c-text-muted);
+    --intro-p1-color: #490a13;
     --intro-p1-font: 'Montserrat', sans-serif;
     --intro-p1-x: 0px;
     --intro-p1-y: 0px;
@@ -137,12 +137,12 @@
     --intro-p2-weight: 300;
     --intro-p2-line-height: 1.9;
     --intro-p2-letter-spacing: 0px;
-    --intro-p2-color: var(--c-text-muted);
+    --intro-p2-color: #490a13;
     --intro-p2-font: 'Montserrat', sans-serif;
     --intro-p2-x: 0px;
     --intro-p2-y: 0px;
     --intro-label-size: 10px;
-    --intro-label-color: var(--c-gold-light);
+    --intro-label-color: #490a13;
     --intro-label-font: 'Montserrat', sans-serif;
     --intro-label-weight: 400;
     --intro-label-letter-spacing: 4px;
@@ -704,8 +704,8 @@ button {
 
     background-image:
         linear-gradient(
-            rgba(40, 15, 18, 0.18),
-            rgba(40, 15, 18, 0.18)
+            rgba(40, 15, 18, 0),
+            rgba(40, 15, 18, 0)
         ),
         url('../images/fondo apertura.jpg');
 
@@ -1079,8 +1079,8 @@ min-height: 100svh;
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .25),
-            rgba(10, 8, 5, .10)
+            rgba(10, 8, 5, 0),
+            rgba(10, 8, 5, 0)
         ),
         url('../images/fondo con inicial.jpg')
         center center /
@@ -1117,7 +1117,7 @@ border:
         radial-gradient(
             circle at center,
             transparent 0%,
-            rgba(0, 0, 0, .65) 100%
+            rgba(0, 0, 0, 0) 100%
         );
 }
 
