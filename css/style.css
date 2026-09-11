@@ -87,9 +87,9 @@
     --hero-line-color: var(--c-gold);
     --hero-line-x: 0px;
     --hero-line-y: 0px;
-    --hero-eyebrow-size: 30px;
+    --hero-eyebrow-size: 90px;
     --hero-eyebrow-letter-spacing: 3px;
-    --hero-eyebrow-color: var(--c-gold-light);
+    --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
     --hero-eyebrow-y: 0px;
     --hero-text-max-width: 420px;
@@ -103,7 +103,7 @@
     --hero-text-x: 0px;
     --hero-text-y: 0px;
     --hero-date-margin-top: 35px;
-    --hero-date-size: 30px;
+    --hero-date-size: 90px;
     --hero-date-letter-spacing: 7px;
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
