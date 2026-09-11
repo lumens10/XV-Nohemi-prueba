@@ -75,7 +75,7 @@
     --hero-photo-width: 380px;
     --hero-photo-max-width: 75vw;
     --hero-photo-space-bottom: 5px;
-    --hero-photo-position-x: -80px;
+    --hero-photo-position-x: 80px;
     --hero-photo-position-y: 0px;
 
     --hero-name-size: clamp(80px, 22vw, 190px);
@@ -99,7 +99,7 @@
 
     /* INTRO — TÍTULO */
     --intro-title-size: var(--section-title-size);
-    --intro-title-color: var(--text);
+    --intro-title-color: #812534;
     --intro-title-font-family: 'Cormorant Garamond', serif;
     --intro-title-font-weight: 300;
     --intro-title-letter-spacing: normal;
