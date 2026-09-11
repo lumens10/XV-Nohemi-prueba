@@ -10,6 +10,34 @@
    Los valores iniciales conservan el diseño actual.
 ========================================================= */
 :root {
+    /*
+    GUÍA RÁPIDA DE POSICIÓN
+
+    HERO:
+      --hero-photo-position-x: 0px;
+        negativo = izquierda | 0 = original | positivo = derecha
+
+      --hero-photo-position-y: 0px;
+        negativo = arriba    | 0 = original | positivo = abajo
+
+    FONDOS:
+      center center = centro
+      left center   = izquierda
+      right center  = derecha
+      center top    = arriba
+      center bottom = abajo
+
+    GALERÍA:
+      50% 50% = centro
+      0% 50%   = izquierda
+      100% 50% = derecha
+      50% 0%   = arriba
+      50% 100% = abajo
+
+    IMPORTANTE:
+      Los valores de móvil se pueden cambiar por separado dentro
+      de @media (max-width: 600px), 380px y 320px.
+    */
     /* APERTURA */
     --opening-logo-width: clamp(220px, 52vw, 420px);
     --opening-logo-max-width: 85%;
@@ -21,10 +49,13 @@
     --opening-title-letter-spacing: 5px;
     --open-button-font-size: 10px;
 
-    /* HERO */
+    /* HERO — TAMAÑO Y POSICIÓN DE LA FOTO */
     --hero-photo-width: 380px;
     --hero-photo-max-width: 75vw;
     --hero-photo-space-bottom: 5px;
+    --hero-photo-position-x: 0px;
+    --hero-photo-position-y: 0px;
+
     --hero-name-size: clamp(80px, 22vw, 190px);
     --hero-name-space-top: 22px;
     --hero-name-space-bottom: 22px;
@@ -70,6 +101,37 @@
     --intro-p4-position-y: 0px;
 
     --intro-ornament-space: 35px;
+
+    /* IMÁGENES Y FONDOS — POSICIÓN */
+    --intro-background-x: center;
+    --intro-background-y: center;
+
+    --family-background-x: center;
+    --family-background-y: center;
+
+    --ceremony-background-x: center;
+    --ceremony-background-y: center;
+
+    --reception-background-x: center;
+    --reception-background-y: center;
+
+    /* GALERÍA — POSICIÓN DE CADA FOTO */
+    --gallery-img1-x: 50%;
+    --gallery-img1-y: 50%;
+    --gallery-img2-x: 50%;
+    --gallery-img2-y: 50%;
+    --gallery-img3-x: 50%;
+    --gallery-img3-y: 50%;
+    --gallery-img4-x: 50%;
+    --gallery-img4-y: 50%;
+    --gallery-img5-x: 50%;
+    --gallery-img5-y: 50%;
+    --gallery-img6-x: 50%;
+    --gallery-img6-y: 50%;
+    --gallery-img7-x: 50%;
+    --gallery-img7-y: 50%;
+    --gallery-img8-x: 50%;
+    --gallery-img8-y: 50%;
 
     /* CONTADOR */
     --countdown-title-size: clamp(32px, 6vw, 48px);
@@ -197,6 +259,8 @@
         --open-button-font-size: 9px;
         --hero-photo-width: 300px;
         --hero-photo-max-width: 80vw;
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
         --hero-name-size: clamp(70px, 22vw, 130px);
         --hero-text-size: clamp(20px, 5.5vw, 25px);
         --hero-date-space-top: 28px;
@@ -244,6 +308,13 @@
 /* 380px */
 @media (max-width: 380px) {
     :root {
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+    }
+}
+
+@media (max-width: 380px) {
+    :root {
         --opening-logo-width: 70vw;
         --opening-logo-max-width: 250px;
         --opening-logo-max-height: 40svh;
@@ -262,6 +333,13 @@
 }
 
 /* 320px */
+@media (max-width: 320px) {
+    :root {
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+    }
+}
+
 @media (max-width: 320px) {
     :root {
         --opening-logo-width: 68vw;
@@ -886,6 +964,13 @@ button {
 
 
 .hero-photo {
+    transform: translate(
+        var(--hero-photo-position-x),
+        var(--hero-photo-position-y)
+    );
+}
+
+.hero-photo {
 
     display: block;
 
@@ -1167,8 +1252,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1193,8 +1278,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
@@ -3165,3 +3250,55 @@ button {
     }
 
 }
+
+/* =========================================================
+   POSICIÓN DE FONDOS — CONTROLES
+   Usa center, left, right, top, bottom o porcentajes.
+========================================================= */
+
+.intro {
+    background-position: var(--intro-background-x) var(--intro-background-y);
+}
+
+.family-section {
+    background-position: var(--family-background-x) var(--family-background-y);
+}
+
+.ceremony {
+    background-position: var(--ceremony-background-x) var(--ceremony-background-y);
+}
+
+.reception {
+    background-position: var(--reception-background-x) var(--reception-background-y);
+}
+
+/* =========================================================
+   POSICIÓN INDIVIDUAL DE FOTOS DE GALERÍA
+   50% 50% = centro
+========================================================= */
+
+.gallery-item:nth-child(1) img {
+    object-position: var(--gallery-img1-x) var(--gallery-img1-y);
+}
+.gallery-item:nth-child(2) img {
+    object-position: var(--gallery-img2-x) var(--gallery-img2-y);
+}
+.gallery-item:nth-child(3) img {
+    object-position: var(--gallery-img3-x) var(--gallery-img3-y);
+}
+.gallery-item:nth-child(4) img {
+    object-position: var(--gallery-img4-x) var(--gallery-img4-y);
+}
+.gallery-item:nth-child(5) img {
+    object-position: var(--gallery-img5-x) var(--gallery-img5-y);
+}
+.gallery-item:nth-child(6) img {
+    object-position: var(--gallery-img6-x) var(--gallery-img6-y);
+}
+.gallery-item:nth-child(7) img {
+    object-position: var(--gallery-img7-x) var(--gallery-img7-y);
+}
+.gallery-item:nth-child(8) img {
+    object-position: var(--gallery-img8-x) var(--gallery-img8-y);
+}
+
