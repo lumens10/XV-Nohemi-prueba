@@ -38,6 +38,28 @@
       Los valores de móvil se pueden cambiar por separado dentro
       de @media (max-width: 600px), 380px y 320px.
     */
+    /*
+    INTRO — TEXTO
+
+    Cada párrafo tiene sus propios controles:
+      size          = tamaño
+      color         = color del texto
+      font-family   = tipografía
+      font-weight   = grosor
+      letter-spacing= separación entre letras
+      line-height   = altura entre líneas
+      space-top     = espacio arriba
+      space-bottom  = espacio abajo
+      position-x    = mover izquierda/derecha
+      position-y    = mover arriba/abajo
+
+    Ejemplos:
+      --intro-p1-color: #ffffff;
+      --intro-p1-font-family: 'Cormorant Garamond', serif;
+      --intro-p1-font-weight: 400;
+      --intro-p1-position-x: 20px;
+      --intro-p1-position-y: -10px;
+    */
     /* APERTURA */
     --opening-logo-width: clamp(220px, 52vw, 420px);
     --opening-logo-max-width: 85%;
@@ -53,7 +75,7 @@
     --hero-photo-width: 380px;
     --hero-photo-max-width: 75vw;
     --hero-photo-space-bottom: 5px;
-    --hero-photo-position-x: 10px;
+    --hero-photo-position-x: 0px;
     --hero-photo-position-y: 0px;
 
     --hero-name-size: clamp(80px, 22vw, 190px);
@@ -75,26 +97,58 @@
     --paragraph-space-y: 20px;
     --paragraph-size: 14px;
 
+    /* INTRO — TÍTULO */
+    --intro-title-size: var(--section-title-size);
+    --intro-title-color: var(--text);
+    --intro-title-font-family: 'Cormorant Garamond', serif;
+    --intro-title-font-weight: 300;
+    --intro-title-letter-spacing: normal;
+    --intro-title-line-height: .95;
+    --intro-title-space-top: var(--section-title-space-top);
+    --intro-title-space-bottom: var(--section-title-space-bottom);
+    --intro-title-position-x: 0px;
+    --intro-title-position-y: 0px;
+
     /* INTRO — CADA PÁRRAFO POR SEPARADO */
     --intro-p1-size: 14px;
+    --intro-p1-color: var(--text-muted);
+    --intro-p1-font-family: 'Montserrat', sans-serif;
+    --intro-p1-font-weight: 300;
+    --intro-p1-letter-spacing: normal;
+    --intro-p1-line-height: 1.9;
     --intro-p1-space-top: 20px;
     --intro-p1-space-bottom: 20px;
     --intro-p1-position-x: 0px;
     --intro-p1-position-y: 0px;
 
     --intro-p2-size: 14px;
+    --intro-p2-color: var(--text-muted);
+    --intro-p2-font-family: 'Montserrat', sans-serif;
+    --intro-p2-font-weight: 300;
+    --intro-p2-letter-spacing: normal;
+    --intro-p2-line-height: 1.9;
     --intro-p2-space-top: 20px;
     --intro-p2-space-bottom: 20px;
     --intro-p2-position-x: 0px;
     --intro-p2-position-y: 0px;
 
     --intro-p3-size: 14px;
+    --intro-p3-color: var(--text-muted);
+    --intro-p3-font-family: 'Montserrat', sans-serif;
+    --intro-p3-font-weight: 300;
+    --intro-p3-letter-spacing: normal;
+    --intro-p3-line-height: 1.9;
     --intro-p3-space-top: 20px;
     --intro-p3-space-bottom: 20px;
     --intro-p3-position-x: 0px;
     --intro-p3-position-y: 0px;
 
     --intro-p4-size: 14px;
+    --intro-p4-color: var(--text-muted);
+    --intro-p4-font-family: 'Montserrat', sans-serif;
+    --intro-p4-font-weight: 300;
+    --intro-p4-letter-spacing: normal;
+    --intro-p4-line-height: 1.9;
     --intro-p4-space-top: 20px;
     --intro-p4-space-bottom: 20px;
     --intro-p4-position-x: 0px;
@@ -207,30 +261,284 @@
     --footer-text-size: 10px;
 }
 
-/* INTRO — conexión con cada párrafo */
+    /* =====================================================
+       PANEL AVANZADO — CONTROL INDIVIDUAL DE TODA LA INVITACIÓN
+       0px = posición actual
+       X negativo = izquierda | X positivo = derecha
+       Y negativo = arriba    | Y positivo = abajo
+       Estos valores parten del diseño actual.
+    ===================================================== */
+
+    /* APERTURA */
+    --opening-logo-position-x: 0px;
+    --opening-logo-position-y: 0px;
+    --opening-logo-opacity: 1;
+    --opening-title-color: #f6ebd9;
+    --opening-title-font: 'Cormorant Garamond', serif;
+    --opening-title-weight: 500;
+    --opening-button-color: #f7f2e9;
+    --opening-button-font: 'Montserrat', sans-serif;
+    --opening-button-letter-spacing: 3px;
+
+    /* HERO */
+    --hero-eyebrow-size: 10px;
+    --hero-eyebrow-color: var(--gold-light);
+    --hero-eyebrow-font: 'Montserrat', sans-serif;
+    --hero-eyebrow-letter-spacing: 4px;
+    --hero-eyebrow-position-x: 0px;
+    --hero-eyebrow-position-y: 0px;
+    --hero-photo-position-x: 0px;
+    --hero-photo-position-y: 0px;
+    --hero-title-color: var(--text);
+    --hero-title-font: 'Cormorant Garamond', serif;
+    --hero-title-weight: 300;
+    --hero-title-letter-spacing: normal;
+    --hero-title-position-x: 0px;
+    --hero-title-position-y: 0px;
+    --hero-line-color: var(--gold);
+    --hero-line-position-x: 0px;
+    --hero-line-position-y: 0px;
+    --hero-text-color: var(--text);
+    --hero-text-font: 'Cormorant Garamond', serif;
+    --hero-text-weight: 400;
+    --hero-text-letter-spacing: normal;
+    --hero-text-line-height: 1.3;
+    --hero-text-position-x: 0px;
+    --hero-text-position-y: 0px;
+    --hero-date-color: var(--text);
+    --hero-date-font: 'Montserrat', sans-serif;
+    --hero-date-letter-spacing: 7px;
+    --hero-date-position-x: 0px;
+    --hero-date-position-y: 0px;
+
+    /* ETIQUETAS DE SECCIÓN */
+    --section-label-color: var(--gold-light);
+    --section-label-font: 'Montserrat', sans-serif;
+    --section-label-weight: 400;
+    --section-label-letter-spacing: 4px;
+
+    /* CONTADOR */
+    --count-title-color: var(--text);
+    --count-title-font: 'Cormorant Garamond', serif;
+    --count-title-weight: 400;
+    --count-title-letter-spacing: normal;
+    --count-title-position-x: 0px;
+    --count-title-position-y: 0px;
+    --count-number-color: var(--text);
+    --count-number-font: 'El Messiri', sans-serif;
+    --count-number-weight: 400;
+    --count-number-position-x: 0px;
+    --count-number-position-y: 0px;
+    --count-label-color: var(--text-muted);
+    --count-label-font: 'El Messiri', sans-serif;
+    --count-label-letter-spacing: 2px;
+    --count-divider-color: var(--gold);
+
+    /* FECHA */
+    --date-number-color: var(--text-dark);
+    --date-number-font: 'Cormorant Garamond', serif;
+    --date-number-weight: 300;
+    --date-number-position-x: 0px;
+    --date-number-position-y: 0px;
+    --date-month-color: var(--text-dark);
+    --date-month-font: 'Montserrat', sans-serif;
+    --date-month-letter-spacing: 7px;
+    --date-year-color: var(--text-dark);
+    --date-year-font: 'Cormorant Garamond', serif;
+    --date-detail-strong-color: var(--text-dark);
+    --date-detail-strong-font: 'Montserrat', sans-serif;
+    --date-detail-span-color: var(--text-dark);
+    --date-detail-span-font: 'Cormorant Garamond', serif;
+
+    /* FAMILIA */
+    --family-card-position-x: 0px;
+    --family-card-position-y: 0px;
+    --family-text-color: var(--text);
+    --family-text-font: 'Cormorant Garamond', serif;
+    --family-text-weight: 400;
+    --family-text-line-height: 1.2;
+    --family-name-color: var(--gold-light);
+    --family-subheading-color: var(--text);
+    --family-subheading-font: 'Cormorant Garamond', serif;
+    --family-subheading-weight: 300;
+    --family-subheading-position-x: 0px;
+    --family-subheading-position-y: 0px;
+
+    /* EVENTOS */
+    --event-title-color: var(--text);
+    --event-title-font: 'Cormorant Garamond', serif;
+    --event-title-weight: 300;
+    --event-title-letter-spacing: normal;
+    --event-title-position-x: 0px;
+    --event-title-position-y: 0px;
+    --event-time-color: var(--text);
+    --event-time-font: 'Cormorant Garamond', serif;
+    --event-time-weight: 400;
+    --event-time-position-x: 0px;
+    --event-time-position-y: 0px;
+    --event-button-color: var(--cream);
+    --event-button-font: 'Montserrat', sans-serif;
+
+    /* GALERÍA */
+    --gallery-img-position-x: 50%;
+    --gallery-img-position-y: 50%;
+    --gallery-img1-x: 50%;
+    --gallery-img1-y: 50%;
+    --gallery-img2-x: 50%;
+    --gallery-img2-y: 50%;
+    --gallery-img3-x: 50%;
+    --gallery-img3-y: 50%;
+    --gallery-img4-x: 50%;
+    --gallery-img4-y: 50%;
+    --gallery-img5-x: 50%;
+    --gallery-img5-y: 50%;
+    --gallery-img6-x: 50%;
+    --gallery-img6-y: 50%;
+    --gallery-img7-x: 50%;
+    --gallery-img7-y: 50%;
+    --gallery-img8-x: 50%;
+    --gallery-img8-y: 50%;
+
+    /* VESTIMENTA */
+    --dress-title-color: var(--text-dark);
+    --dress-title-font: 'Cormorant Garamond', serif;
+    --dress-text-color: var(--text-dark);
+    --dress-text-font: 'Montserrat', sans-serif;
+    --dress-icon-color: var(--gold-dark);
+    --dress-icon-position-x: 0px;
+    --dress-icon-position-y: 0px;
+
+    /* SOBRES */
+    --envelope-title-color: var(--text);
+    --envelope-title-font: 'Cormorant Garamond', serif;
+    --envelope-text-color: var(--text-muted);
+    --envelope-text-font: 'Montserrat', sans-serif;
+    --envelope-icon-color: var(--gold-light);
+    --envelope-icon-position-x: 0px;
+    --envelope-icon-position-y: 0px;
+
+    /* TIMELINE */
+    --timeline-label-color: var(--gold-light);
+    --timeline-label-font: 'Montserrat', sans-serif;
+    --timeline-event-color: var(--text);
+    --timeline-event-font: 'Cormorant Garamond', serif;
+    --timeline-event-weight: 400;
+    --timeline-item-position-x: 0px;
+    --timeline-item-position-y: 0px;
+
+    /* PASE */
+    --pass-title-color: var(--text-dark);
+    --pass-title-font: 'Cormorant Garamond', serif;
+    --pass-name-color: var(--text-dark);
+    --pass-name-font: 'Cormorant Garamond', serif;
+    --pass-name-weight: 400;
+    --pass-text-color: var(--text-dark);
+    --pass-text-font: 'Montserrat', sans-serif;
+    --pass-number-color: var(--gold-dark);
+    --pass-number-font: 'Cormorant Garamond', serif;
+    --pass-card-position-x: 0px;
+    --pass-card-position-y: 0px;
+
+    /* RSVP */
+    --rsvp-title-color: var(--text);
+    --rsvp-title-font: 'Cormorant Garamond', serif;
+    --rsvp-text-color: var(--text-muted);
+    --rsvp-text-font: 'Montserrat', sans-serif;
+    --rsvp-button-font: 'Montserrat', sans-serif;
+    --rsvp-button-letter-spacing: 2px;
+    --rsvp-button-position-x: 0px;
+    --rsvp-button-position-y: 0px;
+
+    /* MÚSICA */
+    --music-size: 50px;
+    --music-position-x: 0px;
+    --music-position-y: 0px;
+    --music-border-color: var(--gold);
+
+    /* FOOTER */
+    --footer-title-color: var(--text);
+    --footer-title-font: 'Cormorant Garamond', serif;
+    --footer-title-weight: 300;
+    --footer-text-color: var(--gold-light);
+    --footer-text-font: 'Montserrat', sans-serif;
+    --footer-text-letter-spacing: 3px;
+
+}
+
+/* INTRO — controles individuales del texto */
+.intro h2 {
+    font-size: var(--intro-title-size);
+    color: var(--intro-title-color);
+    font-family: var(--intro-title-font-family);
+    font-weight: var(--intro-title-font-weight);
+    letter-spacing: var(--intro-title-letter-spacing);
+    line-height: var(--intro-title-line-height);
+    margin-top: var(--intro-title-space-top);
+    margin-bottom: var(--intro-title-space-bottom);
+    transform: translate(
+        var(--intro-title-position-x),
+        var(--intro-title-position-y)
+    );
+}
+
 .intro p:nth-of-type(1) {
     font-size: var(--intro-p1-size);
+    color: var(--intro-p1-color);
+    font-family: var(--intro-p1-font-family);
+    font-weight: var(--intro-p1-font-weight);
+    letter-spacing: var(--intro-p1-letter-spacing);
+    line-height: var(--intro-p1-line-height);
     margin-top: var(--intro-p1-space-top);
     margin-bottom: var(--intro-p1-space-bottom);
-    transform: translate(var(--intro-p1-position-x), var(--intro-p1-position-y));
+    transform: translate(
+        var(--intro-p1-position-x),
+        var(--intro-p1-position-y)
+    );
 }
+
 .intro p:nth-of-type(2) {
     font-size: var(--intro-p2-size);
+    color: var(--intro-p2-color);
+    font-family: var(--intro-p2-font-family);
+    font-weight: var(--intro-p2-font-weight);
+    letter-spacing: var(--intro-p2-letter-spacing);
+    line-height: var(--intro-p2-line-height);
     margin-top: var(--intro-p2-space-top);
     margin-bottom: var(--intro-p2-space-bottom);
-    transform: translate(var(--intro-p2-position-x), var(--intro-p2-position-y));
+    transform: translate(
+        var(--intro-p2-position-x),
+        var(--intro-p2-position-y)
+    );
 }
+
 .intro p:nth-of-type(3) {
     font-size: var(--intro-p3-size);
+    color: var(--intro-p3-color);
+    font-family: var(--intro-p3-font-family);
+    font-weight: var(--intro-p3-font-weight);
+    letter-spacing: var(--intro-p3-letter-spacing);
+    line-height: var(--intro-p3-line-height);
     margin-top: var(--intro-p3-space-top);
     margin-bottom: var(--intro-p3-space-bottom);
-    transform: translate(var(--intro-p3-position-x), var(--intro-p3-position-y));
+    transform: translate(
+        var(--intro-p3-position-x),
+        var(--intro-p3-position-y)
+    );
 }
+
 .intro p:nth-of-type(4) {
     font-size: var(--intro-p4-size);
+    color: var(--intro-p4-color);
+    font-family: var(--intro-p4-font-family);
+    font-weight: var(--intro-p4-font-weight);
+    letter-spacing: var(--intro-p4-letter-spacing);
+    line-height: var(--intro-p4-line-height);
     margin-top: var(--intro-p4-space-top);
     margin-bottom: var(--intro-p4-space-bottom);
-    transform: translate(var(--intro-p4-position-x), var(--intro-p4-position-y));
+    transform: translate(
+        var(--intro-p4-position-x),
+        var(--intro-p4-position-y)
+    );
 }
 
 /* TABLET */
@@ -248,6 +556,12 @@
         --section-space-y: 80px;
         --section-space-x: 18px;
         --paragraph-size: 13px;
+        /* INTRO — móvil */
+        --intro-p1-size: 13px;
+        --intro-p2-size: 13px;
+        --intro-p3-size: 13px;
+        --intro-p4-size: 13px;
+        --intro-title-size: clamp(42px, 11vw, 65px);
         --opening-logo-width: clamp(220px, 52vw, 420px);
         --opening-logo-max-width: 82%;
         --opening-logo-max-height: 42svh;
@@ -905,8 +1219,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .0),
-            rgba(10, 8, 5, .0)
+            rgba(10, 8, 5, .25),
+            rgba(10, 8, 5, .10)
         ),
         url('../images/fondo con inicial.jpg')
         center center /
@@ -1252,8 +1566,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1278,8 +1592,8 @@ button {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .0),
-            rgba(9, 8, 7, .0)
+            rgba(9, 8, 7, .45),
+            rgba(9, 8, 7, .65)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
@@ -3302,3 +3616,429 @@ button {
     object-position: var(--gallery-img8-x) var(--gallery-img8-y);
 }
 
+
+
+/* =========================================================
+   CONEXIÓN DEL PANEL AVANZADO
+   No modificar estas reglas; modificar únicamente :root.
+========================================================= */
+
+/* APERTURA */
+.opening-logo {
+    transform: translate(var(--opening-logo-position-x), var(--opening-logo-position-y));
+    opacity: var(--opening-logo-opacity);
+}
+.opening-title {
+    color: var(--opening-title-color);
+    font-family: var(--opening-title-font);
+    font-weight: var(--opening-title-weight);
+}
+.open-button {
+    color: var(--opening-button-color);
+    font-family: var(--opening-button-font);
+    letter-spacing: var(--opening-button-letter-spacing);
+}
+
+/* HERO */
+.hero .eyebrow {
+    font-size: var(--hero-eyebrow-size);
+    color: var(--hero-eyebrow-color);
+    font-family: var(--hero-eyebrow-font);
+    letter-spacing: var(--hero-eyebrow-letter-spacing);
+    transform: translate(var(--hero-eyebrow-position-x), var(--hero-eyebrow-position-y));
+}
+.hero-photo {
+    transform: translate(var(--hero-photo-position-x), var(--hero-photo-position-y));
+}
+.hero h1 {
+    color: var(--hero-title-color);
+    font-family: var(--hero-title-font);
+    font-weight: var(--hero-title-weight);
+    letter-spacing: var(--hero-title-letter-spacing);
+    transform: translate(var(--hero-title-position-x), var(--hero-title-position-y));
+}
+.gold-line {
+    background: var(--hero-line-color);
+    transform: translate(var(--hero-line-position-x), var(--hero-line-position-y));
+}
+.hero p {
+    color: var(--hero-text-color);
+    font-family: var(--hero-text-font);
+    font-weight: var(--hero-text-weight);
+    letter-spacing: var(--hero-text-letter-spacing);
+    line-height: var(--hero-text-line-height);
+    transform: translate(var(--hero-text-position-x), var(--hero-text-position-y));
+}
+.hero-date {
+    color: var(--hero-date-color);
+    font-family: var(--hero-date-font);
+    letter-spacing: var(--hero-date-letter-spacing);
+    transform: translate(var(--hero-date-position-x), var(--hero-date-position-y));
+}
+
+/* ETIQUETAS */
+.section-label,
+.date-section .section-label,
+.dress-section .section-label,
+.pass-card .section-label {
+    color: var(--section-label-color);
+    font-family: var(--section-label-font);
+    font-weight: var(--section-label-weight);
+    letter-spacing: var(--section-label-letter-spacing);
+}
+
+/* INTRO */
+.intro {
+    transform: translate(var(--intro-position-x), var(--intro-position-y));
+}
+.intro h2 {
+    color: var(--intro-title-color);
+    font-family: var(--intro-title-font-family);
+    font-weight: var(--intro-title-font-weight);
+    letter-spacing: var(--intro-title-letter-spacing);
+    line-height: var(--intro-title-line-height);
+    margin-top: var(--intro-title-space-top);
+    margin-bottom: var(--intro-title-space-bottom);
+    transform: translate(var(--intro-title-position-x), var(--intro-title-position-y));
+}
+.intro .ornament {
+    margin-top: var(--intro-ornament-space-top, var(--intro-ornament-space));
+    margin-bottom: var(--intro-ornament-space-bottom, var(--intro-ornament-space));
+    color: var(--intro-ornament-color, var(--gold));
+    transform: translate(var(--intro-ornament-position-x, 0px), var(--intro-ornament-position-y, 0px));
+}
+.intro p:nth-of-type(1), .intro p:nth-of-type(2) {
+    /* Las variables individuales ya están conectadas arriba. */
+}
+
+/* CONTADOR */
+.countdown-title {
+    color: var(--count-title-color);
+    font-family: var(--count-title-font);
+    font-weight: var(--count-title-weight);
+    letter-spacing: var(--count-title-letter-spacing);
+    transform: translate(var(--count-title-position-x), var(--count-title-position-y));
+}
+.count-item span {
+    color: var(--count-number-color);
+    font-family: var(--count-number-font);
+    font-weight: var(--count-number-weight);
+    transform: translate(var(--count-number-position-x), var(--count-number-position-y));
+}
+.count-item small {
+    color: var(--count-label-color);
+    font-family: var(--count-label-font);
+    letter-spacing: var(--count-label-letter-spacing);
+}
+.count-divider {
+    background: var(--count-divider-color);
+}
+
+/* FECHA */
+.date-section h2 {
+    color: var(--date-number-color);
+    font-family: var(--date-number-font);
+    font-weight: var(--date-number-weight);
+    transform: translate(var(--date-number-position-x), var(--date-number-position-y));
+}
+.month {
+    color: var(--date-month-color);
+    font-family: var(--date-month-font);
+    letter-spacing: var(--date-month-letter-spacing);
+}
+.year {
+    color: var(--date-year-color);
+    font-family: var(--date-year-font);
+}
+.date-details strong {
+    color: var(--date-detail-strong-color);
+    font-family: var(--date-detail-strong-font);
+}
+.date-details span {
+    color: var(--date-detail-span-color);
+    font-family: var(--date-detail-span-font);
+}
+
+/* FAMILIA */
+.family-card {
+    transform: translate(var(--family-card-position-x), var(--family-card-position-y));
+}
+.family-card p {
+    color: var(--family-text-color);
+    font-family: var(--family-text-font);
+    font-weight: var(--family-text-weight);
+    line-height: var(--family-text-line-height);
+}
+.family-card span {
+    color: var(--family-name-color);
+}
+.sub-heading {
+    color: var(--family-subheading-color);
+    font-family: var(--family-subheading-font);
+    font-weight: var(--family-subheading-weight);
+    transform: translate(var(--family-subheading-position-x), var(--family-subheading-position-y));
+}
+
+/* EVENTOS */
+.event-content h2 {
+    color: var(--event-title-color);
+    font-family: var(--event-title-font);
+    font-weight: var(--event-title-weight);
+    letter-spacing: var(--event-title-letter-spacing);
+    transform: translate(var(--event-title-position-x), var(--event-title-position-y));
+}
+.event-time {
+    color: var(--event-time-color);
+    font-family: var(--event-time-font);
+    font-weight: var(--event-time-weight);
+    transform: translate(var(--event-time-position-x), var(--event-time-position-y));
+}
+.gold-button {
+    color: var(--event-button-color);
+    font-family: var(--event-button-font);
+}
+
+/* GALERÍA */
+.gallery-item img {
+    object-position: var(--gallery-img-position-x) var(--gallery-img-position-y);
+}
+.gallery-item:nth-child(1) img { object-position: var(--gallery-img1-x) var(--gallery-img1-y); }
+.gallery-item:nth-child(2) img { object-position: var(--gallery-img2-x) var(--gallery-img2-y); }
+.gallery-item:nth-child(3) img { object-position: var(--gallery-img3-x) var(--gallery-img3-y); }
+.gallery-item:nth-child(4) img { object-position: var(--gallery-img4-x) var(--gallery-img4-y); }
+.gallery-item:nth-child(5) img { object-position: var(--gallery-img5-x) var(--gallery-img5-y); }
+.gallery-item:nth-child(6) img { object-position: var(--gallery-img6-x) var(--gallery-img6-y); }
+.gallery-item:nth-child(7) img { object-position: var(--gallery-img7-x) var(--gallery-img7-y); }
+.gallery-item:nth-child(8) img { object-position: var(--gallery-img8-x) var(--gallery-img8-y); }
+
+/* VESTIMENTA */
+.dress-section h2 {
+    color: var(--dress-title-color);
+    font-family: var(--dress-title-font);
+}
+.dress-section p {
+    color: var(--dress-text-color);
+    font-family: var(--dress-text-font);
+}
+.dress-icon {
+    color: var(--dress-icon-color);
+    transform: translate(var(--dress-icon-position-x), var(--dress-icon-position-y));
+}
+
+/* SOBRES */
+.envelopes-section h2 {
+    color: var(--envelope-title-color);
+    font-family: var(--envelope-title-font);
+}
+.envelopes-section p {
+    color: var(--envelope-text-color);
+    font-family: var(--envelope-text-font);
+}
+.envelope-icon {
+    color: var(--envelope-icon-color);
+    transform: translate(var(--envelope-icon-position-x), var(--envelope-icon-position-y));
+}
+
+/* TIMELINE */
+.timeline-item {
+    transform: translate(var(--timeline-item-position-x), var(--timeline-item-position-y));
+}
+.timeline-item span {
+    color: var(--timeline-label-color);
+    font-family: var(--timeline-label-font);
+}
+.timeline-item strong {
+    color: var(--timeline-event-color);
+    font-family: var(--timeline-event-font);
+    font-weight: var(--timeline-event-weight);
+}
+
+/* PASE */
+.pass-card {
+    transform: translate(var(--pass-card-position-x), var(--pass-card-position-y));
+}
+.pass-card h2 {
+    color: var(--pass-title-color);
+    font-family: var(--pass-title-font);
+}
+.pass-name {
+    color: var(--pass-name-color);
+    font-family: var(--pass-name-font);
+    font-weight: var(--pass-name-weight);
+}
+.pass-card p {
+    color: var(--pass-text-color);
+    font-family: var(--pass-text-font);
+}
+.pass-number {
+    color: var(--pass-number-color);
+    font-family: var(--pass-number-font);
+}
+
+/* RSVP */
+.rsvp-section h2 {
+    color: var(--rsvp-title-color);
+    font-family: var(--rsvp-title-font);
+}
+.rsvp-section p {
+    color: var(--rsvp-text-color);
+    font-family: var(--rsvp-text-font);
+}
+.whatsapp-button {
+    font-family: var(--rsvp-button-font);
+    letter-spacing: var(--rsvp-button-letter-spacing);
+    transform: translate(var(--rsvp-button-position-x), var(--rsvp-button-position-y));
+}
+
+/* MÚSICA */
+.music-button {
+    width: var(--music-size);
+    height: var(--music-size);
+    border-color: var(--music-border-color);
+    transform: translate(var(--music-position-x), var(--music-position-y));
+}
+
+/* FOOTER */
+.footer h2 {
+    color: var(--footer-title-color);
+    font-family: var(--footer-title-font);
+    font-weight: var(--footer-title-weight);
+}
+.footer p,
+.footer span {
+    color: var(--footer-text-color);
+    font-family: var(--footer-text-font);
+    letter-spacing: var(--footer-text-letter-spacing);
+}
+
+/* =========================================================
+   POSICIÓN DE FONDOS
+========================================================= */
+.intro {
+    background-position: var(--intro-background-x) var(--intro-background-y);
+}
+.family-section {
+    background-position: var(--family-background-x) var(--family-background-y);
+}
+.ceremony {
+    background-position: var(--ceremony-background-x) var(--ceremony-background-y);
+}
+.reception {
+    background-position: var(--reception-background-x) var(--reception-background-y);
+}
+
+
+/* =========================================================
+   PANEL RESPONSIVE — VALORES INDEPENDIENTES
+   Puedes cambiar aquí SOLO lo que quieras en cada tamaño.
+========================================================= */
+
+@media (max-width: 768px) {
+    :root {
+        /* Posiciones de bloques */
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+        --family-card-position-x: 0px;
+        --family-card-position-y: 0px;
+        --pass-card-position-x: 0px;
+        --pass-card-position-y: 0px;
+
+        /* Tipografía */
+        --hero-eyebrow-size: 9px;
+        --hero-date-size: 10px;
+        --count-title-size: var(--countdown-title-size);
+        --count-number-size: var(--count-number-size);
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        /* APERTURA */
+        --opening-logo-position-x: 0px;
+        --opening-logo-position-y: 0px;
+
+        /* HERO */
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+        --hero-eyebrow-size: 8px;
+        --hero-eyebrow-letter-spacing: 3px;
+        --hero-text-letter-spacing: normal;
+        --hero-date-letter-spacing: 4px;
+
+        /* INTRO */
+        --intro-title-position-x: 0px;
+        --intro-title-position-y: 0px;
+        --intro-p1-position-x: 0px;
+        --intro-p1-position-y: 0px;
+        --intro-p2-position-x: 0px;
+        --intro-p2-position-y: 0px;
+
+        /* FECHA */
+        --date-number-position-x: 0px;
+        --date-number-position-y: 0px;
+
+        /* FAMILIA */
+        --family-card-position-x: 0px;
+        --family-card-position-y: 0px;
+
+        /* EVENTOS */
+        --event-title-position-x: 0px;
+        --event-title-position-y: 0px;
+
+        /* GALERÍA */
+        --gallery-img1-x: 50%; --gallery-img1-y: 50%;
+        --gallery-img2-x: 50%; --gallery-img2-y: 50%;
+        --gallery-img3-x: 50%; --gallery-img3-y: 50%;
+        --gallery-img4-x: 50%; --gallery-img4-y: 50%;
+        --gallery-img5-x: 50%; --gallery-img5-y: 50%;
+        --gallery-img6-x: 50%; --gallery-img6-y: 50%;
+        --gallery-img7-x: 50%; --gallery-img7-y: 50%;
+        --gallery-img8-x: 50%; --gallery-img8-y: 50%;
+
+        /* TIMELINE */
+        --timeline-item-position-x: 0px;
+        --timeline-item-position-y: 0px;
+
+        /* PASE */
+        --pass-card-position-x: 0px;
+        --pass-card-position-y: 0px;
+
+        /* RSVP */
+        --rsvp-button-position-x: 0px;
+        --rsvp-button-position-y: 0px;
+
+        /* MÚSICA */
+        --music-position-x: 0px;
+        --music-position-y: 0px;
+    }
+}
+
+@media (max-width: 380px) {
+    :root {
+        --opening-logo-position-x: 0px;
+        --opening-logo-position-y: 0px;
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+        --intro-title-position-x: 0px;
+        --intro-title-position-y: 0px;
+        --family-card-position-x: 0px;
+        --family-card-position-y: 0px;
+        --pass-card-position-x: 0px;
+        --pass-card-position-y: 0px;
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        --opening-logo-position-x: 0px;
+        --opening-logo-position-y: 0px;
+        --hero-photo-position-x: 0px;
+        --hero-photo-position-y: 0px;
+        --intro-title-position-x: 0px;
+        --intro-title-position-y: 0px;
+        --family-card-position-x: 0px;
+        --family-card-position-y: 0px;
+        --pass-card-position-x: 0px;
+        --pass-card-position-y: 0px;
+    }
+}
