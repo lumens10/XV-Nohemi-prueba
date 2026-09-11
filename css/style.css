@@ -85,7 +85,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: 0px;
+    --hero-eyebrow-y: -50px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
