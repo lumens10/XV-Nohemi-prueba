@@ -82,11 +82,11 @@
     --hero-line-color: var(--c-gold);
     --hero-line-x: 0px;
     --hero-line-y: 0px;
-    --hero-eyebrow-size: 80px;
+    --hero-eyebrow-size: 40px;
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: var(--c-cream);
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: -200px;
+    --hero-eyebrow-y: -250px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
