@@ -1598,15 +1598,6 @@ overflow-wrap: break-word;
 
     position: relative;
 
- background:
-        linear-gradient(
-            rgba(10, 8, 5, 0),
-            rgba(10, 8, 5, 0)
-        ),
-        url('../images/fondo con inicial.jpg')
-        center center /
-        cover no-repeat;
-   
  width: 100%;
 
     min-height: var(--event-min-height);
@@ -1654,10 +1645,10 @@ border:
 
     background:
         linear-gradient(
-            rgba(5, 4, 3, .42),
-            rgba(5, 4, 3, .88)
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
         ),
-        url('../images/iglesia.png')
+        url('../images/fondo con inicial.jpg')
         center center /
         cover no-repeat;
 }
@@ -1667,10 +1658,10 @@ border:
 
     background:
         linear-gradient(
-            rgba(5, 4, 3, .42),
-            rgba(5, 4, 3, .88)
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
         ),
-        url('../images/alfombra.png')
+        url('../images/fondo con inicial.jpg')
         center center /
         cover no-repeat;
 }
