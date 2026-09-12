@@ -85,7 +85,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: -50px;
+    --hero-eyebrow-y: 0px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
@@ -1170,7 +1170,7 @@ position: relative;
 
 .hero .eyebrow {
     display: block;
-    margin: 60 0 10px;
+    margin: 150 0 100px;
     font-family: 'Montserrat', sans-serif;
     font-size: 90px;
     font-weight: 400;
