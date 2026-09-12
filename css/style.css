@@ -425,7 +425,7 @@
     --footer-text-font: 'Montserrat', sans-serif;
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
     --section-padding: 110px 25px;
-    --section-label-size: 10px;
+    --section-label-size: 30px;
     --section-label-letter-spacing: 4px;
     --section-label-weight: 400;
     --section-label-color: var(--c-gold-light);
