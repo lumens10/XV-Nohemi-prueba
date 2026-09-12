@@ -1828,8 +1828,15 @@ overflow: hidden;
 
 .dress-section {
 
-    background: var(--cream);
-
+    background:
+        linear-gradient(
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
+        ),
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover no-repeat;
+ 
     color: var(--text-dark);
 }
 
