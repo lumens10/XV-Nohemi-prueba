@@ -30,6 +30,18 @@
     --c-gold-dark: #8c6d31;
     --c-text-muted: rgba(247, 242, 233, .70);
     --c-text-dark: #1b1814;
+
+    /* Alias de compatibilidad: evita que reglas antiguas pierdan sus colores */
+    --black: var(--c-black);
+    --black-soft: var(--c-black-soft);
+    --cream: var(--c-cream);
+    --cream-dark: var(--c-cream-dark);
+    --gold: var(--c-gold);
+    --gold-light: var(--c-gold-light);
+    --gold-dark: var(--c-gold-dark);
+    --text: var(--c-cream);
+    --text-muted: var(--c-text-muted);
+    --text-dark: var(--c-text-dark);
     /* ===== APERTURA ===== */
     --opening-padding: 30px 20px;
     --opening-bg-x: 50%;
@@ -75,7 +87,7 @@
     --hero-title-color: var(--c-cream);
     --hero-title-font: 'Cormorant Garamond', serif;
     --hero-title-x: 0px;
-    --hero-title-y: 130px;
+    --hero-title-y: clamp(70px,16.25svh,130px);
     --hero-line-width: 120px;
     --hero-line-height: 1px;
     --hero-line-margin: 30px auto;
@@ -86,7 +98,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: var(--c-cream);
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: -250px;
+    --hero-eyebrow-y: clamp(-250px,-25svh,-100px);
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
@@ -96,13 +108,13 @@
     --hero-text-color: var(--c-cream);
     --hero-text-font: 'Cormorant Garamond', serif;
     --hero-text-x: 0px;
-    --hero-text-y: 150px;
+    --hero-text-y: clamp(90px,18.75svh,150px);
     --hero-date-margin-top: 35px;
-    --hero-date-size: 22px;
+    --hero-date-size: 11px;
     --hero-date-letter-spacing: 7px;
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
-    --hero-date-y: 160px;
+    --hero-date-y: clamp(95px,20svh,160px);
     /* ===== INTRO ===== */
     --intro-bg-x: 50%;
     --intro-bg-y: 50%;
@@ -167,7 +179,7 @@
     --count-number-font: 'El Messiri', sans-serif;
     --count-number-x: 0px;
     --count-number-y: 0px;
-    --count-label-size: clamp(16px,3.5vw,22px);
+    --count-label-size: clamp(9px,2.5vw,14px);
     --count-label-weight: 400;
     --count-label-letter-spacing: 2px;
     --count-label-margin-top: 0px;
@@ -409,23 +421,20 @@
     --music-x: 0px;
     --music-y: 0px;
     /* ===== FOOTER ===== */
-   
- --footer-ornament-width: 150px;
---footer-ornament-position-y: 30px;
     --footer-padding: 100px 20px;
-    --footer-title-size: 10px;
+    --footer-title-size: 80px;
     --footer-title-weight: 300;
     --footer-title-color: var(--c-cream);
     --footer-title-font: 'Cormorant Garamond', serif;
     --footer-text-margin: 15px 0;
-    --footer-text-size: 30px;
+    --footer-text-size: 10px;
     --footer-text-weight: 300;
     --footer-text-letter-spacing: 3px;
     --footer-text-color: var(--c-gold-light);
     --footer-text-font: 'Montserrat', sans-serif;
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
     --section-padding: 110px 25px;
-    --section-label-size: 30px;
+    --section-label-size: 10px;
     --section-label-letter-spacing: 4px;
     --section-label-weight: 400;
     --section-label-color: var(--c-gold-light);
@@ -1311,7 +1320,7 @@ font-size: var(--section-text-size);
             rgba(9, 8, 7, 0),
             rgba(9, 8, 7, 0)
         ),
-        url("../images/fondo foto acostada.JPG")
+        url("../images/vino liso.jpg")
         var(--count-bg-x) var(--count-bg-y) / cover no-repeat;
 
     padding: var(--count-section-padding);
@@ -1747,19 +1756,10 @@ text-transform: uppercase;
     transform: translateY(-2px);
 }
 
+
 /* =========================================================
    GALERÍA
 ========================================================= */
-
-.gallery-section {
-
-    background:
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover
-        no-repeat;
-}
-
 
 .gallery {
 
@@ -1768,8 +1768,7 @@ text-transform: uppercase;
     max-width: var(--gallery-max-width);
 
     margin: var(--gallery-margin);
-
-    display: grid;
+display: grid;
 
     grid-template-columns:
         repeat(
@@ -1782,7 +1781,11 @@ text-transform: uppercase;
 
     gap: var(--gallery-gap);
 
-    background: transparent;
+background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
 
 }
 
@@ -1792,11 +1795,11 @@ text-transform: uppercase;
     position: relative;
 
     min-height: var(--gallery-item-min-height);
+overflow: hidden;
 
-    overflow: hidden;
-
-    background: transparent;
-
+     background: transparent;
+        
+ 
 }
 
 
@@ -1822,7 +1825,6 @@ text-transform: uppercase;
 
     transition:
         transform 1s ease;
-
 }
 
 
@@ -1830,6 +1832,8 @@ text-transform: uppercase;
 
     transform: scale(1.05);
 }
+
+
 /* =========================================================
    VESTIMENTA
 ========================================================= */
@@ -1880,13 +1884,11 @@ font-size: var(--dress-icon-size);
 .envelopes-section {
 
     background:
-        linear-gradient(
-            rgba(5, 4, 3, 0),
-            rgba(5, 4, 3, 0)
-        ),
-        url('../images/vino liso.jpg')
-        center center /
-        cover no-repeat;
+        radial-gradient(
+            circle at center,
+            #211a10,
+            #090807 65%
+        );
 }
 
 
@@ -1902,16 +1904,6 @@ font-size: var(--envelope-icon-size);
    TIMELINE
 ========================================================= */
 
-.timeline-section {
-
-    background:
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover
-        no-repeat;
-}
-
-
 .timeline {
 
     position: relative;
@@ -1921,8 +1913,6 @@ font-size: var(--envelope-icon-size);
     max-width: var(--timeline-max-width);
 
     margin: var(--timeline-margin);
-
-    background: transparent;
 }
 
 
@@ -1955,14 +1945,12 @@ font-size: var(--envelope-icon-size);
     position: relative;
 
     padding: var(--timeline-item-padding);
-
-    display: flex;
+display: flex;
 
     flex-direction: column;
 
     gap: var(--timeline-item-gap);
-
-    text-align: center;
+text-align: center;
 }
 
 
@@ -1990,23 +1978,21 @@ font-size: var(--envelope-icon-size);
 
 
 .timeline-item span {
-
     color: var(--timeline-label-color);
-
-    font-size: var(--timeline-label-size);
+font-size: var(--timeline-label-size);
 
     letter-spacing: var(--timeline-label-letter-spacing);
 }
 
 
 .timeline-item strong {
-
     font-family: var(--timeline-title-font);
 
     font-size: var(--timeline-title-size);
 
     font-weight: var(--timeline-title-weight);
 }
+
 
 /* =========================================================
    PASE
@@ -2017,11 +2003,7 @@ font-size: var(--envelope-icon-size);
     width: 100%;
 
     padding: var(--pass-section-padding);
-  background:
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover
-        no-repeat;
+background: var(--cream);
 }
 
 
@@ -2123,12 +2105,6 @@ text-transform: uppercase;
 
 .rsvp-section {
     padding-bottom: var(--rsvp-bottom-padding);
-
-   background:
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover
-        no-repeat;
 }
 
 
@@ -2269,55 +2245,27 @@ cursor: pointer;
     width: 100%;
 
     padding: var(--footer-padding);
-
-    text-align: center;
+text-align: center;
 
     background: #050504;
 }
 
 
-/* ===== ORNAMENTO PNG ===== */
-
-.ornament {
-
-    width: 100%;
-}
-
-
-.ornament img {
-
-    display: block;
-
-    width: var(--footer-ornament-width);
-
-    height: auto;
-
-    margin: 0 auto;
-
-    transform:
-        translateY(var(--footer-ornament-position-y));
-}
-
-
 .footer h2 {
-
     font-family: var(--footer-title-font);
 
     font-size: var(--footer-title-size);
 
     font-weight: var(--footer-title-weight);
-
-    line-height: .9;
+line-height: .9;
 }
 
 
 .footer p {
-
     margin: var(--footer-text-margin);
 
     color: var(--footer-text-color);
-
-    font-size: var(--footer-text-size);
+font-size: var(--footer-text-size);
 
     letter-spacing: var(--footer-text-letter-spacing);
 }
@@ -2339,6 +2287,8 @@ cursor: pointer;
 
     font-style: italic;
 }
+
+
 /* =========================================================
    ANIMACIONES SCROLL
    ---------------------------------------------------------
