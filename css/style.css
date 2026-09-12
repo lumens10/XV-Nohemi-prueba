@@ -1598,7 +1598,16 @@ overflow-wrap: break-word;
 
     position: relative;
 
-    width: 100%;
+ background:
+        linear-gradient(
+            rgba(10, 8, 5, 0),
+            rgba(10, 8, 5, 0)
+        ),
+        url('../images/fondo con inicial.jpg')
+        center center /
+        cover no-repeat;
+   
+ width: 100%;
 
     min-height: var(--event-min-height);
 min-height: 80svh;
@@ -1648,7 +1657,7 @@ border:
             rgba(5, 4, 3, .42),
             rgba(5, 4, 3, .88)
         ),
-        url('../images/ceremonia.jpg')
+        url('../images/iglesia.png')
         center center /
         cover no-repeat;
 }
@@ -1661,7 +1670,7 @@ border:
             rgba(5, 4, 3, .42),
             rgba(5, 4, 3, .88)
         ),
-        url('../images/recepcion.jpg')
+        url('../images/alfombra.png')
         center center /
         cover no-repeat;
 }
