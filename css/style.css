@@ -167,7 +167,7 @@
     --count-number-font: 'El Messiri', sans-serif;
     --count-number-x: 0px;
     --count-number-y: 0px;
-    --count-label-size: clamp(9px,2.5vw,14px);
+    --count-label-size: clamp(16px,3.5vw,22px);
     --count-label-weight: 400;
     --count-label-letter-spacing: 2px;
     --count-label-margin-top: 0px;
@@ -206,7 +206,7 @@
     --date-detail-label-letter-spacing: 3px;
     --date-detail-label-color: var(--c-text-dark);
     --date-detail-label-font: 'Montserrat', sans-serif;
-    --date-detail-value-size: 50px;
+    --date-detail-value-size: 25px;
     --date-detail-value-color: var(--c-text-dark);
     --date-detail-value-font: 'Cormorant Garamond', serif;
     /* ===== FAMILIA ===== */
