@@ -1508,10 +1508,10 @@ display: flex;
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .94),
-            rgba(10, 8, 5, .94)
+            rgba(10, 8, 5, 0),
+            rgba(10, 8, 5, 0)
         ),
-        url('../images/familia.jpg')
+        url('../images/fondo con inicial.jpg')
         center center /
         cover no-repeat;
 }
