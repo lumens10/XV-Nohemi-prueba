@@ -1410,8 +1410,17 @@ flex-shrink: 0;
 ========================================================= */
 
 .date-section {
-    background: var(--date-bg);
-color: var(--text-dark);
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
+        ),
+        url("../images/Fondo beige github.jpg")
+        center center / cover no-repeat;
 }
 
 
