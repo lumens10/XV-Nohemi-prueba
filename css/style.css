@@ -413,7 +413,7 @@
  --footer-ornament-width: 130px;
 --footer-ornament-position-y: 50px;
     --footer-padding: 100px 20px;
-    --footer-title-size: 80px;
+    --footer-title-size: 10px;
     --footer-title-weight: 300;
     --footer-title-color: var(--c-cream);
     --footer-title-font: 'Cormorant Garamond', serif;
