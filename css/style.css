@@ -98,7 +98,7 @@
     --hero-text-x: 0px;
     --hero-text-y: 150px;
     --hero-date-margin-top: 35px;
-    --hero-date-size: 11px;
+    --hero-date-size: 22px;
     --hero-date-letter-spacing: 7px;
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
@@ -206,7 +206,7 @@
     --date-detail-label-letter-spacing: 3px;
     --date-detail-label-color: var(--c-text-dark);
     --date-detail-label-font: 'Montserrat', sans-serif;
-    --date-detail-value-size: 25px;
+    --date-detail-value-size: 50px;
     --date-detail-value-color: var(--c-text-dark);
     --date-detail-value-font: 'Cormorant Garamond', serif;
     /* ===== FAMILIA ===== */
@@ -410,15 +410,15 @@
     --music-y: 0px;
     /* ===== FOOTER ===== */
    
- --footer-ornament-width: 110px;
---footer-ornament-position-y: 20px;
+ --footer-ornament-width: 130px;
+--footer-ornament-position-y: 50px;
     --footer-padding: 100px 20px;
     --footer-title-size: 80px;
     --footer-title-weight: 300;
     --footer-title-color: var(--c-cream);
     --footer-title-font: 'Cormorant Garamond', serif;
     --footer-text-margin: 15px 0;
-    --footer-text-size: 30px;
+    --footer-text-size: 60px;
     --footer-text-weight: 300;
     --footer-text-letter-spacing: 3px;
     --footer-text-color: var(--c-gold-light);
