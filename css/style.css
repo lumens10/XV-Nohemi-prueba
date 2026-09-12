@@ -1785,7 +1785,7 @@ background:
     min-height: var(--gallery-item-min-height);
 overflow: hidden;
 
-     background: #15120f;
+     background: transparent;
         
  
 }
