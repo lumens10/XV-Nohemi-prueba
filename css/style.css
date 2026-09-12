@@ -2014,7 +2014,11 @@ font-size: var(--envelope-icon-size);
     width: 100%;
 
     padding: var(--pass-section-padding);
-background: var(--cream);
+  background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
 }
 
 
@@ -2116,6 +2120,12 @@ text-transform: uppercase;
 
 .rsvp-section {
     padding-bottom: var(--rsvp-bottom-padding);
+
+   background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
 }
 
 
