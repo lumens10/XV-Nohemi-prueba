@@ -410,8 +410,8 @@
     --music-y: 0px;
     /* ===== FOOTER ===== */
    
- --footer-ornament-width: 130px;
---footer-ornament-position-y: 50px;
+ --footer-ornament-width: 150px;
+--footer-ornament-position-y: 30px;
     --footer-padding: 100px 20px;
     --footer-title-size: 10px;
     --footer-title-weight: 300;
