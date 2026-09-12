@@ -1899,6 +1899,16 @@ font-size: var(--envelope-icon-size);
    TIMELINE
 ========================================================= */
 
+.timeline-section {
+
+    background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
+}
+
+
 .timeline {
 
     position: relative;
@@ -1908,6 +1918,8 @@ font-size: var(--envelope-icon-size);
     max-width: var(--timeline-max-width);
 
     margin: var(--timeline-margin);
+
+    background: transparent;
 }
 
 
@@ -1940,12 +1952,14 @@ font-size: var(--envelope-icon-size);
     position: relative;
 
     padding: var(--timeline-item-padding);
-display: flex;
+
+    display: flex;
 
     flex-direction: column;
 
     gap: var(--timeline-item-gap);
-text-align: center;
+
+    text-align: center;
 }
 
 
@@ -1973,21 +1987,23 @@ text-align: center;
 
 
 .timeline-item span {
+
     color: var(--timeline-label-color);
-font-size: var(--timeline-label-size);
+
+    font-size: var(--timeline-label-size);
 
     letter-spacing: var(--timeline-label-letter-spacing);
 }
 
 
 .timeline-item strong {
+
     font-family: var(--timeline-title-font);
 
     font-size: var(--timeline-title-size);
 
     font-weight: var(--timeline-title-weight);
 }
-
 
 /* =========================================================
    PASE
