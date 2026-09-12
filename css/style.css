@@ -31,7 +31,7 @@
     --c-text-muted: rgba(247, 242, 233, .70);
     --c-text-dark: #1b1814;
 
-    /* Alias de compatibilidad: evita que reglas antiguas pierdan sus colores */
+    /* ===== COMPATIBILIDAD CON VARIABLES ANTERIORES ===== */
     --black: var(--c-black);
     --black-soft: var(--c-black-soft);
     --cream: var(--c-cream);
@@ -87,7 +87,7 @@
     --hero-title-color: var(--c-cream);
     --hero-title-font: 'Cormorant Garamond', serif;
     --hero-title-x: 0px;
-    --hero-title-y: clamp(70px,16.25svh,130px);
+    --hero-title-y: 130px;
     --hero-line-width: 120px;
     --hero-line-height: 1px;
     --hero-line-margin: 30px auto;
@@ -98,7 +98,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: var(--c-cream);
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: clamp(-250px,-25svh,-100px);
+    --hero-eyebrow-y: -250px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
@@ -108,13 +108,13 @@
     --hero-text-color: var(--c-cream);
     --hero-text-font: 'Cormorant Garamond', serif;
     --hero-text-x: 0px;
-    --hero-text-y: clamp(90px,18.75svh,150px);
+    --hero-text-y: 150px;
     --hero-date-margin-top: 35px;
     --hero-date-size: 11px;
     --hero-date-letter-spacing: 7px;
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
-    --hero-date-y: clamp(95px,20svh,160px);
+    --hero-date-y: 160px;
     /* ===== INTRO ===== */
     --intro-bg-x: 50%;
     --intro-bg-y: 50%;
@@ -1320,7 +1320,7 @@ font-size: var(--section-text-size);
             rgba(9, 8, 7, 0),
             rgba(9, 8, 7, 0)
         ),
-        url("../images/fondo foto acostada.JPG")
+        url("../images/vino liso.jpg")
         var(--count-bg-x) var(--count-bg-y) / cover no-repeat;
 
     padding: var(--count-section-padding);
