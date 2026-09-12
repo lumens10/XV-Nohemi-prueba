@@ -108,11 +108,11 @@
     --intro-bg-y: 50%;
     --intro-ornament-margin: 35px 0;
     --intro-ornament-size: inherit;
-    --intro-ornament-color: inherit;
+    --intro-ornament-color: #45060e;
     --intro-title-size: clamp(45px,10vw,80px);
     --intro-title-weight: 300;
     --intro-title-font: 'Cormorant Garamond', serif;
-    --intro-title-color: var(--c-cream);
+    --intro-title-color: #45060e;
     --intro-title-letter-spacing: 0px;
     --intro-title-line-height: .95;
     --intro-title-margin: 20px auto 30px;
@@ -123,7 +123,7 @@
     --intro-p1-weight: 300;
     --intro-p1-line-height: 1.9;
     --intro-p1-letter-spacing: 0px;
-    --intro-p1-color: var(--c-text-muted);
+    --intro-p1-color: #45060e;
     --intro-p1-font: 'Montserrat', sans-serif;
     --intro-p1-x: 0px;
     --intro-p1-y: 0px;
@@ -132,12 +132,12 @@
     --intro-p2-weight: 300;
     --intro-p2-line-height: 1.9;
     --intro-p2-letter-spacing: 0px;
-    --intro-p2-color: var(--c-text-muted);
+    --intro-p2-color: #45060e;
     --intro-p2-font: 'Montserrat', sans-serif;
     --intro-p2-x: 0px;
     --intro-p2-y: 0px;
     --intro-label-size: 10px;
-    --intro-label-color: var(--c-gold-light);
+    --intro-label-color: #45060e;
     --intro-label-font: 'Montserrat', sans-serif;
     --intro-label-weight: 400;
     --intro-label-letter-spacing: 4px;
@@ -938,10 +938,10 @@ min-height: 100svh;
 
     background:
         linear-gradient(
-            rgba(10, 8, 5, .25),
-            rgba(10, 8, 5, .10)
+            rgba(10, 8, 5, 0),
+            rgba(10, 8, 5, 0)
         ),
-        url('../images/fondo con inicial.jpg')
+        url('../images/fondo foto.jpg')
         center center /
         cover no-repeat;
 
@@ -976,7 +976,7 @@ border:
         radial-gradient(
             circle at center,
             transparent 0%,
-            rgba(0, 0, 0, .65) 100%
+            rgba(0, 0, 0, 0) 100%
         );
 }
 
@@ -1280,8 +1280,8 @@ font-size: var(--section-text-size);
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
         ),
         url("../images/Fondo beige github.jpg")
         center center / cover no-repeat;
@@ -1305,8 +1305,8 @@ font-size: var(--section-text-size);
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, .45),
-            rgba(9, 8, 7, .65)
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
         ),
         url("../images/fondo intro.jpg")
         center center / cover no-repeat;
