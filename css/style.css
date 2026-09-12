@@ -1768,6 +1768,13 @@ display: grid;
         );
 
     gap: var(--gallery-gap);
+
+background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
+
 }
 
 
@@ -1778,14 +1785,8 @@ display: grid;
     min-height: var(--gallery-item-min-height);
 overflow: hidden;
 
-     background:
-        linear-gradient(
-            rgba(5, 4, 3, 0),
-            rgba(5, 4, 3, 0)
-        ),
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover no-repeat;
+     background: #15120f;
+        
  
 }
 
