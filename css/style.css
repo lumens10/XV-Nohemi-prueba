@@ -2278,16 +2278,19 @@ font-size: var(--footer-text-size);
 
 
 /* =========================================================
-   ANIMACIONES SCROLL — LIGERAS
+   ANIMACIONES SCROLL
    ---------------------------------------------------------
-   El contenido aparece una sola vez al entrar en pantalla.
-   No vuelve a desaparecer al salir del viewport.
-   Sin blur ni escala para reducir trabajo durante scroll.
+   Animación ligera para las secciones después del Hero.
+   Se conserva el efecto de entrada/salida, pero sin blur ni
+   escala para evitar que el scroll se sienta pesado.
 ========================================================= */
 
 .reveal {
     opacity: 0;
-    transform: translateY(18px);
+
+    transform:
+        translateY(24px);
+
     transition:
         opacity .55s cubic-bezier(.22, 1, .36, 1),
         transform .55s cubic-bezier(.22, 1, .36, 1);
@@ -2295,16 +2298,24 @@ font-size: var(--footer-text-size);
 
 .reveal.visible {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+        translateY(0);
 }
 
-.reveal.exit-up,
+.reveal.exit-up {
+    opacity: 0;
+
+    transform:
+        translateY(-24px);
+}
+
 .reveal.exit-down {
-    opacity: 1;
-    transform: translateY(0);
-    filter: none;
-}
+    opacity: 0;
 
+    transform:
+        translateY(24px);
+}
 /* =========================================================
    FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
 ========================================================= */
