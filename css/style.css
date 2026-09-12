@@ -191,23 +191,23 @@
     --count-divider-color: var(--c-gold);
     --count-divider-opacity: .45;
     /* ===== FECHA ===== */
-    --date-bg: var(--c-cream);
+    --date-bg: #45060e;
     --date-title-margin-top: 25px;
     --date-number-size: clamp(120px,30vw,220px);
     --date-number-weight: 300;
     --date-number-line-height: .7;
-    --date-number-color: var(--c-text-dark);
+    --date-number-color: #45060e;
     --date-number-font: 'Cormorant Garamond', serif;
     --date-number-x: 0px;
     --date-number-y: 0px;
     --date-month-margin-top: 25px;
     --date-month-size: 15px;
     --date-month-letter-spacing: 7px;
-    --date-month-color: var(--c-text-dark);
+    --date-month-color: #45060e;
     --date-month-font: 'Montserrat', sans-serif;
     --date-year-margin-top: 10px;
     --date-year-size: 32px;
-    --date-year-color: var(--c-text-dark);
+    --date-year-color: #45060e;
     --date-year-font: 'Cormorant Garamond', serif;
     --date-details-max-width: 500px;
     --date-details-margin: 60px auto 0;
@@ -216,10 +216,10 @@
     --date-detail-min-width: min(100px, 28vw);
     --date-detail-label-size: 9px;
     --date-detail-label-letter-spacing: 3px;
-    --date-detail-label-color: var(--c-text-dark);
+    --date-detail-label-color: #45060e;
     --date-detail-label-font: 'Montserrat', sans-serif;
     --date-detail-value-size: 25px;
-    --date-detail-value-color: var(--c-text-dark);
+    --date-detail-value-color: #45060e;
     --date-detail-value-font: 'Cormorant Garamond', serif;
     /* ===== FAMILIA ===== */
     --family-bg-x: 50%;
@@ -335,9 +335,9 @@
     --dress-text-x: 0px;
     --dress-text-y: 0px;
     /* ===== SOBRES ===== */
-    --envelope-title-color: var(--c-cream);
+    --envelope-title-color: #45060e;
     --envelope-title-font: 'Cormorant Garamond', serif;
-    --envelope-text-color: var(--c-text-muted);
+    --envelope-text-color: #45060e;
     --envelope-text-font: 'Montserrat', sans-serif;
     --envelope-icon-margin: 30px 0;
     --envelope-icon-size: 50px;
@@ -364,11 +364,11 @@
     --timeline-item-gap: 8px;
     --timeline-label-size: 10px;
     --timeline-label-letter-spacing: 3px;
-    --timeline-label-color: var(--c-gold-light);
+    --timeline-label-color: #45060e;
     --timeline-label-font: 'Montserrat', sans-serif;
     --timeline-title-size: 30px;
     --timeline-title-weight: 400;
-    --timeline-title-color: var(--c-cream);
+    --timeline-title-color: #45060e;
     --timeline-title-font: 'Cormorant Garamond', serif;
     --timeline-item-x: 0px;
     --timeline-item-y: 0px;
@@ -1319,7 +1319,7 @@ font-size: var(--section-text-size);
             rgba(9, 8, 7, 0),
             rgba(9, 8, 7, 0)
         ),
-        url("../images/vino liso.jpg")
+        url("../images/fondo foto acostada.JPG")
         var(--count-bg-x) var(--count-bg-y) / cover no-repeat;
 
     padding: var(--count-section-padding);
