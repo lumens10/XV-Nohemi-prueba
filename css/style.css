@@ -1744,10 +1744,19 @@ text-transform: uppercase;
     transform: translateY(-2px);
 }
 
-
 /* =========================================================
    GALERÍA
 ========================================================= */
+
+.gallery-section {
+
+    background:
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover
+        no-repeat;
+}
+
 
 .gallery {
 
@@ -1756,7 +1765,8 @@ text-transform: uppercase;
     max-width: var(--gallery-max-width);
 
     margin: var(--gallery-margin);
-display: grid;
+
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -1769,11 +1779,7 @@ display: grid;
 
     gap: var(--gallery-gap);
 
-background:
-        url('../images/Fondo beige github.jpg')
-        center center /
-        cover
-        no-repeat;
+    background: transparent;
 
 }
 
@@ -1783,11 +1789,11 @@ background:
     position: relative;
 
     min-height: var(--gallery-item-min-height);
-overflow: hidden;
 
-     background: transparent;
-        
- 
+    overflow: hidden;
+
+    background: transparent;
+
 }
 
 
@@ -1813,6 +1819,7 @@ overflow: hidden;
 
     transition:
         transform 1s ease;
+
 }
 
 
@@ -1820,8 +1827,6 @@ overflow: hidden;
 
     transform: scale(1.05);
 }
-
-
 /* =========================================================
    VESTIMENTA
 ========================================================= */
