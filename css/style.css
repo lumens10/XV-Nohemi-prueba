@@ -1778,7 +1778,15 @@ display: grid;
     min-height: var(--gallery-item-min-height);
 overflow: hidden;
 
-    background: #15120f;
+     background:
+        linear-gradient(
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
+        ),
+        url('../images/Fondo beige github.jpg')
+        center center /
+        cover no-repeat;
+ 
 }
 
 
