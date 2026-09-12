@@ -74,7 +74,7 @@
     --hero-title-color: var(--c-cream);
     --hero-title-font: 'Cormorant Garamond', serif;
     --hero-title-x: 0px;
-    --hero-title-y: 0px;
+    --hero-title-y: 130px;
     --hero-line-width: 120px;
     --hero-line-height: 1px;
     --hero-line-margin: 30px auto;
@@ -85,7 +85,7 @@
     --hero-eyebrow-letter-spacing: 3px;
     --hero-eyebrow-color: #c9a45c;
     --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: 0px;
+    --hero-eyebrow-y: -180px;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
@@ -95,13 +95,13 @@
     --hero-text-color: var(--c-cream);
     --hero-text-font: 'Cormorant Garamond', serif;
     --hero-text-x: 0px;
-    --hero-text-y: 0px;
+    --hero-text-y: 150px;
     --hero-date-margin-top: 35px;
     --hero-date-size: 11px;
     --hero-date-letter-spacing: 7px;
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
-    --hero-date-y: 0px;
+    --hero-date-y: 160px;
     /* ===== INTRO ===== */
     --intro-bg-x: 50%;
     --intro-bg-y: 50%;
