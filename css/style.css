@@ -1309,7 +1309,9 @@ font-size: var(--section-text-size);
             rgba(9, 8, 7, 0)
         ),
         url("../images/vino liso.jpg")
-        center center / cover no-repeat;
+        var(--count-bg-x) var(--count-bg-y) / cover no-repeat;
+
+    padding: var(--count-section-padding);
 }
 
 
@@ -1330,9 +1332,18 @@ font-size: var(--section-text-size);
 
     font-size: var(--count-title-size);
 
+    font-weight: var(--count-title-weight);
+
+    letter-spacing: var(--count-title-letter-spacing);
+
     color: var(--count-title-color);
-margin-bottom: var(--count-title-margin-bottom);
-line-height: 1;
+
+    margin-top: var(--count-title-margin-top);
+    margin-bottom: var(--count-title-margin-bottom);
+
+    line-height: 1;
+
+    translate: var(--count-title-x) var(--count-title-y);
 }
 
 
@@ -1345,6 +1356,8 @@ line-height: 1;
     align-items: center;
 
     width: 100%;
+
+    gap: var(--count-gap);
 }
 
 
@@ -1372,6 +1385,8 @@ line-height: 1;
 line-height: var(--count-number-line-height);
 
     margin-bottom: var(--count-number-margin-bottom);
+
+    translate: var(--count-number-x) var(--count-number-y);
 }
 
 
@@ -1388,7 +1403,12 @@ line-height: var(--count-number-line-height);
     letter-spacing: var(--count-label-letter-spacing);
 
     color: var(--count-label-color);
-text-transform: none;
+
+    margin-top: var(--count-label-margin-top);
+
+    translate: var(--count-label-x) var(--count-label-y);
+
+    text-transform: none;
 }
 
 
