@@ -1877,11 +1877,13 @@ font-size: var(--dress-icon-size);
 .envelopes-section {
 
     background:
-        radial-gradient(
-            circle at center,
-            #211a10,
-            #090807 65%
-        );
+        linear-gradient(
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
+        ),
+        url('../images/vino liso.jpg')
+        center center /
+        cover no-repeat;
 }
 
 
