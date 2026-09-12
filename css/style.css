@@ -148,7 +148,7 @@
     --count-section-padding: 200px 25px;
     --count-bg-x: 50%;
     --count-bg-y: 50%;
-    --count-title-margin-top: 0px;
+    --count-title-margin-top: 30px;
     --count-title-margin-bottom: 18px;
     --count-title-size: clamp(32px,6vw,48px);
     --count-title-weight: 400;
