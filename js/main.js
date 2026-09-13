@@ -569,173 +569,111 @@ window.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    INTERSECTION OBSERVER
-===================================================== */
+   ========================================================= */
 
-/*
-   IntersectionObserver detecta cuándo cada
-   bloque entra o sale de la zona visible.
+if (revealElements.length > 0 && "IntersectionObserver" in window) {
 
-   rootMargin:
+    /* OBSERVER GENERAL
+       Controla la entrada y salida de cada sección.
+    */
 
-   - hace que la animación comience un poco
-     antes de llegar al centro de la pantalla.
+    const observer = new IntersectionObserver((entries) => {
 
-   - también permite que desaparezca suavemente
-     antes de salir completamente.
+        entries.forEach(entry => {
 
-   Esto hace que el movimiento se sienta
-   más cinematográfico y menos brusco.
-*/
+            if (entry.isIntersecting) {
 
-if (
-    revealElements.length > 0 &&
-    "IntersectionObserver" in window
-) {
+                entry.target.classList.remove("exit-up", "exit-down");
 
+                entry.target.classList.add("visible");
 
-    const observer =
-        new IntersectionObserver(
-            (entries) => {
+            } else {
 
-
-                entries.forEach(
-                    entry => {
-
-
-                        /* =================================
-                           BLOQUE ENTRANDO
-                        ================================= */
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-
-                            /*
-                               Quitamos cualquier estado
-                               anterior de salida.
-
-                               Esto es importante cuando
-                               el usuario regresa haciendo
-                               scroll hacia arriba.
-                            */
-
-                            entry.target.classList.remove(
-                                "exit-up",
-                                "exit-down"
-                            );
-
-
-                            /*
-                               Activamos la animación
-                               de entrada.
-                            */
-
-                            entry.target.classList.add(
-                                "visible"
-                            );
-
-
-                        }
-
-
-                        /* =================================
-                           BLOQUE SALIENDO
-                        ================================= */
-
-                        else {
-
-
-                            /*
-                               Primero quitamos "visible"
-                               para iniciar la desaparición.
-                            */
-
-                            entry.target.classList.remove(
-                                "visible"
-                            );
-
-
-                            /*
-                               Si el usuario está bajando,
-                               el bloque desaparece hacia arriba.
-
-                               Esto da la sensación de que
-                               el contenido acompaña al scroll.
-                            */
-
-                            if (
-                                scrollDirection ===
-                                "down"
-                            ) {
-
-                                entry.target.classList.remove(
-                                    "exit-down"
-                                );
-
-                                entry.target.classList.add(
-                                    "exit-up"
-                                );
-
-                            }
-
-
-                            /*
-                               Si el usuario está subiendo,
-                               el bloque desaparece hacia abajo.
-
-                               Al regresar aparecerá
-                               nuevamente desde abajo.
-                            */
-
-                            else {
-
-                                entry.target.classList.remove(
-                                    "exit-up"
-                                );
-
-                                entry.target.classList.add(
-                                    "exit-down"
-                                );
-
-                            }
-
-                        }
-
-                    }
-                );
-
-            },
-
-
-            {
+                entry.target.classList.remove("visible");
 
                 /*
-                   La animación comienza cuando
-                   aproximadamente el 15% del bloque
-                   entra en la zona de observación.
+                   También reiniciamos la animación individual.
+                   Así podrá volver a ejecutarse cuando la sección
+                   entre nuevamente en la zona de animación.
                 */
 
-                threshold: 0.08,
+                entry.target.classList.remove("animate-content");
 
+                if (scrollDirection === "down") {
 
-                /*
-                   Reducimos ligeramente la zona de
-                   observación para que los bloques
-                   aparezcan y desaparezcan de forma
-                   más elegante.
-                */
+                    entry.target.classList.remove("exit-down");
+                    entry.target.classList.add("exit-up");
 
-                rootMargin:
-                    "5% 0px 5% 0px"
+                } else {
+
+                    entry.target.classList.remove("exit-up");
+                    entry.target.classList.add("exit-down");
+
+                }
 
             }
 
-        );
+        });
+
+    }, {
+
+        threshold: 0.05,
+
+        /*
+           El bloque general puede detectarse antes,
+           pero todavía NO dispara la animación interna.
+        */
+
+        rootMargin: "5% 0px 5% 0px"
+
+    });
 
 
+    /* =====================================================
+       OBSERVER DE ANIMACIÓN INTERNA
+       ===================================================== */
+
+    const contentObserver = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("animate-content");
+
+            } else {
+
+                entry.target.classList.remove("animate-content");
+
+            }
+
+        });
+
+    }, {
+
+        /*
+           La sección debe estar mucho más dentro de la pantalla
+           antes de activar sus elementos internos.
+        */
+
+        threshold: 0.15,
+
+        rootMargin: "-18% 0px -18% 0px"
+
+    });
+
+
+    revealElements.forEach(element => {
+
+        observer.observe(element);
+
+        contentObserver.observe(element);
+
+    });
+
+}
     /* =================================================
        COMENZAR A OBSERVAR
     ================================================= */
