@@ -436,8 +436,27 @@
 --envelope-text-x: 0px;
 --envelope-text-y: 0px;
  
-    /* ===== TIMELINE ===== */
-/* --- Contenedor general --- */
+   /* ===== TIMELINE / PROGRAMA ===== */
+/* --- Etiqueta de sección: EL GRAN DÍA --- */
+--timeline-section-label-size: 10px;
+--timeline-section-label-weight: 400;
+--timeline-section-label-letter-spacing: 3px;
+--timeline-section-label-color: #45060e;
+--timeline-section-label-font: 'Montserrat', sans-serif;
+--timeline-section-label-margin: 0 0 15px;
+--timeline-section-label-x: 0px;
+--timeline-section-label-y: 0px;
+/* --- Título de sección: Programa --- */
+--timeline-section-title-size: 48px;
+--timeline-section-title-weight: 400;
+--timeline-section-title-letter-spacing: 0px;
+--timeline-section-title-line-height: 1;
+--timeline-section-title-color: #45060e;
+--timeline-section-title-font: 'Cormorant Garamond', serif;
+--timeline-section-title-margin: 0;
+--timeline-section-title-x: 0px;
+--timeline-section-title-y: 0px;
+/* --- Contenedor del Timeline --- */
 --timeline-max-width: 550px;
 --timeline-margin: 60px auto;
 /* --- Cada evento --- */
@@ -454,7 +473,7 @@
 --timeline-dot-color: var(--gold);
 --timeline-dot-x: 50%;
 --timeline-dot-y: 0px;
-/* --- Etiqueta / fecha --- */
+/* --- Hora / etiqueta de cada evento --- */
 --timeline-label-size: 10px;
 --timeline-label-weight: 400;
 --timeline-label-letter-spacing: 3px;
@@ -463,7 +482,7 @@
 --timeline-label-margin: 0;
 --timeline-label-x: 0px;
 --timeline-label-y: 0px;
-/* --- Título del evento --- */
+/* --- Nombre del evento --- */
 --timeline-title-size: 30px;
 --timeline-title-weight: 400;
 --timeline-title-color: #45060e;
@@ -473,16 +492,6 @@
 --timeline-title-margin: 0;
 --timeline-title-x: 0px;
 --timeline-title-y: 0px;
-/* --- Descripción del evento --- */
---timeline-text-size: 14px;
---timeline-text-weight: 300;
---timeline-text-color: rgba(27,24,20,.68);
---timeline-text-font: 'Montserrat', sans-serif;
---timeline-text-letter-spacing: 0px;
---timeline-text-line-height: 1.8;
---timeline-text-margin: 0;
---timeline-text-x: 0px;
---timeline-text-y: 0px;
 
  
     /* ===== PASE ===== */
@@ -2521,7 +2530,7 @@ text-transform: uppercase;
 }
 
 /* =========================================================
-   TIMELINE
+   TIMELINE / PROGRAMA
 ========================================================= */
 
 .timeline-section {
@@ -2533,6 +2542,66 @@ text-transform: uppercase;
         ),
         url('../images/Fondo beige github.jpg')
         center center / cover no-repeat;
+}
+
+
+/* =========================================================
+   ETIQUETA DE SECCIÓN
+   EL GRAN DÍA
+========================================================= */
+
+.timeline-section > .section-label {
+
+    margin: var(--timeline-section-label-margin);
+
+    font-family: var(--timeline-section-label-font);
+
+    font-size:
+        min(
+            var(--timeline-section-label-size),
+            6vw
+        );
+
+    font-weight: var(--timeline-section-label-weight);
+
+    letter-spacing: var(--timeline-section-label-letter-spacing);
+
+    color: var(--timeline-section-label-color);
+
+    translate:
+        var(--timeline-section-label-x)
+        var(--timeline-section-label-y);
+}
+
+
+/* =========================================================
+   TÍTULO DE SECCIÓN
+   Programa
+========================================================= */
+
+.timeline-section > h2 {
+
+    margin: var(--timeline-section-title-margin);
+
+    font-family: var(--timeline-section-title-font);
+
+    font-size:
+        min(
+            var(--timeline-section-title-size),
+            14vw
+        );
+
+    font-weight: var(--timeline-section-title-weight);
+
+    letter-spacing: var(--timeline-section-title-letter-spacing);
+
+    line-height: var(--timeline-section-title-line-height);
+
+    color: var(--timeline-section-title-color);
+
+    translate:
+        var(--timeline-section-title-x)
+        var(--timeline-section-title-y);
 }
 
 
@@ -2626,7 +2695,7 @@ text-transform: uppercase;
 
 
 /* =========================================================
-   ETIQUETA / FECHA
+   HORA / ETIQUETA
 ========================================================= */
 
 .timeline-item span {
@@ -2656,7 +2725,7 @@ text-transform: uppercase;
 
 
 /* =========================================================
-   TÍTULO
+   NOMBRE DEL EVENTO
 ========================================================= */
 
 .timeline-item strong {
@@ -2682,36 +2751,6 @@ text-transform: uppercase;
     translate:
         var(--timeline-title-x)
         var(--timeline-title-y);
-}
-
-
-/* =========================================================
-   DESCRIPCIÓN
-========================================================= */
-
-.timeline-item p {
-
-    margin: var(--timeline-text-margin);
-
-    font-family: var(--timeline-text-font);
-
-    font-size:
-        min(
-            var(--timeline-text-size),
-            6vw
-        );
-
-    font-weight: var(--timeline-text-weight);
-
-    letter-spacing: var(--timeline-text-letter-spacing);
-
-    line-height: var(--timeline-text-line-height);
-
-    color: var(--timeline-text-color);
-
-    translate:
-        var(--timeline-text-x)
-        var(--timeline-text-y);
 }
 /* =========================================================
    PASE
