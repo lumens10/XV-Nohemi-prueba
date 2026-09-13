@@ -422,7 +422,9 @@
     --music-y: 0px;
     /* ===== FOOTER ===== */
     --footer-padding: 70px 30px;
-    --footer-title-size: 80px;
+    --footer-ornament-width: 50px;
+    --footer-ornament-position-y: 0px;
+    --footer-title-size: 50px;
     --footer-title-weight: 300;
     --footer-title-color: var(--c-cream);
     --footer-title-font: 'Cormorant Garamond', serif;
