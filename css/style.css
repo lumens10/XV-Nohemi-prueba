@@ -291,30 +291,38 @@
 --date-detail-value-font: 'Cormorant Garamond', serif;
 
  
-    /* ===== FAMILIA ===== */
-    --family-bg-x: 50%;
-    --family-bg-y: 50%;
-    --family-card-max-width: 500px;
-    --family-card-margin: 40px auto 80px;
-    --family-card-padding: 35px 20px;
-    --family-card-x: 0px;
-    --family-card-y: 0px;
-    --family-text-margin: 12px 0;
-    --family-text-size: 27px;
-    --family-text-weight: 300;
-    --family-text-line-height: 1.2;
-    --family-text-color: var(--c-cream);
-    --family-text-font: 'Cormorant Garamond', serif;
-    --family-text-letter-spacing: 0px;
-    --family-text-x: 0px;
-    --family-text-y: 0px;
-    --family-name-color: var(--c-gold);
-    --family-subheading-size: 50px;
-    --family-subheading-weight: 300;
-    --family-subheading-color: var(--c-cream);
-    --family-subheading-font: 'Parisienne', cursive;
-    --family-subheading-x: 0px;
-    --family-subheading-y: 0px;
+   /* ===== FAMILIA ===== */
+/* --- Sección / fondo --- */
+--family-bg-x: 50%;
+--family-bg-y: 50%;
+/* --- Tarjeta de familia --- */
+--family-card-max-width: 500px;
+--family-card-margin: 40px auto 80px;
+--family-card-padding: 35px 20px;
+--family-card-x: 0px;
+--family-card-y: 0px;
+/* --- Nombres de padres y padrinos --- */
+--family-text-margin: 12px 0;
+--family-text-size: 27px;
+--family-text-weight: 300;
+--family-text-line-height: 1.2;
+--family-text-color: var(--c-cream);
+--family-text-font: 'Cormorant Garamond', serif;
+--family-text-letter-spacing: 0px;
+--family-text-x: 0px;
+--family-text-y: 0px;
+/* --- Color específico de los nombres --- */
+--family-name-color: var(--c-gold);
+/* --- "Mis padrinos" --- */
+--family-subheading-size: 50px;
+--family-subheading-weight: 300;
+--family-subheading-color: var(--c-cream);
+--family-subheading-font: 'Parisienne', cursive;
+--family-subheading-letter-spacing: 0px;
+--family-subheading-line-height: 1.1;
+--family-subheading-margin: 45px 0 25px;
+--family-subheading-x: 0px;
+--family-subheading-y: 0px;
 
  
     /* ===== EVENTOS — CEREMONIA Y RECEPCIÓN ===== */
@@ -1829,74 +1837,87 @@ flex-shrink: 0;
 }
 /* =========================================================
    FAMILIA
-========================================================= */
+   ========================================================= */
 
+/* Fondo / posición general */
 .family-section {
-
-    background:
-        linear-gradient(
-            rgba(10, 8, 5, 0),
-            rgba(10, 8, 5, 0)
-        ),
-        url('../images/fondo con inicial.jpg')
-        center center /
-        cover no-repeat;
+    background-position:
+        var(--family-bg-x)
+        var(--family-bg-y);
 }
 
+
+/* =========================================================
+   TARJETAS DE FAMILIA
+   ========================================================= */
 
 .family-card {
-
-    width: 100%;
-
     max-width: var(--family-card-max-width);
-
     margin: var(--family-card-margin);
-
     padding: var(--family-card-padding);
-border-top:
-        1px solid
-        rgba(
-            201,
-            164,
-            92,
-            .4
-        );
 
-    border-bottom:
-        1px solid
-        rgba(
-            201,
-            164,
-            92,
-            .4
-        );
+    translate:
+        var(--family-card-x)
+        var(--family-card-y);
 }
 
+
+/* =========================================================
+   NOMBRES — PADRES Y PADRINOS
+   ========================================================= */
 
 .family-card p {
     margin: var(--family-text-margin);
 
     font-family: var(--family-text-font);
-
-    font-size: min(var(--family-text-size), 8vw);
-
+    font-size: var(--family-text-size);
+    font-weight: var(--family-text-weight);
     line-height: var(--family-text-line-height);
+    letter-spacing: var(--family-text-letter-spacing);
 
     color: var(--family-text-color);
-overflow-wrap: break-word;
+
+    translate:
+        var(--family-text-x)
+        var(--family-text-y);
 }
 
 
-.family-card span {
+/* Nombre destacado */
+.family-card p[data-father],
+.family-card p[data-mother],
+.family-card p[data-godfather],
+.family-card p[data-godmother] {
     color: var(--family-name-color);
 }
 
 
-.sub-heading {
-    font-size: min(var(--family-subheading-size), 16vw) !important;
+/* =========================================================
+   "Y" ENTRE LOS NOMBRES
+   ========================================================= */
+
+.family-card span {
+    font-family: var(--family-text-font);
+    color: var(--family-text-color);
 }
 
 
+/* =========================================================
+   SUBTÍTULO — MIS PADRINOS
+   ========================================================= */
+
+.family-section .sub-heading {
+    font-family: var(--family-subheading-font);
+
+    font-size: var(--family-subheading-size);
+    font-weight: var(--family-subheading-weight);
+
+    color: var(--family-subheading-color);
+
+    translate:
+        var(--family-subheading-x)
+        var(--family-subheading-y);
+}
 /* =========================================================
    EVENTOS
 ========================================================= */
