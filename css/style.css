@@ -313,6 +313,16 @@
 --family-text-y: 0px;
 /* --- Color específico de los nombres --- */
 --family-name-color: var(--c-gold);
+ /* --- Mis padres --- */
+--family-heading-margin: 0 0 25px;
+--family-heading-size: 50px;
+--family-heading-weight: 300;
+--family-heading-line-height: 1.1;
+--family-heading-letter-spacing: 0px;
+--family-heading-color: var(--c-cream);
+--family-heading-font: 'Parisienne', cursive;
+--family-heading-x: 0px;
+--family-heading-y: 0px;
 /* --- "Mis padrinos" --- */
 --family-subheading-size: 50px;
 --family-subheading-weight: 300;
@@ -1971,7 +1981,37 @@ flex-shrink: 0;
 
 }
 
+/* =========================================================
+   MIS PADRES
+========================================================= */
 
+.family-section > h2:not(.sub-heading) {
+
+    margin:
+        var(--family-heading-margin);
+
+    font-family:
+        var(--family-heading-font);
+
+    font-size:
+        var(--family-heading-size);
+
+    font-weight:
+        var(--family-heading-weight);
+
+    line-height:
+        var(--family-heading-line-height);
+
+    letter-spacing:
+        var(--family-heading-letter-spacing);
+
+    color:
+        var(--family-heading-color);
+
+    translate:
+        var(--family-heading-x)
+        var(--family-heading-y);
+}
 /* =========================================================
    MIS PADRINOS
 ========================================================= */
