@@ -1837,82 +1837,167 @@ flex-shrink: 0;
 }
 /* =========================================================
    FAMILIA
-   ========================================================= */
+========================================================= */
 
-/* Fondo / posición general */
 .family-section {
-    background-position:
+
+    background:
+        linear-gradient(
+            rgba(10, 8, 5, 0),
+            rgba(10, 8, 5, 0)
+        ),
+        url('../images/fondo con inicial.jpg')
         var(--family-bg-x)
-        var(--family-bg-y);
+        var(--family-bg-y) /
+        cover no-repeat;
+
 }
 
 
 /* =========================================================
-   TARJETAS DE FAMILIA
-   ========================================================= */
+   TARJETA FAMILIA
+========================================================= */
 
 .family-card {
-    max-width: var(--family-card-max-width);
-    margin: var(--family-card-margin);
-    padding: var(--family-card-padding);
+
+    width: 100%;
+
+    max-width:
+        var(--family-card-max-width);
+
+    margin:
+        var(--family-card-margin);
+
+    padding:
+        var(--family-card-padding);
 
     translate:
         var(--family-card-x)
         var(--family-card-y);
+
+    border-top:
+        1px solid
+        rgba(
+            201,
+            164,
+            92,
+            .4
+        );
+
+    border-bottom:
+        1px solid
+        rgba(
+            201,
+            164,
+            92,
+            .4
+        );
 }
 
 
 /* =========================================================
-   NOMBRES — PADRES Y PADRINOS
-   ========================================================= */
+   NOMBRES
+========================================================= */
 
 .family-card p {
-    margin: var(--family-text-margin);
 
-    font-family: var(--family-text-font);
-    font-size: var(--family-text-size);
-    font-weight: var(--family-text-weight);
-    line-height: var(--family-text-line-height);
-    letter-spacing: var(--family-text-letter-spacing);
+    margin:
+        var(--family-text-margin);
 
-    color: var(--family-text-color);
+    font-family:
+        var(--family-text-font);
+
+    font-size:
+        var(--family-text-size);
+
+    font-weight:
+        var(--family-text-weight);
+
+    line-height:
+        var(--family-text-line-height);
+
+    letter-spacing:
+        var(--family-text-letter-spacing);
+
+    color:
+        var(--family-text-color);
 
     translate:
         var(--family-text-x)
         var(--family-text-y);
+
+    overflow-wrap:
+        break-word;
 }
 
 
-/* Nombre destacado */
+/* =========================================================
+   COLOR DE LOS NOMBRES
+========================================================= */
+
 .family-card p[data-father],
 .family-card p[data-mother],
 .family-card p[data-godfather],
 .family-card p[data-godmother] {
-    color: var(--family-name-color);
+
+    color:
+        var(--family-name-color);
 }
 
 
 /* =========================================================
-   "Y" ENTRE LOS NOMBRES
-   ========================================================= */
+   "Y"
+========================================================= */
 
 .family-card span {
-    font-family: var(--family-text-font);
-    color: var(--family-text-color);
+
+    font-family:
+        var(--family-text-font);
+
+    font-size:
+        var(--family-text-size);
+
+    font-weight:
+        var(--family-text-weight);
+
+    line-height:
+        var(--family-text-line-height);
+
+    letter-spacing:
+        var(--family-text-letter-spacing);
+
+    color:
+        var(--family-text-color);
+
 }
 
 
 /* =========================================================
-   SUBTÍTULO — MIS PADRINOS
-   ========================================================= */
+   MIS PADRINOS
+========================================================= */
 
 .family-section .sub-heading {
-    font-family: var(--family-subheading-font);
 
-    font-size: var(--family-subheading-size);
-    font-weight: var(--family-subheading-weight);
+    margin:
+        var(--family-subheading-margin);
 
-    color: var(--family-subheading-color);
+    font-family:
+        var(--family-subheading-font);
+
+    font-size:
+        var(--family-subheading-size);
+
+    font-weight:
+        var(--family-subheading-weight);
+
+    line-height:
+        var(--family-subheading-line-height);
+
+    letter-spacing:
+        var(--family-subheading-letter-spacing);
+
+    color:
+        var(--family-subheading-color);
 
     translate:
         var(--family-subheading-x)
