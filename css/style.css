@@ -437,20 +437,54 @@
 --envelope-text-y: 0px;
  
     /* ===== TIMELINE ===== */
-    --timeline-max-width: 550px;
-    --timeline-margin: 60px auto;
-    --timeline-item-padding: clamp(24px,9vw,35px) clamp(14px,6vw,20px);
-    --timeline-item-gap: 8px;
-    --timeline-label-size: 10px;
-    --timeline-label-letter-spacing: 3px;
-    --timeline-label-color: #45060e;
-    --timeline-label-font: 'Montserrat', sans-serif;
-    --timeline-title-size: 30px;
-    --timeline-title-weight: 400;
-    --timeline-title-color: #45060e;
-    --timeline-title-font: 'Cormorant Garamond', serif;
-    --timeline-item-x: 0px;
-    --timeline-item-y: 0px;
+/* --- Contenedor general --- */
+--timeline-max-width: 550px;
+--timeline-margin: 60px auto;
+/* --- Cada evento --- */
+--timeline-item-padding: clamp(24px,9vw,35px) clamp(14px,6vw,20px);
+--timeline-item-gap: 8px;
+--timeline-item-x: 0px;
+--timeline-item-y: 0px;
+/* --- Línea central --- */
+--timeline-line-width: 1px;
+--timeline-line-color: rgba(201,164,92,.5);
+--timeline-line-x: 50%;
+/* --- Punto de cada evento --- */
+--timeline-dot-size: 7px;
+--timeline-dot-color: var(--gold);
+--timeline-dot-x: 50%;
+--timeline-dot-y: 0px;
+/* --- Etiqueta / fecha --- */
+--timeline-label-size: 10px;
+--timeline-label-weight: 400;
+--timeline-label-letter-spacing: 3px;
+--timeline-label-color: #45060e;
+--timeline-label-font: 'Montserrat', sans-serif;
+--timeline-label-margin: 0;
+--timeline-label-x: 0px;
+--timeline-label-y: 0px;
+/* --- Título del evento --- */
+--timeline-title-size: 30px;
+--timeline-title-weight: 400;
+--timeline-title-color: #45060e;
+--timeline-title-font: 'Cormorant Garamond', serif;
+--timeline-title-letter-spacing: 0px;
+--timeline-title-line-height: 1;
+--timeline-title-margin: 0;
+--timeline-title-x: 0px;
+--timeline-title-y: 0px;
+/* --- Descripción del evento --- */
+--timeline-text-size: 14px;
+--timeline-text-weight: 300;
+--timeline-text-color: rgba(27,24,20,.68);
+--timeline-text-font: 'Montserrat', sans-serif;
+--timeline-text-letter-spacing: 0px;
+--timeline-text-line-height: 1.8;
+--timeline-text-margin: 0;
+--timeline-text-x: 0px;
+--timeline-text-y: 0px;
+
+ 
     /* ===== PASE ===== */
     --pass-section-padding: clamp(70px,24vw,100px) clamp(16px,6vw,20px);
     --pass-card-max-width: 450px;
@@ -2491,6 +2525,7 @@ text-transform: uppercase;
 ========================================================= */
 
 .timeline-section {
+
     background:
         linear-gradient(
             rgba(9, 8, 7, 0),
@@ -2499,6 +2534,11 @@ text-transform: uppercase;
         url('../images/Fondo beige github.jpg')
         center center / cover no-repeat;
 }
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
 
 .timeline {
 
@@ -2512,43 +2552,55 @@ text-transform: uppercase;
 }
 
 
+/* =========================================================
+   LÍNEA CENTRAL
+========================================================= */
+
 .timeline::before {
 
     content: "";
 
     position: absolute;
 
-    left: 50%;
+    left: var(--timeline-line-x);
 
     top: 0;
 
     bottom: 0;
 
-    width: 1px;
+    width: var(--timeline-line-width);
 
-    background:
-        rgba(
-            201,
-            164,
-            92,
-            .5
-        );
+    background: var(--timeline-line-color);
 }
 
+
+/* =========================================================
+   CADA EVENTO
+========================================================= */
 
 .timeline-item {
 
     position: relative;
 
     padding: var(--timeline-item-padding);
-display: flex;
+
+    display: flex;
 
     flex-direction: column;
 
     gap: var(--timeline-item-gap);
-text-align: center;
+
+    text-align: center;
+
+    translate:
+        var(--timeline-item-x)
+        var(--timeline-item-y);
 }
 
+
+/* =========================================================
+   PUNTO
+========================================================= */
 
 .timeline-item::before {
 
@@ -2556,40 +2608,111 @@ text-align: center;
 
     position: absolute;
 
-    left: 50%;
+    left: var(--timeline-dot-x);
 
-    top: 0;
+    top: var(--timeline-dot-y);
 
-    width: 7px;
+    width: var(--timeline-dot-size);
 
-    height: 7px;
+    height: var(--timeline-dot-size);
 
     border-radius: 50%;
 
-    background: var(--gold);
+    background: var(--timeline-dot-color);
 
     transform:
         translateX(-50%);
 }
 
 
+/* =========================================================
+   ETIQUETA / FECHA
+========================================================= */
+
 .timeline-item span {
-    color: var(--timeline-label-color);
-font-size: var(--timeline-label-size);
+
+    margin: var(--timeline-label-margin);
+
+    font-family: var(--timeline-label-font);
+
+    font-size:
+        min(
+            var(--timeline-label-size),
+            6vw
+        );
+
+    font-weight: var(--timeline-label-weight);
 
     letter-spacing: var(--timeline-label-letter-spacing);
+
+    line-height: 1.2;
+
+    color: var(--timeline-label-color);
+
+    translate:
+        var(--timeline-label-x)
+        var(--timeline-label-y);
 }
 
+
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .timeline-item strong {
+
+    margin: var(--timeline-title-margin);
+
     font-family: var(--timeline-title-font);
 
-    font-size: min(var(--timeline-title-size), 10vw);
+    font-size:
+        min(
+            var(--timeline-title-size),
+            10vw
+        );
 
     font-weight: var(--timeline-title-weight);
+
+    letter-spacing: var(--timeline-title-letter-spacing);
+
+    line-height: var(--timeline-title-line-height);
+
+    color: var(--timeline-title-color);
+
+    translate:
+        var(--timeline-title-x)
+        var(--timeline-title-y);
 }
 
 
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.timeline-item p {
+
+    margin: var(--timeline-text-margin);
+
+    font-family: var(--timeline-text-font);
+
+    font-size:
+        min(
+            var(--timeline-text-size),
+            6vw
+        );
+
+    font-weight: var(--timeline-text-weight);
+
+    letter-spacing: var(--timeline-text-letter-spacing);
+
+    line-height: var(--timeline-text-line-height);
+
+    color: var(--timeline-text-color);
+
+    translate:
+        var(--timeline-text-x)
+        var(--timeline-text-y);
+}
 /* =========================================================
    PASE
 ========================================================= */
