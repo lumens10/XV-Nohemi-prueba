@@ -103,6 +103,7 @@
     --hero-eyebrow-color: var(--c-cream);
     --hero-eyebrow-x: 0px;
     --hero-eyebrow-y: clamp(-250px,-25svh,-100px);
+    --hero-eyebrow-font: 'Cormorant Garamond', serif;
     --hero-text-max-width: 420px;
     --hero-text-margin: 25px auto;
     --hero-text-size: clamp(21px,5vw,28px);
