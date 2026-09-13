@@ -89,7 +89,7 @@
     --hero-title-line-height: .75;
     --hero-title-letter-spacing: 0px;
     --hero-title-color: var(--c-cream);
-    --hero-title-font: 'Cormorant Garamond', serif;
+    --hero-title-font: 'Parisienne', cursive;
     --hero-title-x: 0px;
     --hero-title-y: clamp(70px,16.25svh,130px);
     --hero-line-width: 120px;
