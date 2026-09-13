@@ -70,56 +70,60 @@
     --opening-button-border: rgba(140,109,49,.75);
 
  
-    /* ===== HERO ===== */
-    --hero-min-height: 100svh;
-    --hero-bg-x: 50%;
-    --hero-bg-y: 50%;
-    --hero-frame-margin: 18px;
-    --hero-content-max-width: 900px;
-    --hero-content-padding: 40px 25px;
-    --hero-photo-width: 380px;
-    --hero-photo-max-width: 75vw;
-    --hero-photo-margin: 0 auto 5px;
-    --hero-photo-x: 0px;
-    --hero-photo-y: 0px;
-    --hero-photo-opacity: 0;
-    --hero-title-margin: 22px 0;
-    --hero-title-size: clamp(80px,22vw,190px);
-    --hero-title-weight: 300;
-    --hero-title-line-height: .75;
-    --hero-title-letter-spacing: 0px;
-    --hero-title-color: var(--c-cream);
-    --hero-title-font: 'Parisienne', cursive;
-    --hero-title-x: 0px;
-    --hero-title-y: clamp(70px,16.25svh,130px);
-    --hero-line-width: 120px;
-    --hero-line-height: 1px;
-    --hero-line-margin: 30px auto;
-    --hero-line-color: var(--c-gold);
-    --hero-line-x: 0px;
-    --hero-line-y: 0px;
-    --hero-eyebrow-size: 40px;
-    --hero-eyebrow-letter-spacing: 3px;
-    --hero-eyebrow-color: var(--c-cream);
-    --hero-eyebrow-x: 0px;
-    --hero-eyebrow-y: clamp(-250px,-25svh,-100px);
-    --hero-eyebrow-font: 'Cormorant Garamond', serif;
-    --hero-text-max-width: 420px;
-    --hero-text-margin: 25px auto;
-    --hero-text-size: clamp(21px,5vw,28px);
-    --hero-text-weight: 300;
-    --hero-text-line-height: 1.3;
-    --hero-text-letter-spacing: 0px;
-    --hero-text-color: var(--c-cream);
-    --hero-text-font: 'Cormorant Garamond', serif;
-    --hero-text-x: 0px;
-    --hero-text-y: clamp(90px,18.75svh,150px);
-    --hero-date-margin-top: 35px;
-    --hero-date-size: 11px;
-    --hero-date-letter-spacing: 7px;
-    --hero-date-color: var(--c-gold-light);
-    --hero-date-x: 0px;
-    --hero-date-y: clamp(95px,20svh,160px);
+   /* ===== HERO ===== */
+/* --- Sección completa --- */
+--hero-min-height: 100svh;
+--hero-bg-x: 50%;
+--hero-bg-y: 50%;
+--hero-frame-margin: 18px;
+/* --- Bloque completo --- */
+--hero-content-width: 100%;
+--hero-content-max-width: 900px;
+--hero-content-padding: 40px 25px;
+--hero-content-margin: 0 auto;
+--hero-content-x: 0px;
+--hero-content-y: 0px;
+/* --- Foto / inicial --- */
+--hero-photo-width: 380px;
+--hero-photo-max-width: 75vw;
+--hero-photo-margin: 0 auto 5px;
+--hero-photo-x: 0px;
+--hero-photo-y: 0px;
+--hero-photo-opacity: 0;
+/* --- Nombre Nohemi --- */
+--hero-title-margin: 22px 0;
+--hero-title-size: clamp(80px,22vw,190px);
+--hero-title-weight: 300;
+--hero-title-line-height: .75;
+--hero-title-letter-spacing: 0px;
+--hero-title-color: var(--c-cream);
+--hero-title-font: 'Parisienne', cursive;
+--hero-title-x: 0px;
+--hero-title-y: clamp(70px,16.25svh,130px);
+/* --- MIS XV --- */
+--hero-eyebrow-size: 40px;
+--hero-eyebrow-letter-spacing: 3px;
+--hero-eyebrow-color: var(--c-cream);
+--hero-eyebrow-x: 0px;
+--hero-eyebrow-y: clamp(-250px,-25svh,-100px);
+/* --- Frase --- */
+--hero-text-max-width: 420px;
+--hero-text-margin: 25px auto;
+--hero-text-size: clamp(21px,5vw,28px);
+--hero-text-weight: 300;
+--hero-text-line-height: 1.3;
+--hero-text-letter-spacing: 0px;
+--hero-text-color: var(--c-cream);
+--hero-text-font: 'Cormorant Garamond', serif;
+--hero-text-x: 0px;
+--hero-text-y: clamp(90px,18.75svh,150px);
+/* --- Fecha --- */
+--hero-date-margin-top: 35px;
+--hero-date-size: 11px;
+--hero-date-letter-spacing: 7px;
+--hero-date-color: var(--c-gold-light);
+--hero-date-x: 0px;
+--hero-date-y: clamp(95px,20svh,160px);
 
  
     /* ===== INTRO ===== */
@@ -1144,7 +1148,8 @@ text-transform: uppercase;
 
     width: 100%;
 
-    min-height: var(--hero-min-height);
+    min-height:
+        var(--hero-min-height);
 
     display: flex;
 
@@ -1160,12 +1165,17 @@ text-transform: uppercase;
             rgba(10, 8, 5, 0)
         ),
         url('../images/fondo foto.jpg')
-        center center /
+        var(--hero-bg-x)
+        var(--hero-bg-y) /
         cover no-repeat;
 
     text-align: center;
 }
 
+
+/* =========================================================
+   MARCO DEL HERO
+========================================================= */
 
 .hero::after {
 
@@ -1175,14 +1185,25 @@ text-transform: uppercase;
 
     inset: 0;
 
-    margin: var(--hero-frame-margin);
-border:
+    margin:
+        var(--hero-frame-margin);
+
+    border:
         1px solid
-        rgba(229, 207, 156, .18);
+        rgba(
+            229,
+            207,
+            156,
+            .18
+        );
 
     pointer-events: none;
 }
 
+
+/* =========================================================
+   OVERLAY
+========================================================= */
 
 .hero-overlay {
 
@@ -1199,33 +1220,63 @@ border:
 }
 
 
+/* =========================================================
+   HERO — BLOQUE COMPLETO
+========================================================= */
+
 .hero-content {
 
     position: relative;
 
     z-index: 2;
 
-    width: 100%;
+    width:
+        var(--hero-content-width);
 
-    max-width: var(--hero-content-max-width);
+    max-width:
+        var(--hero-content-max-width);
 
-    padding: var(--hero-content-padding);
+    margin:
+        var(--hero-content-margin);
+
+    padding:
+        var(--hero-content-padding);
+
+    translate:
+        var(--hero-content-x)
+        var(--hero-content-y);
 }
 
+
+/* =========================================================
+   FOTO / INICIAL
+========================================================= */
 
 .hero-photo {
 
     display: block;
 
-    width: min(var(--hero-photo-width), calc(100vw - 50px));
+    width:
+        min(
+            var(--hero-photo-width),
+            calc(100vw - 50px)
+        );
 
-    max-width: var(--hero-photo-max-width);
-height: auto;
+    max-width:
+        var(--hero-photo-max-width);
 
-    margin: var(--hero-photo-margin);
-position: relative;
+    height: auto;
+
+    margin:
+        var(--hero-photo-margin);
+
+    position: relative;
 
     z-index: 2;
+
+    translate:
+        var(--hero-photo-x)
+        var(--hero-photo-y);
 
     filter:
         drop-shadow(
@@ -1233,116 +1284,139 @@ position: relative;
             rgba(0, 0, 0, .35)
         );
 
-    opacity: var(--hero-photo-opacity);
+    opacity:
+        var(--hero-photo-opacity);
 }
 
+
+/* =========================================================
+   ANIMACIÓN FOTO
+========================================================= */
 
 #invitation.is-visible .hero-photo {
 
     animation:
-        heroPhotoAppear 2.5s ease-out forwards;
+        heroPhotoAppear
+        2.5s
+        ease-out
+        forwards;
 }
 
 
 /* =========================================================
-   HERO — ETIQUETA "MIS XV"
-   ---------------------------------------------------------
-   Este bloque es independiente del .section-label general.
-   Así los controles --hero-eyebrow-* sí modifican el elemento.
+   HERO — "MIS XV"
 ========================================================= */
 
 .hero .eyebrow {
+
     display: block;
-    margin: 0 0 10px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: min(var(--hero-eyebrow-size), 10vw);
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: var(--hero-eyebrow-letter-spacing);
-    color: var(--hero-eyebrow-color);
-    text-transform: uppercase;
+
+    margin:
+        0 0 10px;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        var(--hero-eyebrow-size);
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        var(--hero-eyebrow-letter-spacing);
+
+    color:
+        var(--hero-eyebrow-color);
+
+    text-transform:
+        uppercase;
+
+    translate:
+        var(--hero-eyebrow-x)
+        var(--hero-eyebrow-y);
 }
+
+
+/* =========================================================
+   ANIMACIÓN — MIS XV
+========================================================= */
 
 #invitation.is-visible .hero .eyebrow {
 
     animation:
-        heroTextAppear 1.5s ease-out forwards;
+        heroTextAppear
+        1.5s
+        ease-out
+        forwards;
 
-    animation-delay: 2s;
+    animation-delay:
+        2s;
 
-    opacity: 0;
+    opacity:
+        0;
 }
 
 
 /* =========================================================
-   NOMBRE HERO
+   NOMBRE — NOHEMI
 ========================================================= */
 
 .hero h1 {
-    margin: var(--hero-title-margin);
 
-    font-family: var(--hero-title-font);
+    margin:
+        var(--hero-title-margin);
 
-    font-size: var(--hero-title-size);
+    font-family:
+        var(--hero-title-font);
 
-    font-weight: var(--hero-title-weight);
+    font-size:
+        var(--hero-title-size);
 
-    line-height: var(--hero-title-line-height);
+    font-weight:
+        var(--hero-title-weight);
 
-    color: var(--hero-title-color);
+    line-height:
+        var(--hero-title-line-height);
+
+    letter-spacing:
+        var(--hero-title-letter-spacing);
+
+    color:
+        var(--hero-title-color);
+
+    translate:
+        var(--hero-title-x)
+        var(--hero-title-y);
 }
 
 
 /* =========================================================
-   LÍNEA DORADA
+   ANIMACIÓN — NOHEMI
 ========================================================= */
 
-.gold-line {
-    width: var(--hero-line-width);
-
-    height: var(--hero-line-height);
-
-    margin: var(--hero-line-margin);
-
-    background: var(--hero-line-color);
-}
-
-
-/* =========================================================
-   ANIMACIÓN LÍNEA DORADA
-========================================================= */
-
-@keyframes heroLineAppear {
-
-    from {
-
-        opacity: 0;
-
-        transform: scaleX(0);
-    }
-
-    to {
-
-        opacity: 1;
-
-        transform: scaleX(1);
-    }
-}
-
-
-#invitation.is-visible .hero .gold-line {
+#invitation.is-visible .hero h1 {
 
     animation:
-        heroLineAppear 1.2s ease-out forwards;
+        heroTextAppear
+        1.8s
+        ease-out
+        forwards;
 
-    animation-delay: 2.4s;
+    animation-delay:
+        1.4s;
 
-    opacity: 0;
+    opacity:
+        0;
 }
 
 
 /* =========================================================
-   ANIMACIÓN — FRASE DEL HERO
+   ANIMACIÓN — FRASE
 ========================================================= */
 
 @keyframes heroPhraseAppear {
@@ -1351,14 +1425,16 @@ position: relative;
 
         opacity: 0;
 
-        transform: translateY(20px);
+        transform:
+            translateY(20px);
     }
 
     to {
 
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
@@ -1366,16 +1442,92 @@ position: relative;
 #invitation.is-visible .hero p {
 
     animation:
-        heroPhraseAppear 1.5s ease-out forwards;
+        heroPhraseAppear
+        1.5s
+        ease-out
+        forwards;
 
-    animation-delay: 2.7s;
+    animation-delay:
+        2.7s;
 
-    opacity: 0;
+    opacity:
+        0;
 }
 
 
 /* =========================================================
-   ANIMACIÓN — FECHA DEL HERO
+   FRASE DEL HERO
+========================================================= */
+
+.hero p {
+
+    width:
+        100%;
+
+    max-width:
+        var(--hero-text-max-width);
+
+    margin:
+        var(--hero-text-margin);
+
+    font-family:
+        var(--hero-text-font);
+
+    font-size:
+        var(--hero-text-size);
+
+    font-weight:
+        var(--hero-text-weight);
+
+    font-style:
+        italic;
+
+    line-height:
+        var(--hero-text-line-height);
+
+    letter-spacing:
+        var(--hero-text-letter-spacing);
+
+    color:
+        var(--hero-text-color);
+
+    translate:
+        var(--hero-text-x)
+        var(--hero-text-y);
+}
+
+
+/* =========================================================
+   FECHA
+========================================================= */
+
+.hero-date {
+
+    display: block;
+
+    margin-top:
+        var(--hero-date-margin-top);
+
+    font-family:
+        var(--hero-text-font);
+
+    font-size:
+        var(--hero-date-size);
+
+    letter-spacing:
+        var(--hero-date-letter-spacing);
+
+    color:
+        var(--hero-date-color);
+
+    translate:
+        var(--hero-date-x)
+        var(--hero-date-y);
+}
+
+
+/* =========================================================
+   ANIMACIÓN — FECHA
 ========================================================= */
 
 @keyframes heroDateAppear {
@@ -1384,14 +1536,16 @@ position: relative;
 
         opacity: 0;
 
-        transform: translateY(15px);
+        transform:
+            translateY(15px);
     }
 
     to {
 
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+            translateY(0);
     }
 }
 
@@ -1399,47 +1553,17 @@ position: relative;
 #invitation.is-visible .hero .hero-date {
 
     animation:
-        heroDateAppear 1.5s ease-out forwards;
+        heroDateAppear
+        1.5s
+        ease-out
+        forwards;
 
-    animation-delay: 2.8s;
+    animation-delay:
+        2.8s;
 
-    opacity: 0;
+    opacity:
+        0;
 }
-
-
-.hero p {
-
-    width: 100%;
-
-    max-width: var(--hero-text-max-width);
-
-    margin: var(--hero-text-margin);
-
-    font-family: var(--hero-text-font);
-
-    font-size: var(--hero-text-size);
-font-style: italic;
-
-    line-height: var(--hero-text-line-height);
-
-    color: var(--hero-text-color);
-}
-
-
-.hero-date {
-
-    display: block;
-
-    margin-top: var(--hero-date-margin-top);
-
-    font-size: min(var(--hero-date-size), 3vw);
-
-    letter-spacing: var(--hero-date-letter-spacing);
-
-    color: var(--hero-date-color);
-}
-
-
 /* =========================================================
    SECCIONES GENERALES
 ========================================================= */
