@@ -488,7 +488,7 @@
 --envelope-label-y: 0px;
 /* --- Icono --- */
 --envelope-icon-margin: 30px 0;
---envelope-icon-size: 50px;
+--envelope-icon-size: 10px;
 --envelope-icon-color: var(--c-gold-light);
 --envelope-icon-x: 0px;
 --envelope-icon-y: 0px;
