@@ -190,37 +190,56 @@
     --count-divider-height: 35px;
     --count-divider-color: var(--c-gold);
     --count-divider-opacity: .45;
-    /* ===== FECHA ===== */
-    --date-bg: #45060e;
-    --date-title-margin-top: 25px;
-    --date-number-size: clamp(120px,30vw,220px);
-    --date-number-weight: 300;
-    --date-number-line-height: .7;
-    --date-number-color: #45060e;
-    --date-number-font: 'Cormorant Garamond', serif;
-    --date-number-x: 0px;
-    --date-number-y: 0px;
-    --date-month-margin-top: 25px;
-    --date-month-size: 15px;
-    --date-month-letter-spacing: 7px;
-    --date-month-color: #45060e;
-    --date-month-font: 'Montserrat', sans-serif;
-    --date-year-margin-top: 10px;
-    --date-year-size: 32px;
-    --date-year-color: #45060e;
-    --date-year-font: 'Cormorant Garamond', serif;
-    --date-details-max-width: 500px;
-    --date-details-margin: 60px auto 0;
-    --date-details-gap: clamp(18px,10vw,60px);
-    --date-detail-gap: 8px;
-    --date-detail-min-width: min(100px, 28vw);
-    --date-detail-label-size: 9px;
-    --date-detail-label-letter-spacing: 3px;
-    --date-detail-label-color: #45060e;
-    --date-detail-label-font: 'Montserrat', sans-serif;
-    --date-detail-value-size: 25px;
-    --date-detail-value-color: #45060e;
-    --date-detail-value-font: 'Cormorant Garamond', serif;
+   /* =========================================================
+   FECHA
+========================================================= */
+/* ===== FONDO ===== */
+--date-bg: #45060e;
+/* ===== ETIQUETA ===== */
+/* RESERVA LA FECHA */
+--date-label-color: #45060e;
+/* ===== NÚMERO ===== */
+/* 19 */
+--date-title-margin-top: 25px;
+--date-number-size: clamp(120px, 30vw, 220px);
+--date-number-weight: 300;
+--date-number-line-height: .7;
+--date-number-color: #45060e;
+--date-number-font: 'Cormorant Garamond', serif;
+--date-number-x: 0px;
+--date-number-y: 0px;
+/* ===== MES ===== */
+/* DICIEMBRE */
+--date-month-margin-top: 25px;
+--date-month-size: 15px;
+--date-month-letter-spacing: 7px;
+--date-month-color: #45060e;
+--date-month-font: 'Montserrat', sans-serif;
+/* ===== AÑO ===== */
+/* 2026 */
+--date-year-margin-top: 10px;
+--date-year-size: 32px;
+--date-year-color: #45060e;
+--date-year-font: 'Cormorant Garamond', serif;
+/* ===== DETALLES ===== */
+--date-details-max-width: 500px;
+--date-details-margin: 60px auto 0;
+--date-details-gap: clamp(18px, 10vw, 60px);
+--date-detail-gap: 8px;
+--date-detail-min-width: min(100px, 28vw);
+/* ===== ETIQUETAS ===== */
+/* CEREMONIA / RECEPCIÓN */
+--date-detail-label-size: 9px;
+--date-detail-label-letter-spacing: 3px;
+--date-detail-label-color: #45060e;
+--date-detail-label-font: 'Montserrat', sans-serif;
+/* ===== HORARIOS ===== */
+/* 11:00 AM / 6:00 PM */
+--date-detail-value-size: 25px;
+--date-detail-value-color: #45060e;
+--date-detail-value-font: 'Cormorant Garamond', serif;
+
+ 
     /* ===== FAMILIA ===== */
     --family-bg-x: 50%;
     --family-bg-y: 50%;
@@ -1446,69 +1465,141 @@ flex-shrink: 0;
 ========================================================= */
 
 .date-section {
-    position: relative;
 
-    overflow: hidden;
+    width: 100%;
+
+    padding: var(--section-padding);
 
     background:
-        linear-gradient(
-            rgba(9, 8, 7, 0),
-            rgba(9, 8, 7, 0)
-        ),
         url("../images/Fondo beige github.jpg")
-        center center / cover no-repeat;
+        center center /
+        cover
+        no-repeat;
 }
 
+
+/* =========================================================
+   ETIQUETA
+   RESERVA LA FECHA
+========================================================= */
 
 .date-section .section-label {
 
-    color: var(--gold-dark);
+    color:
+        var(--date-label-color);
 }
 
+
+/* =========================================================
+   NÚMERO
+   19
+========================================================= */
 
 .date-section h2 {
-    margin-top: var(--date-title-margin-top);
 
-    font-size: var(--date-number-size);
+    margin-top:
+        var(--date-title-margin-top);
 
-    line-height: var(--date-number-line-height);
+    font-size:
+        min(
+            var(--date-number-size),
+            30vw
+        );
 
-    color: var(--date-number-color);
+    font-weight:
+        var(--date-number-weight);
+
+    line-height:
+        var(--date-number-line-height);
+
+    color:
+        var(--date-number-color);
+
+    font-family:
+        var(--date-number-font);
+
+    translate:
+        var(--date-number-x)
+        var(--date-number-y);
 }
 
+
+/* =========================================================
+   MES
+   DICIEMBRE
+========================================================= */
 
 .month {
-    margin-top: var(--date-month-margin-top);
 
-    font-size: var(--date-month-size);
+    margin-top:
+        var(--date-month-margin-top);
 
-    letter-spacing: var(--date-month-letter-spacing);
+    font-size:
+        var(--date-month-size);
+
+    letter-spacing:
+        var(--date-month-letter-spacing);
+
+    color:
+        var(--date-month-color);
+
+    font-family:
+        var(--date-month-font);
 }
 
+
+/* =========================================================
+   AÑO
+   2026
+========================================================= */
 
 .year {
-    margin-top: var(--date-year-margin-top);
 
-    font-family: var(--date-year-font);
+    margin-top:
+        var(--date-year-margin-top);
 
-    font-size: var(--date-year-size);
+    font-size:
+        min(
+            var(--date-year-size),
+            12vw
+        );
+
+    color:
+        var(--date-year-color);
+
+    font-family:
+        var(--date-year-font);
 }
 
+
+/* =========================================================
+   CONTENEDOR DE DETALLES
+========================================================= */
 
 .date-details {
 
     width: 100%;
 
-    max-width: var(--date-details-max-width);
+    max-width:
+        var(--date-details-max-width);
 
-    margin: var(--date-details-margin);
-display: flex;
+    margin:
+        var(--date-details-margin);
+
+    display: flex;
 
     justify-content: center;
 
-    gap: var(--date-details-gap);
+    gap:
+        var(--date-details-gap);
+
+    box-sizing: border-box;
 }
 
+
+/* =========================================================
+   CADA DETALLE
+========================================================= */
 
 .date-details div {
 
@@ -1516,26 +1607,58 @@ display: flex;
 
     flex-direction: column;
 
-    gap: var(--date-detail-gap);
+    gap:
+        var(--date-detail-gap);
 
-    min-width: var(--date-detail-min-width);
+    min-width:
+        var(--date-detail-min-width);
+
+    max-width: 100%;
+
+    box-sizing: border-box;
 }
 
+
+/* =========================================================
+   ETIQUETA
+   CEREMONIA / RECEPCIÓN
+========================================================= */
 
 .date-details strong {
-    font-size: var(--date-detail-label-size);
 
-    letter-spacing: var(--date-detail-label-letter-spacing);
+    font-size:
+        var(--date-detail-label-size);
+
+    letter-spacing:
+        var(--date-detail-label-letter-spacing);
+
+    color:
+        var(--date-detail-label-color);
+
+    font-family:
+        var(--date-detail-label-font);
 }
 
+
+/* =========================================================
+   HORARIO
+   11:00 AM / 6:00 PM
+========================================================= */
 
 .date-details span {
-    font-family: var(--date-detail-value-font);
 
-    font-size: var(--date-detail-value-size);
+    font-size:
+        min(
+            var(--date-detail-value-size),
+            8vw
+        );
+
+    color:
+        var(--date-detail-value-color);
+
+    font-family:
+        var(--date-detail-value-font);
 }
-
-
 /* =========================================================
    FAMILIA
 ========================================================= */
