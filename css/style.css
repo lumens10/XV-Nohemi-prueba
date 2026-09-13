@@ -2780,26 +2780,30 @@ text-transform: uppercase;
 
 
 /* =========================================================
-   ICONO
+   ICONO PNG
 ========================================================= */
 
 .envelopes-section .envelope-icon {
 
     margin: var(--envelope-icon-margin);
 
-    font-size:
-        min(
-            var(--envelope-icon-size),
-            16vw
-        );
-
-    line-height: 1;
-
-    color: var(--envelope-icon-color);
-
     translate:
         var(--envelope-icon-x)
         var(--envelope-icon-y);
+}
+
+
+.envelopes-section .envelope-icon img {
+
+    display: block;
+
+    width: var(--envelope-icon-size);
+
+    max-width: 16vw;
+
+    height: auto;
+
+    margin: 0 auto;
 }
 
 
