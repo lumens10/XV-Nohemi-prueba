@@ -421,7 +421,7 @@
     --music-x: 0px;
     --music-y: 0px;
     /* ===== FOOTER ===== */
-    --footer-padding: 100px 20px;
+    --footer-padding: 70px 30px;
     --footer-title-size: 80px;
     --footer-title-weight: 300;
     --footer-title-color: var(--c-cream);
