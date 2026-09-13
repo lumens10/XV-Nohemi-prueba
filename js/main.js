@@ -19,7 +19,6 @@ let musicPlaying = false;
 
 /* =====================================================
    SEGURIDAD
-   Evita errores si algún elemento no existe.
 ===================================================== */
 
 if (!opening) {
@@ -195,43 +194,44 @@ if (dressHeading) {
 
 openButton?.addEventListener("click", async () => {
 
-    /*
-       Evitamos que el botón pueda ejecutarse
-       varias veces.
-    */
-
-    if (opening.classList.contains("opening-hidden")) {
+    if (
+        opening.classList.contains(
+            "opening-hidden"
+        )
+    ) {
         return;
     }
 
 
     /*
-       Permitir desplazamiento de la página.
+       Permitir desplazamiento.
     */
 
-    document.body.classList.add("page-open");
+    document.body.classList.add(
+        "page-open"
+    );
 
 
     /*
-       Mostrar el contenido principal.
+       Mostrar la invitación.
     */
 
-    invitationPage.classList.add("is-visible");
+    invitationPage.classList.add(
+        "is-visible"
+    );
 
 
     /*
-       Ocultar la pantalla de apertura.
+       Ocultar apertura.
     */
 
-    opening.classList.add("opening-hidden");
+    opening.classList.add(
+        "opening-hidden"
+    );
 
 
     /*
-       Intentar reproducir la música.
-
-       Como esta acción ocurre después de un clic
-       del usuario, los navegadores normalmente
-       permiten la reproducción.
+       Música
     */
 
     if (music) {
@@ -242,7 +242,9 @@ openButton?.addEventListener("click", async () => {
 
             musicPlaying = true;
 
-            musicButton?.classList.add("playing");
+            musicButton?.classList.add(
+                "playing"
+            );
 
         } catch (error) {
 
@@ -263,7 +265,10 @@ openButton?.addEventListener("click", async () => {
    CONTROL DE MÚSICA
 ===================================================== */
 
-if (musicButton && music) {
+if (
+    musicButton &&
+    music
+) {
 
     musicButton.addEventListener(
         "click",
@@ -310,14 +315,6 @@ if (musicButton && music) {
 /* =====================================================
    CONTADOR
 ===================================================== */
-
-/*
-   El evento está configurado para:
-   19 de diciembre de 2026
-   6:00 PM
-
-   Usamos directamente la fecha del config.js.
-*/
 
 const targetDate =
     new Date(
@@ -376,29 +373,38 @@ function updateCountdown() {
 
     const hours =
         Math.floor(
-            (difference /
-            (1000 * 60 * 60)) % 24
+            (
+                difference /
+                (1000 * 60 * 60)
+            ) % 24
         );
 
 
     const minutes =
         Math.floor(
-            (difference /
-            (1000 * 60)) % 60
+            (
+                difference /
+                (1000 * 60)
+            ) % 60
         );
 
 
     const seconds =
         Math.floor(
-            (difference /
-            1000) % 60
+            (
+                difference /
+                1000
+            ) % 60
         );
 
 
     if (daysElement) {
 
         daysElement.textContent =
-            String(days).padStart(2, "0");
+            String(days).padStart(
+                2,
+                "0"
+            );
 
     }
 
@@ -406,7 +412,10 @@ function updateCountdown() {
     if (hoursElement) {
 
         hoursElement.textContent =
-            String(hours).padStart(2, "0");
+            String(hours).padStart(
+                2,
+                "0"
+            );
 
     }
 
@@ -414,7 +423,10 @@ function updateCountdown() {
     if (minutesElement) {
 
         minutesElement.textContent =
-            String(minutes).padStart(2, "0");
+            String(minutes).padStart(
+                2,
+                "0"
+            );
 
     }
 
@@ -422,7 +434,10 @@ function updateCountdown() {
     if (secondsElement) {
 
         secondsElement.textContent =
-            String(seconds).padStart(2, "0");
+            String(seconds).padStart(
+                2,
+                "0"
+            );
 
     }
 
@@ -443,7 +458,9 @@ setInterval(
 ===================================================== */
 
 const passNumber =
-    document.querySelector(".pass-number");
+    document.querySelector(
+        ".pass-number"
+    );
 
 
 if (passNumber) {
@@ -485,6 +502,7 @@ if (whatsappButton) {
     whatsappButton.target =
         "_blank";
 
+
     whatsappButton.rel =
         "noopener noreferrer";
 
@@ -495,35 +513,15 @@ if (whatsappButton) {
    ANIMACIONES AL HACER SCROLL
 ===================================================== */
 
-/*
-   Detectamos todos los bloques que tienen
-   la clase ".reveal".
-
-   IMPORTANTE:
-   El Hero NO utiliza esta clase.
-
-   Por lo tanto, sus animaciones originales
-   continúan funcionando exactamente igual.
-*/
-
 const revealElements =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
 
 
 /* =====================================================
    DIRECCIÓN DEL SCROLL
 ===================================================== */
-
-/*
-   Guardamos la posición anterior del scroll
-   para saber si el usuario está:
-
-   - bajando
-   - subiendo
-
-   Esto nos permite hacer que cada bloque
-   desaparezca en la dirección correcta.
-*/
 
 let lastScrollY =
     window.scrollY;
@@ -571,117 +569,209 @@ window.addEventListener(
 
 /* =========================================================
    INTERSECTION OBSERVER
-   ========================================================= */
+   ---------------------------------------------------------
+   OBSERVER 1:
+   Controla la entrada y salida general de cada sección.
 
-if (revealElements.length > 0 && "IntersectionObserver" in window) {
+   OBSERVER 2:
+   Controla cuándo comienza la animación individual
+   de los elementos internos.
+========================================================= */
 
-    /* OBSERVER GENERAL
-       Controla la entrada y salida de cada sección.
-    */
+if (
+    revealElements.length > 0 &&
+    "IntersectionObserver" in window
+) {
 
-    const observer = new IntersectionObserver((entries) => {
 
-        entries.forEach(entry => {
+    /* =====================================================
+       OBSERVER GENERAL
+    ===================================================== */
 
-            if (entry.isIntersecting) {
+    const observer =
+        new IntersectionObserver(
+            (entries) => {
 
-                entry.target.classList.remove("exit-up", "exit-down");
+                entries.forEach(
+                    entry => {
 
-                entry.target.classList.add("visible");
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-            } else {
+                            /*
+                               La sección entra
+                               en pantalla.
+                            */
 
-                entry.target.classList.remove("visible");
+                            entry.target.classList.remove(
+                                "exit-up",
+                                "exit-down"
+                            );
+
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+                        } else {
+
+                            /*
+                               La sección salió
+                               de pantalla.
+
+                               También reiniciamos
+                               la animación interna.
+                            */
+
+                            entry.target.classList.remove(
+                                "visible"
+                            );
+
+
+                            entry.target.classList.remove(
+                                "animate-content"
+                            );
+
+
+                            /*
+                               Dirección de salida.
+                            */
+
+                            if (
+                                scrollDirection ===
+                                "down"
+                            ) {
+
+                                entry.target.classList.remove(
+                                    "exit-down"
+                                );
+
+                                entry.target.classList.add(
+                                    "exit-up"
+                                );
+
+                            } else {
+
+                                entry.target.classList.remove(
+                                    "exit-up"
+                                );
+
+                                entry.target.classList.add(
+                                    "exit-down"
+                                );
+
+                            }
+
+                        }
+
+                    }
+                );
+
+            },
+            {
 
                 /*
-                   También reiniciamos la animación individual.
-                   Así podrá volver a ejecutarse cuando la sección
-                   entre nuevamente en la zona de animación.
+                   Detectamos la sección
+                   cuando apenas comienza
+                   a entrar.
                 */
 
-                entry.target.classList.remove("animate-content");
+                threshold: 0.05,
 
-                if (scrollDirection === "down") {
-
-                    entry.target.classList.remove("exit-down");
-                    entry.target.classList.add("exit-up");
-
-                } else {
-
-                    entry.target.classList.remove("exit-up");
-                    entry.target.classList.add("exit-down");
-
-                }
+                rootMargin:
+                    "5% 0px 5% 0px"
 
             }
-
-        });
-
-    }, {
-
-        threshold: 0.05,
-
-        /*
-           El bloque general puede detectarse antes,
-           pero todavía NO dispara la animación interna.
-        */
-
-        rootMargin: "5% 0px 5% 0px"
-
-    });
+        );
 
 
     /* =====================================================
        OBSERVER DE ANIMACIÓN INTERNA
-       ===================================================== */
+    ===================================================== */
 
-    const contentObserver = new IntersectionObserver((entries) => {
+    const contentObserver =
+        new IntersectionObserver(
+            (entries) => {
 
-        entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-            if (entry.isIntersecting) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                entry.target.classList.add("animate-content");
+                            /*
+                               Ahora sí:
+                               comienza la animación
+                               individual.
+                            */
 
-            } else {
+                            entry.target.classList.add(
+                                "animate-content"
+                            );
 
-                entry.target.classList.remove("animate-content");
+                        } else {
+
+                            /*
+                               La sección salió
+                               de la zona central.
+
+                               La dejamos preparada
+                               para reproducirse otra
+                               vez al regresar.
+                            */
+
+                            entry.target.classList.remove(
+                                "animate-content"
+                            );
+
+                        }
+
+                    }
+                );
+
+            },
+            {
+
+                /*
+                   ZONA CENTRAL DE ACTIVACIÓN.
+
+                   El bloque debe entrar bastante
+                   dentro de la pantalla antes
+                   de comenzar su animación.
+                */
+
+                threshold: 0.15,
+
+                rootMargin:
+                    "-18% 0px -18% 0px"
 
             }
-
-        });
-
-    }, {
-
-        /*
-           La sección debe estar mucho más dentro de la pantalla
-           antes de activar sus elementos internos.
-        */
-
-        threshold: 0.15,
-
-        rootMargin: "-18% 0px -18% 0px"
-
-    });
+        );
 
 
-    revealElements.forEach(element => {
-
-        observer.observe(element);
-
-        contentObserver.observe(element);
-
-    });
-
-}
-    /* =================================================
+    /* =====================================================
        COMENZAR A OBSERVAR
-    ================================================= */
+    ===================================================== */
 
     revealElements.forEach(
         element => {
 
+            /*
+               Observer general.
+            */
+
             observer.observe(
+                element
+            );
+
+
+            /*
+               Observer de contenido.
+            */
+
+            contentObserver.observe(
                 element
             );
 
@@ -689,24 +779,16 @@ if (revealElements.length > 0 && "IntersectionObserver" in window) {
     );
 
 }
+
+
 /* =====================================================
    INICIALIZACIÓN
 ===================================================== */
-
-/*
-   La invitación empieza bloqueada detrás
-   de la pantalla de apertura.
-*/
 
 document.body.classList.remove(
     "page-open"
 );
 
-
-/*
-   Nos aseguramos de que la pantalla
-   de apertura esté visible al cargar.
-*/
 
 opening.classList.remove(
     "opening-hidden"
