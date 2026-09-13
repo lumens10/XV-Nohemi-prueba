@@ -718,7 +718,7 @@ if (
                    entra en la zona de observación.
                 */
 
-                threshold: 0.10,
+                threshold: 0.5,
 
 
                 /*
