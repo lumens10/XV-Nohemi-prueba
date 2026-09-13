@@ -480,7 +480,7 @@
 /* --- Etiqueta de sección --- */
 --envelope-label-color: #45060e;
 --envelope-label-font: 'Montserrat', sans-serif;
---envelope-label-size: 10px;
+--envelope-label-size: 35px;
 --envelope-label-weight: 400;
 --envelope-label-letter-spacing: 4px;
 --envelope-label-margin: 0 0 20px;
