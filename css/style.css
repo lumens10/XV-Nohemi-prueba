@@ -42,6 +42,8 @@
     --text: var(--c-cream);
     --text-muted: var(--c-text-muted);
     --text-dark: var(--c-text-dark);
+
+ 
     /* ===== APERTURA ===== */
     --opening-padding: 30px 20px;
     --opening-bg-x: 50%;
@@ -66,6 +68,8 @@
     --opening-button-color: var(--c-cream);
     --opening-button-bg: rgba(9,8,7,.85);
     --opening-button-border: rgba(140,109,49,.75);
+
+ 
     /* ===== HERO ===== */
     --hero-min-height: 100svh;
     --hero-bg-x: 50%;
@@ -115,6 +119,8 @@
     --hero-date-color: var(--c-gold-light);
     --hero-date-x: 0px;
     --hero-date-y: clamp(95px,20svh,160px);
+
+ 
     /* ===== INTRO ===== */
     --intro-bg-x: 50%;
     --intro-bg-y: 50%;
@@ -156,6 +162,8 @@
     --intro-label-margin: 0 0 0;
     --intro-label-x: 0px;
     --intro-label-y: 0px;
+
+ 
     /* ===== CUENTA REGRESIVA ===== */
     --count-section-padding: 200px 25px;
     --count-bg-x: 50%;
@@ -190,9 +198,8 @@
     --count-divider-height: 35px;
     --count-divider-color: var(--c-gold);
     --count-divider-opacity: .45;
-   /* =========================================================
-   FECHA
-========================================================= */
+ 
+   /* =================== FECHA ================= */
 /* ===== FONDO ===== */
 --date-bg: #45060e;
 /* ===== ETIQUETA ===== */
@@ -264,6 +271,8 @@
     --family-subheading-font: 'Cormorant Garamond', serif;
     --family-subheading-x: 0px;
     --family-subheading-y: 0px;
+
+ 
     /* ===== EVENTOS — CEREMONIA Y RECEPCIÓN ===== */
     --event-min-height: 80svh;
     --event-frame-margin: 20px;
@@ -522,6 +531,8 @@
     --pass-number-weight: 400;
     --pass-number-color: var(--c-text-dark);
     --pass-number-font: 'Cormorant Garamond', serif;
+
+ 
     /* ===== RSVP ===== */
     --rsvp-bottom-padding: 130px;
     --whatsapp-margin-top: 25px;
@@ -533,6 +544,8 @@
     --whatsapp-bg: #25d366;
     --whatsapp-x: 0px;
     --whatsapp-y: 0px;
+
+ 
     /* ===== MÚSICA ===== */
     --music-right: 20px;
     --music-bottom: 20px;
@@ -542,6 +555,8 @@
     --music-bg: rgba(10,8,5,.82);
     --music-x: 0px;
     --music-y: 0px;
+
+ 
    /* ===== FOOTER ===== */
 --footer-padding: 70px 30px;
 /* PNG */
@@ -559,6 +574,8 @@
 --footer-text-letter-spacing: 3px;
 --footer-text-color: var(--c-gold-light);
 --footer-text-font: 'Montserrat', sans-serif;
+
+ 
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
     --section-padding: 110px 25px;
     --section-label-size: 10px;
