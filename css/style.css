@@ -400,29 +400,42 @@
 --dress-text-x: 0px;
 --dress-text-y: 0px;
  
-    /* ===== SOBRES ===== */
-    --envelope-title-color: #45060e;
-    --envelope-title-font: 'Cormorant Garamond', serif;
-    --envelope-text-color: #45060e;
-    --envelope-text-font: 'Montserrat', sans-serif;
-    --envelope-icon-margin: 30px 0;
-    --envelope-icon-size: 50px;
-    --envelope-icon-color: var(--c-gold-light);
-    --envelope-icon-x: 0px;
-    --envelope-icon-y: 0px;
-    --envelope-title-size: clamp(45px,10vw,80px);
-    --envelope-title-weight: 300;
-    --envelope-title-letter-spacing: 0px;
-    --envelope-title-margin: 20px auto 30px;
-    --envelope-title-x: 0px;
-    --envelope-title-y: 0px;
-    --envelope-text-size: 14px;
-    --envelope-text-weight: 300;
-    --envelope-text-line-height: 1.9;
-    --envelope-text-letter-spacing: 0px;
-    --envelope-text-margin: 20px auto;
-    --envelope-text-x: 0px;
-    --envelope-text-y: 0px;
+   /* ===== SOBRES ===== */
+/* --- Etiqueta de sección --- */
+--envelope-label-color: #45060e;
+--envelope-label-font: 'Montserrat', sans-serif;
+--envelope-label-size: 10px;
+--envelope-label-weight: 400;
+--envelope-label-letter-spacing: 4px;
+--envelope-label-margin: 0 0 20px;
+--envelope-label-x: 0px;
+--envelope-label-y: 0px;
+/* --- Icono --- */
+--envelope-icon-margin: 30px 0;
+--envelope-icon-size: 50px;
+--envelope-icon-color: var(--c-gold-light);
+--envelope-icon-x: 0px;
+--envelope-icon-y: 0px;
+/* --- Título --- */
+--envelope-title-color: #45060e;
+--envelope-title-font: 'Cormorant Garamond', serif;
+--envelope-title-size: clamp(45px,10vw,80px);
+--envelope-title-weight: 300;
+--envelope-title-letter-spacing: 0px;
+--envelope-title-margin: 20px auto 30px;
+--envelope-title-x: 0px;
+--envelope-title-y: 0px;
+/* --- Texto --- */
+--envelope-text-color: #45060e;
+--envelope-text-font: 'Montserrat', sans-serif;
+--envelope-text-size: 14px;
+--envelope-text-weight: 300;
+--envelope-text-line-height: 1.9;
+--envelope-text-letter-spacing: 0px;
+--envelope-text-margin: 20px auto;
+--envelope-text-x: 0px;
+--envelope-text-y: 0px;
+ 
     /* ===== TIMELINE ===== */
     --timeline-max-width: 550px;
     --timeline-margin: 60px auto;
@@ -2348,28 +2361,130 @@ text-transform: uppercase;
         var(--dress-text-y);
 }
 /* =========================================================
-   LLUVIA DE SOBRES
+   SOBRES
 ========================================================= */
 
 .envelopes-section {
 
     background:
         linear-gradient(
-            rgba(9, 8, 7, 0),
-            rgba(9, 8, 7, 0)
+            rgba(5, 4, 3, 0),
+            rgba(5, 4, 3, 0)
         ),
         url('../images/Fondo beige github.jpg')
-        center center / cover no-repeat;
+        center center /
+        cover no-repeat;
+
+    color: var(--text-dark);
 }
 
 
-.envelope-icon {
+/* =========================================================
+   ETIQUETA
+========================================================= */
+
+.envelopes-section .section-label {
+
+    margin: var(--envelope-label-margin);
+
+    font-family: var(--envelope-label-font);
+
+    font-size: var(--envelope-label-size);
+
+    font-weight: var(--envelope-label-weight);
+
+    letter-spacing: var(--envelope-label-letter-spacing);
+
+    color: var(--envelope-label-color);
+
+    translate:
+        var(--envelope-label-x)
+        var(--envelope-label-y);
+}
+
+
+/* =========================================================
+   ICONO
+========================================================= */
+
+.envelopes-section .envelope-icon {
+
     margin: var(--envelope-icon-margin);
 
+    font-size:
+        min(
+            var(--envelope-icon-size),
+            16vw
+        );
+
+    line-height: 1;
+
     color: var(--envelope-icon-color);
-font-size: min(var(--envelope-icon-size), 16vw);
+
+    translate:
+        var(--envelope-icon-x)
+        var(--envelope-icon-y);
 }
 
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.envelopes-section h2 {
+
+    margin: var(--envelope-title-margin);
+
+    font-family: var(--envelope-title-font);
+
+    font-size:
+        min(
+            var(--envelope-title-size),
+            14vw
+        );
+
+    font-weight: var(--envelope-title-weight);
+
+    letter-spacing: var(--envelope-title-letter-spacing);
+
+    line-height: 1;
+
+    color: var(--envelope-title-color);
+
+    translate:
+        var(--envelope-title-x)
+        var(--envelope-title-y);
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.envelopes-section p {
+
+    margin: var(--envelope-text-margin);
+
+    font-family: var(--envelope-text-font);
+
+    font-size:
+        min(
+            var(--envelope-text-size),
+            6vw
+        );
+
+    font-weight: var(--envelope-text-weight);
+
+    line-height: var(--envelope-text-line-height);
+
+    letter-spacing: var(--envelope-text-letter-spacing);
+
+    color: var(--envelope-text-color);
+
+    translate:
+        var(--envelope-text-x)
+        var(--envelope-text-y);
+}
 
 /* =========================================================
    TIMELINE
