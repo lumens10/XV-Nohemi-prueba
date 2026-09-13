@@ -48,10 +48,10 @@
     --opening-padding: 30px 20px;
     --opening-bg-x: 50%;
     --opening-bg-y: 50%;
-    --opening-logo-width: clamp(180px,42vw,340px);
+    --opening-logo-width: clamp(120px,22vw,260px);
     --opening-logo-max-width: 85%;
     --opening-logo-max-height: 45svh;
-    --opening-logo-margin: 0 auto 10px;
+    --opening-logo-margin: 0 auto 5px;
     --opening-logo-x: 0px;
     --opening-logo-y: -20px;
     --opening-title-margin: -20px 0 28px;
