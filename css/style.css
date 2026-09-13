@@ -105,7 +105,7 @@
 --hero-eyebrow-letter-spacing: 3px;
 --hero-eyebrow-color: var(--c-cream);
 --hero-eyebrow-x: 0px;
---hero-eyebrow-y: clamp(-250px,-25svh,-100px);
+--hero-eyebrow-y: clamp(-200px,-20svh,-80px);
 /* --- Frase --- */
 --hero-text-max-width: 420px;
 --hero-text-margin: 25px auto;
@@ -633,7 +633,7 @@
 --footer-title-size: 80px;
 --footer-title-weight: 300;
 --footer-title-color: var(--c-cream);
---footer-title-font: 'Cormorant Garamond', serif;
+--footer-title-font: 'Parisienne', cursive;
 /* TEXTO */
 --footer-text-margin: 15px 0;
 --footer-text-size: 10px;
