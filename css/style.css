@@ -305,7 +305,7 @@
 --gallery-label-size: 10px;
 --gallery-label-weight: 400;
 --gallery-label-letter-spacing: 4px;
---gallery-label-color: var(--gold-dark);
+--gallery-label-color: #45060e;
 --gallery-label-font: 'Montserrat', sans-serif;
 --gallery-label-margin: 0 0 15px;
 --gallery-label-x: 0px;
@@ -314,7 +314,7 @@
 --gallery-title-size: 48px;
 --gallery-title-weight: 400;
 --gallery-title-line-height: 1;
---gallery-title-color: var(--brown-dark);
+--gallery-title-color: #45060e;
 --gallery-title-font: 'Cormorant Garamond', serif;
 --gallery-title-margin: 0;
 --gallery-title-x: 0px;
