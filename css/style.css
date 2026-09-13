@@ -299,37 +299,71 @@
     --gold-button-bg: transparent;
     --gold-button-x: 0px;
     --gold-button-y: 0px;
+ 
     /* ===== GALERÍA ===== */
-    --gallery-max-width: 1000px;
-    --gallery-margin: 50px auto 0;
-    --gallery-gap: 8px;
-    --gallery-item-min-height: clamp(150px,55vw,220px);
-    --gallery-img-x: 50%;
-    --gallery-img-y: 50%;
-    --gallery-img-1-x: 50%;
-    --gallery-img-1-y: 50%;
-    --gallery-img-2-x: 50%;
-    --gallery-img-2-y: 50%;
-    --gallery-img-3-x: 50%;
-    --gallery-img-3-y: 50%;
-    --gallery-img-4-x: 50%;
-    --gallery-img-4-y: 50%;
-    --gallery-img-5-x: 50%;
-    --gallery-img-5-y: 50%;
-    --gallery-img-6-x: 50%;
-    --gallery-img-6-y: 50%;
-    --gallery-img-7-x: 50%;
-    --gallery-img-7-y: 50%;
-    --gallery-img-8-x: 50%;
-    --gallery-img-8-y: 50%;
-    --gallery-img-9-x: 50%;
-    --gallery-img-9-y: 50%;
-    --gallery-img-10-x: 50%;
-    --gallery-img-10-y: 50%;
-    --gallery-img-11-x: 50%;
-    --gallery-img-11-y: 50%;
-    --gallery-img-12-x: 50%;
-    --gallery-img-12-y: 50%;
+/* --- Texto superior: MOMENTOS --- */
+--gallery-label-size: 10px;
+--gallery-label-weight: 400;
+--gallery-label-letter-spacing: 4px;
+--gallery-label-color: var(--gold-dark);
+--gallery-label-font: 'Montserrat', sans-serif;
+--gallery-label-margin: 0 0 15px;
+--gallery-label-x: 0px;
+--gallery-label-y: 0px;
+/* --- Título: Un poco de mí --- */
+--gallery-title-size: 48px;
+--gallery-title-weight: 400;
+--gallery-title-line-height: 1;
+--gallery-title-color: var(--brown-dark);
+--gallery-title-font: 'Cormorant Garamond', serif;
+--gallery-title-margin: 0;
+--gallery-title-x: 0px;
+--gallery-title-y: 0px;
+/* --- Galería --- */
+--gallery-max-width: 1000px;
+--gallery-margin: 50px auto 0;
+--gallery-gap: 8px;
+--gallery-item-min-height: clamp(150px,55vw,220px);
+/* --- Posición general de imágenes --- */
+--gallery-img-x: 50%;
+--gallery-img-y: 50%;
+/* --- Imagen 1 --- */
+--gallery-img-1-x: 50%;
+--gallery-img-1-y: 50%;
+/* --- Imagen 2 --- */
+--gallery-img-2-x: 50%;
+--gallery-img-2-y: 50%;
+/* --- Imagen 3 --- */
+--gallery-img-3-x: 50%;
+--gallery-img-3-y: 50%;
+/* --- Imagen 4 --- */
+--gallery-img-4-x: 50%;
+--gallery-img-4-y: 50%;
+/* --- Imagen 5 --- */
+--gallery-img-5-x: 50%;
+--gallery-img-5-y: 50%;
+/* --- Imagen 6 --- */
+--gallery-img-6-x: 50%;
+--gallery-img-6-y: 50%;
+/* --- Imagen 7 --- */
+--gallery-img-7-x: 50%;
+--gallery-img-7-y: 50%;
+/* --- Imagen 8 --- */
+--gallery-img-8-x: 50%;
+--gallery-img-8-y: 50%;
+/* --- Imagen 9 --- */
+--gallery-img-9-x: 50%;
+--gallery-img-9-y: 50%;
+/* --- Imagen 10 --- */
+--gallery-img-10-x: 50%;
+--gallery-img-10-y: 50%;
+/* --- Imagen 11 --- */
+--gallery-img-11-x: 50%;
+--gallery-img-11-y: 50%;
+/* --- Imagen 12 --- */
+--gallery-img-12-x: 50%;
+--gallery-img-12-y: 50%;
+ 
     /* ===== VESTIMENTA ===== */
     --dress-title-color: var(--c-text-dark);
     --dress-title-font: 'Cormorant Garamond', serif;
@@ -1897,6 +1931,63 @@ text-transform: uppercase;
         center center / cover no-repeat;
 }
 
+
+/* =========================================================
+   TEXTO — MOMENTOS
+========================================================= */
+
+.gallery-section .section-label {
+
+    margin: var(--gallery-label-margin);
+
+    font-family: var(--gallery-label-font);
+
+    font-size: var(--gallery-label-size);
+
+    font-weight: var(--gallery-label-weight);
+
+    letter-spacing: var(--gallery-label-letter-spacing);
+
+    color: var(--gallery-label-color);
+
+    translate:
+        var(--gallery-label-x)
+        var(--gallery-label-y);
+}
+
+
+/* =========================================================
+   TÍTULO — UN POCO DE MÍ
+========================================================= */
+
+.gallery-section h2 {
+
+    margin: var(--gallery-title-margin);
+
+    font-family: var(--gallery-title-font);
+
+    font-size:
+        min(
+            var(--gallery-title-size),
+            12vw
+        );
+
+    font-weight: var(--gallery-title-weight);
+
+    line-height: var(--gallery-title-line-height);
+
+    color: var(--gallery-title-color);
+
+    translate:
+        var(--gallery-title-x)
+        var(--gallery-title-y);
+}
+
+
+/* =========================================================
+   CONTENEDOR DE GALERÍA
+========================================================= */
+
 .gallery {
 
     width: 100%;
@@ -1904,7 +1995,8 @@ text-transform: uppercase;
     max-width: var(--gallery-max-width);
 
     margin: var(--gallery-margin);
-display: grid;
+
+    display: grid;
 
     grid-template-columns:
         repeat(
@@ -1918,22 +2010,28 @@ display: grid;
     gap: var(--gallery-gap);
 
     background: transparent;
-
 }
 
+
+/* =========================================================
+   CADA FOTO
+========================================================= */
 
 .gallery-item {
 
     position: relative;
 
     min-height: var(--gallery-item-min-height);
-overflow: hidden;
 
-     background: transparent;
-        
- 
+    overflow: hidden;
+
+    background: transparent;
 }
 
+
+/* =========================================================
+   FOTO GRANDE
+========================================================= */
 
 .gallery-item.large {
 
@@ -1941,11 +2039,19 @@ overflow: hidden;
 }
 
 
+/* =========================================================
+   FOTO ANCHA
+========================================================= */
+
 .gallery-item.wide {
 
     grid-column: span 2;
 }
 
+
+/* =========================================================
+   IMÁGENES
+========================================================= */
 
 .gallery-item img {
 
@@ -1953,19 +2059,151 @@ overflow: hidden;
 
     height: 100%;
 
+    display: block;
+
     object-fit: cover;
 
     transition:
         transform 1s ease;
+
+    object-position:
+        var(--gallery-img-x)
+        var(--gallery-img-y);
 }
 
+
+/* =========================================================
+   POSICIÓN INDIVIDUAL DE CADA IMAGEN
+========================================================= */
+
+/* FOTO 1 */
+
+.gallery-item:nth-child(1) img {
+
+    object-position:
+        var(--gallery-img-1-x)
+        var(--gallery-img-1-y);
+}
+
+
+/* FOTO 2 */
+
+.gallery-item:nth-child(2) img {
+
+    object-position:
+        var(--gallery-img-2-x)
+        var(--gallery-img-2-y);
+}
+
+
+/* FOTO 3 */
+
+.gallery-item:nth-child(3) img {
+
+    object-position:
+        var(--gallery-img-3-x)
+        var(--gallery-img-3-y);
+}
+
+
+/* FOTO 4 */
+
+.gallery-item:nth-child(4) img {
+
+    object-position:
+        var(--gallery-img-4-x)
+        var(--gallery-img-4-y);
+}
+
+
+/* FOTO 5 */
+
+.gallery-item:nth-child(5) img {
+
+    object-position:
+        var(--gallery-img-5-x)
+        var(--gallery-img-5-y);
+}
+
+
+/* FOTO 6 */
+
+.gallery-item:nth-child(6) img {
+
+    object-position:
+        var(--gallery-img-6-x)
+        var(--gallery-img-6-y);
+}
+
+
+/* FOTO 7 */
+
+.gallery-item:nth-child(7) img {
+
+    object-position:
+        var(--gallery-img-7-x)
+        var(--gallery-img-7-y);
+}
+
+
+/* FOTO 8 */
+
+.gallery-item:nth-child(8) img {
+
+    object-position:
+        var(--gallery-img-8-x)
+        var(--gallery-img-8-y);
+}
+
+
+/* FOTO 9 */
+
+.gallery-item:nth-child(9) img {
+
+    object-position:
+        var(--gallery-img-9-x)
+        var(--gallery-img-9-y);
+}
+
+
+/* FOTO 10 */
+
+.gallery-item:nth-child(10) img {
+
+    object-position:
+        var(--gallery-img-10-x)
+        var(--gallery-img-10-y);
+}
+
+
+/* FOTO 11 */
+
+.gallery-item:nth-child(11) img {
+
+    object-position:
+        var(--gallery-img-11-x)
+        var(--gallery-img-11-y);
+}
+
+
+/* FOTO 12 */
+
+.gallery-item:nth-child(12) img {
+
+    object-position:
+        var(--gallery-img-12-x)
+        var(--gallery-img-12-y);
+}
+
+
+/* =========================================================
+   EFECTO AL PASAR EL CURSOR
+========================================================= */
 
 .gallery-item:hover img {
 
     transform: scale(1.05);
 }
-
-
 /* =========================================================
    VESTIMENTA
 ========================================================= */
