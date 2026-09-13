@@ -2264,7 +2264,7 @@ cursor: pointer;
 
 .footer {
 
-    width: 100%;
+    width: 60%;
 
     padding: var(--footer-padding);
 text-align: center;
