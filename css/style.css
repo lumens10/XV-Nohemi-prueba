@@ -2652,31 +2652,30 @@ text-transform: uppercase;
 
 
 /* =========================================================
-   ICONO
-   ♡
+   ICONO PNG
 ========================================================= */
 
 .dress-section .dress-icon {
 
     margin: var(--dress-icon-margin);
 
-    font-family: inherit;
-
-    font-size:
-        min(
-            var(--dress-icon-size),
-            16vw
-        );
-
-    line-height: 1;
-
-    color: var(--dress-icon-color);
-
     translate:
         var(--dress-icon-x)
         var(--dress-icon-y);
 }
 
+.dress-section .dress-icon img {
+
+    display: block;
+
+    width: var(--dress-icon-size);
+
+    max-width: 16vw;
+
+    height: auto;
+
+    margin: 0 auto;
+}
 
 /* =========================================================
    TÍTULO
