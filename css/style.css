@@ -167,13 +167,13 @@
  /* =========================================================
    ANIMACIÓN INDIVIDUAL — INTRO
    ========================================================= */
---intro-anim-duration: .75s;
+--intro-anim-duration: 1.1s;
 --intro-anim-ease: cubic-bezier(.22, 1, .36, 1);
---intro-label-delay: .05s;
---intro-title-delay: .15s;
---intro-ornament-delay: .28s;
---intro-p1-delay: .42s;
---intro-p2-delay: .56s;
+--intro-label-delay: .10s;
+--intro-title-delay: .30s;
+--intro-ornament-delay: .50s;
+--intro-p1-delay: .70s;
+--intro-p2-delay: .90s;
 /* POSICIÓN INICIAL DE CADA ELEMENTO */
 --intro-label-from-x: 0px;
 --intro-label-from-y: -25px;
