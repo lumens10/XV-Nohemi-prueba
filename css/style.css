@@ -423,8 +423,8 @@
    /* ===== FOOTER ===== */
 --footer-padding: 70px 30px;
 /* PNG */
---footer-ornament-width: 80px;
---footer-ornament-position-y: 0px;
+--footer-ornament-width: 150px;
+--footer-ornament-position-y: 10px;
 /* TÍTULO */
 --footer-title-size: 80px;
 --footer-title-weight: 300;
