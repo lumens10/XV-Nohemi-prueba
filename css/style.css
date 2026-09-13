@@ -420,20 +420,23 @@
     --music-bg: rgba(10,8,5,.82);
     --music-x: 0px;
     --music-y: 0px;
-    /* ===== FOOTER ===== */
-    --footer-padding: 70px 30px;
-    --footer-ornament-width: 50px;
-    --footer-ornament-position-y: 0px;
-    --footer-title-size: 50px;
-    --footer-title-weight: 300;
-    --footer-title-color: var(--c-cream);
-    --footer-title-font: 'Cormorant Garamond', serif;
-    --footer-text-margin: 15px 0;
-    --footer-text-size: 10px;
-    --footer-text-weight: 300;
-    --footer-text-letter-spacing: 3px;
-    --footer-text-color: var(--c-gold-light);
-    --footer-text-font: 'Montserrat', sans-serif;
+   /* ===== FOOTER ===== */
+--footer-padding: 70px 30px;
+/* PNG */
+--footer-ornament-width: 80px;
+--footer-ornament-position-y: 0px;
+/* TÍTULO */
+--footer-title-size: 80px;
+--footer-title-weight: 300;
+--footer-title-color: var(--c-cream);
+--footer-title-font: 'Cormorant Garamond', serif;
+/* TEXTO */
+--footer-text-margin: 15px 0;
+--footer-text-size: 10px;
+--footer-text-weight: 300;
+--footer-text-letter-spacing: 3px;
+--footer-text-color: var(--c-gold-light);
+--footer-text-font: 'Montserrat', sans-serif;
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
     --section-padding: 110px 25px;
     --section-label-size: 10px;
@@ -2266,30 +2269,74 @@ cursor: pointer;
 
 .footer {
 
-    width: 60%;
+    width: 100%;
 
     padding: var(--footer-padding);
-text-align: center;
+
+    text-align: center;
 
     background: #050504;
 }
 
 
-.footer h2 {
-    font-family: var(--footer-title-font);
+/* =========================
+   ORNAMENTO PNG
+========================= */
 
-    font-size: min(var(--footer-title-size), 20vw);
+.footer .ornament {
+    width: 100%;
+}
 
-    font-weight: var(--footer-title-weight);
-line-height: .9;
+.footer .ornament img {
+
+    display: block;
+
+    width: min(
+        var(--footer-ornament-width),
+        70vw
+    );
+
+    height: auto;
+
+    margin: 0 auto;
+
+    translate:
+        0
+        var(--footer-ornament-position-y);
 }
 
 
+/* =========================
+   TÍTULO
+========================= */
+
+.footer h2 {
+
+    font-family: var(--footer-title-font);
+
+    font-size:
+        min(
+            var(--footer-title-size),
+            20vw
+        );
+
+    font-weight: var(--footer-title-weight);
+
+    line-height: .9;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
 .footer p {
+
     margin: var(--footer-text-margin);
 
     color: var(--footer-text-color);
-font-size: var(--footer-text-size);
+
+    font-size: var(--footer-text-size);
 
     letter-spacing: var(--footer-text-letter-spacing);
 }
@@ -2311,8 +2358,6 @@ font-size: var(--footer-text-size);
 
     font-style: italic;
 }
-
-
 /* =========================================================
    ANIMACIONES SCROLL
    ---------------------------------------------------------
