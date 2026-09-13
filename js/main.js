@@ -729,7 +729,7 @@ if (
                 */
 
                 rootMargin:
-                    "-5% 0px -5% 0px"
+                    "5% 0px 5% 0px"
 
             }
 
