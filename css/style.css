@@ -424,7 +424,7 @@
 --footer-padding: 70px 30px;
 /* PNG */
 --footer-ornament-width: 150px;
---footer-ornament-position-y: 60px;
+--footer-ornament-position-y: -20px;
 /* TÍTULO */
 --footer-title-size: 80px;
 --footer-title-weight: 300;
