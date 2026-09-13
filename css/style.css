@@ -365,28 +365,41 @@
 --gallery-img-12-y: 50%;
  
     /* ===== VESTIMENTA ===== */
-    --dress-title-color: var(--c-text-dark);
-    --dress-title-font: 'Cormorant Garamond', serif;
-    --dress-text-color: rgba(27,24,20,.68);
-    --dress-text-font: 'Montserrat', sans-serif;
-    --dress-icon-margin: 30px 0;
-    --dress-icon-size: 60px;
-    --dress-icon-color: var(--c-gold);
-    --dress-icon-x: 0px;
-    --dress-icon-y: 0px;
-    --dress-title-size: clamp(45px,10vw,80px);
-    --dress-title-weight: 300;
-    --dress-title-letter-spacing: 0px;
-    --dress-title-margin: 20px auto 30px;
-    --dress-title-x: 0px;
-    --dress-title-y: 0px;
-    --dress-text-size: 14px;
-    --dress-text-weight: 300;
-    --dress-text-line-height: 1.9;
-    --dress-text-letter-spacing: 0px;
-    --dress-text-margin: 20px auto;
-    --dress-text-x: 0px;
-    --dress-text-y: 0px;
+/* --- Etiqueta: CÓDIGO DE VESTIMENTA --- */
+--dress-label-color: var(--gold-dark);
+--dress-label-font: 'Montserrat', sans-serif;
+--dress-label-size: 10px;
+--dress-label-weight: 400;
+--dress-label-letter-spacing: 4px;
+--dress-label-margin: 0 0 20px;
+--dress-label-x: 0px;
+--dress-label-y: 0px;
+/* --- Icono: ♡ --- */
+--dress-icon-margin: 30px 0;
+--dress-icon-size: 60px;
+--dress-icon-color: var(--c-gold);
+--dress-icon-x: 0px;
+--dress-icon-y: 0px;
+/* --- Título: Formal --- */
+--dress-title-color: var(--c-text-dark);
+--dress-title-font: 'Cormorant Garamond', serif;
+--dress-title-size: clamp(45px,10vw,80px);
+--dress-title-weight: 300;
+--dress-title-letter-spacing: 0px;
+--dress-title-margin: 20px auto 30px;
+--dress-title-x: 0px;
+--dress-title-y: 0px;
+/* --- Texto --- */
+--dress-text-color: rgba(27,24,20,.68);
+--dress-text-font: 'Montserrat', sans-serif;
+--dress-text-size: 14px;
+--dress-text-weight: 300;
+--dress-text-line-height: 1.9;
+--dress-text-letter-spacing: 0px;
+--dress-text-margin: 20px auto;
+--dress-text-x: 0px;
+--dress-text-y: 0px;
+ 
     /* ===== SOBRES ===== */
     --envelope-title-color: #45060e;
     --envelope-title-font: 'Cormorant Garamond', serif;
@@ -2218,35 +2231,122 @@ text-transform: uppercase;
         url('../images/Fondo beige github.jpg')
         center center /
         cover no-repeat;
- 
+
     color: var(--text-dark);
 }
 
 
+/* =========================================================
+   ETIQUETA
+   CÓDIGO DE VESTIMENTA
+========================================================= */
+
 .dress-section .section-label {
 
-    color: var(--gold-dark);
+    margin: var(--dress-label-margin);
+
+    font-family: var(--dress-label-font);
+
+    font-size: var(--dress-label-size);
+
+    font-weight: var(--dress-label-weight);
+
+    letter-spacing: var(--dress-label-letter-spacing);
+
+    color: var(--dress-label-color);
+
+    translate:
+        var(--dress-label-x)
+        var(--dress-label-y);
 }
 
 
-.dress-section h2 {
-    color: var(--dress-title-color);
-}
+/* =========================================================
+   ICONO
+   ♡
+========================================================= */
 
+.dress-section .dress-icon {
 
-.dress-section p {
-    color: var(--dress-text-color);
-}
-
-
-.dress-icon {
     margin: var(--dress-icon-margin);
 
+    font-family: inherit;
+
+    font-size:
+        min(
+            var(--dress-icon-size),
+            16vw
+        );
+
+    line-height: 1;
+
     color: var(--dress-icon-color);
-font-size: min(var(--dress-icon-size), 16vw);
+
+    translate:
+        var(--dress-icon-x)
+        var(--dress-icon-y);
 }
 
 
+/* =========================================================
+   TÍTULO
+   Formal
+========================================================= */
+
+.dress-section h2 {
+
+    margin: var(--dress-title-margin);
+
+    font-family: var(--dress-title-font);
+
+    font-size:
+        min(
+            var(--dress-title-size),
+            14vw
+        );
+
+    font-weight: var(--dress-title-weight);
+
+    letter-spacing: var(--dress-title-letter-spacing);
+
+    line-height: 1;
+
+    color: var(--dress-title-color);
+
+    translate:
+        var(--dress-title-x)
+        var(--dress-title-y);
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.dress-section p {
+
+    margin: var(--dress-text-margin);
+
+    font-family: var(--dress-text-font);
+
+    font-size:
+        min(
+            var(--dress-text-size),
+            6vw
+        );
+
+    font-weight: var(--dress-text-weight);
+
+    line-height: var(--dress-text-line-height);
+
+    letter-spacing: var(--dress-text-letter-spacing);
+
+    color: var(--dress-text-color);
+
+    translate:
+        var(--dress-text-x)
+        var(--dress-text-y);
+}
 /* =========================================================
    LLUVIA DE SOBRES
 ========================================================= */
