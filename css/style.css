@@ -366,7 +366,7 @@
  
     /* ===== VESTIMENTA ===== */
 /* --- Etiqueta: CÓDIGO DE VESTIMENTA --- */
---dress-label-color: var(--gold-dark);
+--dress-label-color: #45060e;
 --dress-label-font: 'Montserrat', sans-serif;
 --dress-label-size: 10px;
 --dress-label-weight: 400;
@@ -377,11 +377,11 @@
 /* --- Icono: ♡ --- */
 --dress-icon-margin: 30px 0;
 --dress-icon-size: 60px;
---dress-icon-color: var(--c-gold);
+--dress-icon-color: #45060e;
 --dress-icon-x: 0px;
 --dress-icon-y: 0px;
 /* --- Título: Formal --- */
---dress-title-color: var(--c-text-dark);
+--dress-title-color: #45060e;
 --dress-title-font: 'Cormorant Garamond', serif;
 --dress-title-size: clamp(45px,10vw,80px);
 --dress-title-weight: 300;
@@ -390,7 +390,7 @@
 --dress-title-x: 0px;
 --dress-title-y: 0px;
 /* --- Texto --- */
---dress-text-color: rgba(27,24,20,.68);
+--dress-text-color: #45060e;
 --dress-text-font: 'Montserrat', sans-serif;
 --dress-text-size: 14px;
 --dress-text-weight: 300;
