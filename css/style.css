@@ -1319,7 +1319,7 @@ font-size: var(--section-text-size);
             rgba(9, 8, 7, 0),
             rgba(9, 8, 7, 0)
         ),
-        url("../images/fondo foto acostada.JPG")
+        url("../images/fondo foto acostada.jpg")
         var(--count-bg-x) var(--count-bg-y) / cover no-repeat;
 
     padding: var(--count-section-padding);
