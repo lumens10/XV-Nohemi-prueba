@@ -3164,9 +3164,11 @@ cursor: pointer;
 /* =========================================================
    ANIMACIONES SCROLL
    ---------------------------------------------------------
-   Animación ligera para las secciones después del Hero.
-   Se conserva el efecto de entrada/salida, pero sin blur ni
-   escala para evitar que el scroll se sienta pesado.
+   Animación general para las secciones después del Hero.
+   El efecto .reveal controla la entrada/salida de la sección.
+   
+   La clase .animate-content controla cuándo comienzan las
+   animaciones individuales de los elementos internos.
 ========================================================= */
 
 .reveal {
@@ -3201,19 +3203,23 @@ cursor: pointer;
         translateY(24px);
 }
 
+
 /* =========================================================
    ANIMACIÓN INDIVIDUAL — INTRO
    ========================================================= */
 
-/* Estado inicial */
+/* ---------------------------------------------------------
+   ESTADO INICIAL
+--------------------------------------------------------- */
 
 .intro .section-label,
 .intro h2,
 .intro .ornament,
 .intro p:nth-of-type(1),
 .intro p:nth-of-type(2) {
+
     opacity: 0;
-    
+
     transition:
         opacity var(--intro-anim-duration) var(--intro-anim-ease),
         transform var(--intro-anim-duration) var(--intro-anim-ease);
@@ -3221,9 +3227,13 @@ cursor: pointer;
     transition-delay: 0s;
 }
 
-/* POSICIONES INICIALES */
+
+/* ---------------------------------------------------------
+   POSICIONES INICIALES
+--------------------------------------------------------- */
 
 .intro .section-label {
+
     transform:
         translate(
             var(--intro-label-from-x),
@@ -3232,6 +3242,7 @@ cursor: pointer;
 }
 
 .intro h2 {
+
     transform:
         translate(
             var(--intro-title-from-x),
@@ -3240,6 +3251,7 @@ cursor: pointer;
 }
 
 .intro .ornament {
+
     transform:
         translate(
             var(--intro-ornament-from-x),
@@ -3248,6 +3260,7 @@ cursor: pointer;
 }
 
 .intro p:nth-of-type(1) {
+
     transform:
         translate(
             var(--intro-p1-from-x),
@@ -3256,29 +3269,99 @@ cursor: pointer;
 }
 
 .intro p:nth-of-type(2) {
+
     transform:
         translate(
             var(--intro-p2-from-x),
             var(--intro-p2-from-y)
         );
 }
+
+
+/* ---------------------------------------------------------
+   ACTIVACIÓN DE LA ANIMACIÓN
+   ---------------------------------------------------------
+   IMPORTANTE:
+   Ya no usamos .visible aquí.
+   La animación comienza únicamente cuando JS agrega
+   la clase .animate-content.
+--------------------------------------------------------- */
+
+.intro.animate-content .section-label,
+.intro.animate-content h2,
+.intro.animate-content .ornament,
+.intro.animate-content p:nth-of-type(1),
+.intro.animate-content p:nth-of-type(2) {
+
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+}
+
+
+/* ---------------------------------------------------------
+   DELAYS INDIVIDUALES
+--------------------------------------------------------- */
+
+.intro.animate-content .section-label {
+
+    transition-delay:
+        var(--intro-label-delay);
+}
+
+.intro.animate-content h2 {
+
+    transition-delay:
+        var(--intro-title-delay);
+}
+
+.intro.animate-content .ornament {
+
+    transition-delay:
+        var(--intro-ornament-delay);
+}
+
+.intro.animate-content p:nth-of-type(1) {
+
+    transition-delay:
+        var(--intro-p1-delay);
+}
+
+.intro.animate-content p:nth-of-type(2) {
+
+    transition-delay:
+        var(--intro-p2-delay);
+}
+
+
 /* =========================================================
    ANIMACIÓN INDIVIDUAL — COUNTDOWN
    ========================================================= */
 
+/* ---------------------------------------------------------
+   ESTADO INICIAL
+--------------------------------------------------------- */
+
 .countdown-section .countdown-title,
 .countdown-section .count-item {
+
     opacity: 0;
+
     transition:
         opacity var(--count-anim-duration) var(--count-anim-ease),
         transform var(--count-anim-duration) var(--count-anim-ease);
+
     transition-delay: 0s;
 }
 
 
-/* POSICIONES INICIALES */
+/* ---------------------------------------------------------
+   POSICIONES INICIALES
+--------------------------------------------------------- */
 
 .countdown-section .countdown-title {
+
     transform:
         translate(
             var(--count-title-from-x),
@@ -3287,6 +3370,7 @@ cursor: pointer;
 }
 
 .countdown-section .count-item:nth-child(1) {
+
     transform:
         translate(
             var(--count-days-from-x),
@@ -3295,6 +3379,7 @@ cursor: pointer;
 }
 
 .countdown-section .count-item:nth-child(3) {
+
     transform:
         translate(
             var(--count-hours-from-x),
@@ -3303,6 +3388,7 @@ cursor: pointer;
 }
 
 .countdown-section .count-item:nth-child(5) {
+
     transform:
         translate(
             var(--count-minutes-from-x),
@@ -3311,6 +3397,7 @@ cursor: pointer;
 }
 
 .countdown-section .count-item:nth-child(7) {
+
     transform:
         translate(
             var(--count-seconds-from-x),
@@ -3319,73 +3406,52 @@ cursor: pointer;
 }
 
 
-/* ESTADO VISIBLE */
+/* ---------------------------------------------------------
+   ACTIVACIÓN DE LA ANIMACIÓN
+--------------------------------------------------------- */
 
-.countdown-section.visible .countdown-title,
-.countdown-section.visible .count-item {
+.countdown-section.animate-content .countdown-title,
+.countdown-section.animate-content .count-item {
+
     opacity: 1;
-    transform: translate(0, 0);
+
+    transform:
+        translate(0, 0);
 }
 
 
-/* DELAYS */
+/* ---------------------------------------------------------
+   DELAYS INDIVIDUALES
+--------------------------------------------------------- */
 
-.countdown-section.visible .countdown-title {
-    transition-delay: var(--count-title-delay);
+.countdown-section.animate-content .countdown-title {
+
+    transition-delay:
+        var(--count-title-delay);
 }
 
-.countdown-section.visible .count-item:nth-child(1) {
-    transition-delay: var(--count-days-delay);
+.countdown-section.animate-content .count-item:nth-child(1) {
+
+    transition-delay:
+        var(--count-days-delay);
 }
 
-.countdown-section.visible .count-item:nth-child(3) {
-    transition-delay: var(--count-hours-delay);
+.countdown-section.animate-content .count-item:nth-child(3) {
+
+    transition-delay:
+        var(--count-hours-delay);
 }
 
-.countdown-section.visible .count-item:nth-child(5) {
-    transition-delay: var(--count-minutes-delay);
+.countdown-section.animate-content .count-item:nth-child(5) {
+
+    transition-delay:
+        var(--count-minutes-delay);
 }
 
-.countdown-section.visible .count-item:nth-child(7) {
-    transition-delay: var(--count-seconds-delay);
-}
+.countdown-section.animate-content .count-item:nth-child(7) {
 
-/* =========================================================
-   ESTADO VISIBLE
-   ========================================================= */
-
-.intro.visible .section-label,
-.intro.visible h2,
-.intro.visible .ornament,
-.intro.visible p:nth-of-type(1),
-.intro.visible p:nth-of-type(2) {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
-
-/* =========================================================
-   DELAY INDIVIDUAL
-   ========================================================= */
-
-.intro.visible .section-label {
-    transition-delay: var(--intro-label-delay);
-}
-
-.intro.visible h2 {
-    transition-delay: var(--intro-title-delay);
-}
-
-.intro.visible .ornament {
-    transition-delay: var(--intro-ornament-delay);
-}
-
-.intro.visible p:nth-of-type(1) {
-    transition-delay: var(--intro-p1-delay);
-}
-
-.intro.visible p:nth-of-type(2) {
-    transition-delay: var(--intro-p2-delay);
+    transition-delay:
+        var(--count-seconds-delay);
 }
 /* =========================================================
    FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
