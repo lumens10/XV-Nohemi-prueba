@@ -718,7 +718,7 @@ if (
                    entra en la zona de observación.
                 */
 
-                threshold: 0.15,
+                threshold: 0.05,
 
 
                 /*
@@ -729,7 +729,7 @@ if (
                 */
 
                 rootMargin:
-                    "-10% 0px -10% 0px"
+                    "25% 0px 25% 0px"
 
             }
 
