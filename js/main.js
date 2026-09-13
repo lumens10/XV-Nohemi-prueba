@@ -463,25 +463,61 @@ const passNumber =
     );
 
 
+/*
+   Leer el número de pase desde el enlace.
+
+   Ejemplos:
+
+   ?pase=2
+   ?pase=3
+   ?pase=4
+   ?pase=5
+   ?pase=6
+*/
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const paseParam =
+    Number(
+        urlParams.get("pase")
+    );
+
+
+/*
+   Solo permitimos pases
+   de 2 a 6 personas.
+*/
+
+const guestCount =
+    Number.isInteger(paseParam) &&
+    paseParam >= 2 &&
+    paseParam <= 6
+
+        ? paseParam
+
+        : (
+            invitation.pass &&
+            invitation.pass.guests
+                ? invitation.pass.guests
+                : 2
+        );
+
+
+/*
+   Mostrar el número
+   correspondiente.
+*/
+
 if (passNumber) {
 
-    if (
-        invitation.pass &&
-        invitation.pass.guests
-    ) {
-
-        passNumber.textContent =
-            invitation.pass.guests;
-
-    } else {
-
-        passNumber.textContent =
-            "Próximamente";
-
-    }
+    passNumber.textContent =
+        guestCount;
 
 }
-
 
 /* =====================================================
    WHATSAPP
