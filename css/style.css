@@ -294,6 +294,37 @@
 --date-detail-value-size: 25px;
 --date-detail-value-color: #45060e;
 --date-detail-value-font: 'Cormorant Garamond', serif;
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — RESERVA LA FECHA
+   ========================================================= */
+/* --- Animación general --- */
+--date-anim-duration: 1.8s;
+--date-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* --- Delays --- */
+--date-label-delay: .20s;
+--date-number-delay: .55s;
+--date-month-delay: .90s;
+--date-year-delay: 1.15s;
+--date-details-delay: 1.45s;
+/* =========================================================
+   POSICIÓN INICIAL DE CADA ELEMENTO
+   ========================================================= */
+/* RESERVA LA FECHA */
+--date-label-from-x: 0px;
+--date-label-from-y: -35px;
+/* 19 */
+--date-number-from-x: 0px;
+--date-number-from-y: 55px;
+/* DICIEMBRE */
+--date-month-from-x: -40px;
+--date-month-from-y: 0px;
+/* 2026 */
+--date-year-from-x: 40px;
+--date-year-from-y: 0px;
+/* CEREMONIA / RECEPCIÓN */
+--date-details-from-x: 0px;
+--date-details-from-y: 45px;
+
 
  
    /* ===== FAMILIA ===== */
@@ -1992,6 +2023,122 @@ flex-shrink: 0;
     font-family:
         var(--date-detail-value-font);
 }
+/* =========================================================
+   ANIMACIÓN — RESERVA LA FECHA
+========================================================= */
+
+/* ---------------------------------------------------------
+   ESTADO INICIAL
+--------------------------------------------------------- */
+
+.date-section .section-label,
+.date-section h2,
+.date-section .month,
+.date-section .year,
+.date-section .date-details {
+    opacity: 0;
+
+    transition:
+        opacity var(--date-anim-duration) var(--date-anim-ease),
+        transform var(--date-anim-duration) var(--date-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* ---------------------------------------------------------
+   POSICIONES INICIALES
+--------------------------------------------------------- */
+
+/* RESERVA LA FECHA */
+.date-section .section-label {
+    transform:
+        translate(
+            var(--date-label-from-x),
+            var(--date-label-from-y)
+        );
+}
+
+/* 19 */
+.date-section h2 {
+    transform:
+        translate(
+            var(--date-number-from-x),
+            var(--date-number-from-y)
+        );
+}
+
+/* DICIEMBRE */
+.date-section .month {
+    transform:
+        translate(
+            var(--date-month-from-x),
+            var(--date-month-from-y)
+        );
+}
+
+/* 2026 */
+.date-section .year {
+    transform:
+        translate(
+            var(--date-year-from-x),
+            var(--date-year-from-y)
+        );
+}
+
+/* CEREMONIA / RECEPCIÓN */
+.date-section .date-details {
+    transform:
+        translate(
+            var(--date-details-from-x),
+            var(--date-details-from-y)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   ESTADO VISIBLE
+--------------------------------------------------------- */
+
+.date-section.animate-content .section-label,
+.date-section.animate-content h2,
+.date-section.animate-content .month,
+.date-section.animate-content .year,
+.date-section.animate-content .date-details {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* ---------------------------------------------------------
+   DELAYS INDIVIDUALES
+--------------------------------------------------------- */
+
+.date-section.animate-content .section-label {
+    transition-delay:
+        var(--date-label-delay);
+}
+
+.date-section.animate-content h2 {
+    transition-delay:
+        var(--date-number-delay);
+}
+
+.date-section.animate-content .month {
+    transition-delay:
+        var(--date-month-delay);
+}
+
+.date-section.animate-content .year {
+    transition-delay:
+        var(--date-year-delay);
+}
+
+.date-section.animate-content .date-details {
+    transition-delay:
+        var(--date-details-delay);
+}
+
 /* =========================================================
    FAMILIA
 ========================================================= */
