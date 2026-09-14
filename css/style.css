@@ -835,7 +835,39 @@
     --pass-number-weight: 400;
     --pass-number-color: var(--c-text-dark);
     --pass-number-font: 'Cormorant Garamond', serif;
-
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — PASE DE INVITACIÓN
+========================================================= */
+--pass-anim-duration: 1.5s;
+--pass-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* --- RETRASOS --- */
+--pass-label-delay: .15s;
+--pass-title-delay: .40s;
+--pass-name-delay: .65s;
+--pass-line-delay: .90s;
+--pass-text-delay: 1.10s;
+--pass-number-delay: 1.30s;
+/* =========================================================
+   MOVIMIENTO INICIAL DE CADA ELEMENTO
+========================================================= */
+/* Etiqueta — PASE DE INVITACIÓN */
+--pass-label-from-x: 0px;
+--pass-label-from-y: -30px;
+/* Título — Mis XV */
+--pass-title-from-x: 0px;
+--pass-title-from-y: 35px;
+/* Nombre — Nohemi */
+--pass-name-from-x: 0px;
+--pass-name-from-y: 35px;
+/* Línea */
+--pass-line-from-x: 0px;
+--pass-line-from-y: 20px;
+/* Texto — Pase para */
+--pass-text-from-x: 0px;
+--pass-text-from-y: 25px;
+/* Número */
+--pass-number-from-x: 0px;
+--pass-number-from-y: 40px;
  
     /* ===== RSVP ===== */
     --rsvp-bottom-padding: 130px;
@@ -4456,7 +4488,171 @@ text-transform: uppercase;
 
     font-weight: var(--pass-number-weight);
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — PASE DE INVITACIÓN
+   ETIQUETA + TÍTULO + NOMBRE + LÍNEA + TEXTO + NÚMERO
+========================================================= */
 
+
+/* =========================================================
+   ESTADO INICIAL
+========================================================= */
+
+.pass-section .pass-card .section-label,
+.pass-section .pass-card h2,
+.pass-section .pass-card .pass-name,
+.pass-section .pass-card .pass-line,
+.pass-section .pass-card p,
+.pass-section .pass-card .pass-number {
+
+    opacity: 0;
+
+    transition:
+        opacity var(--pass-anim-duration) var(--pass-anim-ease),
+        transform var(--pass-anim-duration) var(--pass-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES
+========================================================= */
+
+/* 1 — PASE DE INVITACIÓN */
+
+.pass-section .pass-card .section-label {
+    transform:
+        translate(
+            var(--pass-label-from-x),
+            var(--pass-label-from-y)
+        );
+}
+
+
+/* 2 — MIS XV */
+
+.pass-section .pass-card h2 {
+    transform:
+        translate(
+            var(--pass-title-from-x),
+            var(--pass-title-from-y)
+        );
+}
+
+
+/* 3 — NOHEMI */
+
+.pass-section .pass-card .pass-name {
+    transform:
+        translate(
+            var(--pass-name-from-x),
+            var(--pass-name-from-y)
+        );
+}
+
+
+/* 4 — LÍNEA */
+
+.pass-section .pass-card .pass-line {
+    transform:
+        translate(
+            var(--pass-line-from-x),
+            var(--pass-line-from-y)
+        );
+}
+
+
+/* 5 — PASE PARA */
+
+.pass-section .pass-card p {
+    transform:
+        translate(
+            var(--pass-text-from-x),
+            var(--pass-text-from-y)
+        );
+}
+
+
+/* 6 — NÚMERO */
+
+.pass-section .pass-card .pass-number {
+    transform:
+        translate(
+            var(--pass-number-from-x),
+            var(--pass-number-from-y)
+        );
+}
+
+
+/* =========================================================
+   ESTADO FINAL
+========================================================= */
+
+.pass-section.animate-content .pass-card .section-label,
+.pass-section.animate-content .pass-card h2,
+.pass-section.animate-content .pass-card .pass-name,
+.pass-section.animate-content .pass-card .pass-line,
+.pass-section.animate-content .pass-card p,
+.pass-section.animate-content .pass-card .pass-number {
+
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+}
+
+
+/* =========================================================
+   RETRASOS
+========================================================= */
+
+/* 1 — PASE DE INVITACIÓN */
+
+.pass-section.animate-content .pass-card .section-label {
+    transition-delay:
+        var(--pass-label-delay);
+}
+
+
+/* 2 — MIS XV */
+
+.pass-section.animate-content .pass-card h2 {
+    transition-delay:
+        var(--pass-title-delay);
+}
+
+
+/* 3 — NOHEMI */
+
+.pass-section.animate-content .pass-card .pass-name {
+    transition-delay:
+        var(--pass-name-delay);
+}
+
+
+/* 4 — LÍNEA */
+
+.pass-section.animate-content .pass-card .pass-line {
+    transition-delay:
+        var(--pass-line-delay);
+}
+
+
+/* 5 — PASE PARA */
+
+.pass-section.animate-content .pass-card p {
+    transition-delay:
+        var(--pass-text-delay);
+}
+
+
+/* 6 — NÚMERO */
+
+.pass-section.animate-content .pass-card .pass-number {
+    transition-delay:
+        var(--pass-number-delay);
+}
 
 /* =========================================================
    WHATSAPP
