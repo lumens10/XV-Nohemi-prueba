@@ -5886,6 +5886,158 @@ body.gallery-lightbox-open {
     }
 
 }
+/* =====================================================
+   NAVEGACIÓN DEL VISOR — GALERÍA
+===================================================== */
+
+.gallery-lightbox-prev,
+.gallery-lightbox-next {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.35);
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+/* ===== POSICIÓN ===== */
+
+.gallery-lightbox-prev {
+    left: 25px;
+    transform: translateY(-50%);
+}
+
+.gallery-lightbox-next {
+    right: 25px;
+    transform: translateY(-50%);
+}
+
+
+/* ===== HOVER ===== */
+
+.gallery-lightbox-prev:hover,
+.gallery-lightbox-next:hover {
+    background: rgba(255,255,255,.15);
+    border-color: rgba(255,255,255,.75);
+}
+
+.gallery-lightbox-prev:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.gallery-lightbox-next:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+
+/* =====================================================
+   CONTADOR
+===================================================== */
+
+.gallery-lightbox-counter {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: 3;
+
+    transform: translateX(-50%);
+
+    padding: 7px 13px;
+
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 20px;
+
+    background: rgba(0,0,0,.35);
+    color: rgba(255,255,255,.9);
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* =====================================================
+   ANIMACIÓN AL CAMBIAR FOTO
+===================================================== */
+
+.gallery-lightbox-image {
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+.gallery-lightbox-image.gallery-image-changing {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .gallery-lightbox-prev,
+    .gallery-lightbox-next {
+        width: 42px;
+        height: 42px;
+
+        font-size: 32px;
+    }
+
+    .gallery-lightbox-prev {
+        left: 10px;
+    }
+
+    .gallery-lightbox-next {
+        right: 10px;
+    }
+
+    .gallery-lightbox-counter {
+        bottom: 18px;
+
+        font-size: 9px;
+        letter-spacing: 1.5px;
+
+        padding: 7px 11px;
+    }
+
+}
 /* =========================================================
    FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
 ========================================================= */
