@@ -375,19 +375,30 @@
 --family-anim-duration: 1.8s;
 --family-anim-ease: cubic-bezier(.16, 1, .3, 1);
 /* ===== RETRASOS ===== */
---family-subheading-delay: .20s;
---family-card-delay: .60s;
---family-text-delay: 1.00s;
+--family-label-delay: .20s;
+--family-heading-delay: .50s;
+--family-parents-delay: .85s;
+--family-subheading-delay: 1.20s;
+--family-godparents-delay: 1.55s;
 /* ===== POSICIÓN INICIAL ===== */
+/* CON LA BENDICIÓN DE */
+--family-label-from-x: 0px;
+--family-label-from-y: -30px;
+/* Mis padres */
+--family-heading-from-x: 0px;
+--family-heading-from-y: 35px;
+/* Padres */
+--family-parents-from-x: -45px;
+--family-parents-from-y: 0px;
+/* Mis padrinos */
 --family-subheading-from-x: 0px;
---family-subheading-from-y: -35px;
---family-card-from-x: 0px;
---family-card-from-y: 55px;
---family-text-from-x: 0px;
---family-text-from-y: 40px;
+--family-subheading-from-y: 35px;
+/* Padrinos */
+--family-godparents-from-x: 45px;
+--family-godparents-from-y: 0px;
+ 
 
- 
- 
+
   /* ===== EVENTOS — CEREMONIA Y RECEPCIÓN ===== */
 --event-min-height: 80svh;
 --event-frame-margin: 20px;
@@ -2442,9 +2453,15 @@ flex-shrink: 0;
    ANIMACIÓN — FAMILIA
 ========================================================= */
 
-.family-section .sub-heading,
-.family-section .family-card,
-.family-section .family-card p {
+/* =========================================================
+   ESTADO INICIAL
+========================================================= */
+
+.family-section > .section-label,
+.family-section > h2:not(.sub-heading),
+.family-section > .family-card:nth-of-type(1),
+.family-section > .sub-heading,
+.family-section > .family-card:nth-of-type(2) {
     opacity: 0;
 
     transition:
@@ -2455,9 +2472,46 @@ flex-shrink: 0;
 }
 
 
-/* ===== POSICIONES INICIALES ===== */
+/* =========================================================
+   POSICIONES INICIALES
+========================================================= */
 
-.family-section .sub-heading {
+/* CON LA BENDICIÓN DE */
+
+.family-section > .section-label {
+    transform:
+        translate(
+            var(--family-label-from-x),
+            var(--family-label-from-y)
+        );
+}
+
+
+/* MIS PADRES */
+
+.family-section > h2:not(.sub-heading) {
+    transform:
+        translate(
+            var(--family-heading-from-x),
+            var(--family-heading-from-y)
+        );
+}
+
+
+/* TARJETA DE PADRES */
+
+.family-section > .family-card:nth-of-type(1) {
+    transform:
+        translate(
+            var(--family-parents-from-x),
+            var(--family-parents-from-y)
+        );
+}
+
+
+/* MIS PADRINOS */
+
+.family-section > .sub-heading {
     transform:
         translate(
             var(--family-subheading-from-x),
@@ -2465,45 +2519,73 @@ flex-shrink: 0;
         );
 }
 
-.family-section .family-card {
-    transform:
-        translate(
-            var(--family-card-from-x),
-            var(--family-card-from-y)
-        );
-}
 
-.family-section .family-card p {
+/* TARJETA DE PADRINOS */
+
+.family-section > .family-card:nth-of-type(2) {
     transform:
         translate(
-            var(--family-text-from-x),
-            var(--family-text-from-y)
+            var(--family-godparents-from-x),
+            var(--family-godparents-from-y)
         );
 }
 
 
-/* ===== ESTADO FINAL ===== */
+/* =========================================================
+   ESTADO FINAL
+========================================================= */
 
-.family-section.animate-content .sub-heading,
-.family-section.animate-content .family-card,
-.family-section.animate-content .family-card p {
+.family-section.animate-content > .section-label,
+.family-section.animate-content > h2:not(.sub-heading),
+.family-section.animate-content > .family-card:nth-of-type(1),
+.family-section.animate-content > .sub-heading,
+.family-section.animate-content > .family-card:nth-of-type(2) {
     opacity: 1;
     transform: translate(0, 0);
 }
 
 
-/* ===== RETRASOS INDIVIDUALES ===== */
+/* =========================================================
+   RETRASOS
+========================================================= */
 
-.family-section.animate-content .sub-heading {
-    transition-delay: var(--family-subheading-delay);
+/* 1 — CON LA BENDICIÓN DE */
+
+.family-section.animate-content > .section-label {
+    transition-delay:
+        var(--family-label-delay);
 }
 
-.family-section.animate-content .family-card {
-    transition-delay: var(--family-card-delay);
+
+/* 2 — MIS PADRES */
+
+.family-section.animate-content > h2:not(.sub-heading) {
+    transition-delay:
+        var(--family-heading-delay);
 }
 
-.family-section.animate-content .family-card p {
-    transition-delay: var(--family-text-delay);
+
+/* 3 — PADRES */
+
+.family-section.animate-content > .family-card:nth-of-type(1) {
+    transition-delay:
+        var(--family-parents-delay);
+}
+
+
+/* 4 — MIS PADRINOS */
+
+.family-section.animate-content > .sub-heading {
+    transition-delay:
+        var(--family-subheading-delay);
+}
+
+
+/* 5 — PADRINOS */
+
+.family-section.animate-content > .family-card:nth-of-type(2) {
+    transition-delay:
+        var(--family-godparents-delay);
 }
 /* =========================================================
    CONTENIDO DEL EVENTO
