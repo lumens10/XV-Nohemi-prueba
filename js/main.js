@@ -821,9 +821,18 @@ if (
 ===================================================== */
 
 const galleryImages =
-    document.querySelectorAll(
-        ".gallery-item img"
+    Array.from(
+        document.querySelectorAll(
+            ".gallery-item img"
+        )
     );
+
+
+/* =====================================================
+   ESTADO DEL VISOR
+===================================================== */
+
+let currentGalleryIndex = 0;
 
 
 /* =====================================================
@@ -835,6 +844,75 @@ const lightbox =
 
 lightbox.className =
     "gallery-lightbox";
+
+
+/* =====================================================
+   CONTENEDOR DE LA FOTO
+===================================================== */
+
+const lightboxContent =
+    document.createElement("div");
+
+lightboxContent.className =
+    "gallery-lightbox-content";
+
+
+/* =====================================================
+   IMAGEN AMPLIADA
+===================================================== */
+
+const lightboxImage =
+    document.createElement("img");
+
+lightboxImage.className =
+    "gallery-lightbox-image";
+
+lightboxImage.alt =
+    "";
+
+
+/* =====================================================
+   BOTÓN ANTERIOR
+===================================================== */
+
+const lightboxPrev =
+    document.createElement("button");
+
+lightboxPrev.className =
+    "gallery-lightbox-prev";
+
+lightboxPrev.type =
+    "button";
+
+lightboxPrev.setAttribute(
+    "aria-label",
+    "Fotografía anterior"
+);
+
+lightboxPrev.innerHTML =
+    "‹";
+
+
+/* =====================================================
+   BOTÓN SIGUIENTE
+===================================================== */
+
+const lightboxNext =
+    document.createElement("button");
+
+lightboxNext.className =
+    "gallery-lightbox-next";
+
+lightboxNext.type =
+    "button";
+
+lightboxNext.setAttribute(
+    "aria-label",
+    "Fotografía siguiente"
+);
+
+lightboxNext.innerHTML =
+    "›";
 
 
 /* =====================================================
@@ -860,28 +938,14 @@ lightboxClose.innerHTML =
 
 
 /* =====================================================
-   IMAGEN AMPLIADA
+   INDICADOR 1 / 6
 ===================================================== */
 
-const lightboxImage =
-    document.createElement("img");
-
-lightboxImage.className =
-    "gallery-lightbox-image";
-
-lightboxImage.alt =
-    "";
-
-
-/* =====================================================
-   CONTENEDOR DE IMAGEN
-===================================================== */
-
-const lightboxContent =
+const lightboxCounter =
     document.createElement("div");
 
-lightboxContent.className =
-    "gallery-lightbox-content";
+lightboxCounter.className =
+    "gallery-lightbox-counter";
 
 
 /* =====================================================
@@ -897,7 +961,19 @@ lightbox.appendChild(
 );
 
 lightbox.appendChild(
+    lightboxPrev
+);
+
+lightbox.appendChild(
+    lightboxNext
+);
+
+lightbox.appendChild(
     lightboxClose
+);
+
+lightbox.appendChild(
+    lightboxCounter
 );
 
 document.body.appendChild(
@@ -906,15 +982,27 @@ document.body.appendChild(
 
 
 /* =====================================================
-   ABRIR FOTOGRAFÍA
+   ACTUALIZAR FOTOGRAFÍA
 ===================================================== */
 
-function openGalleryImage(image) {
+function updateGalleryImage() {
 
-    if (!image) {
+    if (
+        galleryImages.length === 0
+    ) {
         return;
     }
 
+
+    const image =
+        galleryImages[
+            currentGalleryIndex
+        ];
+
+
+    /*
+       Cambiar imagen.
+    */
 
     lightboxImage.src =
         image.currentSrc ||
@@ -925,16 +1013,67 @@ function openGalleryImage(image) {
         image.alt || "";
 
 
+    /*
+       Actualizar contador.
+    */
+
+    lightboxCounter.textContent =
+        `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+
+
+    /*
+       Reiniciar pequeña animación
+       de cambio de fotografía.
+    */
+
+    lightboxImage.classList.remove(
+        "gallery-image-changing"
+    );
+
+
+    requestAnimationFrame(() => {
+
+        requestAnimationFrame(() => {
+
+            lightboxImage.classList.add(
+                "gallery-image-changing"
+            );
+
+        });
+
+    });
+
+}
+
+
+/* =====================================================
+   ABRIR FOTOGRAFÍA
+===================================================== */
+
+function openGalleryImage(index) {
+
+    if (
+        galleryImages.length === 0
+    ) {
+        return;
+    }
+
+
+    currentGalleryIndex =
+        (
+            index +
+            galleryImages.length
+        ) %
+        galleryImages.length;
+
+
+    updateGalleryImage();
+
+
     lightbox.classList.add(
         "is-open"
     );
 
-
-    /*
-       Evitar que la página
-       se desplace mientras
-       la fotografía está abierta.
-    */
 
     document.body.classList.add(
         "gallery-lightbox-open"
@@ -959,11 +1098,6 @@ function closeGalleryImage() {
     );
 
 
-    /*
-       Limpiar la imagen después
-       de cerrar.
-    */
-
     setTimeout(() => {
 
         if (
@@ -982,22 +1116,93 @@ function closeGalleryImage() {
 
 
 /* =====================================================
+   FOTOGRAFÍA ANTERIOR
+===================================================== */
+
+function showPreviousGalleryImage() {
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex -
+            1 +
+            galleryImages.length
+        ) %
+        galleryImages.length;
+
+
+    updateGalleryImage();
+
+}
+
+
+/* =====================================================
+   FOTOGRAFÍA SIGUIENTE
+===================================================== */
+
+function showNextGalleryImage() {
+
+    currentGalleryIndex =
+        (
+            currentGalleryIndex +
+            1
+        ) %
+        galleryImages.length;
+
+
+    updateGalleryImage();
+
+}
+
+
+/* =====================================================
    CLIC / TOUCH EN LAS FOTOS
 ===================================================== */
 
 galleryImages.forEach(
-    image => {
+    (image, index) => {
 
         image.addEventListener(
             "click",
             () => {
 
                 openGalleryImage(
-                    image
+                    index
                 );
 
             }
         );
+
+    }
+);
+
+
+/* =====================================================
+   BOTÓN ANTERIOR
+===================================================== */
+
+lightboxPrev.addEventListener(
+    "click",
+    event => {
+
+        event.stopPropagation();
+
+        showPreviousGalleryImage();
+
+    }
+);
+
+
+/* =====================================================
+   BOTÓN SIGUIENTE
+===================================================== */
+
+lightboxNext.addEventListener(
+    "click",
+    event => {
+
+        event.stopPropagation();
+
+        showNextGalleryImage();
 
     }
 );
@@ -1009,12 +1214,18 @@ galleryImages.forEach(
 
 lightboxClose.addEventListener(
     "click",
-    closeGalleryImage
+    event => {
+
+        event.stopPropagation();
+
+        closeGalleryImage();
+
+    }
 );
 
 
 /* =====================================================
-   CERRAR TOCANDO FUERA DE LA FOTO
+   CERRAR TOCANDO FUERA
 ===================================================== */
 
 lightbox.addEventListener(
@@ -1034,7 +1245,7 @@ lightbox.addEventListener(
 
 
 /* =====================================================
-   CERRAR CON ESCAPE
+   TECLADO
 ===================================================== */
 
 document.addEventListener(
@@ -1042,16 +1253,111 @@ document.addEventListener(
     event => {
 
         if (
-            event.key === "Escape" &&
-            lightbox.classList.contains(
+            !lightbox.classList.contains(
                 "is-open"
             )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key === "Escape"
         ) {
 
             closeGalleryImage();
 
         }
 
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            showPreviousGalleryImage();
+
+        }
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            showNextGalleryImage();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   DESLIZAMIENTO — CELULAR
+===================================================== */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+lightbox.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+lightbox.addEventListener(
+    "touchend",
+    event => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        const swipeDistance =
+            touchEndX -
+            touchStartX;
+
+
+        /*
+           Evitar movimientos accidentales
+           demasiado pequeños.
+        */
+
+        if (
+            Math.abs(swipeDistance) <
+            50
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            swipeDistance < 0
+        ) {
+
+            showNextGalleryImage();
+
+        } else {
+
+            showPreviousGalleryImage();
+
+        }
+
+    },
+    {
+        passive: true
     }
 );
 /* =====================================================
