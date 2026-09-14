@@ -459,7 +459,14 @@
 /* =========================================================
    ANIMACIÓN INDIVIDUAL — EVENTOS
 ========================================================= */
---event-anim-duration: 1.6s;
+/* --- ANIMACIÓN DE LOS PNG --- */
+--ceremony-image-delay: .30s;
+--reception-image-delay: .30s;
+--ceremony-image-from-x: -45px;
+--ceremony-image-from-y: 0px;
+--reception-image-from-x: 45px;
+--reception-image-from-y: 0px;
+ --event-anim-duration: 1.6s;
 --event-anim-ease: cubic-bezier(.16, 1, .3, 1);
 /* --- CEREMONIA --- */
 --ceremony-label-delay: .15s;
@@ -2733,24 +2740,36 @@ flex-shrink: 0;
     transform: translateY(-2px);
 }
 /* =========================================================
-   ANIMACIÓN — EVENTOS
+   ANIMACIÓN INDIVIDUAL — EVENTOS
+   CEREMONIA + RECEPCIÓN + PNG
 ========================================================= */
 
-/* ---------------------------------------------------------
-   CEREMONIA
---------------------------------------------------------- */
-
 .ceremony .section-label,
+.ceremony .event-image,
 .ceremony .event-content h2,
 .ceremony .event-time,
-.ceremony .gold-button {
+.ceremony .gold-button,
+
+.reception .section-label,
+.reception .event-image,
+.reception .event-content h2,
+.reception .event-time,
+.reception .gold-button {
     opacity: 0;
+
     transition:
         opacity var(--event-anim-duration) var(--event-anim-ease),
         transform var(--event-anim-duration) var(--event-anim-ease);
+
     transition-delay: 0s;
 }
 
+
+/* =========================================================
+   CEREMONIA — POSICIÓN INICIAL
+========================================================= */
+
+/* Etiqueta */
 .ceremony .section-label {
     transform:
         translate(
@@ -2759,6 +2778,16 @@ flex-shrink: 0;
         );
 }
 
+/* PNG */
+.ceremony .event-image {
+    transform:
+        translate(
+            var(--ceremony-image-from-x),
+            var(--ceremony-image-from-y)
+        );
+}
+
+/* Título */
 .ceremony .event-content h2 {
     transform:
         translate(
@@ -2767,6 +2796,7 @@ flex-shrink: 0;
         );
 }
 
+/* Hora */
 .ceremony .event-time {
     transform:
         translate(
@@ -2775,6 +2805,7 @@ flex-shrink: 0;
         );
 }
 
+/* Botón */
 .ceremony .gold-button {
     transform:
         translate(
@@ -2783,9 +2814,13 @@ flex-shrink: 0;
         );
 }
 
-/* Estado final */
+
+/* =========================================================
+   CEREMONIA — ESTADO FINAL
+========================================================= */
 
 .ceremony.animate-content .section-label,
+.ceremony.animate-content .event-image,
 .ceremony.animate-content .event-content h2,
 .ceremony.animate-content .event-time,
 .ceremony.animate-content .gold-button {
@@ -2793,10 +2828,17 @@ flex-shrink: 0;
     transform: translate(0, 0);
 }
 
-/* Retrasos */
+
+/* =========================================================
+   CEREMONIA — RETRASOS
+========================================================= */
 
 .ceremony.animate-content .section-label {
     transition-delay: var(--ceremony-label-delay);
+}
+
+.ceremony.animate-content .event-image {
+    transition-delay: var(--ceremony-image-delay);
 }
 
 .ceremony.animate-content .event-content h2 {
@@ -2812,21 +2854,11 @@ flex-shrink: 0;
 }
 
 
-/* ---------------------------------------------------------
-   RECEPCIÓN
---------------------------------------------------------- */
+/* =========================================================
+   RECEPCIÓN — POSICIÓN INICIAL
+========================================================= */
 
-.reception .section-label,
-.reception .event-content h2,
-.reception .event-time,
-.reception .gold-button {
-    opacity: 0;
-    transition:
-        opacity var(--event-anim-duration) var(--event-anim-ease),
-        transform var(--event-anim-duration) var(--event-anim-ease);
-    transition-delay: 0s;
-}
-
+/* Etiqueta */
 .reception .section-label {
     transform:
         translate(
@@ -2835,6 +2867,16 @@ flex-shrink: 0;
         );
 }
 
+/* PNG */
+.reception .event-image {
+    transform:
+        translate(
+            var(--reception-image-from-x),
+            var(--reception-image-from-y)
+        );
+}
+
+/* Título */
 .reception .event-content h2 {
     transform:
         translate(
@@ -2843,6 +2885,7 @@ flex-shrink: 0;
         );
 }
 
+/* Hora */
 .reception .event-time {
     transform:
         translate(
@@ -2851,6 +2894,7 @@ flex-shrink: 0;
         );
 }
 
+/* Botón */
 .reception .gold-button {
     transform:
         translate(
@@ -2859,9 +2903,13 @@ flex-shrink: 0;
         );
 }
 
-/* Estado final */
+
+/* =========================================================
+   RECEPCIÓN — ESTADO FINAL
+========================================================= */
 
 .reception.animate-content .section-label,
+.reception.animate-content .event-image,
 .reception.animate-content .event-content h2,
 .reception.animate-content .event-time,
 .reception.animate-content .gold-button {
@@ -2869,10 +2917,17 @@ flex-shrink: 0;
     transform: translate(0, 0);
 }
 
-/* Retrasos */
+
+/* =========================================================
+   RECEPCIÓN — RETRASOS
+========================================================= */
 
 .reception.animate-content .section-label {
     transition-delay: var(--reception-label-delay);
+}
+
+.reception.animate-content .event-image {
+    transition-delay: var(--reception-image-delay);
 }
 
 .reception.animate-content .event-content h2 {
