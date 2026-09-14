@@ -4768,6 +4768,16 @@ text-transform: uppercase;
 ========================================================= */
 
 .rsvp-section {
+ width: 100%;
+
+    background:
+        linear-gradient(
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
+        ),
+        url('../images/vino liso.jpg')
+        center center / cover no-repeat;
+ 
     padding-bottom: var(--rsvp-bottom-padding);
 }
 
