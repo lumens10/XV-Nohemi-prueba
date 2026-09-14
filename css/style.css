@@ -880,6 +880,17 @@
     --whatsapp-bg: #25d366;
     --whatsapp-x: 0px;
     --whatsapp-y: 0px;
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — RSVP / WHATSAPP
+========================================================= */
+--whatsapp-anim-duration: 1.5s;
+--whatsapp-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* Retraso */
+--whatsapp-anim-delay: .30s;
+/* Movimiento inicial */
+--whatsapp-from-x: 0px;
+--whatsapp-from-y: 45px;
+
 
  
     /* ===== MÚSICA ===== */
@@ -4704,7 +4715,42 @@ text-transform: uppercase;
             .25
         );
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — RSVP / WHATSAPP
+========================================================= */
 
+/* ESTADO INICIAL */
+
+.rsvp-section .whatsapp-button {
+    opacity: 0;
+
+    transition:
+        opacity var(--whatsapp-anim-duration)
+            var(--whatsapp-anim-ease),
+        transform var(--whatsapp-anim-duration)
+            var(--whatsapp-anim-ease);
+
+    transition-delay: 0s;
+
+    transform:
+        translate(
+            var(--whatsapp-from-x),
+            var(--whatsapp-from-y)
+        );
+}
+
+
+/* ESTADO FINAL */
+
+.rsvp-section.animate-content .whatsapp-button {
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+
+    transition-delay:
+        var(--whatsapp-anim-delay);
+}
 
 /* =========================================================
    MÚSICA
