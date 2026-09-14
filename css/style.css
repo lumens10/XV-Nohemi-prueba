@@ -966,7 +966,7 @@
 --footer-ornament-width: 150px;
 /* Posición */
 --footer-ornament-x: 0px;
---footer-ornament-y: 300px;
+--footer-ornament-y: 330px;
 /* Espacio inferior */
 --footer-ornament-margin-bottom: 0px;
 /* =========================================================
@@ -982,7 +982,7 @@
 --footer-title-font: 'Parisienne', cursive;
 /* Posición */
 --footer-title-x: 0px;
---footer-title-y: 300px;
+--footer-title-y: 330px;
 /* Espaciado */
 --footer-title-margin-top: 0px;
 --footer-title-margin-bottom: 0px;
@@ -1004,7 +1004,7 @@
 --footer-text-margin-bottom: 15px;
 /* Posición */
 --footer-text-x: 0px;
---footer-text-y: 300px;
+--footer-text-y: 330px;
 /* =========================================================
    FIRMA — CON AMOR
 ========================================================= */
@@ -1015,7 +1015,7 @@
 --footer-signature-font: 'Cormorant Garamond', serif;
 /* Posición */
 --footer-signature-x: 0px;
---footer-signature-y: 300px;
+--footer-signature-y: 0px;
 /* Espacio superior */
 --footer-signature-margin-top: 0px;
 /* =========================================================
