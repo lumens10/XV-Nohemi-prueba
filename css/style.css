@@ -917,19 +917,24 @@
     --music-y: 0px;
 
  
- /* ===== FOOTER ===== */
-/* ========================================================
-   FONDO DEL BLOQUE
+/* =========================================================
+   FOOTER — PANEL DE CONTROL
 ========================================================= */
+/* =========================================================
+   FONDO
+========================================================= */
+/* Imagen de fondo */
 --footer-bg-image: url('../images/fondo foto brazo.jpg');
 /* Posición de la imagen de fondo */
 --footer-bg-x: 50%;
 --footer-bg-y: 50%;
-/* Tamaño de la imagen */
+/* Tamaño de la imagen de fondo */
 --footer-bg-size: cover;
-/* Altura / tamaño del bloque */
+/* Altura mínima del bloque */
 --footer-min-height: 100svh;
-/* Espaciado interno del bloque */
+/* =========================================================
+   ESPACIADO / TAMAÑO DEL BLOQUE
+========================================================= */
 --footer-padding-top: 70px;
 --footer-padding-right: 30px;
 --footer-padding-bottom: 70px;
@@ -937,35 +942,46 @@
 /* =========================================================
    ORNAMENTO PNG
 ========================================================= */
+/* Tamaño */
 --footer-ornament-width: 150px;
 /* Posición */
 --footer-ornament-x: 0px;
 --footer-ornament-y: -20px;
-/* Espacio debajo del PNG */
+/* Espacio inferior */
 --footer-ornament-margin-bottom: 0px;
 /* =========================================================
    TÍTULO — NOHEMI
-======================================================== */
+========================================================= */
+/* Tamaño */
 --footer-title-size: 80px;
+/* Grosor */
 --footer-title-weight: 300;
+/* Color */
 --footer-title-color: var(--c-cream);
+/* Fuente */
 --footer-title-font: 'Parisienne', cursive;
 /* Posición */
 --footer-title-x: 0px;
 --footer-title-y: 0px;
-/* Espacio */
+/* Espaciado */
 --footer-title-margin-top: 0px;
 --footer-title-margin-bottom: 0px;
 /* =========================================================
    TEXTO — MIS XV · 2026
 ========================================================= */
+/* Tamaño */
+--footer-text-size: 10px;
+/* Grosor */
+--footer-text-weight: 300;
+/* Espaciado entre letras */
+--footer-text-letter-spacing: 3px;
+/* Color */
+--footer-text-color: var(--c-gold-light);
+/* Fuente */
+--footer-text-font: 'Montserrat', sans-serif;
+/* Espaciado */
 --footer-text-margin-top: 15px;
 --footer-text-margin-bottom: 15px;
---footer-text-size: 10px;
---footer-text-weight: 300;
---footer-text-letter-spacing: 3px;
---footer-text-color: var(--c-gold-light);
---footer-text-font: 'Montserrat', sans-serif;
 /* Posición */
 --footer-text-x: 0px;
 --footer-text-y: 0px;
@@ -980,7 +996,7 @@
 /* Posición */
 --footer-signature-x: 0px;
 --footer-signature-y: 0px;
-/* Espacio */
+/* Espacio superior */
 --footer-signature-margin-top: 0px;
 /* =========================================================
    ANIMACIÓN — FOOTER
@@ -995,16 +1011,15 @@
 /* Movimiento inicial — PNG */
 --footer-ornament-from-x: 0px;
 --footer-ornament-from-y: 45px;
-/* Movimiento inicial — título */
+/* Movimiento inicial — TÍTULO */
 --footer-title-from-x: 0px;
 --footer-title-from-y: 40px;
-/* Movimiento inicial — texto */
+/* Movimiento inicial — TEXTO */
 --footer-text-from-x: 0px;
 --footer-text-from-y: 30px;
-/* Movimiento inicial — firma */
+/* Movimiento inicial — FIRMA */
 --footer-signature-from-x: 0px;
 --footer-signature-from-y: 25px;
-
  
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
     --section-padding: 110px 25px;
@@ -4972,128 +4987,323 @@ cursor: pointer;
     }
 }
 
-
-/* ===== FOOTER ===== */
-
 /* =========================================================
-   FONDO DEL BLOQUE
+   FOOTER
 ========================================================= */
 
---footer-bg-image: url('../images/fondo foto brazo.jpg');
+.footer {
 
-/* Posición de la imagen de fondo */
---footer-bg-x: 50%;
---footer-bg-y: 50%;
+    width: 100%;
 
-/* Tamaño de la imagen */
---footer-bg-size: cover;
+    min-height:
+        var(--footer-min-height);
 
-/* Altura / tamaño del bloque */
---footer-min-height: 100svh;
+    padding:
+        var(--footer-padding-top)
+        var(--footer-padding-right)
+        var(--footer-padding-bottom)
+        var(--footer-padding-left);
 
-/* Espaciado interno del bloque */
---footer-padding-top: 70px;
---footer-padding-right: 30px;
---footer-padding-bottom: 70px;
---footer-padding-left: 30px;
+    text-align: center;
+
+    /* =====================================================
+       FONDO JPG
+    ===================================================== */
+
+    background-image:
+        var(--footer-bg-image);
+
+    background-position:
+        var(--footer-bg-x)
+        var(--footer-bg-y);
+
+    background-size:
+        var(--footer-bg-size);
+
+    background-repeat: no-repeat;
+
+    background-color: #050504;
+
+    color: var(--c-cream);
+
+}
 
 
 /* =========================================================
    ORNAMENTO PNG
 ========================================================= */
 
---footer-ornament-width: 150px;
+.footer .ornament {
 
-/* Posición */
---footer-ornament-x: 0px;
---footer-ornament-y: -20px;
+    width: 100%;
 
-/* Espacio debajo del PNG */
---footer-ornament-margin-bottom: 0px;
+}
+
+
+.footer .ornament img {
+
+    display: block;
+
+    width:
+        min(
+            var(--footer-ornament-width),
+            70vw
+        );
+
+    height: auto;
+
+    margin:
+        0 auto
+        var(--footer-ornament-margin-bottom);
+
+    translate:
+        var(--footer-ornament-x)
+        var(--footer-ornament-y);
+
+}
 
 
 /* =========================================================
    TÍTULO — NOHEMI
 ========================================================= */
 
---footer-title-size: 80px;
---footer-title-weight: 300;
---footer-title-color: var(--c-cream);
---footer-title-font: 'Parisienne', cursive;
+.footer h2 {
 
-/* Posición */
---footer-title-x: 0px;
---footer-title-y: 0px;
+    margin-top:
+        var(--footer-title-margin-top);
 
-/* Espacio */
---footer-title-margin-top: 0px;
---footer-title-margin-bottom: 0px;
+    margin-bottom:
+        var(--footer-title-margin-bottom);
+
+    font-family:
+        var(--footer-title-font);
+
+    font-size:
+        min(
+            var(--footer-title-size),
+            20vw
+        );
+
+    font-weight:
+        var(--footer-title-weight);
+
+    line-height: .9;
+
+    color:
+        var(--footer-title-color);
+
+    translate:
+        var(--footer-title-x)
+        var(--footer-title-y);
+
+}
 
 
 /* =========================================================
    TEXTO — MIS XV · 2026
 ========================================================= */
 
---footer-text-margin-top: 15px;
---footer-text-margin-bottom: 15px;
+.footer p {
 
---footer-text-size: 10px;
---footer-text-weight: 300;
---footer-text-letter-spacing: 3px;
---footer-text-color: var(--c-gold-light);
---footer-text-font: 'Montserrat', sans-serif;
+    margin-top:
+        var(--footer-text-margin-top);
 
-/* Posición */
---footer-text-x: 0px;
---footer-text-y: 0px;
+    margin-bottom:
+        var(--footer-text-margin-bottom);
+
+    font-family:
+        var(--footer-text-font);
+
+    font-size:
+        var(--footer-text-size);
+
+    font-weight:
+        var(--footer-text-weight);
+
+    letter-spacing:
+        var(--footer-text-letter-spacing);
+
+    color:
+        var(--footer-text-color);
+
+    translate:
+        var(--footer-text-x)
+        var(--footer-text-y);
+
+}
 
 
 /* =========================================================
    FIRMA — CON AMOR
 ========================================================= */
 
---footer-signature-size: 16px;
---footer-signature-weight: 400;
---footer-signature-letter-spacing: 0px;
---footer-signature-color: rgba(247,242,233,.5);
---footer-signature-font: 'Cormorant Garamond', serif;
+.footer span {
 
-/* Posición */
---footer-signature-x: 0px;
---footer-signature-y: 0px;
+    display: inline-block;
 
-/* Espacio */
---footer-signature-margin-top: 0px;
+    margin-top:
+        var(--footer-signature-margin-top);
+
+    font-family:
+        var(--footer-signature-font);
+
+    font-size:
+        var(--footer-signature-size);
+
+    font-weight:
+        var(--footer-signature-weight);
+
+    letter-spacing:
+        var(--footer-signature-letter-spacing);
+
+    font-style: italic;
+
+    color:
+        var(--footer-signature-color);
+
+    translate:
+        var(--footer-signature-x)
+        var(--footer-signature-y);
+
+}
 
 
 /* =========================================================
-   ANIMACIÓN — FOOTER
+   ANIMACIÓN INDIVIDUAL — FOOTER
 ========================================================= */
 
---footer-anim-duration: 1.6s;
---footer-anim-ease: cubic-bezier(.16, 1, .3, 1);
+.footer .ornament,
+.footer h2,
+.footer p,
+.footer span {
 
-/* Retrasos */
---footer-ornament-delay: .15s;
---footer-title-delay: .50s;
---footer-text-delay: .85s;
---footer-signature-delay: 1.15s;
+    opacity: 0;
 
-/* Movimiento inicial — PNG */
---footer-ornament-from-x: 0px;
---footer-ornament-from-y: 45px;
+    transition:
+        opacity
+        var(--footer-anim-duration)
+        var(--footer-anim-ease),
 
-/* Movimiento inicial — título */
---footer-title-from-x: 0px;
---footer-title-from-y: 40px;
+        transform
+        var(--footer-anim-duration)
+        var(--footer-anim-ease);
 
-/* Movimiento inicial — texto */
---footer-text-from-x: 0px;
---footer-text-from-y: 30px;
+    transition-delay: 0s;
 
-/* Movimiento inicial — firma */
---footer-signature-from-x: 0px;
---footer-signature-from-y: 25px;
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES — ORNAMENTO
+========================================================= */
+
+.footer .ornament {
+
+    transform:
+        translate(
+            var(--footer-ornament-from-x),
+            var(--footer-ornament-from-y)
+        );
+
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES — TÍTULO
+========================================================= */
+
+.footer h2 {
+
+    transform:
+        translate(
+            var(--footer-title-from-x),
+            var(--footer-title-from-y)
+        );
+
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES — TEXTO
+========================================================= */
+
+.footer p {
+
+    transform:
+        translate(
+            var(--footer-text-from-x),
+            var(--footer-text-from-y)
+        );
+
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES — FIRMA
+========================================================= */
+
+.footer span {
+
+    transform:
+        translate(
+            var(--footer-signature-from-x),
+            var(--footer-signature-from-y)
+        );
+
+}
+
+
+/* =========================================================
+   ACTIVACIÓN DE ANIMACIÓN
+========================================================= */
+
+.footer.animate-content .ornament,
+.footer.animate-content h2,
+.footer.animate-content p,
+.footer.animate-content span {
+
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+
+}
+
+
+/* =========================================================
+   RETRASOS INDIVIDUALES
+========================================================= */
+
+.footer.animate-content .ornament {
+
+    transition-delay:
+        var(--footer-ornament-delay);
+
+}
+
+
+.footer.animate-content h2 {
+
+    transition-delay:
+        var(--footer-title-delay);
+
+}
+
+
+.footer.animate-content p {
+
+    transition-delay:
+        var(--footer-text-delay);
+
+}
+
+
+.footer.animate-content span {
+
+    transition-delay:
+        var(--footer-signature-delay);
+
+}
 
 /* =========================================================
    ANIMACIONES SCROLL
