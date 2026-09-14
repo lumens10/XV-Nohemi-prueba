@@ -340,41 +340,65 @@
 --family-subheading-y: 0px;
 
  
-    /* ===== EVENTOS — CEREMONIA Y RECEPCIÓN ===== */
-    --event-min-height: 80svh;
-    --event-frame-margin: 20px;
-    --ceremony-bg-x: 50%;
-    --ceremony-bg-y: 50%;
-    --reception-bg-x: 50%;
-    --reception-bg-y: 50%;
-    --event-content-max-width: 800px;
-    --event-content-padding: 30px 20px;
-    --event-title-margin: 25px 0;
-    --event-title-size: clamp(50px,11vw,100px);
-    --event-title-weight: 300;
-    --event-title-line-height: .9;
-    --event-title-letter-spacing: 0px;
-    --event-title-color: var(--c-cream);
-    --event-title-font: 'Cormorant Garamond', serif;
-    --event-title-x: 0px;
-    --event-title-y: 0px;
-    --event-time-margin-bottom: 30px;
-    --event-time-size: 30px;
-    --event-time-weight: 300;
-    --event-time-letter-spacing: 0px;
-    --event-time-color: var(--c-gold-light);
-    --event-time-font: 'Cormorant Garamond', serif;
-    --event-time-x: 0px;
-    --event-time-y: 0px;
-    --gold-button-padding: 15px 25px;
-    --gold-button-size: 9px;
-    --gold-button-weight: 500;
-    --gold-button-letter-spacing: 3px;
-    --gold-button-color: inherit;
-    --gold-button-border-color: var(--c-gold);
-    --gold-button-bg: transparent;
-    --gold-button-x: 0px;
-    --gold-button-y: 0px;
+  /* ===== EVENTOS — CEREMONIA Y RECEPCIÓN ===== */
+--event-min-height: 80svh;
+--event-frame-margin: 20px;
+/* =========================================================
+   FONDOS
+========================================================= */
+--ceremony-bg-x: 50%;
+--ceremony-bg-y: 50%;
+--reception-bg-x: 50%;
+--reception-bg-y: 50%;
+/* =========================================================
+   CONTENIDO
+========================================================= */
+--event-content-max-width: 800px;
+--event-content-padding: 30px 20px;
+/* =========================================================
+   PNG DEL EVENTO
+========================================================= */
+--event-image-width: 180px;
+--event-image-margin-bottom: 25px;
+--event-image-x: 0px;
+--event-image-y: 0px;
+/* =========================================================
+   TÍTULO DEL EVENTO
+========================================================= */
+--event-title-margin: 25px 0;
+--event-title-size: clamp(50px, 11vw, 100px);
+--event-title-weight: 300;
+--event-title-line-height: .9;
+--event-title-letter-spacing: 0px;
+--event-title-color: var(--c-cream);
+--event-title-font: 'Cormorant Garamond', serif;
+--event-title-x: 0px;
+--event-title-y: 0px;
+/* =========================================================
+   HORA DEL EVENTO
+========================================================= */
+--event-time-margin-bottom: 30px;
+--event-time-size: 30px;
+--event-time-weight: 300;
+--event-time-letter-spacing: 0px;
+--event-time-color: var(--c-gold-light);
+--event-time-font: 'Cormorant Garamond', serif;
+--event-time-x: 0px;
+--event-time-y: 0px;
+/* =========================================================
+   BOTÓN DORADO
+========================================================= */
+--gold-button-padding: 15px 25px;
+--gold-button-size: 9px;
+--gold-button-weight: 500;
+--gold-button-letter-spacing: 3px;
+--gold-button-color: inherit;
+--gold-button-border-color: var(--c-gold);
+--gold-button-bg: transparent;
+--gold-button-x: 0px;
+--gold-button-y: 0px;
+
+
  
     /* ===== GALERÍA ===== */
 /* --- Texto superior: MOMENTOS --- */
