@@ -816,7 +816,244 @@ if (
 
 }
 
+/* =====================================================
+   VISOR DE FOTOGRAFÍAS — GALERÍA
+===================================================== */
 
+const galleryImages =
+    document.querySelectorAll(
+        ".gallery-item img"
+    );
+
+
+/* =====================================================
+   CREAR VENTANA DEL VISOR
+===================================================== */
+
+const lightbox =
+    document.createElement("div");
+
+lightbox.className =
+    "gallery-lightbox";
+
+
+/* =====================================================
+   BOTÓN CERRAR
+===================================================== */
+
+const lightboxClose =
+    document.createElement("button");
+
+lightboxClose.className =
+    "gallery-lightbox-close";
+
+lightboxClose.type =
+    "button";
+
+lightboxClose.setAttribute(
+    "aria-label",
+    "Cerrar fotografía"
+);
+
+lightboxClose.innerHTML =
+    "&times;";
+
+
+/* =====================================================
+   IMAGEN AMPLIADA
+===================================================== */
+
+const lightboxImage =
+    document.createElement("img");
+
+lightboxImage.className =
+    "gallery-lightbox-image";
+
+lightboxImage.alt =
+    "";
+
+
+/* =====================================================
+   CONTENEDOR DE IMAGEN
+===================================================== */
+
+const lightboxContent =
+    document.createElement("div");
+
+lightboxContent.className =
+    "gallery-lightbox-content";
+
+
+/* =====================================================
+   CONSTRUIR VISOR
+===================================================== */
+
+lightboxContent.appendChild(
+    lightboxImage
+);
+
+lightbox.appendChild(
+    lightboxContent
+);
+
+lightbox.appendChild(
+    lightboxClose
+);
+
+document.body.appendChild(
+    lightbox
+);
+
+
+/* =====================================================
+   ABRIR FOTOGRAFÍA
+===================================================== */
+
+function openGalleryImage(image) {
+
+    if (!image) {
+        return;
+    }
+
+
+    lightboxImage.src =
+        image.currentSrc ||
+        image.src;
+
+
+    lightboxImage.alt =
+        image.alt || "";
+
+
+    lightbox.classList.add(
+        "is-open"
+    );
+
+
+    /*
+       Evitar que la página
+       se desplace mientras
+       la fotografía está abierta.
+    */
+
+    document.body.classList.add(
+        "gallery-lightbox-open"
+    );
+
+}
+
+
+/* =====================================================
+   CERRAR FOTOGRAFÍA
+===================================================== */
+
+function closeGalleryImage() {
+
+    lightbox.classList.remove(
+        "is-open"
+    );
+
+
+    document.body.classList.remove(
+        "gallery-lightbox-open"
+    );
+
+
+    /*
+       Limpiar la imagen después
+       de cerrar.
+    */
+
+    setTimeout(() => {
+
+        if (
+            !lightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            lightboxImage.src = "";
+
+        }
+
+    }, 300);
+
+}
+
+
+/* =====================================================
+   CLIC / TOUCH EN LAS FOTOS
+===================================================== */
+
+galleryImages.forEach(
+    image => {
+
+        image.addEventListener(
+            "click",
+            () => {
+
+                openGalleryImage(
+                    image
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =====================================================
+   BOTÓN CERRAR
+===================================================== */
+
+lightboxClose.addEventListener(
+    "click",
+    closeGalleryImage
+);
+
+
+/* =====================================================
+   CERRAR TOCANDO FUERA DE LA FOTO
+===================================================== */
+
+lightbox.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === lightbox
+        ) {
+
+            closeGalleryImage();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   CERRAR CON ESCAPE
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            lightbox.classList.contains(
+                "is-open"
+            )
+        ) {
+
+            closeGalleryImage();
+
+        }
+
+    }
+);
 /* =====================================================
    INICIALIZACIÓN
 ===================================================== */
