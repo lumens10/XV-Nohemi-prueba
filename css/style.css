@@ -628,6 +628,38 @@
 --dress-text-margin: 20px auto;
 --dress-text-x: 0px;
 --dress-text-y: 0px;
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — VESTIMENTA
+========================================================= */
+--dress-anim-duration: 1.6s;
+--dress-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* =========================================================
+   RETRASOS
+========================================================= */
+/* CÓDIGO DE VESTIMENTA */
+--dress-label-delay: .15s;
+/* PNG */
+--dress-icon-delay: .45s;
+/* FORMAL */
+--dress-title-delay: .80s;
+/* TEXTO */
+--dress-text-delay: 1.15s;
+/* =========================================================
+   POSICIÓN INICIAL DE LA ANIMACIÓN
+========================================================= */
+/* CÓDIGO DE VESTIMENTA */
+--dress-label-from-x: 0px;
+--dress-label-from-y: -30px;
+/* PNG */
+--dress-icon-from-x: 0px;
+--dress-icon-from-y: 45px;
+/* FORMAL */
+--dress-title-from-x: 0px;
+--dress-title-from-y: 40px;
+/* TEXTO */
+--dress-text-from-x: 0px;
+--dress-text-from-y: 35px;
+ 
  
    /* ===== SOBRES ===== */
 /* --- Etiqueta de sección --- */
@@ -3547,6 +3579,130 @@ flex-shrink: 0;
         var(--dress-text-x)
         var(--dress-text-y);
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — VESTIMENTA
+   CÓDIGO + PNG + FORMAL + TEXTO
+========================================================= */
+
+
+/* =========================================================
+   ESTADO INICIAL
+========================================================= */
+
+.dress-section .section-label,
+.dress-section .dress-icon,
+.dress-section h2,
+.dress-section p {
+    opacity: 0;
+
+    transition:
+        opacity var(--dress-anim-duration) var(--dress-anim-ease),
+        transform var(--dress-anim-duration) var(--dress-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES
+========================================================= */
+
+
+/* CÓDIGO DE VESTIMENTA */
+
+.dress-section .section-label {
+    transform:
+        translate(
+            var(--dress-label-from-x),
+            var(--dress-label-from-y)
+        );
+}
+
+
+/* PNG */
+
+.dress-section .dress-icon {
+    transform:
+        translate(
+            var(--dress-icon-from-x),
+            var(--dress-icon-from-y)
+        );
+}
+
+
+/* FORMAL */
+
+.dress-section h2 {
+    transform:
+        translate(
+            var(--dress-title-from-x),
+            var(--dress-title-from-y)
+        );
+}
+
+
+/* TEXTO */
+
+.dress-section p {
+    transform:
+        translate(
+            var(--dress-text-from-x),
+            var(--dress-text-from-y)
+        );
+}
+
+
+/* =========================================================
+   ESTADO FINAL
+========================================================= */
+
+.dress-section.animate-content .section-label,
+.dress-section.animate-content .dress-icon,
+.dress-section.animate-content h2,
+.dress-section.animate-content p {
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+}
+
+
+/* =========================================================
+   RETRASOS INDIVIDUALES
+========================================================= */
+
+
+/* 1 — CÓDIGO DE VESTIMENTA */
+
+.dress-section.animate-content .section-label {
+    transition-delay:
+        var(--dress-label-delay);
+}
+
+
+/* 2 — PNG */
+
+.dress-section.animate-content .dress-icon {
+    transition-delay:
+        var(--dress-icon-delay);
+}
+
+
+/* 3 — FORMAL */
+
+.dress-section.animate-content h2 {
+    transition-delay:
+        var(--dress-title-delay);
+}
+
+
+/* 4 — TEXTO */
+
+.dress-section.animate-content p {
+    transition-delay:
+        var(--dress-text-delay);
+}
+
 /* =========================================================
    SOBRES
 ========================================================= */
