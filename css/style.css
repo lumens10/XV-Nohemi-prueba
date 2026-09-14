@@ -841,7 +841,7 @@
     --pass-name-size: 35px;
     --pass-name-weight: 400;
     --pass-name-color: var(--c-text-dark);
-    --pass-name-font: 'Cormorant Garamond', serif;
+    --pass-name-font: 'Parisienne', cursive;
     --pass-line-width: 70px;
     --pass-line-margin: clamp(20px,7vw,30px) auto;
     --pass-line-color: var(--c-gold);
