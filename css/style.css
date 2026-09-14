@@ -5663,6 +5663,229 @@ cursor: pointer;
     transition-delay:
         var(--count-seconds-delay);
 }
+
+/* =========================================================
+   VISOR DE FOTOGRAFÍAS — GALERÍA
+========================================================= */
+
+.gallery-lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        rgba(0, 0, 0, .92);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+
+/* =========================================================
+   VISOR ABIERTO
+========================================================= */
+
+.gallery-lightbox.is-open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   CONTENEDOR DE LA FOTO
+========================================================= */
+
+.gallery-lightbox-content {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   FOTO COMPLETA
+========================================================= */
+
+.gallery-lightbox-image {
+
+    display: block;
+
+    width: auto;
+
+    height: auto;
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+
+    -webkit-user-select: none;
+
+    -webkit-touch-callout: none;
+
+    opacity: 0;
+
+    transform: scale(.96);
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease;
+}
+
+
+/* =========================================================
+   FOTO VISIBLE
+========================================================= */
+
+.gallery-lightbox.is-open
+.gallery-lightbox-image {
+
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.gallery-lightbox-close {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    z-index: 2;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid
+        rgba(255,255,255,.45);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.35);
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 30px;
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
+}
+
+
+.gallery-lightbox-close:hover {
+
+    background:
+        rgba(255,255,255,.15);
+
+    border-color:
+        rgba(255,255,255,.75);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   BLOQUEAR SCROLL DEL DOCUMENTO
+========================================================= */
+
+body.gallery-lightbox-open {
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .gallery-lightbox {
+
+        padding: 15px;
+
+    }
+
+
+    .gallery-lightbox-close {
+
+        top: 15px;
+
+        right: 15px;
+
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 28px;
+
+    }
+
+}
 /* =========================================================
    FUENTES ESPECIALES DEL CONTADOR EN MÓVILES
 ========================================================= */
