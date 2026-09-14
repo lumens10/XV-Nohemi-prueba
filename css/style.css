@@ -778,6 +778,33 @@
 --timeline-title-margin: 0;
 --timeline-title-x: 0px;
 --timeline-title-y: 0px;
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — TIMELINE / PROGRAMA
+========================================================= */
+--timeline-anim-duration: 1.4s;
+--timeline-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* --- TEXTOS DE LA SECCIÓN --- */
+--timeline-section-label-delay: .15s;
+--timeline-section-title-delay: .40s;
+/* --- EVENTOS --- */
+--timeline-item-1-delay: .70s;
+--timeline-item-2-delay: .95s;
+--timeline-item-3-delay: 1.20s;
+--timeline-item-4-delay: 1.45s;
+--timeline-item-5-delay: 1.70s;
+--timeline-item-6-delay: 1.95s;
+--timeline-item-7-delay: 2.20s;
+--timeline-item-8-delay: 2.45s;
+/* --- MOVIMIENTO INICIAL --- */
+/* Etiqueta */
+--timeline-section-label-from-x: 0px;
+--timeline-section-label-from-y: -30px;
+/* Título */
+--timeline-section-title-from-x: 0px;
+--timeline-section-title-from-y: 35px;
+/* Eventos */
+--timeline-item-from-x: 0px;
+--timeline-item-from-y: 45px;
 
  
     /* ===== PASE ===== */
@@ -4183,6 +4210,142 @@ flex-shrink: 0;
         var(--timeline-title-x)
         var(--timeline-title-y);
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — TIMELINE / PROGRAMA
+   EL GRAN DÍA + PROGRAMA + EVENTOS
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   ESTADO INICIAL
+--------------------------------------------------------- */
+
+.timeline-section > .section-label,
+.timeline-section > h2,
+.timeline-section .timeline-item {
+    opacity: 0;
+
+    transition:
+        opacity var(--timeline-anim-duration) var(--timeline-anim-ease),
+        transform var(--timeline-anim-duration) var(--timeline-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* ---------------------------------------------------------
+   POSICIONES INICIALES
+--------------------------------------------------------- */
+
+/* EL GRAN DÍA */
+.timeline-section > .section-label {
+    transform:
+        translate(
+            var(--timeline-section-label-from-x),
+            var(--timeline-section-label-from-y)
+        );
+}
+
+
+/* PROGRAMA */
+.timeline-section > h2 {
+    transform:
+        translate(
+            var(--timeline-section-title-from-x),
+            var(--timeline-section-title-from-y)
+        );
+}
+
+
+/* EVENTOS */
+.timeline-section .timeline-item {
+    transform:
+        translate(
+            var(--timeline-item-from-x),
+            var(--timeline-item-from-y)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   ESTADO FINAL
+--------------------------------------------------------- */
+
+.timeline-section.animate-content > .section-label,
+.timeline-section.animate-content > h2,
+.timeline-section.animate-content .timeline-item {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* ---------------------------------------------------------
+   RETRASOS — ENCABEZADO
+--------------------------------------------------------- */
+
+.timeline-section.animate-content > .section-label {
+    transition-delay:
+        var(--timeline-section-label-delay);
+}
+
+.timeline-section.animate-content > h2 {
+    transition-delay:
+        var(--timeline-section-title-delay);
+}
+
+
+/* ---------------------------------------------------------
+   RETRASOS — EVENTOS INDIVIDUALES
+--------------------------------------------------------- */
+
+.timeline-section.animate-content
+.timeline-item:nth-child(1) {
+    transition-delay:
+        var(--timeline-item-1-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(2) {
+    transition-delay:
+        var(--timeline-item-2-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(3) {
+    transition-delay:
+        var(--timeline-item-3-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(4) {
+    transition-delay:
+        var(--timeline-item-4-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(5) {
+    transition-delay:
+        var(--timeline-item-5-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(6) {
+    transition-delay:
+        var(--timeline-item-6-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(7) {
+    transition-delay:
+        var(--timeline-item-7-delay);
+}
+
+.timeline-section.animate-content
+.timeline-item:nth-child(8) {
+    transition-delay:
+        var(--timeline-item-8-delay);
+}
+
 /* =========================================================
    PASE
 ========================================================= */
