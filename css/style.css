@@ -308,7 +308,7 @@
 --family-card-y: 0px;
 /* --- Nombres de padres y padrinos --- */
 --family-text-margin: 12px 0;
---family-text-size: 37px;
+--family-text-size: 57px;
 --family-text-weight: 300;
 --family-text-line-height: 1.2;
 --family-text-color: var(--c-cream);
@@ -320,7 +320,7 @@
 --family-name-color: var(--c-gold);
  /* --- Mis padres --- */
 --family-heading-margin: 0 0 25px;
---family-heading-size: 50px;
+--family-heading-size: 30px;
 --family-heading-weight: 300;
 --family-heading-line-height: 1.1;
 --family-heading-letter-spacing: 0px;
@@ -329,7 +329,7 @@
 --family-heading-x: 0px;
 --family-heading-y: 0px;
 /* --- "Mis padrinos" --- */
---family-subheading-size: 50px;
+--family-subheading-size: 30px;
 --family-subheading-weight: 300;
 --family-subheading-color: var(--c-cream);
 --family-subheading-font: 'Parisienne', cursive;
