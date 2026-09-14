@@ -2174,7 +2174,7 @@ flex-shrink: 0;
 
     position: relative;
 
- width: 100%;
+    width: 100%;
 
     min-height: var(--event-min-height);
 
@@ -2203,7 +2203,8 @@ flex-shrink: 0;
     inset: 0;
 
     margin: var(--event-frame-margin);
-border:
+
+    border:
         1px solid
         rgba(
             229,
@@ -2215,6 +2216,10 @@ border:
     pointer-events: none;
 }
 
+
+/* =========================================================
+   FONDO CEREMONIA
+========================================================= */
 
 .ceremony {
 
@@ -2229,6 +2234,10 @@ border:
 }
 
 
+/* =========================================================
+   FONDO RECEPCIÓN
+========================================================= */
+
 .reception {
 
     background:
@@ -2241,6 +2250,10 @@ border:
         cover no-repeat;
 }
 
+
+/* =========================================================
+   CONTENIDO DEL EVENTO
+========================================================= */
 
 .event-content {
 
@@ -2256,7 +2269,32 @@ border:
 }
 
 
+/* =========================================================
+   PNG DEL EVENTO
+========================================================= */
+
+.event-image {
+
+    display: block;
+
+    width: var(--event-image-width);
+
+    max-width: 80%;
+
+    height: auto;
+
+    margin:
+        0 auto
+        var(--event-image-margin-bottom);
+}
+
+
+/* =========================================================
+   TÍTULO DEL EVENTO
+========================================================= */
+
 .event-content h2 {
+
     margin: var(--event-title-margin);
 
     font-family: var(--event-title-font);
@@ -2269,7 +2307,12 @@ border:
 }
 
 
+/* =========================================================
+   HORA DEL EVENTO
+========================================================= */
+
 .event-time {
+
     margin-bottom: var(--event-time-margin-bottom);
 
     font-family: var(--event-time-font);
@@ -2293,15 +2336,18 @@ border:
     justify-content: center;
 
     padding: var(--gold-button-padding);
-border:
-        1px solid var(--gold);
+
+    border:
+        1px solid
+        var(--gold);
 
     font-size: var(--gold-button-size);
 
     font-weight: var(--gold-button-weight);
 
     letter-spacing: var(--gold-button-letter-spacing);
-text-transform: uppercase;
+
+    text-transform: uppercase;
 
     transition:
         background .4s ease,
@@ -2318,7 +2364,6 @@ text-transform: uppercase;
 
     transform: translateY(-2px);
 }
-
 
 /* =========================================================
    GALERÍA
