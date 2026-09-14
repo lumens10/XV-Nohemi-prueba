@@ -905,7 +905,14 @@
 
  
    /* ===== FOOTER ===== */
+ /* FONDO */
+--footer-bg-image: url('../images/fondo foto brazo.jpg');
+--footer-bg-x: 50%;
+--footer-bg-y: 50%;
+--footer-bg-size: cover;
 --footer-padding: 70px 30px;
+ --footer-bg-x: 50%;
+--footer-bg-y: 50%;
 /* PNG */
 --footer-ornament-width: 150px;
 --footer-ornament-position-y: -20px;
@@ -4857,16 +4864,22 @@ cursor: pointer;
 ========================================================= */
 
 .footer {
+    background:
+        linear-gradient(
+            rgba(9, 8, 7, 0),
+            rgba(9, 8, 7, 0)
+        ),
+        var(--footer-bg-image);
 
-    width: 100%;
+    background-position:
+        var(--footer-bg-x)
+        var(--footer-bg-y);
 
-    padding: var(--footer-padding);
+    background-size: var(--footer-bg-size);
+    background-repeat: no-repeat;
+    color: var(--c-cream);
 
-    text-align: center;
-
-    background: #050504;
 }
-
 
 /* =========================
    ORNAMENTO PNG
