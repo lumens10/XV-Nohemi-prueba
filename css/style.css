@@ -327,29 +327,47 @@
 
 
  
-   /* ===== FAMILIA ===== */
-/* --- Sección / fondo --- */
+  /* =========================================================
+   FAMILIA — PANEL DE CONTROL
+========================================================= */
+/* ===== SECCIÓN / FONDO ===== */
 --family-bg-x: 50%;
 --family-bg-y: 50%;
-/* --- Tarjeta de familia --- */
+/* =========================================================
+   TARJETAS DE FAMILIA
+========================================================= */
 --family-card-max-width: 500px;
 --family-card-margin: 40px auto 80px;
 --family-card-padding: 35px 20px;
 --family-card-x: 0px;
 --family-card-y: 0px;
-/* --- Nombres de padres y padrinos --- */
---family-text-margin: 12px 0;
---family-text-size: 77px;
---family-text-weight: 300;
---family-text-line-height: 1.2;
---family-text-color: var(--c-cream);
---family-text-font: 'Cormorant Garamond', serif;
---family-text-letter-spacing: 0px;
---family-text-x: 0px;
---family-text-y: 0px;
-/* --- Color específico de los nombres --- */
---family-name-color: var(--c-gold);
- /* --- Mis padres --- */
+/* =========================================================
+   NOMBRES DE LOS PADRES
+========================================================= */
+--family-parents-margin: 12px 0;
+--family-parents-size: 77px;
+--family-parents-weight: 300;
+--family-parents-line-height: 1.2;
+--family-parents-color: var(--c-gold);
+--family-parents-font: 'Cormorant Garamond', serif;
+--family-parents-letter-spacing: 0px;
+--family-parents-x: 0px;
+--family-parents-y: 0px;
+/* =========================================================
+   NOMBRES DE LOS PADRINOS
+========================================================= */
+--family-godparents-margin: 12px 0;
+--family-godparents-size: 77px;
+--family-godparents-weight: 300;
+--family-godparents-line-height: 1.2;
+--family-godparents-color: var(--c-gold);
+--family-godparents-font: 'Cormorant Garamond', serif;
+--family-godparents-letter-spacing: 0px;
+--family-godparents-x: 0px;
+--family-godparents-y: 0px;
+/* =========================================================
+   TÍTULO — MIS PADRES
+========================================================= */
 --family-heading-margin: 0 0 25px;
 --family-heading-size: 30px;
 --family-heading-weight: 300;
@@ -359,14 +377,16 @@
 --family-heading-font: 'Parisienne', cursive;
 --family-heading-x: 0px;
 --family-heading-y: 0px;
-/* --- "Mis padrinos" --- */
+/* =========================================================
+   SUBTÍTULO — MIS PADRINOS
+========================================================= */
+--family-subheading-margin: 45px 0 25px;
 --family-subheading-size: 30px;
 --family-subheading-weight: 300;
+--family-subheading-line-height: 1.1;
+--family-subheading-letter-spacing: 0px;
 --family-subheading-color: var(--c-cream);
 --family-subheading-font: 'Parisienne', cursive;
---family-subheading-letter-spacing: 0px;
---family-subheading-line-height: 1.1;
---family-subheading-margin: 45px 0 25px;
 --family-subheading-x: 0px;
 --family-subheading-y: 0px;
 /* =========================================================
@@ -384,16 +404,16 @@
 /* CON LA BENDICIÓN DE */
 --family-label-from-x: 0px;
 --family-label-from-y: -30px;
-/* Mis padres */
+/* MIS PADRES */
 --family-heading-from-x: 0px;
 --family-heading-from-y: 35px;
-/* Padres */
+/* NOMBRES DE PADRES */
 --family-parents-from-x: -45px;
 --family-parents-from-y: 0px;
-/* Mis padrinos */
+/* MIS PADRINOS */
 --family-subheading-from-x: 0px;
 --family-subheading-from-y: 35px;
-/* Padrinos */
+/* NOMBRES DE PADRINOS */
 --family-godparents-from-x: 45px;
 --family-godparents-from-y: 0px;
  
@@ -2482,7 +2502,7 @@ flex-shrink: 0;
 
 
 /* =========================================================
-   TARJETA FAMILIA
+   TARJETAS DE FAMILIA
 ========================================================= */
 
 .family-card {
@@ -2519,14 +2539,19 @@ flex-shrink: 0;
             92,
             .4
         );
+
 }
 
 
 /* =========================================================
-   NOMBRES
+   NOMBRES DE PADRES Y PADRINOS
 ========================================================= */
 
 .family-card p {
+
+    display: block;
+
+    width: 100%;
 
     margin:
         var(--family-text-margin);
@@ -2547,7 +2572,9 @@ flex-shrink: 0;
         var(--family-text-letter-spacing);
 
     color:
-        var(--family-text-color);
+        var(--family-name-color);
+
+    text-align: center;
 
     translate:
         var(--family-text-x)
@@ -2555,21 +2582,12 @@ flex-shrink: 0;
 
     overflow-wrap:
         break-word;
+
+    word-break:
+        normal;
+
 }
 
-
-/* =========================================================
-   COLOR DE LOS NOMBRES
-========================================================= */
-
-.family-card p[data-father],
-.family-card p[data-mother],
-.family-card p[data-godfather],
-.family-card p[data-godmother] {
-
-    color:
-        var(--family-name-color);
-}
 
 /* =========================================================
    MIS PADRES
@@ -2601,12 +2619,15 @@ flex-shrink: 0;
     translate:
         var(--family-heading-x)
         var(--family-heading-y);
+
 }
+
+
 /* =========================================================
    MIS PADRINOS
 ========================================================= */
 
-.family-section .sub-heading {
+.family-section > .sub-heading {
 
     margin:
         var(--family-subheading-margin);
@@ -2632,6 +2653,182 @@ flex-shrink: 0;
     translate:
         var(--family-subheading-x)
         var(--family-subheading-y);
+
+}
+
+
+/* =========================================================
+   ANIMACIÓN — FAMILIA
+========================================================= */
+
+
+/* =========================================================
+   ESTADO INICIAL
+========================================================= */
+
+.family-section > .section-label,
+.family-section > h2:not(.sub-heading),
+.family-section > .family-card:nth-of-type(1),
+.family-section > .sub-heading,
+.family-section > .family-card:nth-of-type(2) {
+
+    opacity: 0;
+
+    transition:
+        opacity
+        var(--family-anim-duration)
+        var(--family-anim-ease),
+
+        transform
+        var(--family-anim-duration)
+        var(--family-anim-ease);
+
+    transition-delay:
+        0s;
+
+}
+
+
+/* =========================================================
+   POSICIONES INICIALES — ANIMACIÓN
+========================================================= */
+
+
+/* CON LA BENDICIÓN DE */
+
+.family-section > .section-label {
+
+    transform:
+        translate(
+            var(--family-label-from-x),
+            var(--family-label-from-y)
+        );
+
+}
+
+
+/* MIS PADRES */
+
+.family-section > h2:not(.sub-heading) {
+
+    transform:
+        translate(
+            var(--family-heading-from-x),
+            var(--family-heading-from-y)
+        );
+
+}
+
+
+/* TARJETA DE PADRES */
+
+.family-section > .family-card:nth-of-type(1) {
+
+    transform:
+        translate(
+            var(--family-parents-from-x),
+            var(--family-parents-from-y)
+        );
+
+}
+
+
+/* MIS PADRINOS */
+
+.family-section > .sub-heading {
+
+    transform:
+        translate(
+            var(--family-subheading-from-x),
+            var(--family-subheading-from-y)
+        );
+
+}
+
+
+/* TARJETA DE PADRINOS */
+
+.family-section > .family-card:nth-of-type(2) {
+
+    transform:
+        translate(
+            var(--family-godparents-from-x),
+            var(--family-godparents-from-y)
+        );
+
+}
+
+
+/* =========================================================
+   ESTADO FINAL — ANIMACIÓN
+========================================================= */
+
+.family-section.animate-content > .section-label,
+.family-section.animate-content > h2:not(.sub-heading),
+.family-section.animate-content > .family-card:nth-of-type(1),
+.family-section.animate-content > .sub-heading,
+.family-section.animate-content > .family-card:nth-of-type(2) {
+
+    opacity: 1;
+
+    transform:
+        translate(0, 0);
+
+}
+
+
+/* =========================================================
+   RETRASOS INDIVIDUALES
+========================================================= */
+
+
+/* 1 — CON LA BENDICIÓN DE */
+
+.family-section.animate-content > .section-label {
+
+    transition-delay:
+        var(--family-label-delay);
+
+}
+
+
+/* 2 — MIS PADRES */
+
+.family-section.animate-content > h2:not(.sub-heading) {
+
+    transition-delay:
+        var(--family-heading-delay);
+
+}
+
+
+/* 3 — PADRES */
+
+.family-section.animate-content > .family-card:nth-of-type(1) {
+
+    transition-delay:
+        var(--family-parents-delay);
+
+}
+
+
+/* 4 — MIS PADRINOS */
+
+.family-section.animate-content > .sub-heading {
+
+    transition-delay:
+        var(--family-subheading-delay);
+
+}
+
+
+/* 5 — PADRINOS */
+
+.family-section.animate-content > .family-card:nth-of-type(2) {
+
+    transition-delay:
+        var(--family-godparents-delay);
+
 }
 /* =========================================================
    EVENTOS
@@ -2717,144 +2914,6 @@ flex-shrink: 0;
         cover no-repeat;
 }
 
-/* =========================================================
-   ANIMACIÓN — FAMILIA
-========================================================= */
-
-/* =========================================================
-   ESTADO INICIAL
-========================================================= */
-
-.family-section > .section-label,
-.family-section > h2:not(.sub-heading),
-.family-section > .family-card:nth-of-type(1),
-.family-section > .sub-heading,
-.family-section > .family-card:nth-of-type(2) {
-    opacity: 0;
-
-    transition:
-        opacity var(--family-anim-duration) var(--family-anim-ease),
-        transform var(--family-anim-duration) var(--family-anim-ease);
-
-    transition-delay: 0s;
-}
-
-
-/* =========================================================
-   POSICIONES INICIALES
-========================================================= */
-
-/* CON LA BENDICIÓN DE */
-
-.family-section > .section-label {
-    transform:
-        translate(
-            var(--family-label-from-x),
-            var(--family-label-from-y)
-        );
-}
-
-
-/* MIS PADRES */
-
-.family-section > h2:not(.sub-heading) {
-    transform:
-        translate(
-            var(--family-heading-from-x),
-            var(--family-heading-from-y)
-        );
-}
-
-
-/* TARJETA DE PADRES */
-
-.family-section > .family-card:nth-of-type(1) {
-    transform:
-        translate(
-            var(--family-parents-from-x),
-            var(--family-parents-from-y)
-        );
-}
-
-
-/* MIS PADRINOS */
-
-.family-section > .sub-heading {
-    transform:
-        translate(
-            var(--family-subheading-from-x),
-            var(--family-subheading-from-y)
-        );
-}
-
-
-/* TARJETA DE PADRINOS */
-
-.family-section > .family-card:nth-of-type(2) {
-    transform:
-        translate(
-            var(--family-godparents-from-x),
-            var(--family-godparents-from-y)
-        );
-}
-
-
-/* =========================================================
-   ESTADO FINAL
-========================================================= */
-
-.family-section.animate-content > .section-label,
-.family-section.animate-content > h2:not(.sub-heading),
-.family-section.animate-content > .family-card:nth-of-type(1),
-.family-section.animate-content > .sub-heading,
-.family-section.animate-content > .family-card:nth-of-type(2) {
-    opacity: 1;
-    transform: translate(0, 0);
-}
-
-
-/* =========================================================
-   RETRASOS
-========================================================= */
-
-/* 1 — CON LA BENDICIÓN DE */
-
-.family-section.animate-content > .section-label {
-    transition-delay:
-        var(--family-label-delay);
-}
-
-
-/* 2 — MIS PADRES */
-
-.family-section.animate-content > h2:not(.sub-heading) {
-    transition-delay:
-        var(--family-heading-delay);
-}
-
-
-/* 3 — PADRES */
-
-.family-section.animate-content > .family-card:nth-of-type(1) {
-    transition-delay:
-        var(--family-parents-delay);
-}
-
-
-/* 4 — MIS PADRINOS */
-
-.family-section.animate-content > .sub-heading {
-    transition-delay:
-        var(--family-subheading-delay);
-}
-
-
-/* 5 — PADRINOS */
-
-.family-section.animate-content > .family-card:nth-of-type(2) {
-    transition-delay:
-        var(--family-godparents-delay);
-}
 /* =========================================================
    CONTENIDO DEL EVENTO
 ========================================================= */
