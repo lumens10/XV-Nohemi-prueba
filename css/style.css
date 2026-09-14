@@ -2571,33 +2571,6 @@ flex-shrink: 0;
         var(--family-name-color);
 }
 
-
-/* =========================================================
-   "Y"
-========================================================= */
-
-.family-card span {
-
-    font-family:
-        var(--family-text-font);
-
-    font-size:
-        var(--family-text-size);
-
-    font-weight:
-        var(--family-text-weight);
-
-    line-height:
-        var(--family-text-line-height);
-
-    letter-spacing:
-        var(--family-text-letter-spacing);
-
-    color:
-        var(--family-text-color);
-
-}
-
 /* =========================================================
    MIS PADRES
 ========================================================= */
