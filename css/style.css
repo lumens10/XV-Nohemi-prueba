@@ -327,7 +327,7 @@
 
 
  
-  /* =========================================================
+/* =========================================================
    FAMILIA — PANEL DE CONTROL
 ========================================================= */
 /* ===== SECCIÓN / FONDO ===== */
@@ -345,7 +345,7 @@
    NOMBRES DE LOS PADRES
 ========================================================= */
 --family-parents-margin: 12px 0;
---family-parents-size: 11px;
+--family-parents-size: 77px;
 --family-parents-weight: 300;
 --family-parents-line-height: 1.2;
 --family-parents-color: var(--c-gold);
@@ -355,7 +355,7 @@
 --family-parents-y: 0px;
 /* =========================================================
    NOMBRES DE LOS PADRINOS
-========================================================= */
+======================================================== */
 --family-godparents-margin: 12px 0;
 --family-godparents-size: 77px;
 --family-godparents-weight: 300;
@@ -389,7 +389,7 @@
 --family-subheading-font: 'Parisienne', cursive;
 --family-subheading-x: 0px;
 --family-subheading-y: 0px;
-/* =========================================================
+/* ========================================================
    ANIMACIÓN INDIVIDUAL — FAMILIA
 ========================================================= */
 --family-anim-duration: 1.8s;
@@ -2502,7 +2502,7 @@ flex-shrink: 0;
 
 
 /* =========================================================
-   TARJETAS DE FAMILIA
+   TARJETA FAMILIA
 ========================================================= */
 
 .family-card {
@@ -2539,53 +2539,80 @@ flex-shrink: 0;
             92,
             .4
         );
-
 }
 
 
 /* =========================================================
-   NOMBRES DE PADRES Y PADRINOS
+   NOMBRES DE LOS PADRES
 ========================================================= */
 
-.family-card p {
-
-    display: block;
-
-    width: 100%;
+.family-card p[data-father],
+.family-card p[data-mother] {
 
     margin:
-        var(--family-text-margin);
+        var(--family-parents-margin);
 
     font-family:
-        var(--family-text-font);
+        var(--family-parents-font);
 
     font-size:
-        var(--family-text-size);
+        var(--family-parents-size);
 
     font-weight:
-        var(--family-text-weight);
+        var(--family-parents-weight);
 
     line-height:
-        var(--family-text-line-height);
+        var(--family-parents-line-height);
 
     letter-spacing:
-        var(--family-text-letter-spacing);
+        var(--family-parents-letter-spacing);
 
     color:
-        var(--family-name-color);
-
-    text-align: center;
+        var(--family-parents-color);
 
     translate:
-        var(--family-text-x)
-        var(--family-text-y);
+        var(--family-parents-x)
+        var(--family-parents-y);
 
     overflow-wrap:
         break-word;
+}
 
-    word-break:
-        normal;
 
+/* =========================================================
+   NOMBRES DE LOS PADRINOS
+========================================================= */
+
+.family-card p[data-godfather],
+.family-card p[data-godmother] {
+
+    margin:
+        var(--family-godparents-margin);
+
+    font-family:
+        var(--family-godparents-font);
+
+    font-size:
+        var(--family-godparents-size);
+
+    font-weight:
+        var(--family-godparents-weight);
+
+    line-height:
+        var(--family-godparents-line-height);
+
+    letter-spacing:
+        var(--family-godparents-letter-spacing);
+
+    color:
+        var(--family-godparents-color);
+
+    translate:
+        var(--family-godparents-x)
+        var(--family-godparents-y);
+
+    overflow-wrap:
+        break-word;
 }
 
 
@@ -2619,7 +2646,6 @@ flex-shrink: 0;
     translate:
         var(--family-heading-x)
         var(--family-heading-y);
-
 }
 
 
@@ -2627,7 +2653,7 @@ flex-shrink: 0;
    MIS PADRINOS
 ========================================================= */
 
-.family-section > .sub-heading {
+.family-section .sub-heading {
 
     margin:
         var(--family-subheading-margin);
@@ -2653,9 +2679,7 @@ flex-shrink: 0;
     translate:
         var(--family-subheading-x)
         var(--family-subheading-y);
-
 }
-
 
 /* =========================================================
    ANIMACIÓN — FAMILIA
