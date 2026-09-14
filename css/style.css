@@ -345,7 +345,7 @@
    NOMBRES DE LOS PADRES
 ========================================================= */
 --family-parents-margin: 12px 0;
---family-parents-size: 25px;
+--family-parents-size: 20px;
 --family-parents-weight: 300;
 --family-parents-line-height: 1.2;
 --family-parents-color: var(--c-gold);
@@ -357,7 +357,7 @@
    NOMBRES DE LOS PADRINOS
 ======================================================== */
 --family-godparents-margin: 12px 0;
---family-godparents-size: 25px;
+--family-godparents-size: 20px;
 --family-godparents-weight: 300;
 --family-godparents-line-height: 1.2;
 --family-godparents-color: var(--c-gold);
@@ -1008,7 +1008,7 @@
 /* =========================================================
    FIRMA — CON AMOR
 ========================================================= */
---footer-signature-size: 16px;
+--footer-signature-size: 26px;
 --footer-signature-weight: 400;
 --footer-signature-letter-spacing: 0px;
 --footer-signature-color: rgba(247,242,233,.5);
