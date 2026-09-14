@@ -921,6 +921,21 @@
 --footer-text-letter-spacing: 3px;
 --footer-text-color: var(--c-gold-light);
 --footer-text-font: 'Montserrat', sans-serif;
+/* ===== ANIMACIÓN — FOOTER ===== */
+--footer-anim-duration: 1.6s;
+--footer-anim-ease: cubic-bezier(.16, 1, .3, 1);
+--footer-ornament-delay: .15s;
+--footer-title-delay: .50s;
+--footer-text-delay: .85s;
+--footer-signature-delay: 1.15s;
+--footer-ornament-from-x: 0px;
+--footer-ornament-from-y: 45px;
+--footer-title-from-x: 0px;
+--footer-title-from-y: 40px;
+--footer-text-from-x: 0px;
+--footer-text-from-y: 30px;
+--footer-signature-from-x: 0px;
+--footer-signature-from-y: 25px;
 
  
     /* ===== AJUSTES GENERALES / COMPATIBILIDAD ===== */
@@ -4932,6 +4947,97 @@ cursor: pointer;
 
     font-style: italic;
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — FOOTER
+========================================================= */
+
+.footer .ornament,
+.footer h2,
+.footer p,
+.footer span {
+    opacity: 0;
+
+    transition:
+        opacity var(--footer-anim-duration) var(--footer-anim-ease),
+        transform var(--footer-anim-duration) var(--footer-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* PNG / ORNAMENTO */
+.footer .ornament {
+    transform:
+        translate(
+            var(--footer-ornament-from-x),
+            var(--footer-ornament-from-y)
+        );
+}
+
+
+/* NOHEMI */
+.footer h2 {
+    transform:
+        translate(
+            var(--footer-title-from-x),
+            var(--footer-title-from-y)
+        );
+}
+
+
+/* MIS XV · 2026 */
+.footer p {
+    transform:
+        translate(
+            var(--footer-text-from-x),
+            var(--footer-text-from-y)
+        );
+}
+
+
+/* CON AMOR */
+.footer span {
+    transform:
+        translate(
+            var(--footer-signature-from-x),
+            var(--footer-signature-from-y)
+        );
+}
+
+
+/* =========================================================
+   ESTADO FINAL
+========================================================= */
+
+.footer.animate-content .ornament,
+.footer.animate-content h2,
+.footer.animate-content p,
+.footer.animate-content span {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* =========================================================
+   RETRASOS
+========================================================= */
+
+.footer.animate-content .ornament {
+    transition-delay: var(--footer-ornament-delay);
+}
+
+.footer.animate-content h2 {
+    transition-delay: var(--footer-title-delay);
+}
+
+.footer.animate-content p {
+    transition-delay: var(--footer-text-delay);
+}
+
+.footer.animate-content span {
+    transition-delay: var(--footer-signature-delay);
+}
+
 /* =========================================================
    ANIMACIONES SCROLL
    ---------------------------------------------------------
