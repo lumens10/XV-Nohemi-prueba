@@ -869,27 +869,40 @@
 --pass-number-from-x: 0px;
 --pass-number-from-y: 40px;
  
-    /* ===== RSVP ===== */
-    --rsvp-bottom-padding: 130px;
-    --whatsapp-margin-top: 25px;
-    --whatsapp-padding: 17px 30px;
-    --whatsapp-size: 10px;
-    --whatsapp-weight: 500;
-    --whatsapp-letter-spacing: 2px;
-    --whatsapp-color: #fff;
-    --whatsapp-bg: #25d366;
-    --whatsapp-x: 0px;
-    --whatsapp-y: 0px;
+ /* ===== RSVP ===== */
+--rsvp-bottom-padding: 130px;
+/* BOTÓN WHATSAPP */
+--whatsapp-margin-top: 25px;
+--whatsapp-padding: 17px 30px;
+--whatsapp-size: 10px;
+--whatsapp-weight: 500;
+--whatsapp-letter-spacing: 2px;
+--whatsapp-color: #fff;
+--whatsapp-bg: #25d366;
+--whatsapp-x: 0px;
+--whatsapp-y: 0px;
 /* =========================================================
-   ANIMACIÓN INDIVIDUAL — RSVP / WHATSAPP
+   ANIMACIÓN INDIVIDUAL — RSVP
 ========================================================= */
---whatsapp-anim-duration: 1.5s;
---whatsapp-anim-ease: cubic-bezier(.16, 1, .3, 1);
-/* Retraso */
---whatsapp-anim-delay: .30s;
-/* Movimiento inicial */
---whatsapp-from-x: 0px;
---whatsapp-from-y: 45px;
+--rsvp-anim-duration: 1.5s;
+--rsvp-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* RETRASOS */
+--rsvp-label-delay: .15s;
+--rsvp-title-delay: .45s;
+--rsvp-text-delay: .75s;
+--rsvp-button-delay: 1.10s;
+/* MOVIMIENTO INICIAL — ETIQUETA */
+--rsvp-label-from-x: 0px;
+--rsvp-label-from-y: -30px;
+/* MOVIMIENTO INICIAL — TÍTULO */
+--rsvp-title-from-x: 0px;
+--rsvp-title-from-y: 35px;
+/* MOVIMIENTO INICIAL — TEXTO */
+--rsvp-text-from-x: 0px;
+--rsvp-text-from-y: 30px;
+/* MOVIMIENTO INICIAL — BOTÓN */
+--rsvp-button-from-x: 0px;
+--rsvp-button-from-y: 45px;
 
 
  
@@ -4738,42 +4751,95 @@ text-transform: uppercase;
         );
 }
 /* =========================================================
-   ANIMACIÓN INDIVIDUAL — RSVP / WHATSAPP
+   ANIMACIÓN INDIVIDUAL — RSVP
 ========================================================= */
 
-/* ESTADO INICIAL */
-
+.rsvp-section .section-label,
+.rsvp-section h2,
+.rsvp-section p,
 .rsvp-section .whatsapp-button {
     opacity: 0;
 
     transition:
-        opacity var(--whatsapp-anim-duration)
-            var(--whatsapp-anim-ease),
-        transform var(--whatsapp-anim-duration)
-            var(--whatsapp-anim-ease);
+        opacity var(--rsvp-anim-duration) var(--rsvp-anim-ease),
+        transform var(--rsvp-anim-duration) var(--rsvp-anim-ease);
 
     transition-delay: 0s;
+}
 
+
+/* ETIQUETA */
+.rsvp-section .section-label {
     transform:
         translate(
-            var(--whatsapp-from-x),
-            var(--whatsapp-from-y)
+            var(--rsvp-label-from-x),
+            var(--rsvp-label-from-y)
         );
 }
 
 
-/* ESTADO FINAL */
-
-.rsvp-section.animate-content .whatsapp-button {
-    opacity: 1;
-
+/* TÍTULO */
+.rsvp-section h2 {
     transform:
-        translate(0, 0);
-
-    transition-delay:
-        var(--whatsapp-anim-delay);
+        translate(
+            var(--rsvp-title-from-x),
+            var(--rsvp-title-from-y)
+        );
 }
 
+
+/* TEXTO */
+.rsvp-section p {
+    transform:
+        translate(
+            var(--rsvp-text-from-x),
+            var(--rsvp-text-from-y)
+        );
+}
+
+
+/* BOTÓN */
+.rsvp-section .whatsapp-button {
+    transform:
+        translate(
+            var(--rsvp-button-from-x),
+            var(--rsvp-button-from-y)
+        );
+}
+
+
+/* =========================================================
+   ESTADO FINAL
+========================================================= */
+
+.rsvp-section.animate-content .section-label,
+.rsvp-section.animate-content h2,
+.rsvp-section.animate-content p,
+.rsvp-section.animate-content .whatsapp-button {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* =========================================================
+   RETRASOS
+========================================================= */
+
+.rsvp-section.animate-content .section-label {
+    transition-delay: var(--rsvp-label-delay);
+}
+
+.rsvp-section.animate-content h2 {
+    transition-delay: var(--rsvp-title-delay);
+}
+
+.rsvp-section.animate-content p {
+    transition-delay: var(--rsvp-text-delay);
+}
+
+.rsvp-section.animate-content .whatsapp-button {
+    transition-delay: var(--rsvp-button-delay);
+}
 /* =========================================================
    MÚSICA
 ========================================================= */
