@@ -339,7 +339,7 @@
 --family-card-y: 0px;
 /* --- Nombres de padres y padrinos --- */
 --family-text-margin: 12px 0;
---family-text-size: 57px;
+--family-text-size: 77px;
 --family-text-weight: 300;
 --family-text-line-height: 1.2;
 --family-text-color: var(--c-cream);
@@ -417,7 +417,7 @@
 /* =========================================================
    PNG DEL EVENTO
 ========================================================= */
---event-image-width: 100px;
+--event-image-width: 90px;
 --event-image-margin-bottom: 25px;
 --event-image-x: 0px;
 --event-image-y: 0px;
