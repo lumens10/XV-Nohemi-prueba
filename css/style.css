@@ -696,6 +696,31 @@
 --envelope-text-margin: 20px auto;
 --envelope-text-x: 0px;
 --envelope-text-y: 0px;
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — SOBRES
+========================================================= */
+--envelope-anim-duration: 1.6s;
+--envelope-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* --- RETRASOS --- */
+--envelope-label-delay: .15s;
+--envelope-icon-delay: .45s;
+--envelope-title-delay: .80s;
+--envelope-text-delay: 1.15s;
+/* --- POSICIÓN INICIAL --- */
+/* Etiqueta */
+--envelope-label-from-x: 0px;
+--envelope-label-from-y: -30px;
+/* PNG */
+--envelope-icon-from-x: 0px;
+--envelope-icon-from-y: 45px;
+/* Título */
+--envelope-title-from-x: 0px;
+--envelope-title-from-y: 40px;
+/* Texto */
+--envelope-text-from-x: 0px;
+--envelope-text-from-y: 35px;
+
+
  
    /* ===== TIMELINE / PROGRAMA ===== */
 /* --- Etiqueta de sección: EL GRAN DÍA --- */
@@ -3832,7 +3857,109 @@ flex-shrink: 0;
         var(--envelope-text-x)
         var(--envelope-text-y);
 }
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — SOBRES
+   ETIQUETA + PNG + TÍTULO + TEXTO
+========================================================= */
 
+/* ---------------------------------------------------------
+   ESTADO INICIAL
+--------------------------------------------------------- */
+
+.envelopes-section .section-label,
+.envelopes-section .envelope-icon,
+.envelopes-section h2,
+.envelopes-section p {
+    opacity: 0;
+
+    transition:
+        opacity var(--envelope-anim-duration) var(--envelope-anim-ease),
+        transform var(--envelope-anim-duration) var(--envelope-anim-ease);
+
+    transition-delay: 0s;
+}
+
+
+/* ---------------------------------------------------------
+   POSICIONES INICIALES
+--------------------------------------------------------- */
+
+/* ETIQUETA */
+.envelopes-section .section-label {
+    transform:
+        translate(
+            var(--envelope-label-from-x),
+            var(--envelope-label-from-y)
+        );
+}
+
+
+/* PNG */
+.envelopes-section .envelope-icon {
+    transform:
+        translate(
+            var(--envelope-icon-from-x),
+            var(--envelope-icon-from-y)
+        );
+}
+
+
+/* TÍTULO */
+.envelopes-section h2 {
+    transform:
+        translate(
+            var(--envelope-title-from-x),
+            var(--envelope-title-from-y)
+        );
+}
+
+
+/* TEXTO */
+.envelopes-section p {
+    transform:
+        translate(
+            var(--envelope-text-from-x),
+            var(--envelope-text-from-y)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   ESTADO FINAL
+--------------------------------------------------------- */
+
+.envelopes-section.animate-content .section-label,
+.envelopes-section.animate-content .envelope-icon,
+.envelopes-section.animate-content h2,
+.envelopes-section.animate-content p {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* ---------------------------------------------------------
+   RETRASOS INDIVIDUALES
+--------------------------------------------------------- */
+
+.envelopes-section.animate-content .section-label {
+    transition-delay:
+        var(--envelope-label-delay);
+}
+
+.envelopes-section.animate-content .envelope-icon {
+    transition-delay:
+        var(--envelope-icon-delay);
+}
+
+.envelopes-section.animate-content h2 {
+    transition-delay:
+        var(--envelope-title-delay);
+}
+
+.envelopes-section.animate-content p {
+    transition-delay:
+        var(--envelope-text-delay);
+}
 /* =========================================================
    TIMELINE / PROGRAMA
 ========================================================= */
