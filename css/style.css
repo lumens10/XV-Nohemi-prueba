@@ -456,7 +456,39 @@
 --gold-button-bg: transparent;
 --gold-button-x: 0px;
 --gold-button-y: 0px;
-
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL — EVENTOS
+========================================================= */
+--event-anim-duration: 1.6s;
+--event-anim-ease: cubic-bezier(.16, 1, .3, 1);
+/* --- CEREMONIA --- */
+--ceremony-label-delay: .15s;
+--ceremony-title-delay: .45s;
+--ceremony-time-delay: .80s;
+--ceremony-button-delay: 1.10s;
+/* --- RECEPCIÓN --- */
+--reception-label-delay: .15s;
+--reception-title-delay: .45s;
+--reception-time-delay: .80s;
+--reception-button-delay: 1.10s;
+/* --- Movimiento inicial CEREMONIA --- */
+--ceremony-label-from-x: 0px;
+--ceremony-label-from-y: -30px;
+--ceremony-title-from-x: 0px;
+--ceremony-title-from-y: 45px;
+--ceremony-time-from-x: -35px;
+--ceremony-time-from-y: 0px;
+--ceremony-button-from-x: 0px;
+--ceremony-button-from-y: 35px;
+/* --- Movimiento inicial RECEPCIÓN --- */
+--reception-label-from-x: 0px;
+--reception-label-from-y: -30px;
+--reception-title-from-x: 0px;
+--reception-title-from-y: 45px;
+--reception-time-from-x: 35px;
+--reception-time-from-y: 0px;
+--reception-button-from-x: 0px;
+--reception-button-from-y: 35px;
 
  
     /* ===== GALERÍA ===== */
@@ -2700,7 +2732,160 @@ flex-shrink: 0;
 
     transform: translateY(-2px);
 }
+/* =========================================================
+   ANIMACIÓN — EVENTOS
+========================================================= */
 
+/* ---------------------------------------------------------
+   CEREMONIA
+--------------------------------------------------------- */
+
+.ceremony .section-label,
+.ceremony .event-content h2,
+.ceremony .event-time,
+.ceremony .gold-button {
+    opacity: 0;
+    transition:
+        opacity var(--event-anim-duration) var(--event-anim-ease),
+        transform var(--event-anim-duration) var(--event-anim-ease);
+    transition-delay: 0s;
+}
+
+.ceremony .section-label {
+    transform:
+        translate(
+            var(--ceremony-label-from-x),
+            var(--ceremony-label-from-y)
+        );
+}
+
+.ceremony .event-content h2 {
+    transform:
+        translate(
+            var(--ceremony-title-from-x),
+            var(--ceremony-title-from-y)
+        );
+}
+
+.ceremony .event-time {
+    transform:
+        translate(
+            var(--ceremony-time-from-x),
+            var(--ceremony-time-from-y)
+        );
+}
+
+.ceremony .gold-button {
+    transform:
+        translate(
+            var(--ceremony-button-from-x),
+            var(--ceremony-button-from-y)
+        );
+}
+
+/* Estado final */
+
+.ceremony.animate-content .section-label,
+.ceremony.animate-content .event-content h2,
+.ceremony.animate-content .event-time,
+.ceremony.animate-content .gold-button {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Retrasos */
+
+.ceremony.animate-content .section-label {
+    transition-delay: var(--ceremony-label-delay);
+}
+
+.ceremony.animate-content .event-content h2 {
+    transition-delay: var(--ceremony-title-delay);
+}
+
+.ceremony.animate-content .event-time {
+    transition-delay: var(--ceremony-time-delay);
+}
+
+.ceremony.animate-content .gold-button {
+    transition-delay: var(--ceremony-button-delay);
+}
+
+
+/* ---------------------------------------------------------
+   RECEPCIÓN
+--------------------------------------------------------- */
+
+.reception .section-label,
+.reception .event-content h2,
+.reception .event-time,
+.reception .gold-button {
+    opacity: 0;
+    transition:
+        opacity var(--event-anim-duration) var(--event-anim-ease),
+        transform var(--event-anim-duration) var(--event-anim-ease);
+    transition-delay: 0s;
+}
+
+.reception .section-label {
+    transform:
+        translate(
+            var(--reception-label-from-x),
+            var(--reception-label-from-y)
+        );
+}
+
+.reception .event-content h2 {
+    transform:
+        translate(
+            var(--reception-title-from-x),
+            var(--reception-title-from-y)
+        );
+}
+
+.reception .event-time {
+    transform:
+        translate(
+            var(--reception-time-from-x),
+            var(--reception-time-from-y)
+        );
+}
+
+.reception .gold-button {
+    transform:
+        translate(
+            var(--reception-button-from-x),
+            var(--reception-button-from-y)
+        );
+}
+
+/* Estado final */
+
+.reception.animate-content .section-label,
+.reception.animate-content .event-content h2,
+.reception.animate-content .event-time,
+.reception.animate-content .gold-button {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Retrasos */
+
+.reception.animate-content .section-label {
+    transition-delay: var(--reception-label-delay);
+}
+
+.reception.animate-content .event-content h2 {
+    transition-delay: var(--reception-title-delay);
+}
+
+.reception.animate-content .event-time {
+    transition-delay: var(--reception-time-delay);
+}
+
+.reception.animate-content .gold-button {
+    transition-delay: var(--reception-button-delay);
+}
 /* =========================================================
    GALERÍA
 ========================================================= */
