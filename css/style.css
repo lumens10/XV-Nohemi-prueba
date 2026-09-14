@@ -345,7 +345,7 @@
    NOMBRES DE LOS PADRES
 ========================================================= */
 --family-parents-margin: 12px 0;
---family-parents-size: 77px;
+--family-parents-size: 35px;
 --family-parents-weight: 300;
 --family-parents-line-height: 1.2;
 --family-parents-color: var(--c-gold);
@@ -357,7 +357,7 @@
    NOMBRES DE LOS PADRINOS
 ======================================================== */
 --family-godparents-margin: 12px 0;
---family-godparents-size: 77px;
+--family-godparents-size: 35px;
 --family-godparents-weight: 300;
 --family-godparents-line-height: 1.2;
 --family-godparents-color: var(--c-gold);
@@ -966,7 +966,7 @@
 --footer-ornament-width: 150px;
 /* Posición */
 --footer-ornament-x: 0px;
---footer-ornament-y: 270px;
+--footer-ornament-y: 300px;
 /* Espacio inferior */
 --footer-ornament-margin-bottom: 0px;
 /* =========================================================
@@ -982,7 +982,7 @@
 --footer-title-font: 'Parisienne', cursive;
 /* Posición */
 --footer-title-x: 0px;
---footer-title-y: 270px;
+--footer-title-y: 300px;
 /* Espaciado */
 --footer-title-margin-top: 0px;
 --footer-title-margin-bottom: 0px;
@@ -1004,7 +1004,7 @@
 --footer-text-margin-bottom: 15px;
 /* Posición */
 --footer-text-x: 0px;
---footer-text-y: 270px;
+--footer-text-y: 300px;
 /* =========================================================
    FIRMA — CON AMOR
 ========================================================= */
@@ -1015,7 +1015,7 @@
 --footer-signature-font: 'Cormorant Garamond', serif;
 /* Posición */
 --footer-signature-x: 0px;
---footer-signature-y: 270px;
+--footer-signature-y: 300px;
 /* Espacio superior */
 --footer-signature-margin-top: 0px;
 /* =========================================================
