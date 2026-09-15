@@ -62,9 +62,14 @@ const receptionTime = invitation.event.receptionTime;
 
 const dressCode = invitation.dressCode;
 
-const whatsappPhone = invitation.rsvp.phone;
-const whatsappMessage = invitation.rsvp.message;
+const whatsappOption1 =
+    invitation.rsvp.option1.phone;
 
+const whatsappOption2 =
+    invitation.rsvp.option2.phone;
+
+const whatsappMessage =
+    invitation.rsvp.message;
 
 /* =====================================================
    INSERTAR DATOS EN EL HTML
@@ -520,16 +525,68 @@ if (passNumber) {
 }
 
 /* =====================================================
-   WHATSAPP
+   WHATSAPP — CONFIRMACIÓN SEGÚN OPCIÓN
 ===================================================== */
 
 if (whatsappButton) {
+
+    /*
+       Leer la opción desde el enlace.
+
+       Ejemplos:
+
+       ?pase=2&opcion=1
+       ?pase=3&opcion=1
+
+       ?pase=2&opcion=2
+       ?pase=4&opcion=2
+    */
+
+    const opcionParam =
+        urlParams.get("opcion");
+
+
+    /*
+       Seleccionar automáticamente
+       el número correspondiente.
+    */
+
+    let whatsappPhone;
+
+
+    if (
+        opcionParam === "2"
+    ) {
+
+        whatsappPhone =
+            whatsappOption2;
+
+    } else {
+
+        /*
+           Opción 1 también funciona
+           como opción predeterminada.
+        */
+
+        whatsappPhone =
+            whatsappOption1;
+
+    }
+
+
+    /*
+       Preparar mensaje.
+    */
 
     const encodedMessage =
         encodeURIComponent(
             whatsappMessage
         );
 
+
+    /*
+       Crear enlace de WhatsApp.
+    */
 
     whatsappButton.href =
         `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
@@ -543,7 +600,6 @@ if (whatsappButton) {
         "noopener noreferrer";
 
 }
-
 
 /* =====================================================
    ANIMACIONES AL HACER SCROLL
