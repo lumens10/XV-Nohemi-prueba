@@ -25,7 +25,7 @@ const invitation = {
 
     reception: {
         name: "Salón Casa Nava",
-        maps: "https://goo.gl/maps/gExMYD2RzL6nHcvw8?coh=178571&entry=tt"
+        maps: "https://maps.app.goo.gl/1sqdkLtduQHUvZk4A"
     },
 
     dressCode: "Formal",
