@@ -14,8 +14,8 @@ const invitation = {
     family: {
         father: "Luis Angel Rangel Rincon",
         mother: "Gladiola Flores Antonio",
-        godfather: "Mauricio Ramírez",
-        godmother: "Cohinda Rodríguez"
+        godfather: "Mauricio Aldair Ramírez Luis",
+        godmother: "Cohinda Rodríguez Rojas"
     },
 
     ceremony: {
