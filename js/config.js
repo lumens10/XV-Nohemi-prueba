@@ -37,7 +37,7 @@ const invitation = {
     },
 
     rsvp: {
-        phone: "5620701794",
+        phone: "5579220405",
         message:
             "Hola, quiero confirmar mi asistencia a los XV años de Nohemi."
     },
