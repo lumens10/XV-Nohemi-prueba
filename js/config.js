@@ -37,10 +37,28 @@ const invitation = {
     },
 
     rsvp: {
-        phone: "5579220405",
-        message:
-            "Hola, quiero confirmar mi asistencia a los XV años de Nohemi."
+
+    /* =====================================================
+       NÚMEROS DE WHATSAPP PARA CONFIRMACIÓN
+    ===================================================== */
+
+    option1: {
+        phone: "5579220405"
     },
+
+    option2: {
+        phone: "5620701794"
+    },
+
+
+    /* =====================================================
+       MENSAJE DE CONFIRMACIÓN
+    ===================================================== */
+
+    message:
+        "Hola, quiero confirmar mi asistencia a los XV años de Nohemi."
+
+},
 
     pass: {
         guests: 2
