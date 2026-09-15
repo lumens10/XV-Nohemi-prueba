@@ -28,7 +28,7 @@ const invitation = {
         maps: "https://maps.app.goo.gl/1sqdkLtduQHUvZk4A"
     },
 
-    dressCode: "Formal",
+    dressCode: "Formal De Noche",
 
     music: {
         title: "Love Story",
